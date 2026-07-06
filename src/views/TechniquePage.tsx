@@ -4,7 +4,7 @@ import { useUser, useClerk } from '@clerk/nextjs';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useClientSearchParams } from '@/hooks/useClientSearchParams';
-import { ArrowRight, ChevronRight, Target, AlertTriangle, Lightbulb, Dumbbell, Play, Maximize2, Heart, MessageCircle, Crosshair, Users, Clock, BookOpen, Tag, Camera, MessageSquare } from 'lucide-react';
+import { ArrowRight, ChevronRight, Target, AlertTriangle, Lightbulb, Dumbbell, Maximize2, Heart, MessageCircle, Crosshair, Users, Clock, BookOpen, Tag, Camera, MessageSquare } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
 import ShareButton from '../components/ShareButton';
 import FlashcardCarousel from '../components/FlashcardCarousel';
@@ -162,27 +162,7 @@ const TechniquePage = ({ routeId }: { routeId?: string }) => {
 
       <div className="tech-content-layout">
         <div className="tech-main-column">
-          {/* Video player or placeholder */}
-          {technique.video ? (
-            <div className="video-container glass-panel">
-              <video
-                src={technique.video}
-                autoPlay
-                loop
-                muted
-                playsInline
-                controls
-                className="technique-video"
-              />
-            </div>
-          ) : (
-            <div className="video-placeholder glass-panel">
-              <div className="video-overlay">
-                <Play size={40} className="play-icon" />
-                <span className="video-label">Video Demo Coming Soon</span>
-              </div>
-            </div>
-          )}
+
 
           {/* When to Use */}
           {technique.whenToUse && (

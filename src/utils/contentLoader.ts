@@ -82,7 +82,7 @@ async function fetchRemoteFile(filename: string): Promise<string> {
 export async function getRemoteManifest(): Promise<Article[]> {
   try {
     let content: string;
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === 'development' || !process.env.GITHUB_TOKEN) {
       content = readLocalFile('content/articles/manifest.json');
     } else {
       try {
@@ -162,7 +162,7 @@ export async function getArticle(id: string): Promise<Article | null> {
   // 2. Fetch remote article markdown
   try {
     let rawMarkdown: string;
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === 'development' || !process.env.GITHUB_TOKEN) {
       rawMarkdown = readLocalFile(`content/articles/${id}.md`);
     } else {
       try {

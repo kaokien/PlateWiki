@@ -19,8 +19,8 @@ describe('Article Release Scheduler (Option A) Verification', () => {
   });
 
   it('should successfully load a past-dated article directly', async () => {
-    const article = await getArticle('5-beginner-boxing-combinations');
+    const article = await getArticle('nutrition-for-boxing-sparring');
     expect(article).not.toBeNull();
-    expect(article?.id).toBe('5-beginner-boxing-combinations');
+    expect(article?.id).toBe('nutrition-for-boxing-sparring');
   });
 });

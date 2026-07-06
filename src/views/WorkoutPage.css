@@ -1,0 +1,321 @@
+.workout-page {
+  padding: 4rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  min-height: calc(100dvh - var(--header-height) - var(--footer-height));
+  display: flex;
+  flex-direction: column;
+}
+
+.workout-setup {
+  text-align: center;
+}
+
+.workout-setup p {
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+}
+
+.setup-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.setup-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.setup-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.preset-description {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  margin-top: 0.25rem;
+  border-left: 2px solid var(--color-primary);
+  padding-left: 0.75rem;
+}
+
+.setup-group label {
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  /* text-transform removed */
+  letter-spacing: 0.05em;
+}
+
+.setup-group select {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.setup-group select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.start-workout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 1.25rem 3rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  width: 100%;
+  max-width: 400px;
+}
+
+.start-workout-btn:hover {
+  transform: translateY(-2px);
+  background-color: #ff3333;
+}
+
+.workout-disclaimer-notice {
+  margin: var(--space-4) auto 0;
+  max-width: 450px;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  opacity: 0.8;
+  border-top: 1px dashed var(--color-border);
+  padding-top: var(--space-3);
+}
+
+/* Active Workout Screen */
+.workout-active {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border-radius: 1rem;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.workout-active.clickable-screen {
+  cursor: pointer;
+}
+
+.workout-active.work {
+  background-color: rgba(220, 38, 38, 0.05);
+  border-color: rgba(220, 38, 38, 0.2);
+}
+
+.workout-active.rest {
+  background-color: rgba(37, 99, 235, 0.05);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.workout-active.paused {
+  background-color: var(--subtle-hover);
+  opacity: 0.7;
+}
+
+.workout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.round-badge {
+  background-color: var(--color-bg);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+  border: 1px solid var(--color-border);
+}
+
+.timer-display {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.timer-phase {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+  color: var(--color-text-muted);
+}
+
+.workout-active.work .timer-phase { color: var(--color-primary); }
+.workout-active.rest .timer-phase { color: #3b82f6; } /* Blue for rest */
+
+.timer-time {
+  font-size: 6rem;
+  font-weight: 900;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text);
+}
+
+.timer-tap-hint {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  opacity: 0.45;
+  margin-top: 0.5rem;
+  /* text-transform removed */
+}
+
+.combo-display {
+  flex: 1;
+  padding: 0 2rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.combo-display h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.combo-display p {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+.combo-steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.combo-step-pill {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.workout-controls {
+  display: flex;
+  padding: 1.5rem;
+  gap: 1rem;
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+}
+
+.control-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-weight: 700;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.control-btn:hover {
+  background-color: var(--color-border);
+}
+
+.end-btn {
+  background-color: rgba(220, 38, 38, 0.1);
+  color: var(--color-primary);
+  border-color: rgba(220, 38, 38, 0.2);
+}
+
+.end-btn:hover {
+  background-color: rgba(220, 38, 38, 0.2);
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.icon-btn:hover {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+.workout-header-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Utilities */
+.mt-4 { margin-top: 1rem; }
+.mt-8 { margin-top: 2rem; }
+
+@media (max-width: 640px) {
+  .timer-time {
+    font-size: 3.5rem;
+  }
+  .combo-display h2 {
+    font-size: 1.5rem;
+  }
+  .workout-controls {
+    flex-direction: column;
+  }
+  .workout-setup {
+    padding: var(--space-3);
+  }
+  .setup-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2);
+  }
+  .workout-page h1 {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+  }
+}
+
+@media (max-width: 420px) {
+  .setup-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+}

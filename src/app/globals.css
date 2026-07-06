@@ -1,0 +1,641 @@
+/* FoodWiki — Warm Kitchen Light-First Design System */
+/* Fonts loaded via next/font in layout.tsx — no render-blocking @import */
+
+:root {
+  /* Warm Kitchen Color Palette — Light Default */
+  --color-bg: #faf8f4;           /* Warm Cream */
+  --color-background: #faf8f4;
+  --color-surface: #ffffff;      /* Clean White cards */
+  --color-surface-hover: #f5f3ee;
+  --color-border: #e8e4dd;       /* Light Sand */
+  
+  --color-primary: #2d8a4e;      /* Fresh Herb Green */
+  --color-primary-btn: #2d8a4e;
+  --color-primary-hover: #34a85a;
+  --color-secondary: #e87b35;    /* Carrot Orange */
+  
+  --color-text: #2c2c2c;         /* Warm Charcoal */
+  --color-text-muted: #6b7280;   /* Neutral Gray */
+
+  --color-success: #16a34a;      /* Vibrant Green */
+  --color-warning: #d97706;      /* Amber */
+  --color-danger: #dc2626;       /* Alert Red */
+
+  /* Surface / Glass — semantic tokens */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: var(--color-border);
+  --glass-specular: rgba(255, 255, 255, 0.5);
+  --header-bg: rgba(250, 248, 244, 0.8);
+  --dropdown-bg: rgba(255, 255, 255, 0.92);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.06);
+  --overlay-bg: #faf8f4;
+  --mobile-separator: rgba(0, 0, 0, 0.06);
+  --mobile-separator-strong: rgba(0, 0, 0, 0.1);
+  --subtle-hover: rgba(0, 0, 0, 0.04);
+  --tint-primary: rgba(45, 138, 78, 0.06);
+  
+  /* Typography — next/font injects --font-sans and --font-display on <html> */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Lora', 'Georgia', serif;
+  --font-size-hero: clamp(2rem, 5vw, 3.5rem);
+  --font-size-title: clamp(1.5rem, 4vw, 2.5rem);
+  --font-size-subtitle: clamp(1rem, 2.5vw, 1.5rem);
+  
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+
+  /* Desktop containers */
+  --container-hero: 1440px;
+  --container-content: 1320px;
+  --container-text: 1080px;
+  --container-narrow: 780px;
+
+  /* Extended spacing (8px base) */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 80px;
+  --space-5xl: 96px;
+
+  /* Typography scale */
+  --type-hero: clamp(2.5rem, 4vw, 4rem);
+  --type-h2: clamp(1.3rem, 2vw, 2rem);
+  --type-h3: 1.1rem;
+  --type-body: 1rem;
+  --type-small: 0.875rem;
+  --type-micro: 0.75rem;
+
+  /* Desktop component tokens */
+  --section-padding-y: clamp(48px, 6vw, 80px);
+  --hero-padding-y: clamp(64px, 8vw, 96px);
+  --card-padding: clamp(16px, 2vw, 24px);
+  --card-hover-lift: -4px;
+  --card-hover-shadow: 0 8px 24px rgba(45, 138, 78, 0.1);
+  --ad-slot-margin-y: 32px;
+
+  
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+}
+
+/* Desktop container utilities */
+.container-hero    { max-width: var(--container-hero); margin: 0 auto; padding: 0 clamp(24px, 3vw, 64px); }
+.container-content { max-width: var(--container-content); margin: 0 auto; padding: 0 clamp(24px, 3vw, 48px); }
+.container-text    { max-width: var(--container-text); margin: 0 auto; padding: 0 clamp(24px, 3vw, 48px); }
+
+/* ── Dark Mode ──────────────────────────────────────────────────── */
+/* Opt-in dark theme preserving the original earth-crunch palette.  */
+[data-theme="dark"] {
+  --color-bg: #141a16;
+  --color-background: #141a16;
+  --color-surface: #1e2621;
+  --color-surface-hover: #29342d;
+  --color-border: #2e3b33;
+
+  --color-primary: #4ade80;
+  --color-primary-btn: #2d8a4e;
+  --color-primary-hover: #5eea94;
+  --color-secondary: #f59e0b;
+
+  --color-text: #eae6df;
+  --color-text-muted: #a3b2a8;
+
+  --color-success: #85ba99;
+  --color-warning: #e2a740;
+  --color-danger: #d96666;
+
+  --glass-bg: rgba(30, 38, 33, 0.6);
+  --glass-border: var(--color-border);
+  --glass-specular: rgba(234, 230, 223, 0.05);
+  --header-bg: rgba(20, 26, 22, 0.75);
+  --dropdown-bg: rgba(30, 38, 33, 0.85);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --overlay-bg: #141a16;
+  --mobile-separator: rgba(234, 230, 223, 0.06);
+  --mobile-separator-strong: rgba(234, 230, 223, 0.1);
+  --subtle-hover: rgba(234, 230, 223, 0.05);
+  --tint-primary: rgba(74, 222, 128, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Display font for all headings */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+/* Styled selects — dark theme native override */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23999' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 12px;
+  width: 100%;
+}
+
+select:hover { border-color: var(--color-text-muted); }
+select:focus { border-color: var(--color-primary); outline: none; }
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Card utility — clean surfaces in light mode, glass in dark */
+.glass-panel {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+@media (min-width: 769px) {
+  .glass-panel {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+/* ── Shared Card Component Styles ──────────────────────────────── */
+/* Used across FavoritesPage, TechniquesPage, AnatomyPage, etc.    */
+
+.card-top-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: var(--space-2);
+}
+
+.browse-category {
+  font-size: 0.7rem;
+  font-weight: 700;
+  /* text-transform removed */
+  letter-spacing: 1px;
+  color: var(--color-primary);
+}
+
+.difficulty-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  /* text-transform removed */
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.5px;
+}
+
+.difficulty-badge.beginner {
+  background: rgba(34, 197, 94, 0.12);
+  color: var(--color-success);
+}
+
+.difficulty-badge.intermediate {
+  background: rgba(255, 215, 0, 0.12);
+  color: var(--color-warning);
+}
+
+.difficulty-badge.advanced {
+  background: rgba(45, 138, 78, 0.12);
+  color: var(--color-primary);
+}
+
+.read-more {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll reveal */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*
+ * iOS Safari swipe-back fix:
+ * When navigating back (bfcache restore or back_forward), iOS shows a cached
+ * screenshot during the swipe gesture, then the real page renders underneath.
+ * Without this, elements re-animate from opacity:0, causing a flash.
+ *
+ * The .back-nav class is set by an inline <head> script BEFORE first paint.
+ * These overrides disable ALL entrance animations globally when active.
+ */
+html.back-nav .scroll-reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+html.back-nav .hero-entrance {
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+/* Catch ALL page containers that use fadeIn/fadeInUp animations */
+html.back-nav [class*="-page"],
+html.back-nav [class*="-browse"],
+html.back-nav .page-skeleton,
+html.back-nav .advanced-filters {
+  animation: none !important;
+}
+
+/* Nuclear option: disable fadeIn keyframes entirely during back-nav */
+html.back-nav * {
+  animation-name: none !important;
+}
+
+
+/* Stagger delays */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+
+/* Skip-to-content link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: var(--space-2) var(--space-3);
+  z-index: 1000;
+  font-weight: 700;
+}
+
+.skip-link:focus { top: 0; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-muted); }
+
+/* Design Spells — micro-animations */
+@keyframes wobble {
+  0%, 100% { transform: rotate(0deg); }
+  15% { transform: rotate(6deg); }
+  30% { transform: rotate(-5deg); }
+  45% { transform: rotate(4deg); }
+  60% { transform: rotate(-3deg); }
+  75% { transform: rotate(2deg); }
+}
+
+.wobble-anim {
+  display: inline-block;
+  animation: wobble 2.5s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+@keyframes iconPop {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.success-icon-pop {
+  animation: iconPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.course-final-cta {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Page skeleton loading (from App.css) */
+.page-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5) 0;
+  animation: fadeIn var(--transition-normal);
+}
+
+.skeleton-bar {
+  height: 16px;
+  background: linear-gradient(90deg, var(--color-surface) 25%, var(--color-surface-hover) 50%, var(--color-surface) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+  width: 100%;
+}
+
+.skeleton-title { height: 40px; width: 50%; margin: 0 auto; }
+.skeleton-subtitle { height: 18px; width: 30%; margin: 0 auto; }
+
+.skeleton-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.skeleton-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+
+.skeleton-card {
+  height: 180px;
+  background: linear-gradient(90deg, var(--color-surface) 25%, var(--color-surface-hover) 50%, var(--color-surface) 75%);
+  background-size: 200% 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (max-width: 600px) {
+  .skeleton-grid { grid-template-columns: 1fr; }
+}
+
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Premium Safety and Disclaimer Warning Card */
+.workout-safety-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  margin: 1.5rem auto 0;
+  max-width: 600px;
+  text-align: left;
+  border-radius: 0.75rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  align-items: flex-start;
+}
+
+.workout-safety-card strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--color-text);
+}
+
+.workout-safety-card p {
+  margin: 0 !important;
+  color: var(--color-text-muted) !important;
+}
+
+.warning-theme {
+  border: 1px solid rgba(217, 119, 6, 0.3) !important;
+  background: rgba(217, 119, 6, 0.03) !important;
+  backdrop-filter: blur(10px);
+}
+
+.warning-text-color {
+  color: #d97706 !important; /* Amber color for warnings */
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.tw-safety-margin {
+  margin: 1.5rem 0;
+  max-width: 100%;
+}
+
+/* Reduced Motion: disable all global animations for accessibility (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .wobble-anim {
+    animation: none !important;
+  }
+
+  .skeleton-bar,
+  .skeleton-card {
+    animation: none !important;
+  }
+}
+
+/* ── Clerk UI — dark mode: force white text on dark backgrounds ── */
+[data-theme="dark"] .cl-rootBox,
+[data-theme="dark"] .cl-card,
+[data-theme="dark"] .cl-modalContent,
+[data-theme="dark"] .cl-userProfile-root,
+[data-theme="dark"] .cl-profilePage,
+[data-theme="dark"] .cl-profileSection,
+[data-theme="dark"] .cl-profileSectionContent,
+[data-theme="dark"] .cl-profileSectionTitle,
+[data-theme="dark"] .cl-formFieldLabel,
+[data-theme="dark"] .cl-breadcrumbs,
+[data-theme="dark"] .cl-breadcrumbsItem,
+[data-theme="dark"] .cl-navbar,
+[data-theme="dark"] .cl-navbarButton,
+[data-theme="dark"] .cl-headerTitle,
+[data-theme="dark"] .cl-headerSubtitle,
+[data-theme="dark"] .cl-badge,
+[data-theme="dark"] .cl-userPreview,
+[data-theme="dark"] .cl-identityPreview,
+[data-theme="dark"] .cl-activeDevice,
+[data-theme="dark"] .cl-accordionTriggerButton,
+[data-theme="dark"] .cl-tableHead {
+  color: #ffffff !important;
+}
+
+/* Section labels and descriptions */
+[data-theme="dark"] .cl-profileSectionTitleText,
+[data-theme="dark"] .cl-profileSectionSubtitleText,
+[data-theme="dark"] .cl-formFieldHintText,
+[data-theme="dark"] .cl-tagInputContainer,
+[data-theme="dark"] .cl-formFieldLabelRow__emailAddress,
+[data-theme="dark"] .cl-formFieldLabelRow__connectedAccount {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* All paragraph and span elements inside Clerk modals */
+[data-theme="dark"] .cl-modalContent p,
+[data-theme="dark"] .cl-modalContent span,
+[data-theme="dark"] .cl-modalContent label,
+[data-theme="dark"] .cl-modalContent h1,
+[data-theme="dark"] .cl-modalContent h2,
+[data-theme="dark"] .cl-modalContent h3,
+[data-theme="dark"] .cl-userProfile-root p,
+[data-theme="dark"] .cl-userProfile-root span,
+[data-theme="dark"] .cl-userProfile-root label,
+[data-theme="dark"] .cl-userProfile-root h1,
+[data-theme="dark"] .cl-userProfile-root h2,
+[data-theme="dark"] .cl-userProfile-root h3 {
+  color: #ffffff !important;
+}
+
+/* Muted secondary text */
+[data-theme="dark"] .cl-userProfile-root .cl-internal-muted,
+[data-theme="dark"] .cl-modalContent .cl-internal-muted {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Primary badge */
+[data-theme="dark"] .cl-badge {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Connected account descriptions */
+[data-theme="dark"] .cl-profileSection__connectedAccounts p,
+[data-theme="dark"] .cl-profileSection__connectedAccounts span {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* ── Mobile Performance Overrides ─────────────────────────────────── */
+/* content-visibility: auto lets the browser skip rendering offscreen  */
+/* sections entirely. This is the single biggest win for mobile FCP/SI */
+
+@media (max-width: 768px) {
+  /* Skip rendering below-fold sections until scrolled into view */
+  .home-section,
+  .interactive-section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 400px;
+  }
+
+  /* Kill backdrop-filter everywhere on mobile — GPU paint killer */
+  .glass-panel,
+  .warning-theme {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+/* ── Touch Device Fix: Eliminate double-tap-to-click ──────────── */
+/* On iOS Safari, elements with :hover styles that change visual    */
+/* appearance require TWO taps (1st = apply hover, 2nd = click).   */
+/* Fix: disable hover transforms/shadows on touch-only devices.     */
+
+@media (hover: none) {
+  a, button, [role="button"], input, select, textarea, summary,
+  .hero-cta-primary, .hero-cta-secondary,
+  .card, .technique-card, .exercise-card, .glass-panel,
+  .nav-link, .nav-dropdown__trigger,
+  .cookie-btn, .nav-signin-btn, .mobile-signin-btn {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Kill all hover transforms — these cause the two-tap behavior */
+  *:hover {
+    transform: none !important;
+    box-shadow: unset !important;
+  }
+}
+
+/* Eliminate 300ms tap delay on all interactive elements */
+a, button, [role="button"], input, select, textarea, summary {
+  touch-action: manipulation;
+}
+

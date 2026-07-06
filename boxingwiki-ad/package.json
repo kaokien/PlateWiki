@@ -1,0 +1,31 @@
+{
+  "name": "boxingwiki-ad",
+  "version": "1.0.0",
+  "description": "BoxingWiki product demo video",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx remotion studio src/Root.tsx",
+    "render": "npx remotion render BoxingWikiAd out/ad-landscape.mp4 --codec h264",
+    "render:vertical": "npx remotion render BoxingWikiAdVertical out/ad-vertical.mp4 --codec h264",
+    "render:all": "npm run render && npm run render:vertical"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@remotion/cli": "^4.0.458",
+    "@remotion/media": "^4.0.458",
+    "@remotion/three": "^4.0.458",
+    "@remotion/transitions": "^4.0.458",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "remotion": "^4.0.458",
+    "three": "^0.184.0",
+    "typescript": "^6.0.3"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "boxingwiki",
+  "private": true,
+  "type": "module",
+  "version": "0.9.1",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "validate-content": "node scripts/validate-content.mjs"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^7.4.2",
+    "@clerk/themes": "^2.4.57",
+    "@supabase/supabase-js": "^2.106.2",
+    "gray-matter": "^4.0.3",
+    "isomorphic-dompurify": "^3.14.0",
+    "lucide-react": "^1.14.0",
+    "marked": "^18.0.4",
+    "next": "16.2.6",
+    "react": "^19.2.5",
+    "react-body-highlighter": "^2.0.5",
+    "react-dom": "^19.2.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitest/coverage-v8": "^4.1.6",
+    "jimp": "^1.6.1",
+    "jsdom": "^29.1.1",
+    "typescript": "^5.8.0",
+    "vitest": "^4.1.5"
+  }
+}

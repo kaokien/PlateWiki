@@ -1,0 +1,50 @@
+.pixel-fighter-canvas {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.pixel-fighter-canvas__img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+/* Float / bobbing micro-animations */
+.pixel-fighter-canvas--idle .pixel-fighter-canvas__img {
+  animation: fighterIdleBob 1.6s infinite ease-in-out;
+}
+
+.pixel-fighter-canvas--training .pixel-fighter-canvas__img {
+  animation: fighterTrainingBob 0.8s infinite ease-in-out;
+}
+
+.pixel-fighter-canvas--evolving .pixel-fighter-canvas__img {
+  animation: fighterEvolvingPulse 0.4s infinite alternate ease-in-out, fighterSpin 2s infinite linear;
+}
+
+@keyframes fighterIdleBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(2px); }
+}
+
+@keyframes fighterTrainingBob {
+  0%, 100% { transform: translateY(0) scaleY(1); }
+  50% { transform: translateY(4px) scaleY(0.96); }
+}
+
+@keyframes fighterEvolvingPulse {
+  0% { filter: brightness(1) drop-shadow(0 0 2px rgba(255, 215, 0, 0.4)); }
+  100% { filter: brightness(1.5) drop-shadow(0 0 12px rgba(255, 215, 0, 0.9)); }
+}
+
+@keyframes fighterSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

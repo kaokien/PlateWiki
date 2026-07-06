@@ -1,0 +1,223 @@
+.legal-page {
+  animation: fadeIn var(--transition-normal);
+  padding-bottom: var(--space-6);
+}
+
+.legal-page h1 {
+  font-size: var(--font-size-hero);
+  font-weight: 900;
+  /* text-transform removed */
+  margin-bottom: var(--space-4);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.legal-content {
+  padding: var(--space-5);
+}
+
+.legal-content h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: var(--space-5);
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
+}
+
+.legal-content h2:first-of-type {
+  margin-top: 0;
+}
+
+.legal-content p {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: var(--space-3);
+}
+
+.legal-content ul {
+  padding-left: var(--space-4);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.legal-content li {
+  margin-bottom: var(--space-2);
+  line-height: 1.6;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  /* text-transform removed */
+  letter-spacing: 0.5px;
+  color: var(--color-text-muted);
+}
+
+.form-group input,
+.form-group textarea {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  transition: border-color var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+.submit-btn {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 1rem;
+  /* text-transform removed */
+  letter-spacing: 1px;
+  transition: all var(--transition-fast);
+  align-self: flex-start;
+}
+
+.submit-btn:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(45, 138, 78, 0.3);
+}
+
+.success-message {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid var(--color-success);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin: var(--space-4) 0;
+}
+
+.success-message h3 {
+  color: var(--color-success);
+  margin-bottom: var(--space-2);
+}
+
+/* Form validation states (#15) */
+.form-group.field-error input,
+.form-group.field-error textarea {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(45, 138, 78, 0.15);
+}
+
+.form-group.field-valid input,
+.form-group.field-valid textarea {
+  border-color: var(--color-success);
+}
+
+.field-error-msg {
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 2px;
+  animation: fadeIn var(--transition-fast);
+}
+
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 1rem;
+  /* text-transform removed */
+  letter-spacing: 1px;
+  transition: all var(--transition-fast);
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+/* Team Section */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin: var(--space-4) 0 var(--space-5) 0;
+}
+
+@media (min-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.team-card {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.team-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 0 !important;
+  margin-bottom: var(--space-1) !important;
+}
+
+.team-card .role {
+  font-size: 0.75rem;
+  /* text-transform removed */
+  letter-spacing: 1px;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+}
+
+.team-card p {
+  font-size: 0.9rem !important;
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: var(--space-3) !important;
+}
+
+.team-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.team-links a {
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast);
+}
+
+.team-links a:hover {
+  border-color: var(--color-primary);
+}
+

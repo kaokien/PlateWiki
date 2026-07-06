@@ -1,0 +1,465 @@
+.programs-page, .program-detail-page {
+  padding: 4rem 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.programs-header {
+  margin-bottom: 3rem;
+}
+
+.programs-header .subtitle {
+  color: var(--color-text-muted);
+  font-size: 1.2rem;
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.program-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.program-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary);
+}
+
+.program-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.level-badge {
+  font-size: 0.8rem;
+  font-weight: 800;
+  /* text-transform removed */
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+}
+
+.level-badge.beginner { background-color: rgba(34, 197, 94, 0.1); color: #22c55e; }
+.level-badge.intermediate { background-color: rgba(234, 179, 8, 0.1); color: #eab308; }
+.level-badge.advanced { background-color: rgba(239, 68, 68, 0.1); color: #ef4444; }
+
+.duration-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.program-card h2 {
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.program-card p {
+  color: var(--color-text-muted);
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+
+.program-start-prompt {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.program-progress {
+  margin-top: auto;
+}
+
+.progress-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar-bg {
+  height: 8px;
+  background-color: var(--color-bg);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Detail Page */
+.breadcrumb {
+  margin-bottom: 2rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: var(--color-primary);
+}
+
+.program-hero {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.program-hero-header {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.program-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.program-hero .description {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.program-hero-progress {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.progress-stats {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.program-days {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.day-card {
+  transition: opacity 0.3s ease;
+}
+
+.day-card.locked {
+  opacity: 0.5;
+  filter: grayscale(1);
+}
+
+.day-card.current {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 15px rgba(220, 38, 38, 0.1);
+}
+
+.day-card.completed {
+  border-color: #22c55e;
+}
+
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.day-header h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.day-desc {
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.day-tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--color-bg);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.learn-task {
+  border: 1px solid var(--color-border);
+  transition: border-color 0.2s ease;
+}
+
+.learn-task:hover {
+  border-color: var(--color-primary);
+}
+
+.practice-task {
+  border: 1px dashed var(--color-border);
+}
+
+.task-item svg {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  color: var(--color-primary);
+}
+
+.task-content {
+  flex: 1;
+  line-height: 1.5;
+}
+
+.task-label {
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-right: 0.5rem;
+}
+
+.forward-icon {
+  color: var(--color-text-muted) !important;
+}
+
+.complete-day-btn {
+  width: 100%;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.complete-day-btn:hover {
+  background-color: #ff3333;
+}
+
+.reset-progress-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  /* text-transform removed */
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.75rem;
+  margin-top: 0.75rem;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.reset-progress-btn:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background-color: rgba(45, 138, 78, 0.05);
+}
+
+@media (max-width: 600px) {
+  .programs-page h1,
+  .program-detail h1 {
+    font-size: clamp(1.4rem, 7vw, 2rem);
+  }
+
+  .program-card {
+    padding: var(--space-3);
+  }
+
+  .program-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .day-card {
+    padding: var(--space-3);
+  }
+}
+
+/* ── Phase & Week Grouping (long programs) ── */
+.program-phases {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.program-phase {
+  border-left: 3px solid var(--color-primary);
+  padding-left: 1.5rem;
+}
+
+.phase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.phase-title {
+  font-size: 1.4rem;
+  font-weight: 900;
+  /* text-transform removed */
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.phase-progress-mini {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.phase-bar-bg {
+  width: 80px;
+  height: 6px;
+  background: var(--color-bg);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.phase-bar-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.program-week {
+  margin-bottom: 0.5rem;
+}
+
+.program-week.week-current {
+  border-radius: var(--radius-md);
+}
+
+.week-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.week-toggle:hover {
+  border-color: var(--color-primary);
+}
+
+.week-current .week-toggle {
+  border-color: var(--color-primary);
+  background: rgba(45, 138, 78, 0.04);
+}
+
+.week-chevron {
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+
+.week-toggle.expanded .week-chevron {
+  transform: rotate(180deg);
+}
+
+.week-label {
+  flex-shrink: 0;
+}
+
+.week-day-range {
+  color: var(--color-text-muted);
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin-left: auto;
+}
+
+.week-progress-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.week-days {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .program-phase {
+    padding-left: 0.75rem;
+  }
+
+  .phase-title {
+    font-size: 1.1rem;
+  }
+
+  .week-toggle {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .week-day-range {
+    display: none;
+  }
+}
+

@@ -1,0 +1,211 @@
+.daily-widget-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.streak-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.05) 0%, var(--color-bg) 100%);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  animation: streakSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+.streak-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background-color: rgba(220, 38, 38, 0.1);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: flameWiggle 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) 0.6s both;
+}
+
+/* Flame wiggle — the icon shakes excitedly on mount */
+@keyframes flameWiggle {
+  0%   { transform: scale(0.5) rotate(0); opacity: 0; }
+  30%  { transform: scale(1.2) rotate(-8deg); opacity: 1; }
+  50%  { transform: scale(1.1) rotate(6deg); }
+  70%  { transform: scale(1.05) rotate(-3deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+.streak-content h2 {
+  font-size: 0.9rem;
+  /* text-transform removed */
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.streak-number {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--color-text);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  animation: numberPop 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
+}
+
+/* Number pops up from below with overshoot */
+@keyframes numberPop {
+  0%   { transform: translateY(12px) scale(0.8); opacity: 0; }
+  60%  { transform: translateY(-3px) scale(1.05); opacity: 1; }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Streak card slides in from left */
+@keyframes streakSlideIn {
+  0%   { transform: translateX(-20px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+.streak-subtext {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.daily-combo-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.daily-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+}
+
+.daily-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+  padding-right: 180px; /* Make room for badge */
+}
+
+.daily-meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.daily-muscle {
+  font-size: 0.7rem;
+  font-weight: 700;
+  /* text-transform removed */
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+}
+
+.daily-diff {
+  font-size: 0.65rem;
+  font-weight: 700;
+  /* text-transform removed */
+  letter-spacing: 0.06em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--color-border);
+  border: 1px solid var(--color-border);
+}
+
+.daily-diff.Beginner { color: #4ade80; border-color: rgba(74, 222, 128, 0.3); }
+.daily-diff.Intermediate { color: #facc15; border-color: rgba(250, 204, 21, 0.3); }
+.daily-diff.Advanced { color: #f87171; border-color: rgba(248, 113, 113, 0.3); }
+
+.daily-content p {
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+  max-width: 80%;
+}
+
+.daily-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: all 0.2s ease;
+}
+
+.daily-btn:hover {
+  background-color: var(--color-primary-btn);
+  border-color: var(--color-primary-btn);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .daily-widget-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .daily-content h2 {
+    padding-right: 0;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+  }
+  
+  .daily-badge {
+    top: 1rem;
+    left: 1.5rem;
+    right: auto;
+  }
+
+  .daily-content p {
+    max-width: 100%;
+    font-size: 0.85rem;
+  }
+
+  .streak-card {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .streak-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .streak-number {
+    font-size: 1.6rem;
+  }
+
+  .daily-combo-card {
+    padding: 1rem;
+  }
+
+  /* Disable entrance animations on mobile — they start at opacity:0 causing CLS */
+  .streak-card {
+    animation: none;
+  }
+  .streak-icon {
+    animation: none;
+  }
+  .streak-number {
+    animation: none;
+  }
+}

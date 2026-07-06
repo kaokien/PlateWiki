@@ -1,0 +1,96 @@
+.upgrade-nudge {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-surface, #1a1a1a);
+  border: 1px solid rgba(245, 166, 35, 0.25);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 0.75rem;
+  max-width: 560px;
+  width: calc(100% - 2rem);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  animation: nudgeSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes nudgeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.nudge-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.nudge-icon {
+  color: #f5a623;
+  flex-shrink: 0;
+}
+
+.nudge-text {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+}
+
+.nudge-text strong {
+  color: #f5a623;
+}
+
+.nudge-cta {
+  flex-shrink: 0;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  /* text-transform removed */
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: calc(var(--radius-md) - 2px);
+  text-decoration: none;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.nudge-cta:hover {
+  background: var(--color-primary-hover);
+  color: #fff;
+}
+
+.nudge-close {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 0.25rem;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.nudge-close:hover {
+  color: var(--color-text);
+}
+
+@media (max-width: 600px) {
+  .upgrade-nudge {
+    bottom: 0.75rem;
+    padding: 0.6rem;
+  }
+
+  .nudge-text {
+    font-size: 0.75rem;
+  }
+}

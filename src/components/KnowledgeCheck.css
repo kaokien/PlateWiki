@@ -1,0 +1,291 @@
+/* ==========================================================================
+   KnowledgeCheck — Expandable quiz section
+   ========================================================================== */
+
+.knowledge-check {
+  background: var(--glass-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg, 12px);
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+/* ---------- Header ---------- */
+
+.knowledge-check__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  min-height: 44px;
+  border: none;
+  background: none;
+  color: var(--color-text);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.knowledge-check__header:hover {
+  background: var(--subtle-hover);
+}
+
+.knowledge-check__header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.knowledge-check__title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  /* text-transform removed */
+  letter-spacing: 0.5px;
+  color: var(--color-text);
+}
+
+.knowledge-check__header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.knowledge-check__chevron {
+  transition: transform 0.3s ease;
+}
+
+.knowledge-check__chevron--expanded {
+  transform: rotate(180deg);
+}
+
+/* ---------- Completed badge ---------- */
+
+.knowledge-check__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ---------- Content area ---------- */
+
+.knowledge-check__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.knowledge-check__content--open {
+  /* generous cap — question + 4 wrapped options on mobile can far exceed
+     600px, which silently clipped long questions */
+  max-height: 1600px;
+}
+
+.knowledge-check__body {
+  padding: 0 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Question counter ---------- */
+
+.knowledge-check__counter {
+  font-size: 0.75rem;
+  color: var(--color-text-muted, #8c8c8c);
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- Question text ---------- */
+
+.knowledge-check__question {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+/* ---------- Options ---------- */
+
+.knowledge-check__options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.knowledge-check__option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm, 8px);
+  background: var(--subtle-hover);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted, #8c8c8c);
+  min-height: 44px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.knowledge-check__option:hover:not(:disabled) {
+  background: var(--subtle-hover);
+  border-color: var(--color-border);
+  color: var(--color-text, #f5f5f5);
+}
+
+.knowledge-check__option:disabled {
+  cursor: default;
+}
+
+.knowledge-check__option--correct {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: #22c55e;
+  color: #22c55e;
+}
+
+.knowledge-check__option--wrong {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.knowledge-check__option--reveal {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.4);
+  color: #22c55e;
+}
+
+.knowledge-check__option-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------- Feedback text ---------- */
+
+.knowledge-check__feedback {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.knowledge-check__feedback--correct {
+  color: #22c55e;
+}
+
+.knowledge-check__feedback--wrong {
+  color: #ef4444;
+}
+
+/* ---------- Next / See Results button ---------- */
+
+.knowledge-check__retry {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--subtle-hover, rgba(255, 255, 255, 0.06));
+  color: var(--color-text-muted, #8c8c8c);
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.1));
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.knowledge-check__retry:hover {
+  color: var(--color-text, #f5f5f5);
+  border-color: var(--color-text-muted, #8c8c8c);
+}
+
+.knowledge-check__next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  align-self: flex-end;
+  padding: 0.5rem 1.25rem;
+  background: var(--color-primary, #ff3333);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-full, 999px);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  min-height: 44px;
+  transition: opacity 0.2s ease;
+  font-family: inherit;
+}
+
+.knowledge-check__next:hover {
+  opacity: 0.9;
+}
+
+/* ---------- Results screen ---------- */
+
+.knowledge-check__results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1rem 0;
+}
+
+.knowledge-check__results .knowledge-check__next {
+  align-self: center;
+  margin-top: 0.75rem;
+}
+
+.knowledge-check__score-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.knowledge-check__score-label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted, #8c8c8c);
+}
+
+.knowledge-check__xp-award {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #22c55e;
+  animation: knowledge-check-xp-pop 0.4s ease-out;
+}
+
+@keyframes knowledge-check-xp-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(8px);
+  }
+  60% {
+    transform: scale(1.1) translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.knowledge-check__score-msg {
+  font-size: 0.8rem;
+  color: var(--color-text-muted, #8c8c8c);
+  margin-top: 0.25rem;
+}

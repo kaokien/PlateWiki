@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=1920, height=1080"/>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{width:1920px;height:1080px;overflow:hidden;background:#0c1220}
+    .scene{position:absolute;top:0;left:0;width:1920px;height:1080px;overflow:hidden}
+    .sc{display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:80px 120px;gap:80px;text-align:left}
+    .sc-center{text-align:center;flex-direction:column;gap:40px}
+    .display{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.03em;color:#f0f4f8}
+    .body-text{font-family:'Inter',sans-serif;color:#94a3b8}
+    .accent{color:#2563eb}
+    .red{color:#dc2626}
+
+    /* S1: visible by default */
+    #scene-1{background:#e8ecf0;z-index:1}
+    #scene-1 .display{color:#0c1220}
+    .s1-badge{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:#dc2626;color:#fff;padding:8px 20px;border-radius:2px;display:inline-block}
+    .s1-pre{font-size:22px;font-weight:600;letter-spacing:.15em;color:#64748b}
+    .s1-title{font-size:120px;font-weight:900;line-height:.92;color:#0c1220}
+    .s1-sub{font-size:24px;line-height:1.5;max-width:560px;color:#475569;font-family:'Inter',sans-serif;border-left:3px solid #94a3b8;padding-left:20px}
+    .s1-stats{display:flex;gap:48px;margin-top:16px}
+    .s1-stat-num{font-size:48px;font-weight:900;color:#2563eb}
+    .s1-stat-label{font-size:14px;font-weight:600;letter-spacing:.12em;color:#64748b}
+    .s1-left{flex:1;display:flex;flex-direction:column;gap:24px}
+    .s1-right{flex:0 0 480px}
+    .screenshot-frame{border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4),0 0 0 1px rgba(255,255,255,.05)}
+    .screenshot-frame img{width:100%;height:100%;object-fit:cover}
+    .red-border-frame{border:4px solid #dc2626;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+    .red-border-frame img{width:100%;height:100%;object-fit:cover}
+
+    /* S2: hidden by default */
+    #scene-2{background:#0c1220;z-index:2;opacity:0}
+    .s2-tag{font-size:16px;font-weight:700;letter-spacing:.15em;color:#ffd700}
+    .s2-title{font-size:88px;font-weight:900;line-height:.95}
+    .s2-sub{font-size:24px;max-width:600px;line-height:1.5}
+    .s2-features{display:flex;flex-direction:column;gap:16px;margin-top:8px}
+    .s2-feat{display:flex;align-items:center;gap:14px;font-family:'Inter',sans-serif;font-size:20px;color:#f0f4f8}
+    .s2-check{color:#2563eb;font-size:22px;font-weight:700}
+    .s2-left{flex:1;display:flex;flex-direction:column;gap:20px}
+    .s2-right{flex:0 0 560px}
+
+    /* S3: hidden */
+    #scene-3{background:#0c1220;z-index:3;opacity:0}
+    .s3-tag{font-size:16px;font-weight:700;letter-spacing:.15em;color:#dc2626}
+    .s3-title{font-size:80px;font-weight:900;line-height:.95}
+    .s3-sub{font-size:22px;max-width:560px;line-height:1.5}
+    .s3-modules{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+    .s3-mod{background:#141e30;border:1px solid #1e2d44;border-radius:8px;padding:20px 24px;display:flex;flex-direction:column;gap:6px}
+    .s3-mod-num{font-size:14px;font-weight:700;letter-spacing:.1em;color:#2563eb}
+    .s3-mod-name{font-size:20px;font-weight:700}
+    .s3-left{flex:1;display:flex;flex-direction:column;gap:20px}
+    .s3-right{flex:0 0 520px}
+    .most-popular{font-size:14px;font-weight:700;letter-spacing:.1em;background:#dc2626;color:#fff;padding:6px 16px;border-radius:2px;display:inline-block;margin-bottom:4px}
+
+    /* S4: hidden */
+    #scene-4{background:#e8ecf0;z-index:4;opacity:0}
+    #scene-4 .display{color:#0c1220}
+    .s4-title{font-size:80px;font-weight:900;line-height:.95}
+    .s4-stats{display:flex;gap:60px;margin-top:20px}
+    .s4-stat{display:flex;flex-direction:column;align-items:center;gap:6px}
+    .s4-num{font-size:56px;font-weight:900;color:#2563eb}
+    .s4-label{font-size:15px;font-weight:600;letter-spacing:.12em;color:#64748b}
+    .review-badge{font-size:18px;font-weight:700;background:#fbbf24;color:#0c1220;padding:8px 20px;border-radius:4px;display:inline-flex;align-items:center;gap:8px}
+
+    /* S5: hidden */
+    #scene-5{background:#0c1220;z-index:5;opacity:0}
+    .s5-title{font-size:100px;font-weight:900;line-height:.95}
+    .s5-url{font-size:44px;font-weight:600;color:#2563eb;letter-spacing:.02em}
+    .s5-tagline{font-size:26px}
+    .s5-logo{font-size:28px;font-weight:700;letter-spacing:.12em}
+    .cta-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.15) 0%,rgba(37,99,235,0) 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+  </style>
+</head>
+<body>
+<div id="root" data-composition-id="coachjosh" data-start="0" data-duration="35" data-width="1920" data-height="1080">
+
+  <!-- S1: HOOK -->
+  <div id="scene-1" class="scene">
+    <div class="sc">
+      <div class="s1-left">
+        <div id="s1-badge" class="s1-badge">🥊 BOXING COACH · 6+ YEARS IN THE GYM</div>
+        <div id="s1-pre" class="display s1-pre">COACH JOSH OFFICIAL</div>
+        <div id="s1-title" class="display s1-title">FIGHT IQ<br><span class="accent">UNLOCKED</span></div>
+        <div id="s1-sub" class="s1-sub">Stop throwing arm punches. Master the slip, the shift, and the science of striking.</div>
+        <div id="s1-stats" class="s1-stats">
+          <div><div class="display s1-stat-num">200+</div><div class="display s1-stat-label">ATHLETES TRAINED</div></div>
+          <div><div class="display s1-stat-num">150M+</div><div class="display s1-stat-label">SOCIAL VIEWS</div></div>
+          <div><div class="display s1-stat-num">37+</div><div class="display s1-stat-label">GOOGLE REVIEWS</div></div>
+        </div>
+      </div>
+      <div class="s1-right">
+        <div id="s1-screenshot" class="red-border-frame" style="width:480px;height:560px">
+          <img src="assets/screenshots/hero.png" alt="Coach Josh" crossorigin="anonymous"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S2: STRIKING BLUEPRINT -->
+  <div id="scene-2" class="scene">
+    <div class="sc">
+      <div class="s2-left">
+        <div id="s2-tag" class="display s2-tag">📘 DIGITAL GUIDE</div>
+        <div id="s2-title" class="display s2-title">STRIKING<br><span class="accent">BLUEPRINT</span></div>
+        <div id="s2-sub" class="body-text s2-sub">The complete technical breakdown. Generate power from the floor, fix your uppercut, and master distance.</div>
+        <div id="s2-feats" class="s2-features">
+          <div class="s2-feat"><span class="s2-check">✓</span> 11 Interactive Chapters</div>
+          <div class="s2-feat"><span class="s2-check">✓</span> Footwork Drills &amp; Angles</div>
+          <div class="s2-feat"><span class="s2-check">✓</span> Heavy Bag Workouts</div>
+          <div class="s2-feat"><span class="s2-check">✓</span> Defensive Head Movement</div>
+          <div class="s2-feat"><span class="s2-check">✓</span> Printable Workout Logs</div>
+        </div>
+      </div>
+      <div class="s2-right">
+        <div id="s2-screenshot" class="screenshot-frame" style="width:560px;height:600px">
+          <img src="assets/screenshots/book.png" alt="Striking Blueprint" crossorigin="anonymous"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S3: BOXING BLUEPRINT VIDEO COURSE -->
+  <div id="scene-3" class="scene">
+    <div class="sc">
+      <div class="s3-left">
+        <div id="s3-popular" class="most-popular">⭐ MOST POPULAR</div>
+        <div id="s3-tag" class="display s3-tag">🎥 VIDEO COURSE</div>
+        <div id="s3-title" class="display s3-title">BOXING<br><span class="accent">BLUEPRINT</span></div>
+        <div id="s3-sub" class="body-text s3-sub">The complete fundamentals course. 4 deep-dive modules covering striking mechanics, conditioning, defense, and footwork.</div>
+        <div id="s3-mods" class="s3-modules">
+          <div class="s3-mod" id="mod-1"><div class="display s3-mod-num">MODULE 01</div><div class="display s3-mod-name">Striking Mechanics</div></div>
+          <div class="s3-mod" id="mod-2"><div class="display s3-mod-num">MODULE 02</div><div class="display s3-mod-name">Conditioning Circuits</div></div>
+          <div class="s3-mod" id="mod-3"><div class="display s3-mod-num">MODULE 03</div><div class="display s3-mod-name">Defense Systems</div></div>
+          <div class="s3-mod" id="mod-4"><div class="display s3-mod-num">MODULE 04</div><div class="display s3-mod-name">Footwork Progressions</div></div>
+        </div>
+      </div>
+      <div class="s3-right">
+        <div id="s3-screenshot" class="screenshot-frame" style="width:520px;height:560px">
+          <img src="assets/screenshots/programs.png" alt="Boxing Blueprint" crossorigin="anonymous"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S4: SOCIAL PROOF -->
+  <div id="scene-4" class="scene">
+    <div class="sc sc-center">
+      <div id="s4-review" class="review-badge">⭐ 37+ GOOGLE REVIEWS · 5.0 ★</div>
+      <div id="s4-title" class="display s4-title">REAL <span class="red">RESULTS</span></div>
+      <div id="s4-stats" class="s4-stats">
+        <div class="s4-stat"><div class="display s4-num">200+</div><div class="display s4-label">ATHLETES TRAINED</div></div>
+        <div class="s4-stat"><div class="display s4-num">150M+</div><div class="display s4-label">SOCIAL MEDIA VIEWS</div></div>
+        <div class="s4-stat"><div class="display s4-num">6+</div><div class="display s4-label">YEARS COACHING</div></div>
+        <div class="s4-stat"><div class="display s4-num">12K</div><div class="display s4-label">YOUTUBE SUBSCRIBERS</div></div>
+      </div>
+      <div id="s4-screenshot" class="screenshot-frame" style="width:900px;height:340px;margin-top:10px">
+        <img src="assets/screenshots/transformations.png" alt="Body Transformations" crossorigin="anonymous"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- S5: CTA -->
+  <div id="scene-5" class="scene">
+    <div class="cta-glow" id="cta-glow"></div>
+    <div class="sc sc-center">
+      <div id="s5-title" class="display s5-title">TRAIN<br>WITH <span class="accent">PURPOSE</span></div>
+      <div id="s5-url" class="display s5-url">coachjoshofficial.com</div>
+      <div id="s5-tagline" class="body-text s5-tagline">Stop chasing drills. Start building skill.</div>
+      <div id="s5-logo" class="display s5-logo">COACH JOSH <span class="accent">OFFICIAL</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+
+  // S1: HOOK — entrance only, no exit
+  tl.from("#s1-badge",{opacity:0,y:-20,duration:.5,ease:"power3.out"},.3);
+  tl.from("#s1-pre",{opacity:0,y:-15,duration:.4,ease:"expo.out"},.6);
+  tl.from("#s1-title",{opacity:0,scale:1.08,duration:.8,ease:"power4.out"},.8);
+  tl.from("#s1-sub",{opacity:0,x:-30,duration:.5,ease:"power2.out"},1.3);
+  tl.from("#s1-stats",{opacity:0,y:30,duration:.6,ease:"power3.out"},1.7);
+  tl.from("#s1-screenshot",{opacity:0,x:60,scale:.95,duration:.8,ease:"power3.out"},1.0);
+
+  // T 1→2: crossfade (old out, new in)
+  tl.to("#scene-1",{opacity:0,duration:.5,ease:"power2.inOut"},6.5);
+  tl.fromTo("#scene-2",{opacity:0},{opacity:1,duration:.5,ease:"power2.inOut"},6.5);
+
+  // S2: STRIKING BLUEPRINT — entrance only
+  tl.from("#s2-tag",{opacity:0,y:-20,duration:.4,ease:"expo.out"},7.2);
+  tl.from("#s2-title",{opacity:0,scale:1.06,duration:.7,ease:"power4.out"},7.5);
+  tl.from("#s2-sub",{opacity:0,y:20,duration:.5,ease:"power2.out"},8.0);
+  tl.from("#s2-feats .s2-feat",{opacity:0,x:-30,duration:.35,ease:"power2.out",stagger:.12},8.4);
+  tl.from("#s2-screenshot",{opacity:0,x:80,scale:.92,duration:.8,ease:"power3.out"},7.8);
+
+  // T 2→3: crossfade
+  tl.to("#scene-2",{opacity:0,duration:.5,ease:"power2.inOut"},13.5);
+  tl.fromTo("#scene-3",{opacity:0},{opacity:1,duration:.5,ease:"power2.inOut"},13.5);
+
+  // S3: BOXING BLUEPRINT — entrance only
+  tl.from("#s3-popular",{opacity:0,y:-20,duration:.4,ease:"back.out(1.5)"},14.2);
+  tl.from("#s3-tag",{opacity:0,y:-15,duration:.4,ease:"expo.out"},14.5);
+  tl.from("#s3-title",{opacity:0,scale:1.06,duration:.7,ease:"power4.out"},14.7);
+  tl.from("#s3-sub",{opacity:0,y:20,duration:.5,ease:"power2.out"},15.2);
+  tl.from("#mod-1",{opacity:0,y:30,duration:.4,ease:"power3.out"},15.6);
+  tl.from("#mod-2",{opacity:0,y:30,duration:.4,ease:"power2.out"},15.8);
+  tl.from("#mod-3",{opacity:0,y:30,duration:.4,ease:"back.out(1.1)"},16.0);
+  tl.from("#mod-4",{opacity:0,y:30,duration:.4,ease:"expo.out"},16.2);
+  tl.from("#s3-screenshot",{opacity:0,x:80,scale:.92,duration:.8,ease:"power3.out"},14.8);
+
+  // T 3→4: crossfade
+  tl.to("#scene-3",{opacity:0,duration:.5,ease:"power2.inOut"},20.5);
+  tl.fromTo("#scene-4",{opacity:0},{opacity:1,duration:.5,ease:"power2.inOut"},20.5);
+
+  // S4: SOCIAL PROOF — entrance only
+  tl.from("#s4-review",{opacity:0,scale:.8,duration:.5,ease:"back.out(1.5)"},21.2);
+  tl.from("#s4-title",{opacity:0,scale:1.08,duration:.7,ease:"power4.out"},21.5);
+  tl.from("#s4-stats .s4-stat",{opacity:0,y:40,duration:.4,ease:"power3.out",stagger:.15},22.0);
+  tl.from("#s4-screenshot",{opacity:0,y:40,scale:.95,duration:.8,ease:"power3.out"},22.8);
+
+  // T 4→5: crossfade
+  tl.to("#scene-4",{opacity:0,duration:.5,ease:"power2.inOut"},27.5);
+  tl.fromTo("#scene-5",{opacity:0},{opacity:1,duration:.5,ease:"power2.inOut"},27.5);
+
+  // S5: CTA — entrance + FINAL scene exit allowed
+  tl.from("#cta-glow",{opacity:0,scale:.3,duration:1.2,ease:"power2.out"},28.0);
+  tl.from("#s5-title",{opacity:0,scale:1.12,duration:.8,ease:"power4.out"},28.3);
+  tl.from("#s5-url",{opacity:0,y:30,duration:.6,ease:"expo.out"},29.0);
+  tl.from("#s5-tagline",{opacity:0,y:20,duration:.5,ease:"power2.out"},29.5);
+  tl.from("#s5-logo",{opacity:0,duration:.4,ease:"power1.out"},30.0);
+  tl.to("#scene-5",{opacity:0,duration:.8,ease:"power2.in"},34.0);
+
+  window.__timelines["coachjosh"] = tl;
+</script>
+</body>
+</html>

@@ -1,0 +1,489 @@
+.ex-page {
+  padding: 2rem 1rem 4rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ── Not Found ── */
+.ex-not-found {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.ex-not-found h2 {
+  font-size: 1.4rem;
+  font-weight: 900;
+  margin: 0 0 0.5rem;
+}
+
+.ex-not-found p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin: 0 0 1.5rem;
+}
+
+/* ── Hero ── */
+.ex-hero {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.ex-hero-icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary), #ff6b4a);
+  border-radius: 0.75rem;
+  color: white;
+}
+
+.ex-hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.ex-title {
+  font-size: clamp(1.4rem, 5vw, 2rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+  color: var(--color-text);
+}
+
+/* Badges */
+.ex-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ex-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 2rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  /* text-transform removed */
+  letter-spacing: 0.05em;
+}
+
+.ex-diff-beginner {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.ex-diff-intermediate {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.ex-diff-advanced {
+  background-color: rgba(220, 38, 38, 0.12);
+  color: var(--color-primary);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.ex-badge-category {
+  background-color: rgba(168, 85, 247, 0.1);
+  color: #a855f7;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+/* Equipment tags */
+.ex-equipment-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.ex-equip-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: var(--subtle-hover);
+  border: 1px solid var(--color-border);
+}
+
+/* ── Boxing Context Callout ── */
+.ex-context {
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  border-left: 3px solid var(--color-primary);
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.04) 0%, transparent 100%);
+}
+
+.ex-context-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+.ex-context-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.ex-context-header h2 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  /* text-transform removed */
+  letter-spacing: 0.05em;
+  margin: 0;
+  color: var(--color-primary);
+}
+
+.ex-context-body {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Sections ── */
+.ex-section {
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.ex-section-open {
+  margin-bottom: 1.25rem;
+}
+
+.ex-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ex-section-header h2 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin: 0;
+  /* text-transform removed */
+  letter-spacing: 0.05em;
+}
+
+.ex-icon-target {
+  color: var(--color-primary);
+}
+
+.ex-icon-tip {
+  color: #f59e0b;
+}
+
+.ex-icon-technique {
+  color: #a855f7;
+}
+
+.ex-icon-related {
+  color: #3b82f6;
+}
+
+/* ── How To — Numbered Steps ── */
+.ex-step-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ex-step-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.ex-step-number {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary), #ff6b4a);
+  color: white;
+  font-weight: 900;
+  font-size: 0.78rem;
+  border-radius: 50%;
+  margin-top: 1px;
+}
+
+/* ── Training Parameters Grid ── */
+.ex-params-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.ex-param-card {
+  padding: 1.25rem 1rem;
+  text-align: center;
+}
+
+.ex-param-icon {
+  color: var(--color-text-muted);
+  margin-bottom: 0.4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.ex-param-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  /* text-transform removed */
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.ex-param-value {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--color-text);
+}
+
+/* ── Pro Tips ── */
+.ex-tips-section {
+  border-left: 3px solid #f59e0b;
+}
+
+.ex-tip-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.ex-tip-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.ex-tip-bullet {
+  color: #f59e0b;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* ── Technique Cards ── */
+.ex-technique-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ex-technique-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+}
+
+.ex-technique-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.ex-technique-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.ex-technique-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.ex-technique-cat {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  /* text-transform removed */
+  letter-spacing: 0.04em;
+}
+
+.ex-technique-arrow {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.ex-technique-card:hover .ex-technique-arrow {
+  color: var(--color-primary);
+}
+
+/* ── Related Exercises ── */
+.ex-related-subtitle {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: -0.35rem 0 0.75rem;
+}
+
+.ex-related-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.ex-related-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1.15rem;
+  text-decoration: none;
+  position: relative;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+}
+
+.ex-related-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.ex-related-top {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.ex-related-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.ex-related-diff {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  /* text-transform removed */
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 2rem;
+  width: fit-content;
+}
+
+.ex-related-muscles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.ex-muscle-chip {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  background: var(--subtle-hover);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  text-transform: capitalize;
+}
+
+.ex-related-arrow {
+  position: absolute;
+  top: 1rem;
+  right: 0.85rem;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+}
+
+.ex-related-card:hover .ex-related-arrow {
+  color: var(--color-primary);
+}
+
+/* ── Back CTA ── */
+.ex-back-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.ex-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  min-height: 44px;
+}
+
+.ex-back-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .ex-hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .ex-badges {
+    justify-content: center;
+  }
+
+  .ex-equipment-tags {
+    justify-content: center;
+  }
+
+  .ex-params-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ex-related-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ex-context-header {
+    justify-content: center;
+  }
+
+  .ex-context-body {
+    text-align: center;
+  }
+}

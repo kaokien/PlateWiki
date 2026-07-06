@@ -1,0 +1,109 @@
+{
+  // BoxingWiki Product Demo — 9:16 Vertical (TikTok / Reels / Stories)
+  "$schema": "./node_modules/testreel/recording-definition.schema.json",
+  "url": "https://boxingwiki.vercel.app/",
+  "viewport": { "width": 390, "height": 844 },
+  "outputSize": { "width": 1080, "height": 1920 },
+  "colorScheme": "dark",
+  "outputFormat": "mp4",
+  "speed": 1.1,
+
+  "cursor": {
+    "style": "touch",
+    "size": 56,
+    "rippleColor": "rgba(220, 38, 38, 0.5)",
+    "rippleSize": 90
+  },
+
+  "chrome": false,
+
+  "background": {
+    "gradient": { "from": "#1a1a1a", "to": "#0a0a0a" },
+    "padding": 30,
+    "borderRadius": 24
+  },
+
+  // Dismiss the welcome modal by injecting localStorage flag
+  "localStorage": {
+    "bw_onboarded": "1"
+  },
+
+  "steps": [
+    // ═══════════════════════════════════════════
+    // Scene 1: Mobile Hero
+    // ═══════════════════════════════════════════
+    { "action": "wait", "ms": 1500 },
+    { "action": "screenshot", "name": "01-mobile-hero" },
+
+    // ═══════════════════════════════════════════
+    // Scene 2: Scroll to Body Map
+    // ═══════════════════════════════════════════
+    { "action": "scroll", "y": 500 },
+    { "action": "wait", "ms": 1000 },
+    { "action": "screenshot", "name": "02-mobile-body-map" },
+
+    // Tap a muscle group
+    { "action": "click", "selector": "text=Obliques", "pauseAfter": 1200 },
+    { "action": "wait", "ms": 800 },
+
+    // ═══════════════════════════════════════════
+    // Scene 3: Navigate to Technique Library
+    // ═══════════════════════════════════════════
+    { "action": "navigate", "url": "https://boxingwiki.vercel.app/techniques" },
+    { "action": "wait", "ms": 1500 },
+    { "action": "screenshot", "name": "03-mobile-techniques" },
+
+    // Tap category filters
+    { "action": "click", "selector": "text=Defense", "pauseAfter": 800 },
+    { "action": "click", "selector": "text=Combinations", "pauseAfter": 800 },
+    { "action": "click", "selector": "text=All", "pauseAfter": 600 },
+
+    // Scroll through techniques
+    { "action": "scroll", "y": 400 },
+    { "action": "wait", "ms": 800 },
+
+    // ═══════════════════════════════════════════
+    // Scene 4: Tap into a technique
+    // ═══════════════════════════════════════════
+    { "action": "scroll", "y": -400 },
+    { "action": "wait", "ms": 500 },
+    { "action": "click", "selector": "text=Learn Technique", "pauseAfter": 1500 },
+    { "action": "screenshot", "name": "04-mobile-technique-detail" },
+    { "action": "scroll", "y": 400 },
+    { "action": "wait", "ms": 1000 },
+    { "action": "scroll", "y": 400 },
+    { "action": "wait", "ms": 1000 },
+    { "action": "screenshot", "name": "05-mobile-technique-steps" },
+
+    // ═══════════════════════════════════════════
+    // Scene 5: Training — Heavy Bag Timer
+    // ═══════════════════════════════════════════
+    { "action": "navigate", "url": "https://boxingwiki.vercel.app/train" },
+    { "action": "wait", "ms": 1500 },
+    { "action": "screenshot", "name": "06-mobile-train" },
+    { "action": "scroll", "y": 300 },
+    { "action": "wait", "ms": 800 },
+
+    // Switch to Heavy Bag Timer tab
+    { "action": "click", "selector": "text=HEAVY BAG TIMER", "pauseAfter": 1200 },
+    { "action": "screenshot", "name": "07-mobile-heavy-bag" },
+
+    // ═══════════════════════════════════════════
+    // Scene 6: Programs
+    // ═══════════════════════════════════════════
+    { "action": "navigate", "url": "https://boxingwiki.vercel.app/programs" },
+    { "action": "wait", "ms": 1500 },
+    { "action": "screenshot", "name": "08-mobile-programs" },
+    { "action": "scroll", "y": 300 },
+    { "action": "wait", "ms": 800 },
+
+    // ═══════════════════════════════════════════
+    // Scene 7: Back to Hero (CTA)
+    // ═══════════════════════════════════════════
+    { "action": "navigate", "url": "https://boxingwiki.vercel.app/" },
+    { "action": "wait", "ms": 2000 },
+    { "action": "hideCursor" },
+    { "action": "wait", "ms": 2000 },
+    { "action": "screenshot", "name": "09-mobile-final" }
+  ]
+}

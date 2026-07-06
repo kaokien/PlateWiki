@@ -1,0 +1,152 @@
+/**
+ * Favorites & Recently Viewed — localStorage persistence layer
+ * 
+ * Provides save/favorite techniques, recently viewed tracking,
+ * and training plan (saved drill list) functionality.
+ * All data is stored client-side in localStorage.
+ */
+import { isAuthenticated } from './authState';
+
+const KEYS = {
+  FAVORITES: 'FoodWiki_favorites',
+  RECENTLY_VIEWED: 'FoodWiki_recently_viewed',
+  TRAINING_PLAN: 'FoodWiki_training_plan',
+  HISTORY: 'FoodWiki_history',
+};
+
+const MAX_RECENTLY_VIEWED = 12;
+
+// --- Helpers ---
+
+const safeGet = <T>(key: string, fallback: T): T => {
+  try {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : fallback;
+  } catch (e) {
+    return fallback;
+  }
+};
+
+const safeSet = (key: string, value: unknown) => {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (e) {
+    console.warn('LocalStorage write failed:', e);
+  }
+};
+
+// --- Favorites ---
+
+export const getFavorites = (): string[] => safeGet<string[]>(KEYS.FAVORITES, []);
+
+export const isFavorite = (techniqueId: string) => {
+  return getFavorites().includes(techniqueId);
+};
+
+export const toggleFavorite = (techniqueId: string) => {
+  if (!isAuthenticated()) return false;
+  const favs = getFavorites();
+  const index = favs.indexOf(techniqueId);
+  if (index === -1) {
+    favs.push(techniqueId);
+  } else {
+    favs.splice(index, 1);
+  }
+  safeSet(KEYS.FAVORITES, favs);
+  // Trigger cloud sync
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('cloud-sync', { detail: { type: 'favorites' } }));
+  }
+  return index === -1; // returns true if added, false if removed
+};
+
+export const removeFavorite = (techniqueId: string) => {
+  const favs = getFavorites().filter(id => id !== techniqueId);
+  safeSet(KEYS.FAVORITES, favs);
+  // Trigger cloud sync
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('cloud-sync', { detail: { type: 'favorites' } }));
+  }
+};
+
+// --- Recently Viewed ---
+
+export const getRecentlyViewed = (): string[] => safeGet<string[]>(KEYS.RECENTLY_VIEWED, []);
+
+export const addRecentlyViewed = (techniqueId: string) => {
+  if (!isAuthenticated()) return;
+  let recent = getRecentlyViewed();
+  // Remove if already exists (will re-add at front)
+  recent = recent.filter(id => id !== techniqueId);
+  // Add to front
+  recent.unshift(techniqueId);
+  // Cap at max
+  if (recent.length > MAX_RECENTLY_VIEWED) {
+    recent = recent.slice(0, MAX_RECENTLY_VIEWED);
+  }
+  safeSet(KEYS.RECENTLY_VIEWED, recent);
+};
+
+// --- Universal History (all content types) ---
+
+export type HistoryItem = {
+  id: string;
+  type: 'technique' | 'article' | 'exercise' | 'workout' | 'fighter';
+  title: string;
+  href: string;
+  timestamp: number;
+};
+
+const MAX_HISTORY = 30;
+
+export const getHistory = (): HistoryItem[] => safeGet(KEYS.HISTORY, []);
+
+export const addToHistory = (item: Omit<HistoryItem, 'timestamp'>) => {
+  if (!isAuthenticated()) return;
+  let history = getHistory();
+  // Remove duplicate (same href)
+  history = history.filter(h => h.href !== item.href);
+  // Add to front with timestamp
+  history.unshift({ ...item, timestamp: Date.now() });
+  // Cap
+  if (history.length > MAX_HISTORY) {
+    history = history.slice(0, MAX_HISTORY);
+  }
+  safeSet(KEYS.HISTORY, history);
+
+  // Trigger cloud sync for browsing history
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('cloud-sync', { detail: { type: 'profile' } }));
+  }
+
+  // Also add to legacy recently-viewed if it's a technique
+  if (item.type === 'technique') {
+    addRecentlyViewed(item.id);
+  }
+};
+
+// --- Training Plan (saved drill list) ---
+
+export const getTrainingPlan = (): string[] => safeGet<string[]>(KEYS.TRAINING_PLAN, []);
+
+export const addToTrainingPlan = (techniqueId: string) => {
+  if (!isAuthenticated()) return;
+  const plan = getTrainingPlan();
+  if (!plan.includes(techniqueId)) {
+    plan.push(techniqueId);
+    safeSet(KEYS.TRAINING_PLAN, plan);
+  }
+};
+
+export const removeFromTrainingPlan = (techniqueId: string) => {
+  const plan = getTrainingPlan().filter(id => id !== techniqueId);
+  safeSet(KEYS.TRAINING_PLAN, plan);
+};
+
+export const clearTrainingPlan = () => {
+  safeSet(KEYS.TRAINING_PLAN, []);
+};
+
+export const isInTrainingPlan = (techniqueId: string) => {
+  return getTrainingPlan().includes(techniqueId);
+};

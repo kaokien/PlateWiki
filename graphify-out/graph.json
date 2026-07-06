@@ -1,0 +1,2653 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "HomePageClient",
+      "file_type": "code",
+      "source_file": "app/HomePageClient.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "app_homepageclient_homepageclient",
+      "community": 49,
+      "norm_label": "homepageclient"
+    },
+    {
+      "label": "Client",
+      "file_type": "code",
+      "source_file": "app/about/AboutPageClient.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "app_about_aboutpageclient_client",
+      "community": 2,
+      "norm_label": "client"
+    },
+    {
+      "label": "AboutRoute",
+      "file_type": "code",
+      "source_file": "app/about/page.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_about_page_aboutroute",
+      "community": 3,
+      "norm_label": "aboutroute"
+    },
+    {
+      "label": "generateStaticParams",
+      "file_type": "code",
+      "source_file": "app/anatomy/[id]/page.tsx",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "app_anatomy_id_page_generatestaticparams",
+      "community": 6,
+      "norm_label": "generatestaticparams"
+    },
+    {
+      "label": "generateMetadata",
+      "file_type": "code",
+      "source_file": "app/anatomy/[id]/page.tsx",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "app_anatomy_id_page_generatemetadata",
+      "community": 5,
+      "norm_label": "generatemetadata"
+    },
+    {
+      "label": "AnatomyRoute",
+      "file_type": "code",
+      "source_file": "app/anatomy/[id]/page.tsx",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "app_anatomy_id_page_anatomyroute",
+      "community": 4,
+      "norm_label": "anatomyroute"
+    },
+    {
+      "label": "GET",
+      "file_type": "code",
+      "source_file": "app/api/favorites/route.ts",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "app_api_favorites_route_get",
+      "community": 8,
+      "norm_label": "get"
+    },
+    {
+      "label": "POST",
+      "file_type": "code",
+      "source_file": "app/api/favorites/route.ts",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "app_api_favorites_route_post",
+      "community": 9,
+      "norm_label": "post"
+    },
+    {
+      "label": "DELETE",
+      "file_type": "code",
+      "source_file": "app/api/favorites/route.ts",
+      "source_location": "L102",
+      "_origin": "ast",
+      "id": "app_api_favorites_route_delete",
+      "community": 7,
+      "norm_label": "delete"
+    },
+    {
+      "label": "PUT",
+      "file_type": "code",
+      "source_file": "app/api/favorites/route.ts",
+      "source_location": "L133",
+      "_origin": "ast",
+      "id": "app_api_favorites_route_put",
+      "community": 10,
+      "norm_label": "put"
+    },
+    {
+      "label": "GET",
+      "file_type": "code",
+      "source_file": "app/api/leaderboard/route.ts",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "app_api_leaderboard_route_get",
+      "community": 11,
+      "norm_label": "get"
+    },
+    {
+      "label": "GET",
+      "file_type": "code",
+      "source_file": "app/api/profile/route.ts",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "app_api_profile_route_get",
+      "community": 12,
+      "norm_label": "get"
+    },
+    {
+      "label": "POST",
+      "file_type": "code",
+      "source_file": "app/api/profile/route.ts",
+      "source_location": "L81",
+      "_origin": "ast",
+      "id": "app_api_profile_route_post",
+      "community": 13,
+      "norm_label": "post"
+    },
+    {
+      "label": "POST",
+      "file_type": "code",
+      "source_file": "app/api/revalidate/route.ts",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "app_api_revalidate_route_post",
+      "community": 15,
+      "norm_label": "post"
+    },
+    {
+      "label": "GET",
+      "file_type": "code",
+      "source_file": "app/api/revalidate/route.ts",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "app_api_revalidate_route_get",
+      "community": 14,
+      "norm_label": "get"
+    },
+    {
+      "label": "POST",
+      "file_type": "code",
+      "source_file": "app/api/webhooks/clerk/route.ts",
+      "source_location": "L86",
+      "_origin": "ast",
+      "id": "app_api_webhooks_clerk_route_post",
+      "community": 16,
+      "norm_label": "post"
+    },
+    {
+      "label": "GET",
+      "file_type": "code",
+      "source_file": "app/api/workouts/route.ts",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "app_api_workouts_route_get",
+      "community": 18,
+      "norm_label": "get"
+    },
+    {
+      "label": "POST",
+      "file_type": "code",
+      "source_file": "app/api/workouts/route.ts",
+      "source_location": "L79",
+      "_origin": "ast",
+      "id": "app_api_workouts_route_post",
+      "community": 19,
+      "norm_label": "post"
+    },
+    {
+      "label": "DELETE",
+      "file_type": "code",
+      "source_file": "app/api/workouts/route.ts",
+      "source_location": "L114",
+      "_origin": "ast",
+      "id": "app_api_workouts_route_delete",
+      "community": 17,
+      "norm_label": "delete"
+    },
+    {
+      "label": "PUT",
+      "file_type": "code",
+      "source_file": "app/api/workouts/route.ts",
+      "source_location": "L145",
+      "_origin": "ast",
+      "id": "app_api_workouts_route_put",
+      "community": 20,
+      "norm_label": "put"
+    },
+    {
+      "label": "Client",
+      "file_type": "code",
+      "source_file": "app/articles/ArticlesPageClient.tsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "app_articles_articlespageclient_client",
+      "community": 21,
+      "norm_label": "client"
+    },
+    {
+      "label": "ArticlePageClient",
+      "file_type": "code",
+      "source_file": "app/articles/[id]/ArticlePageClient.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "app_articles_id_articlepageclient_articlepageclient",
+      "community": 22,
+      "norm_label": "articlepageclient"
+    },
+    {
+      "label": "generateStaticParams",
+      "file_type": "code",
+      "source_file": "app/articles/[id]/page.tsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "app_articles_id_page_generatestaticparams",
+      "community": 25,
+      "norm_label": "generatestaticparams"
+    },
+    {
+      "label": "generateMetadata",
+      "file_type": "code",
+      "source_file": "app/articles/[id]/page.tsx",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "app_articles_id_page_generatemetadata",
+      "community": 24,
+      "norm_label": "generatemetadata"
+    },
+    {
+      "label": "ArticleRoute",
+      "file_type": "code",
+      "source_file": "app/articles/[id]/page.tsx",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "app_articles_id_page_articleroute",
+      "community": 23,
+      "norm_label": "articleroute"
+    },
+    {
+      "label": "ArticlesLayout",
+      "file_type": "code",
+      "source_file": "app/articles/layout.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "app_articles_layout_articleslayout",
+      "community": 26,
+      "norm_label": "articleslayout"
+    },
+    {
+      "label": "ArticlesRoute",
+      "file_type": "code",
+      "source_file": "app/articles/page.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "app_articles_page_articlesroute",
+      "community": 27,
+      "norm_label": "articlesroute"
+    },
+    {
+      "label": "Route",
+      "file_type": "code",
+      "source_file": "app/contact/page.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "app_contact_page_route",
+      "community": 28,
+      "norm_label": "route"
+    },
+    {
+      "label": "CourseLayout",
+      "file_type": "code",
+      "source_file": "app/course/layout.tsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "app_course_layout_courselayout",
+      "community": 29,
+      "norm_label": "courselayout"
+    },
+    {
+      "label": "Route",
+      "file_type": "code",
+      "source_file": "app/course/page.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "app_course_page_route",
+      "community": 30,
+      "norm_label": "route"
+    },
+    {
+      "label": "generateStaticParams",
+      "file_type": "code",
+      "source_file": "app/exercise/[id]/page.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "app_exercise_id_page_generatestaticparams",
+      "community": 33,
+      "norm_label": "generatestaticparams"
+    },
+    {
+      "label": "generateMetadata",
+      "file_type": "code",
+      "source_file": "app/exercise/[id]/page.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "app_exercise_id_page_generatemetadata",
+      "community": 32,
+      "norm_label": "generatemetadata"
+    },
+    {
+      "label": "ExerciseRoute",
+      "file_type": "code",
+      "source_file": "app/exercise/[id]/page.tsx",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "app_exercise_id_page_exerciseroute",
+      "community": 31,
+      "norm_label": "exerciseroute"
+    },
+    {
+      "label": "ExercisesPageClient",
+      "file_type": "code",
+      "source_file": "app/exercises/ExercisesPageClient.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "app_exercises_exercisespageclient_exercisespageclient",
+      "community": 34,
+      "norm_label": "exercisespageclient"
+    },
+    {
+      "label": "ExercisesRoute",
+      "file_type": "code",
+      "source_file": "app/exercises/page.tsx",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "app_exercises_page_exercisesroute",
+      "community": 35,
+      "norm_label": "exercisesroute"
+    },
+    {
+      "label": "Route",
+      "file_type": "code",
+      "source_file": "app/favorites/page.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_favorites_page_route",
+      "community": 36,
+      "norm_label": "route"
+    },
+    {
+      "label": "GET",
+      "file_type": "code",
+      "source_file": "app/feed.xml/route.ts",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "app_feed_xml_route_get",
+      "community": 37,
+      "norm_label": "get"
+    },
+    {
+      "label": "Client",
+      "file_type": "code",
+      "source_file": "app/fighters/FightersPageClient.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "app_fighters_fighterspageclient_client",
+      "community": 38,
+      "norm_label": "client"
+    },
+    {
+      "label": "Client",
+      "file_type": "code",
+      "source_file": "app/fighters/[id]/FighterPageClient.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "app_fighters_id_fighterpageclient_client",
+      "community": 39,
+      "norm_label": "client"
+    },
+    {
+      "label": "generateStaticParams",
+      "file_type": "code",
+      "source_file": "app/fighters/[id]/page.tsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "app_fighters_id_page_generatestaticparams",
+      "community": 42,
+      "norm_label": "generatestaticparams"
+    },
+    {
+      "label": "generateMetadata",
+      "file_type": "code",
+      "source_file": "app/fighters/[id]/page.tsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "app_fighters_id_page_generatemetadata",
+      "community": 41,
+      "norm_label": "generatemetadata"
+    },
+    {
+      "label": "FighterRoute",
+      "file_type": "code",
+      "source_file": "app/fighters/[id]/page.tsx",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "app_fighters_id_page_fighterroute",
+      "community": 40,
+      "norm_label": "fighterroute"
+    },
+    {
+      "label": "FightersRoute",
+      "file_type": "code",
+      "source_file": "app/fighters/page.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_fighters_page_fightersroute",
+      "community": 43,
+      "norm_label": "fightersroute"
+    },
+    {
+      "label": "generateStaticParams",
+      "file_type": "code",
+      "source_file": "app/glossary/[term]/page.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "app_glossary_term_page_generatestaticparams",
+      "community": 47,
+      "norm_label": "generatestaticparams"
+    },
+    {
+      "label": "generateMetadata",
+      "file_type": "code",
+      "source_file": "app/glossary/[term]/page.tsx",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "app_glossary_term_page_generatemetadata",
+      "community": 46,
+      "norm_label": "generatemetadata"
+    },
+    {
+      "label": "GlossaryLayout",
+      "file_type": "code",
+      "source_file": "app/glossary/layout.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "app_glossary_layout_glossarylayout",
+      "community": 44,
+      "norm_label": "glossarylayout"
+    },
+    {
+      "label": "Route",
+      "file_type": "code",
+      "source_file": "app/glossary/page.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "app_glossary_page_route",
+      "community": 45,
+      "norm_label": "route"
+    },
+    {
+      "label": "Route",
+      "file_type": "code",
+      "source_file": "app/history/page.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_history_page_route",
+      "community": 48,
+      "norm_label": "route"
+    },
+    {
+      "label": "RootLayout",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "app_layout_rootlayout",
+      "community": 50,
+      "norm_label": "rootlayout"
+    },
+    {
+      "label": "LeaderboardRoute",
+      "file_type": "code",
+      "source_file": "app/leaderboard/page.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "app_leaderboard_page_leaderboardroute",
+      "community": 51,
+      "norm_label": "leaderboardroute"
+    },
+    {
+      "label": "MerchLayout",
+      "file_type": "code",
+      "source_file": "app/merch/layout.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "app_merch_layout_merchlayout",
+      "community": 52,
+      "norm_label": "merchlayout"
+    },
+    {
+      "label": "Home",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "app_page_home",
+      "community": 53,
+      "norm_label": "home"
+    },
+    {
+      "label": "Route",
+      "file_type": "code",
+      "source_file": "app/partner/page.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "app_partner_page_route",
+      "community": 54,
+      "norm_label": "route"
+    },
+    {
+      "label": "Route",
+      "file_type": "code",
+      "source_file": "app/pricing/page.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_pricing_page_route",
+      "community": 55,
+      "norm_label": "route"
+    },
+    {
+      "label": "Client",
+      "file_type": "code",
+      "source_file": "app/privacy/PrivacyPageClient.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "app_privacy_privacypageclient_client",
+      "community": 57,
+      "norm_label": "client"
+    },
+    {
+      "label": "PrivacyRoute",
+      "file_type": "code",
+      "source_file": "app/privacy/page.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_privacy_page_privacyroute",
+      "community": 56,
+      "norm_label": "privacyroute"
+    },
+    {
+      "label": "Route",
+      "file_type": "code",
+      "source_file": "app/profile/page.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_profile_page_route",
+      "community": 58,
+      "norm_label": "route"
+    },
+    {
+      "label": "generateMetadata",
+      "file_type": "code",
+      "source_file": "app/program/[id]/page.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "app_program_id_page_generatemetadata",
+      "community": 59,
+      "norm_label": "generatemetadata"
+    },
+    {
+      "label": "Route",
+      "file_type": "code",
+      "source_file": "app/program/[id]/page.tsx",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "app_program_id_page_route",
+      "community": 60,
+      "norm_label": "route"
+    },
+    {
+      "label": "ProgramsLayout",
+      "file_type": "code",
+      "source_file": "app/programs/layout.tsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "app_programs_layout_programslayout",
+      "community": 61,
+      "norm_label": "programslayout"
+    },
+    {
+      "label": "Route",
+      "file_type": "code",
+      "source_file": "app/programs/page.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "app_programs_page_route",
+      "community": 62,
+      "norm_label": "route"
+    },
+    {
+      "label": "Providers",
+      "file_type": "code",
+      "source_file": "app/providers.tsx",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "app_providers_providers",
+      "community": 63,
+      "norm_label": "providers"
+    },
+    {
+      "label": "robots",
+      "file_type": "code",
+      "source_file": "app/robots.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "app_robots_robots",
+      "community": 64,
+      "norm_label": "robots"
+    },
+    {
+      "label": "RulesLayout",
+      "file_type": "code",
+      "source_file": "app/rules/layout.tsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "app_rules_layout_ruleslayout",
+      "community": 65,
+      "norm_label": "ruleslayout"
+    },
+    {
+      "label": "Route",
+      "file_type": "code",
+      "source_file": "app/rules/page.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "app_rules_page_route",
+      "community": 66,
+      "norm_label": "route"
+    },
+    {
+      "label": "ShopRoute",
+      "file_type": "code",
+      "source_file": "app/shop/page.tsx",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "app_shop_page_shoproute",
+      "community": 67,
+      "norm_label": "shoproute"
+    },
+    {
+      "label": "sitemap",
+      "file_type": "code",
+      "source_file": "app/sitemap.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "app_sitemap_sitemap",
+      "community": 68,
+      "norm_label": "sitemap"
+    },
+    {
+      "label": "TechniquePageClient",
+      "file_type": "code",
+      "source_file": "app/technique/[id]/TechniquePageClient.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "app_technique_id_techniquepageclient_techniquepageclient",
+      "community": 71,
+      "norm_label": "techniquepageclient"
+    },
+    {
+      "label": "generateStaticParams",
+      "file_type": "code",
+      "source_file": "app/technique/[id]/page.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "app_technique_id_page_generatestaticparams",
+      "community": 70,
+      "norm_label": "generatestaticparams"
+    },
+    {
+      "label": "generateMetadata",
+      "file_type": "code",
+      "source_file": "app/technique/[id]/page.tsx",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "app_technique_id_page_generatemetadata",
+      "community": 69,
+      "norm_label": "generatemetadata"
+    },
+    {
+      "label": "generateMetadata",
+      "file_type": "code",
+      "source_file": "app/technique/[id]/workout/page.tsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "app_technique_id_workout_page_generatemetadata",
+      "community": 72,
+      "norm_label": "generatemetadata"
+    },
+    {
+      "label": "WorkoutRoute",
+      "file_type": "code",
+      "source_file": "app/technique/[id]/workout/page.tsx",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "app_technique_id_workout_page_workoutroute",
+      "community": 73,
+      "norm_label": "workoutroute"
+    },
+    {
+      "label": "CategoryLayout",
+      "file_type": "code",
+      "source_file": "app/techniques/[category]/layout.tsx",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "app_techniques_category_layout_categorylayout",
+      "community": 74,
+      "norm_label": "categorylayout"
+    },
+    {
+      "label": "generateStaticParams",
+      "file_type": "code",
+      "source_file": "app/techniques/[category]/page.tsx",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "app_techniques_category_page_generatestaticparams",
+      "community": 77,
+      "norm_label": "generatestaticparams"
+    },
+    {
+      "label": "generateMetadata",
+      "file_type": "code",
+      "source_file": "app/techniques/[category]/page.tsx",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "app_techniques_category_page_generatemetadata",
+      "community": 76,
+      "norm_label": "generatemetadata"
+    },
+    {
+      "label": "CategoryPage",
+      "file_type": "code",
+      "source_file": "app/techniques/[category]/page.tsx",
+      "source_location": "L71",
+      "_origin": "ast",
+      "id": "app_techniques_category_page_categorypage",
+      "community": 75,
+      "norm_label": "categorypage"
+    },
+    {
+      "label": "TechniquesLayout",
+      "file_type": "code",
+      "source_file": "app/techniques/layout.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "app_techniques_layout_techniqueslayout",
+      "community": 78,
+      "norm_label": "techniqueslayout"
+    },
+    {
+      "label": "Route",
+      "file_type": "code",
+      "source_file": "app/techniques/page.tsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "app_techniques_page_route",
+      "community": 79,
+      "norm_label": "route"
+    },
+    {
+      "label": "Client",
+      "file_type": "code",
+      "source_file": "app/terms/TermsPageClient.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "app_terms_termspageclient_client",
+      "community": 81,
+      "norm_label": "client"
+    },
+    {
+      "label": "TermsRoute",
+      "file_type": "code",
+      "source_file": "app/terms/page.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_terms_page_termsroute",
+      "community": 80,
+      "norm_label": "termsroute"
+    },
+    {
+      "label": "TimerLayout",
+      "file_type": "code",
+      "source_file": "app/timer/layout.tsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "app_timer_layout_timerlayout",
+      "community": 82,
+      "norm_label": "timerlayout"
+    },
+    {
+      "label": "Route",
+      "file_type": "code",
+      "source_file": "app/timer/page.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_timer_page_route",
+      "community": 83,
+      "norm_label": "route"
+    },
+    {
+      "label": "WatchRoute",
+      "file_type": "code",
+      "source_file": "app/watch/page.tsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "app_watch_page_watchroute",
+      "community": 84,
+      "norm_label": "watchroute"
+    },
+    {
+      "label": "Page",
+      "file_type": "code",
+      "source_file": "app/workout-generator/page.tsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "app_workout_generator_page_page",
+      "community": 85,
+      "norm_label": "page"
+    },
+    {
+      "label": "WorkoutLayout",
+      "file_type": "code",
+      "source_file": "app/workout/layout.tsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "app_workout_layout_workoutlayout",
+      "community": 86,
+      "norm_label": "workoutlayout"
+    },
+    {
+      "label": "Route",
+      "file_type": "code",
+      "source_file": "app/workout/page.tsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "app_workout_page_route",
+      "community": 87,
+      "norm_label": "route"
+    },
+    {
+      "label": "WorkoutsPageClient",
+      "file_type": "code",
+      "source_file": "app/workouts/WorkoutsPageClient.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "app_workouts_workoutspageclient_workoutspageclient",
+      "community": 95,
+      "norm_label": "workoutspageclient"
+    },
+    {
+      "label": "generateStaticParams",
+      "file_type": "code",
+      "source_file": "app/workouts/[slug]/page.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "app_workouts_slug_page_generatestaticparams",
+      "community": 93,
+      "norm_label": "generatestaticparams"
+    },
+    {
+      "label": "generateMetadata",
+      "file_type": "code",
+      "source_file": "app/workouts/[slug]/page.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "app_workouts_slug_page_generatemetadata",
+      "community": 92,
+      "norm_label": "generatemetadata"
+    },
+    {
+      "label": "MuscleWorkoutRoute",
+      "file_type": "code",
+      "source_file": "app/workouts/[slug]/page.tsx",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "app_workouts_slug_page_muscleworkoutroute",
+      "community": 94,
+      "norm_label": "muscleworkoutroute"
+    },
+    {
+      "label": "generateStaticParams",
+      "file_type": "code",
+      "source_file": "app/workouts/goal/[slug]/page.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "app_workouts_goal_slug_page_generatestaticparams",
+      "community": 89,
+      "norm_label": "generatestaticparams"
+    },
+    {
+      "label": "generateMetadata",
+      "file_type": "code",
+      "source_file": "app/workouts/goal/[slug]/page.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "app_workouts_goal_slug_page_generatemetadata",
+      "community": 88,
+      "norm_label": "generatemetadata"
+    },
+    {
+      "label": "GoalWorkoutRoute",
+      "file_type": "code",
+      "source_file": "app/workouts/goal/[slug]/page.tsx",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "app_workouts_goal_slug_page_goalworkoutroute",
+      "community": 90,
+      "norm_label": "goalworkoutroute"
+    },
+    {
+      "label": "WorkoutsRoute",
+      "file_type": "code",
+      "source_file": "app/workouts/page.tsx",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "app_workouts_page_workoutsroute",
+      "community": 91,
+      "norm_label": "workoutsroute"
+    },
+    {
+      "label": "AuthGate",
+      "file_type": "code",
+      "source_file": "components/AuthGate.tsx",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "components_authgate_authgate",
+      "community": 96,
+      "norm_label": "authgate"
+    },
+    {
+      "label": "BackNavCleanup",
+      "file_type": "code",
+      "source_file": "components/BackNavDetector.tsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "components_backnavdetector_backnavcleanup",
+      "community": 97,
+      "norm_label": "backnavcleanup"
+    },
+    {
+      "label": "BadgeUnlockToast",
+      "file_type": "code",
+      "source_file": "components/BadgeUnlockToast.tsx",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "components_badgeunlocktoast_badgeunlocktoast",
+      "community": 98,
+      "norm_label": "badgeunlocktoast"
+    },
+    {
+      "label": "CloudSyncNudge",
+      "file_type": "code",
+      "source_file": "components/CloudSyncNudge.tsx",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "components_cloudsyncnudge_cloudsyncnudge",
+      "community": 99,
+      "norm_label": "cloudsyncnudge"
+    },
+    {
+      "label": "DailyRewardPopup",
+      "file_type": "code",
+      "source_file": "components/DailyRewardPopup.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "components_dailyrewardpopup_dailyrewardpopup",
+      "community": 100,
+      "norm_label": "dailyrewardpopup"
+    },
+    {
+      "label": "FirstBloodModal",
+      "file_type": "code",
+      "source_file": "components/FirstBloodModal.tsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "components_firstbloodmodal_firstbloodmodal",
+      "community": 101,
+      "norm_label": "firstbloodmodal"
+    },
+    {
+      "label": "JsonLd",
+      "file_type": "code",
+      "source_file": "components/JsonLd.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "components_jsonld_jsonld",
+      "community": 109,
+      "norm_label": "jsonld"
+    },
+    {
+      "label": "PixelFighterCanvas",
+      "file_type": "code",
+      "source_file": "components/PixelFighterCanvas.tsx",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "components_pixelfightercanvas_pixelfightercanvas",
+      "community": 111,
+      "norm_label": "pixelfightercanvas"
+    },
+    {
+      "label": "ProspectIcon",
+      "file_type": "code",
+      "source_file": "components/RankIcons.tsx",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "components_rankicons_prospecticon",
+      "community": 116,
+      "norm_label": "prospecticon"
+    },
+    {
+      "label": "ContenderIcon",
+      "file_type": "code",
+      "source_file": "components/RankIcons.tsx",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "components_rankicons_contendericon",
+      "community": 113,
+      "norm_label": "contendericon"
+    },
+    {
+      "label": "GatekeeperIcon",
+      "file_type": "code",
+      "source_file": "components/RankIcons.tsx",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "components_rankicons_gatekeepericon",
+      "community": 114,
+      "norm_label": "gatekeepericon"
+    },
+    {
+      "label": "RisingStarIcon",
+      "file_type": "code",
+      "source_file": "components/RankIcons.tsx",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "components_rankicons_risingstaricon",
+      "community": 118,
+      "norm_label": "risingstaricon"
+    },
+    {
+      "label": "ChampionIcon",
+      "file_type": "code",
+      "source_file": "components/RankIcons.tsx",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "components_rankicons_championicon",
+      "community": 112,
+      "norm_label": "championicon"
+    },
+    {
+      "label": "HallOfFamerIcon",
+      "file_type": "code",
+      "source_file": "components/RankIcons.tsx",
+      "source_location": "L76",
+      "_origin": "ast",
+      "id": "components_rankicons_halloffamericon",
+      "community": 115,
+      "norm_label": "halloffamericon"
+    },
+    {
+      "label": "RankIcon",
+      "file_type": "code",
+      "source_file": "components/RankIcons.tsx",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "components_rankicons_rankicon",
+      "community": 117,
+      "norm_label": "rankicon"
+    },
+    {
+      "label": "StorageQuotaWarning",
+      "file_type": "code",
+      "source_file": "components/StorageQuotaWarning.tsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "components_storagequotawarning_storagequotawarning",
+      "community": 119,
+      "norm_label": "storagequotawarning"
+    },
+    {
+      "label": "ThemeToggle",
+      "file_type": "code",
+      "source_file": "components/ThemeToggle.tsx",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "components_themetoggle_themetoggle",
+      "community": 120,
+      "norm_label": "themetoggle"
+    },
+    {
+      "label": "BoxingGloveIcon",
+      "file_type": "code",
+      "source_file": "components/icons/BoxingGloveIcon.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "components_icons_boxinggloveicon_boxinggloveicon",
+      "community": 102,
+      "norm_label": "boxinggloveicon"
+    },
+    {
+      "label": "GloveFilledIcon",
+      "file_type": "code",
+      "source_file": "components/icons/GearIcons.tsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "components_icons_gearicons_glovefilledicon",
+      "community": 103,
+      "norm_label": "glovefilledicon"
+    },
+    {
+      "label": "WrapsFilledIcon",
+      "file_type": "code",
+      "source_file": "components/icons/GearIcons.tsx",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "components_icons_gearicons_wrapsfilledicon",
+      "community": 108,
+      "norm_label": "wrapsfilledicon"
+    },
+    {
+      "label": "HeadgearFilledIcon",
+      "file_type": "code",
+      "source_file": "components/icons/GearIcons.tsx",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "components_icons_gearicons_headgearfilledicon",
+      "community": 104,
+      "norm_label": "headgearfilledicon"
+    },
+    {
+      "label": "MittsFilledIcon",
+      "file_type": "code",
+      "source_file": "components/icons/GearIcons.tsx",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "components_icons_gearicons_mittsfilledicon",
+      "community": 105,
+      "norm_label": "mittsfilledicon"
+    },
+    {
+      "label": "SetFilledIcon",
+      "file_type": "code",
+      "source_file": "components/icons/GearIcons.tsx",
+      "source_location": "L81",
+      "_origin": "ast",
+      "id": "components_icons_gearicons_setfilledicon",
+      "community": 106,
+      "norm_label": "setfilledicon"
+    },
+    {
+      "label": "SparringGloveFilledIcon",
+      "file_type": "code",
+      "source_file": "components/icons/GearIcons.tsx",
+      "source_location": "L101",
+      "_origin": "ast",
+      "id": "components_icons_gearicons_sparringglovefilledicon",
+      "community": 107,
+      "norm_label": "sparringglovefilledicon"
+    },
+    {
+      "label": "Footer",
+      "file_type": "code",
+      "source_file": "components/layout/Footer.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "components_layout_footer_footer",
+      "community": 110,
+      "norm_label": "footer"
+    },
+    {
+      "label": "FighterProfileProvider",
+      "file_type": "code",
+      "source_file": "context/FighterProfileContext.tsx",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "context_fighterprofilecontext_fighterprofileprovider",
+      "community": 121,
+      "norm_label": "fighterprofileprovider"
+    },
+    {
+      "label": "useFighterProfile",
+      "file_type": "code",
+      "source_file": "context/FighterProfileContext.tsx",
+      "source_location": "L259",
+      "_origin": "ast",
+      "id": "context_fighterprofilecontext_usefighterprofile",
+      "community": 122,
+      "norm_label": "usefighterprofile"
+    },
+    {
+      "label": "ArticleSection",
+      "file_type": "code",
+      "source_file": "data/articles/index.d.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "data_articles_index_d_articlesection",
+      "community": 124,
+      "norm_label": "articlesection"
+    },
+    {
+      "label": "Article",
+      "file_type": "code",
+      "source_file": "data/articles/index.d.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "data_articles_index_d_article",
+      "community": 123,
+      "norm_label": "article"
+    },
+    {
+      "label": "Category",
+      "file_type": "code",
+      "source_file": "data/articles/index.d.ts",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "data_articles_index_d_category",
+      "community": 125,
+      "norm_label": "category"
+    },
+    {
+      "label": "ComboStep",
+      "file_type": "code",
+      "source_file": "data/combos.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "data_combos_combostep",
+      "community": 127,
+      "norm_label": "combostep"
+    },
+    {
+      "label": "Combo",
+      "file_type": "code",
+      "source_file": "data/combos.ts",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "data_combos_combo",
+      "community": 126,
+      "norm_label": "combo"
+    },
+    {
+      "label": "GearSlot",
+      "file_type": "code",
+      "source_file": "data/fighterSprites.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "data_fightersprites_gearslot",
+      "community": 133,
+      "norm_label": "gearslot"
+    },
+    {
+      "label": "GearItem",
+      "file_type": "code",
+      "source_file": "data/fighterSprites.ts",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "data_fightersprites_gearitem",
+      "community": 132,
+      "norm_label": "gearitem"
+    },
+    {
+      "label": "FighterStage",
+      "file_type": "code",
+      "source_file": "data/fighterSprites.ts",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "data_fightersprites_fighterstage",
+      "community": 131,
+      "norm_label": "fighterstage"
+    },
+    {
+      "label": "getStageForRank",
+      "file_type": "code",
+      "source_file": "data/fighterSprites.ts",
+      "source_location": "L111",
+      "_origin": "ast",
+      "id": "data_fightersprites_getstageforrank",
+      "community": 134,
+      "norm_label": "getstageforrank"
+    },
+    {
+      "label": "getStageIndex",
+      "file_type": "code",
+      "source_file": "data/fighterSprites.ts",
+      "source_location": "L115",
+      "_origin": "ast",
+      "id": "data_fightersprites_getstageindex",
+      "community": 135,
+      "norm_label": "getstageindex"
+    },
+    {
+      "label": "BodyType",
+      "file_type": "code",
+      "source_file": "data/fighterSprites.ts",
+      "source_location": "L122",
+      "_origin": "ast",
+      "id": "data_fightersprites_bodytype",
+      "community": 128,
+      "norm_label": "bodytype"
+    },
+    {
+      "label": "FighterCustomization",
+      "file_type": "code",
+      "source_file": "data/fighterSprites.ts",
+      "source_location": "L124",
+      "_origin": "ast",
+      "id": "data_fightersprites_fightercustomization",
+      "community": 130,
+      "norm_label": "fightercustomization"
+    },
+    {
+      "label": "createDefaultCustomization",
+      "file_type": "code",
+      "source_file": "data/fighterSprites.ts",
+      "source_location": "L190",
+      "_origin": "ast",
+      "id": "data_fightersprites_createdefaultcustomization",
+      "community": 129,
+      "norm_label": "createdefaultcustomization"
+    },
+    {
+      "label": "GymExercise",
+      "file_type": "code",
+      "source_file": "data/gymWorkouts.d.ts",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "data_gymworkouts_d_gymexercise",
+      "community": 136,
+      "norm_label": "gymexercise"
+    },
+    {
+      "label": "GymWorkout",
+      "file_type": "code",
+      "source_file": "data/gymWorkouts.d.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "data_gymworkouts_d_gymworkout",
+      "community": 137,
+      "norm_label": "gymworkout"
+    },
+    {
+      "label": "getWorkoutForTechnique",
+      "file_type": "code",
+      "source_file": "data/gymWorkouts.js",
+      "source_location": "L470",
+      "_origin": "ast",
+      "id": "data_gymworkouts_getworkoutfortechnique",
+      "community": 138,
+      "norm_label": "getworkoutfortechnique"
+    },
+    {
+      "label": "ProgramTask",
+      "file_type": "code",
+      "source_file": "data/programs.d.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "data_programs_d_programtask",
+      "community": 141,
+      "norm_label": "programtask"
+    },
+    {
+      "label": "ProgramDay",
+      "file_type": "code",
+      "source_file": "data/programs.d.ts",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "data_programs_d_programday",
+      "community": 140,
+      "norm_label": "programday"
+    },
+    {
+      "label": "Program",
+      "file_type": "code",
+      "source_file": "data/programs.d.ts",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "data_programs_d_program",
+      "community": 139,
+      "norm_label": "program"
+    },
+    {
+      "label": "ShopItemCategory",
+      "file_type": "code",
+      "source_file": "data/shopItems.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "data_shopitems_shopitemcategory",
+      "community": 143,
+      "norm_label": "shopitemcategory"
+    },
+    {
+      "label": "ShopItem",
+      "file_type": "code",
+      "source_file": "data/shopItems.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "data_shopitems_shopitem",
+      "community": 142,
+      "norm_label": "shopitem"
+    },
+    {
+      "label": "BodyPart",
+      "file_type": "code",
+      "source_file": "data/techniques.d.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "data_techniques_d_bodypart",
+      "community": 144,
+      "norm_label": "bodypart"
+    },
+    {
+      "label": "Technique",
+      "file_type": "code",
+      "source_file": "data/techniques.d.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "data_techniques_d_technique",
+      "community": 145,
+      "norm_label": "technique"
+    },
+    {
+      "label": "VideoCategory",
+      "file_type": "code",
+      "source_file": "data/watchVideos.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "data_watchvideos_videocategory",
+      "community": 146,
+      "norm_label": "videocategory"
+    },
+    {
+      "label": "VideoPlatform",
+      "file_type": "code",
+      "source_file": "data/watchVideos.ts",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "data_watchvideos_videoplatform",
+      "community": 148,
+      "norm_label": "videoplatform"
+    },
+    {
+      "label": "VideoFormat",
+      "file_type": "code",
+      "source_file": "data/watchVideos.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "data_watchvideos_videoformat",
+      "community": 147,
+      "norm_label": "videoformat"
+    },
+    {
+      "label": "WatchVideo",
+      "file_type": "code",
+      "source_file": "data/watchVideos.ts",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "data_watchvideos_watchvideo",
+      "community": 149,
+      "norm_label": "watchvideo"
+    },
+    {
+      "label": "ChallengeRequirement",
+      "file_type": "code",
+      "source_file": "data/weeklyChallenges.ts",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "data_weeklychallenges_challengerequirement",
+      "community": 150,
+      "norm_label": "challengerequirement"
+    },
+    {
+      "label": "WeeklyChallenge",
+      "file_type": "code",
+      "source_file": "data/weeklyChallenges.ts",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "data_weeklychallenges_weeklychallenge",
+      "community": 158,
+      "norm_label": "weeklychallenge"
+    },
+    {
+      "label": "getChallengeWeekStart",
+      "file_type": "code",
+      "source_file": "data/weeklyChallenges.ts",
+      "source_location": "L132",
+      "_origin": "ast",
+      "id": "data_weeklychallenges_getchallengeweekstart",
+      "community": 154,
+      "norm_label": "getchallengeweekstart"
+    },
+    {
+      "label": "getCurrentChallenge",
+      "file_type": "code",
+      "source_file": "data/weeklyChallenges.ts",
+      "source_location": "L146",
+      "_origin": "ast",
+      "id": "data_weeklychallenges_getcurrentchallenge",
+      "community": 155,
+      "norm_label": "getcurrentchallenge"
+    },
+    {
+      "label": "getChallengeProgress",
+      "file_type": "code",
+      "source_file": "data/weeklyChallenges.ts",
+      "source_location": "L197",
+      "_origin": "ast",
+      "id": "data_weeklychallenges_getchallengeprogress",
+      "community": 152,
+      "norm_label": "getchallengeprogress"
+    },
+    {
+      "label": "incrementChallengeProgress",
+      "file_type": "code",
+      "source_file": "data/weeklyChallenges.ts",
+      "source_location": "L210",
+      "_origin": "ast",
+      "id": "data_weeklychallenges_incrementchallengeprogress",
+      "community": 156,
+      "norm_label": "incrementchallengeprogress"
+    },
+    {
+      "label": "isChallengeComplete",
+      "file_type": "code",
+      "source_file": "data/weeklyChallenges.ts",
+      "source_location": "L222",
+      "_origin": "ast",
+      "id": "data_weeklychallenges_ischallengecomplete",
+      "community": 157,
+      "norm_label": "ischallengecomplete"
+    },
+    {
+      "label": "getChallengeRewardClaimed",
+      "file_type": "code",
+      "source_file": "data/weeklyChallenges.ts",
+      "source_location": "L232",
+      "_origin": "ast",
+      "id": "data_weeklychallenges_getchallengerewardclaimed",
+      "community": 153,
+      "norm_label": "getchallengerewardclaimed"
+    },
+    {
+      "label": "claimChallengeReward",
+      "file_type": "code",
+      "source_file": "data/weeklyChallenges.ts",
+      "source_location": "L237",
+      "_origin": "ast",
+      "id": "data_weeklychallenges_claimchallengereward",
+      "community": 151,
+      "norm_label": "claimchallengereward"
+    },
+    {
+      "label": "triggerCloudSync",
+      "file_type": "code",
+      "source_file": "hooks/useCloudSync.ts",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "hooks_usecloudsync_triggercloudsync",
+      "community": 159,
+      "norm_label": "triggercloudsync"
+    },
+    {
+      "label": "useCloudSync",
+      "file_type": "code",
+      "source_file": "hooks/useCloudSync.ts",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "hooks_usecloudsync_usecloudsync",
+      "community": 160,
+      "norm_label": "usecloudsync"
+    },
+    {
+      "label": "useFighterCustomization",
+      "file_type": "code",
+      "source_file": "hooks/useFighterCustomization.ts",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "hooks_usefightercustomization_usefightercustomization",
+      "community": 161,
+      "norm_label": "usefightercustomization"
+    },
+    {
+      "label": "useFocusTrap",
+      "file_type": "code",
+      "source_file": "hooks/useFocusTrap.ts",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "hooks_usefocustrap_usefocustrap",
+      "community": 162,
+      "norm_label": "usefocustrap"
+    },
+    {
+      "label": "useGlobalKeyboard",
+      "file_type": "code",
+      "source_file": "hooks/useGlobalKeyboard.ts",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "hooks_useglobalkeyboard_useglobalkeyboard",
+      "community": 163,
+      "norm_label": "useglobalkeyboard"
+    },
+    {
+      "label": "useLocalReminders",
+      "file_type": "code",
+      "source_file": "hooks/useLocalReminders.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "hooks_uselocalreminders_uselocalreminders",
+      "community": 164,
+      "norm_label": "uselocalreminders"
+    },
+    {
+      "label": "useScrollReveal",
+      "file_type": "code",
+      "source_file": "hooks/useScrollReveal.js",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "hooks_usescrollreveal_usescrollreveal",
+      "community": 165,
+      "norm_label": "usescrollreveal"
+    },
+    {
+      "label": "useWakeLock",
+      "file_type": "code",
+      "source_file": "hooks/useWakeLock.ts",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "hooks_usewakelock_usewakelock",
+      "community": 166,
+      "norm_label": "usewakelock"
+    },
+    {
+      "label": "rateLimit",
+      "file_type": "code",
+      "source_file": "lib/rateLimit.ts",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "lib_ratelimit_ratelimit",
+      "community": 168,
+      "norm_label": "ratelimit"
+    },
+    {
+      "label": "getRateLimitKey",
+      "file_type": "code",
+      "source_file": "lib/rateLimit.ts",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "lib_ratelimit_getratelimitkey",
+      "community": 167,
+      "norm_label": "getratelimitkey"
+    },
+    {
+      "label": "createServerSupabase",
+      "file_type": "code",
+      "source_file": "lib/supabase.ts",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "lib_supabase_createserversupabase",
+      "community": 169,
+      "norm_label": "createserversupabase"
+    },
+    {
+      "label": "Technique",
+      "file_type": "code",
+      "source_file": "types/index.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "types_index_technique",
+      "community": 175,
+      "norm_label": "technique"
+    },
+    {
+      "label": "BodyPart",
+      "file_type": "code",
+      "source_file": "types/index.ts",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "types_index_bodypart",
+      "community": 172,
+      "norm_label": "bodypart"
+    },
+    {
+      "label": "Article",
+      "file_type": "code",
+      "source_file": "types/index.ts",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "types_index_article",
+      "community": 170,
+      "norm_label": "article"
+    },
+    {
+      "label": "ArticleSection",
+      "file_type": "code",
+      "source_file": "types/index.ts",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "types_index_articlesection",
+      "community": 171,
+      "norm_label": "articlesection"
+    },
+    {
+      "label": "GearRecommendation",
+      "file_type": "code",
+      "source_file": "types/index.ts",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "types_index_gearrecommendation",
+      "community": 174,
+      "norm_label": "gearrecommendation"
+    },
+    {
+      "label": "TechniqueMap",
+      "file_type": "code",
+      "source_file": "types/index.ts",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "types_index_techniquemap",
+      "community": 176,
+      "norm_label": "techniquemap"
+    },
+    {
+      "label": "BodyPartMap",
+      "file_type": "code",
+      "source_file": "types/index.ts",
+      "source_location": "L67",
+      "_origin": "ast",
+      "id": "types_index_bodypartmap",
+      "community": 173,
+      "norm_label": "bodypartmap"
+    },
+    {
+      "label": "TestVariant",
+      "file_type": "code",
+      "source_file": "utils/abTest.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "utils_abtest_testvariant",
+      "community": 179,
+      "norm_label": "testvariant"
+    },
+    {
+      "label": "getOrAssignVariant",
+      "file_type": "code",
+      "source_file": "utils/abTest.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "utils_abtest_getorassignvariant",
+      "community": 177,
+      "norm_label": "getorassignvariant"
+    },
+    {
+      "label": "resetTestAllocations",
+      "file_type": "code",
+      "source_file": "utils/abTest.ts",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "utils_abtest_resettestallocations",
+      "community": 178,
+      "norm_label": "resettestallocations"
+    },
+    {
+      "label": "trackEvent",
+      "file_type": "code",
+      "source_file": "utils/analytics.ts",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "utils_analytics_trackevent",
+      "community": 180,
+      "norm_label": "trackevent"
+    },
+    {
+      "label": "TrainingStats",
+      "file_type": "code",
+      "source_file": "utils/analytics.ts",
+      "source_location": "L209",
+      "_origin": "ast",
+      "id": "utils_analytics_trainingstats",
+      "community": 181,
+      "norm_label": "trainingstats"
+    },
+    {
+      "label": "Badge",
+      "file_type": "code",
+      "source_file": "utils/badges.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "utils_badges_badge",
+      "community": 0,
+      "norm_label": "badge"
+    },
+    {
+      "label": "formatEarners",
+      "file_type": "code",
+      "source_file": "utils/badges.ts",
+      "source_location": "L212",
+      "_origin": "ast",
+      "id": "utils_badges_formatearners",
+      "community": 182,
+      "norm_label": "formatearners"
+    },
+    {
+      "label": "getEarnedBadges",
+      "file_type": "code",
+      "source_file": "utils/badges.ts",
+      "source_location": "L218",
+      "_origin": "ast",
+      "id": "utils_badges_getearnedbadges",
+      "community": 184,
+      "norm_label": "getearnedbadges"
+    },
+    {
+      "label": "getEarnedBadgeIds",
+      "file_type": "code",
+      "source_file": "utils/badges.ts",
+      "source_location": "L223",
+      "_origin": "ast",
+      "id": "utils_badges_getearnedbadgeids",
+      "community": 183,
+      "norm_label": "getearnedbadgeids"
+    },
+    {
+      "label": "getNewlyUnlockedBadges",
+      "file_type": "code",
+      "source_file": "utils/badges.ts",
+      "source_location": "L231",
+      "_origin": "ast",
+      "id": "utils_badges_getnewlyunlockedbadges",
+      "community": 185,
+      "norm_label": "getnewlyunlockedbadges"
+    },
+    {
+      "label": "ArticleSection",
+      "file_type": "code",
+      "source_file": "utils/contentLoader.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "utils_contentloader_articlesection",
+      "community": 187,
+      "norm_label": "articlesection"
+    },
+    {
+      "label": "Article",
+      "file_type": "code",
+      "source_file": "utils/contentLoader.ts",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "utils_contentloader_article",
+      "community": 186,
+      "norm_label": "article"
+    },
+    {
+      "label": "getRemoteManifest",
+      "file_type": "code",
+      "source_file": "utils/contentLoader.ts",
+      "source_location": "L82",
+      "_origin": "ast",
+      "id": "utils_contentloader_getremotemanifest",
+      "community": 191,
+      "norm_label": "getremotemanifest"
+    },
+    {
+      "label": "getArticlesList",
+      "file_type": "code",
+      "source_file": "utils/contentLoader.ts",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "utils_contentloader_getarticleslist",
+      "community": 189,
+      "norm_label": "getarticleslist"
+    },
+    {
+      "label": "getCategoriesWithCounts",
+      "file_type": "code",
+      "source_file": "utils/contentLoader.ts",
+      "source_location": "L127",
+      "_origin": "ast",
+      "id": "utils_contentloader_getcategorieswithcounts",
+      "community": 190,
+      "norm_label": "getcategorieswithcounts"
+    },
+    {
+      "label": "getArticle",
+      "file_type": "code",
+      "source_file": "utils/contentLoader.ts",
+      "source_location": "L150",
+      "_origin": "ast",
+      "id": "utils_contentloader_getarticle",
+      "community": 188,
+      "norm_label": "getarticle"
+    },
+    {
+      "label": "buildCustomCombo",
+      "file_type": "code",
+      "source_file": "utils/customCombos.ts",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "utils_customcombos_buildcustomcombo",
+      "community": 192,
+      "norm_label": "buildcustomcombo"
+    },
+    {
+      "label": "isCustomCombo",
+      "file_type": "code",
+      "source_file": "utils/customCombos.ts",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "utils_customcombos_iscustomcombo",
+      "community": 195,
+      "norm_label": "iscustomcombo"
+    },
+    {
+      "label": "getCustomCombos",
+      "file_type": "code",
+      "source_file": "utils/customCombos.ts",
+      "source_location": "L71",
+      "_origin": "ast",
+      "id": "utils_customcombos_getcustomcombos",
+      "community": 194,
+      "norm_label": "getcustomcombos"
+    },
+    {
+      "label": "saveCustomCombo",
+      "file_type": "code",
+      "source_file": "utils/customCombos.ts",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "utils_customcombos_savecustomcombo",
+      "community": 196,
+      "norm_label": "savecustomcombo"
+    },
+    {
+      "label": "deleteCustomCombo",
+      "file_type": "code",
+      "source_file": "utils/customCombos.ts",
+      "source_location": "L99",
+      "_origin": "ast",
+      "id": "utils_customcombos_deletecustomcombo",
+      "community": 193,
+      "norm_label": "deletecustomcombo"
+    },
+    {
+      "label": "DailyRewardState",
+      "file_type": "code",
+      "source_file": "utils/dailyRewards.ts",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "utils_dailyrewards_dailyrewardstate",
+      "community": 198,
+      "norm_label": "dailyrewardstate"
+    },
+    {
+      "label": "getDailyRewardState",
+      "file_type": "code",
+      "source_file": "utils/dailyRewards.ts",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "utils_dailyrewards_getdailyrewardstate",
+      "community": 199,
+      "norm_label": "getdailyrewardstate"
+    },
+    {
+      "label": "claimDailyReward",
+      "file_type": "code",
+      "source_file": "utils/dailyRewards.ts",
+      "source_location": "L81",
+      "_origin": "ast",
+      "id": "utils_dailyrewards_claimdailyreward",
+      "community": 197,
+      "norm_label": "claimdailyreward"
+    },
+    {
+      "label": "HistoryItem",
+      "file_type": "code",
+      "source_file": "utils/favorites.ts",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "utils_favorites_historyitem",
+      "community": 200,
+      "norm_label": "historyitem"
+    },
+    {
+      "label": "getCustomization",
+      "file_type": "code",
+      "source_file": "utils/fighterCustomization.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "utils_fightercustomization_getcustomization",
+      "community": 201,
+      "norm_label": "getcustomization"
+    },
+    {
+      "label": "saveCustomization",
+      "file_type": "code",
+      "source_file": "utils/fighterCustomization.ts",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "utils_fightercustomization_savecustomization",
+      "community": 202,
+      "norm_label": "savecustomization"
+    },
+    {
+      "label": "updateCustomization",
+      "file_type": "code",
+      "source_file": "utils/fighterCustomization.ts",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "utils_fightercustomization_updatecustomization",
+      "community": 203,
+      "norm_label": "updatecustomization"
+    },
+    {
+      "label": "RankTier",
+      "file_type": "code",
+      "source_file": "utils/fighterProfile.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "utils_fighterprofile_ranktier",
+      "community": 211,
+      "norm_label": "ranktier"
+    },
+    {
+      "label": "XPSource",
+      "file_type": "code",
+      "source_file": "utils/fighterProfile.ts",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "utils_fighterprofile_xpsource",
+      "community": 218,
+      "norm_label": "xpsource"
+    },
+    {
+      "label": "FighterProfile",
+      "file_type": "code",
+      "source_file": "utils/fighterProfile.ts",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "utils_fighterprofile_fighterprofile",
+      "community": 0,
+      "norm_label": "fighterprofile"
+    },
+    {
+      "label": "XPAwardResult",
+      "file_type": "code",
+      "source_file": "utils/fighterProfile.ts",
+      "source_location": "L81",
+      "_origin": "ast",
+      "id": "utils_fighterprofile_xpawardresult",
+      "community": 217,
+      "norm_label": "xpawardresult"
+    },
+    {
+      "label": "createDefaultProfile",
+      "file_type": "code",
+      "source_file": "utils/fighterProfile.ts",
+      "source_location": "L103",
+      "_origin": "ast",
+      "id": "utils_fighterprofile_createdefaultprofile",
+      "community": 205,
+      "norm_label": "createdefaultprofile"
+    },
+    {
+      "label": "getProfile",
+      "file_type": "code",
+      "source_file": "utils/fighterProfile.ts",
+      "source_location": "L131",
+      "_origin": "ast",
+      "id": "utils_fighterprofile_getprofile",
+      "community": 208,
+      "norm_label": "getprofile"
+    },
+    {
+      "label": "saveProfile",
+      "file_type": "code",
+      "source_file": "utils/fighterProfile.ts",
+      "source_location": "L149",
+      "_origin": "ast",
+      "id": "utils_fighterprofile_saveprofile",
+      "community": 213,
+      "norm_label": "saveprofile"
+    },
+    {
+      "label": "getRankForXP",
+      "file_type": "code",
+      "source_file": "utils/fighterProfile.ts",
+      "source_location": "L163",
+      "_origin": "ast",
+      "id": "utils_fighterprofile_getrankforxp",
+      "community": 209,
+      "norm_label": "getrankforxp"
+    },
+    {
+      "label": "getNextRankThreshold",
+      "file_type": "code",
+      "source_file": "utils/fighterProfile.ts",
+      "source_location": "L171",
+      "_origin": "ast",
+      "id": "utils_fighterprofile_getnextrankthreshold",
+      "community": 207,
+      "norm_label": "getnextrankthreshold"
+    },
+    {
+      "label": "isLuckyPunch",
+      "file_type": "code",
+      "source_file": "utils/fighterProfile.ts",
+      "source_location": "L199",
+      "_origin": "ast",
+      "id": "utils_fighterprofile_isluckypunch",
+      "community": 210,
+      "norm_label": "isluckypunch"
+    },
+    {
+      "label": "awardXP",
+      "file_type": "code",
+      "source_file": "utils/fighterProfile.ts",
+      "source_location": "L223",
+      "_origin": "ast",
+      "id": "utils_fighterprofile_awardxp",
+      "community": 204,
+      "norm_label": "awardxp"
+    },
+    {
+      "label": "spendCoins",
+      "file_type": "code",
+      "source_file": "utils/fighterProfile.ts",
+      "source_location": "L384",
+      "_origin": "ast",
+      "id": "utils_fighterprofile_spendcoins",
+      "community": 215,
+      "norm_label": "spendcoins"
+    },
+    {
+      "label": "updateStreak",
+      "file_type": "code",
+      "source_file": "utils/fighterProfile.ts",
+      "source_location": "L404",
+      "_origin": "ast",
+      "id": "utils_fighterprofile_updatestreak",
+      "community": 216,
+      "norm_label": "updatestreak"
+    },
+    {
+      "label": "setDisplayName",
+      "file_type": "code",
+      "source_file": "utils/fighterProfile.ts",
+      "source_location": "L428",
+      "_origin": "ast",
+      "id": "utils_fighterprofile_setdisplayname",
+      "community": 214,
+      "norm_label": "setdisplayname"
+    },
+    {
+      "label": "resetProfile",
+      "file_type": "code",
+      "source_file": "utils/fighterProfile.ts",
+      "source_location": "L434",
+      "_origin": "ast",
+      "id": "utils_fighterprofile_resetprofile",
+      "community": 212,
+      "norm_label": "resetprofile"
+    },
+    {
+      "label": "detectFightingStyle",
+      "file_type": "code",
+      "source_file": "utils/fighterProfile.ts",
+      "source_location": "L446",
+      "_origin": "ast",
+      "id": "utils_fighterprofile_detectfightingstyle",
+      "community": 206,
+      "norm_label": "detectfightingstyle"
+    },
+    {
+      "label": "spriteKey",
+      "file_type": "code",
+      "source_file": "utils/fighterRecolor.ts",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "utils_fighterrecolor_spritekey",
+      "community": 221,
+      "norm_label": "spritekey"
+    },
+    {
+      "label": "recolorCacheKey",
+      "file_type": "code",
+      "source_file": "utils/fighterRecolor.ts",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "utils_fighterrecolor_recolorcachekey",
+      "community": 220,
+      "norm_label": "recolorcachekey"
+    },
+    {
+      "label": "getRecoloredSprite",
+      "file_type": "code",
+      "source_file": "utils/fighterRecolor.ts",
+      "source_location": "L100",
+      "_origin": "ast",
+      "id": "utils_fighterrecolor_getrecoloredsprite",
+      "community": 219,
+      "norm_label": "getrecoloredsprite"
+    },
+    {
+      "label": "linkGlossaryTerms",
+      "file_type": "code",
+      "source_file": "utils/glossaryLinker.tsx",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "utils_glossarylinker_linkglossaryterms",
+      "community": 222,
+      "norm_label": "linkglossaryterms"
+    },
+    {
+      "label": "localDateString",
+      "file_type": "code",
+      "source_file": "utils/localDate.ts",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "utils_localdate_localdatestring",
+      "community": 224,
+      "norm_label": "localdatestring"
+    },
+    {
+      "label": "daysBetween",
+      "file_type": "code",
+      "source_file": "utils/localDate.ts",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "utils_localdate_daysbetween",
+      "community": 223,
+      "norm_label": "daysbetween"
+    },
+    {
+      "label": "mergeDailyAwards",
+      "file_type": "code",
+      "source_file": "utils/profileMerge.ts",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "utils_profilemerge_mergedailyawards",
+      "community": 226,
+      "norm_label": "mergedailyawards"
+    },
+    {
+      "label": "mergeProfiles",
+      "file_type": "code",
+      "source_file": "utils/profileMerge.ts",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "utils_profilemerge_mergeprofiles",
+      "community": 227,
+      "norm_label": "mergeprofiles"
+    },
+    {
+      "label": "WorkoutLogEntry",
+      "file_type": "code",
+      "source_file": "utils/profileMerge.ts",
+      "source_location": "L73",
+      "_origin": "ast",
+      "id": "utils_profilemerge_workoutlogentry",
+      "community": 229,
+      "norm_label": "workoutlogentry"
+    },
+    {
+      "label": "mergeWorkoutLogs",
+      "file_type": "code",
+      "source_file": "utils/profileMerge.ts",
+      "source_location": "L87",
+      "_origin": "ast",
+      "id": "utils_profilemerge_mergeworkoutlogs",
+      "community": 228,
+      "norm_label": "mergeworkoutlogs"
+    },
+    {
+      "label": "isCloudStreakFresh",
+      "file_type": "code",
+      "source_file": "utils/profileMerge.ts",
+      "source_location": "L121",
+      "_origin": "ast",
+      "id": "utils_profilemerge_iscloudstreakfresh",
+      "community": 225,
+      "norm_label": "iscloudstreakfresh"
+    },
+    {
+      "label": "QuizQuestion",
+      "file_type": "code",
+      "source_file": "utils/quizGenerator.ts",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "utils_quizgenerator_quizquestion",
+      "community": 231,
+      "norm_label": "quizquestion"
+    },
+    {
+      "label": "truncateOption",
+      "file_type": "code",
+      "source_file": "utils/quizGenerator.ts",
+      "source_location": "L78",
+      "_origin": "ast",
+      "id": "utils_quizgenerator_truncateoption",
+      "community": 232,
+      "norm_label": "truncateoption"
+    },
+    {
+      "label": "generateQuiz",
+      "file_type": "code",
+      "source_file": "utils/quizGenerator.ts",
+      "source_location": "L195",
+      "_origin": "ast",
+      "id": "utils_quizgenerator_generatequiz",
+      "community": 230,
+      "norm_label": "generatequiz"
+    },
+    {
+      "label": "RecommendedWorkout",
+      "file_type": "code",
+      "source_file": "utils/recommendations.ts",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "utils_recommendations_recommendedworkout",
+      "community": 234,
+      "norm_label": "recommendedworkout"
+    },
+    {
+      "label": "getPersonalizedWorkout",
+      "file_type": "code",
+      "source_file": "utils/recommendations.ts",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "utils_recommendations_getpersonalizedworkout",
+      "community": 233,
+      "norm_label": "getpersonalizedworkout"
+    },
+    {
+      "label": "SavedWorkout",
+      "file_type": "code",
+      "source_file": "utils/savedWorkouts.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "utils_savedworkouts_savedworkout",
+      "community": 240,
+      "norm_label": "savedworkout"
+    },
+    {
+      "label": "getSavedWorkouts",
+      "file_type": "code",
+      "source_file": "utils/savedWorkouts.ts",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "utils_savedworkouts_getsavedworkouts",
+      "community": 238,
+      "norm_label": "getsavedworkouts"
+    },
+    {
+      "label": "getSavedWorkoutById",
+      "file_type": "code",
+      "source_file": "utils/savedWorkouts.ts",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "utils_savedworkouts_getsavedworkoutbyid",
+      "community": 237,
+      "norm_label": "getsavedworkoutbyid"
+    },
+    {
+      "label": "canSaveMoreWorkouts",
+      "file_type": "code",
+      "source_file": "utils/savedWorkouts.ts",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "utils_savedworkouts_cansavemoreworkouts",
+      "community": 235,
+      "norm_label": "cansavemoreworkouts"
+    },
+    {
+      "label": "saveWorkout",
+      "file_type": "code",
+      "source_file": "utils/savedWorkouts.ts",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "utils_savedworkouts_saveworkout",
+      "community": 241,
+      "norm_label": "saveworkout"
+    },
+    {
+      "label": "deleteSavedWorkout",
+      "file_type": "code",
+      "source_file": "utils/savedWorkouts.ts",
+      "source_location": "L88",
+      "_origin": "ast",
+      "id": "utils_savedworkouts_deletesavedworkout",
+      "community": 236,
+      "norm_label": "deletesavedworkout"
+    },
+    {
+      "label": "isWorkoutSaved",
+      "file_type": "code",
+      "source_file": "utils/savedWorkouts.ts",
+      "source_location": "L108",
+      "_origin": "ast",
+      "id": "utils_savedworkouts_isworkoutsaved",
+      "community": 239,
+      "norm_label": "isworkoutsaved"
+    },
+    {
+      "label": "getOrganizationSchema",
+      "file_type": "code",
+      "source_file": "utils/seoSchemas.ts",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "utils_seoschemas_getorganizationschema",
+      "community": 247,
+      "norm_label": "getorganizationschema"
+    },
+    {
+      "label": "getWebSiteSchema",
+      "file_type": "code",
+      "source_file": "utils/seoSchemas.ts",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "utils_seoschemas_getwebsiteschema",
+      "community": 249,
+      "norm_label": "getwebsiteschema"
+    },
+    {
+      "label": "getBreadcrumbSchema",
+      "file_type": "code",
+      "source_file": "utils/seoSchemas.ts",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "utils_seoschemas_getbreadcrumbschema",
+      "community": 243,
+      "norm_label": "getbreadcrumbschema"
+    },
+    {
+      "label": "getFAQSchema",
+      "file_type": "code",
+      "source_file": "utils/seoSchemas.ts",
+      "source_location": "L86",
+      "_origin": "ast",
+      "id": "utils_seoschemas_getfaqschema",
+      "community": 244,
+      "norm_label": "getfaqschema"
+    },
+    {
+      "label": "getArticleSchema",
+      "file_type": "code",
+      "source_file": "utils/seoSchemas.ts",
+      "source_location": "L114",
+      "_origin": "ast",
+      "id": "utils_seoschemas_getarticleschema",
+      "community": 242,
+      "norm_label": "getarticleschema"
+    },
+    {
+      "label": "getItemListSchema",
+      "file_type": "code",
+      "source_file": "utils/seoSchemas.ts",
+      "source_location": "L149",
+      "_origin": "ast",
+      "id": "utils_seoschemas_getitemlistschema",
+      "community": 246,
+      "norm_label": "getitemlistschema"
+    },
+    {
+      "label": "getTechniqueFAQs",
+      "file_type": "code",
+      "source_file": "utils/seoSchemas.ts",
+      "source_location": "L166",
+      "_origin": "ast",
+      "id": "utils_seoschemas_gettechniquefaqs",
+      "community": 248,
+      "norm_label": "gettechniquefaqs"
+    },
+    {
+      "label": "getFighterSchema",
+      "file_type": "code",
+      "source_file": "utils/seoSchemas.ts",
+      "source_location": "L212",
+      "_origin": "ast",
+      "id": "utils_seoschemas_getfighterschema",
+      "community": 245,
+      "norm_label": "getfighterschema"
+    },
+    {
+      "label": "parseStanceText",
+      "file_type": "code",
+      "source_file": "utils/stanceParser.ts",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "utils_stanceparser_parsestancetext",
+      "community": 250,
+      "norm_label": "parsestancetext"
+    },
+    {
+      "label": "addStreakFreeze",
+      "file_type": "code",
+      "source_file": "utils/storage.ts",
+      "source_location": "L102",
+      "_origin": "ast",
+      "id": "utils_storage_addstreakfreeze",
+      "community": 251,
+      "norm_label": "addstreakfreeze"
+    },
+    {
+      "label": "getStreakFreezes",
+      "file_type": "code",
+      "source_file": "utils/storage.ts",
+      "source_location": "L117",
+      "_origin": "ast",
+      "id": "utils_storage_getstreakfreezes",
+      "community": 252,
+      "norm_label": "getstreakfreezes"
+    },
+    {
+      "label": "ProgramProgress",
+      "file_type": "code",
+      "source_file": "utils/storage.ts",
+      "source_location": "L129",
+      "_origin": "ast",
+      "id": "utils_storage_programprogress",
+      "community": 253,
+      "norm_label": "programprogress"
+    },
+    {
+      "label": "WorkoutLogEntry",
+      "file_type": "code",
+      "source_file": "utils/storage.ts",
+      "source_location": "L214",
+      "_origin": "ast",
+      "id": "utils_storage_workoutlogentry",
+      "community": 1,
+      "norm_label": "workoutlogentry"
+    },
+    {
+      "label": "WorkoutLogRecord",
+      "file_type": "code",
+      "source_file": "utils/storage.ts",
+      "source_location": "L225",
+      "_origin": "ast",
+      "id": "utils_storage_workoutlogrecord",
+      "community": 1,
+      "norm_label": "workoutlogrecord"
+    },
+    {
+      "label": "GeneratedWorkout",
+      "file_type": "code",
+      "source_file": "utils/workoutGenerator.ts",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "utils_workoutgenerator_generatedworkout",
+      "community": 255,
+      "norm_label": "generatedworkout"
+    },
+    {
+      "label": "techniqueAllowedForEquipment",
+      "file_type": "code",
+      "source_file": "utils/workoutGenerator.ts",
+      "source_location": "L73",
+      "_origin": "ast",
+      "id": "utils_workoutgenerator_techniqueallowedforequipment",
+      "community": 257,
+      "norm_label": "techniqueallowedforequipment"
+    },
+    {
+      "label": "exerciseAllowedForEquipment",
+      "file_type": "code",
+      "source_file": "utils/workoutGenerator.ts",
+      "source_location": "L84",
+      "_origin": "ast",
+      "id": "utils_workoutgenerator_exerciseallowedforequipment",
+      "community": 254,
+      "norm_label": "exerciseallowedforequipment"
+    },
+    {
+      "label": "generateWorkout",
+      "file_type": "code",
+      "source_file": "utils/workoutGenerator.ts",
+      "source_location": "L109",
+      "_origin": "ast",
+      "id": "utils_workoutgenerator_generateworkout",
+      "community": 256,
+      "norm_label": "generateworkout"
+    },
+    {
+      "label": "FloatingAudioPlayer",
+      "file_type": "code",
+      "source_file": "views/FloatingAudioPlayer.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "views_floatingaudioplayer_floatingaudioplayer",
+      "community": 258,
+      "norm_label": "floatingaudioplayer"
+    },
+    {
+      "label": "LeaderboardPage",
+      "file_type": "code",
+      "source_file": "views/LeaderboardPage.tsx",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "views_leaderboardpage_leaderboardpage",
+      "community": 259,
+      "norm_label": "leaderboardpage"
+    }
+  ],
+  "links": [
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/badges.ts",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "utils_badges_badge",
+      "target": "utils_fighterprofile_fighterprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "context": "type",
+      "confidence": "EXTRACTED",
+      "source_file": "utils/storage.ts",
+      "source_location": "L225",
+      "weight": 1.0,
+      "source": "utils_storage_workoutlogrecord",
+      "target": "utils_storage_workoutlogentry",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "0ee27d4eb0ccf0407b49c5518aded1686f6c40bb"
+}

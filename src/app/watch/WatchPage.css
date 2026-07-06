@@ -1,0 +1,428 @@
+/* ── Watch Page ──────────────────────────────────────────────────── */
+
+.watch-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* Hero */
+.watch-hero {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.watch-hero__label {
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-weight: 700;
+  /* text-transform removed */
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  color: var(--color-primary, #ff3333);
+  margin-bottom: 0.75rem;
+}
+
+.watch-hero h1 {
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-weight: 800;
+  /* text-transform removed */
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 1px;
+  margin: 0 0 1rem;
+  color: #fff;
+}
+
+.watch-hero__subtitle {
+  max-width: 640px;
+  margin: 0 auto 1.25rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.watch-hero__subtitle a {
+  color: var(--color-primary, #ff3333);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.watch-hero__subtitle a:hover {
+  text-decoration: underline;
+}
+
+.watch-hero__follow {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-weight: 600;
+  font-size: 0.85rem;
+  /* text-transform removed */
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.watch-hero__links {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.watch-hero__follow--yt:hover {
+  background: #ff0000;
+  border-color: #ff0000;
+}
+
+.watch-hero__follow--ig:hover {
+  background: #e1306c;
+  border-color: #e1306c;
+}
+
+/* Filters */
+.watch-filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.watch-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-weight: 600;
+  font-size: 0.8rem;
+  /* text-transform removed */
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.watch-filter-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.watch-filter-btn--active {
+  background: var(--color-primary, #ff3333);
+  border-color: var(--color-primary, #ff3333);
+  color: #fff;
+}
+
+.watch-filter-btn--active:hover {
+  background: var(--color-primary, #ff3333);
+  border-color: var(--color-primary, #ff3333);
+}
+
+.watch-filter-btn__count {
+  font-size: 0.65rem;
+  opacity: 0.6;
+}
+
+.watch-filter-btn--active .watch-filter-btn__count {
+  opacity: 0.85;
+}
+
+.watch-count {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.35);
+  /* text-transform removed */
+  letter-spacing: 1px;
+  margin: 0 0 1.25rem;
+}
+
+/* Featured Video */
+.watch-featured {
+  margin-bottom: 3rem;
+}
+
+.watch-card--featured {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  border-radius: 16px;
+}
+
+.watch-card--featured .watch-card__thumbnail {
+  aspect-ratio: 16 / 9;
+  border-radius: 16px 0 0 16px;
+}
+
+.watch-card--featured .watch-card__body {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.watch-card--featured .watch-card__title {
+  font-size: 1.5rem;
+}
+
+.watch-card--featured .watch-card__desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .watch-card--featured {
+    grid-template-columns: 1fr;
+  }
+
+  .watch-card--featured .watch-card__thumbnail {
+    border-radius: 12px 12px 0 0;
+  }
+}
+
+/* Sections */
+.watch-section {
+  margin-bottom: 3rem;
+}
+
+.watch-section__header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.watch-section__header h2 {
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-weight: 800;
+  /* text-transform removed */
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: #fff;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.watch-section__icon {
+  font-size: 1.25rem;
+}
+
+.watch-section__count {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.35);
+  /* text-transform removed */
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* Grid */
+.watch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .watch-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .watch-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card */
+.watch-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.watch-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Thumbnail */
+.watch-card__thumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #111;
+}
+
+.watch-card__player {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.watch-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.watch-card:hover .watch-card__image {
+  transform: scale(1.05);
+}
+
+.watch-card__play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0.7;
+  transition: opacity 0.25s ease;
+}
+
+.watch-card:hover .watch-card__play-overlay {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Card body */
+.watch-card__body {
+  padding: 1rem 1.25rem 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.watch-card__top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.watch-card__source {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.35);
+  /* text-transform removed */
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.watch-card__title {
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-weight: 700;
+  font-size: 1.15rem;
+  /* text-transform removed */
+  letter-spacing: 0.5px;
+  color: #fff;
+  margin: 0 0 0.5rem;
+}
+
+.watch-card__desc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+/* Technique cross-links */
+.watch-card__techniques {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.watch-card__tech-link {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-primary, #ff3333);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.watch-card__tech-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.watch-card__tech-sep {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* Badges */
+.watch-badge {
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-weight: 700;
+  font-size: 0.7rem;
+  /* text-transform removed */
+  letter-spacing: 1.5px;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.watch-badge--fundamentals {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.watch-badge--technique {
+  background: rgba(45, 138, 78, 0.15);
+  color: #ff3333;
+  border: 1px solid rgba(45, 138, 78, 0.3);
+}
+
+.watch-badge--conditioning {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.watch-badge--recovery {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.watch-badge--lifestyle {
+  background: rgba(168, 85, 247, 0.15);
+  color: #a855f7;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+

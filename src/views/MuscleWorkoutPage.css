@@ -1,0 +1,451 @@
+.mw-page {
+  padding: 2rem 1rem 4rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Not Found */
+.mw-not-found {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--color-text-muted);
+}
+
+.mw-not-found svg {
+  color: var(--color-border);
+  margin-bottom: 1rem;
+}
+
+.mw-not-found h2 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--color-text);
+  margin: 0 0 0.5rem;
+}
+
+.mw-not-found p {
+  margin: 0 0 1.5rem;
+  font-size: 0.95rem;
+}
+
+.mw-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.mw-back-link:hover {
+  text-decoration: underline;
+}
+
+/* Hero */
+.mw-hero {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.mw-hero-icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary), #ff6b4a);
+  border-radius: 0.75rem;
+  color: white;
+}
+
+.mw-hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.mw-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.mw-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 2rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  /* text-transform removed */
+  letter-spacing: 0.05em;
+}
+
+.mw-badge-muscle {
+  background-color: rgba(220, 38, 38, 0.12);
+  color: var(--color-primary);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.mw-badge-duration {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.mw-badge-count {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.mw-title {
+  font-size: clamp(1.4rem, 5vw, 2rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+  color: var(--color-text);
+}
+
+.mw-description {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Why It Matters Callout */
+.mw-callout {
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  border-left: 3px solid var(--color-primary);
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.04) 0%, transparent 100%);
+}
+
+.mw-callout-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.mw-callout-icon {
+  color: var(--color-primary);
+}
+
+.mw-callout-header h2 {
+  font-size: 1rem;
+  font-weight: 800;
+  /* text-transform removed */
+  letter-spacing: 0.05em;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.mw-callout-text {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.65;
+}
+
+/* Muscles Targeted */
+.mw-muscles {
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.mw-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-text);
+}
+
+.mw-section-header h2 {
+  font-size: 1rem;
+  font-weight: 800;
+  /* text-transform removed */
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.mw-muscle-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.mw-muscle-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #a78bfa;
+}
+
+/* Warmup / Cooldown Phases */
+.mw-phase {
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.mw-warmup {
+  border-left: 3px solid #f59e0b;
+}
+
+.mw-cooldown {
+  border-left: 3px solid #3b82f6;
+}
+
+.mw-icon-warmup {
+  color: #f59e0b;
+}
+
+.mw-icon-cooldown {
+  color: #3b82f6;
+}
+
+.mw-phase-text {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Exercises */
+.mw-exercises {
+  margin-bottom: 1.25rem;
+}
+
+.mw-exercises-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  /* text-transform removed */
+  letter-spacing: 0.05em;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+}
+
+.mw-exercise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mw-exercise-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+  align-items: center;
+}
+
+.mw-exercise-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.mw-exercise-number {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary), #ff6b4a);
+  color: white;
+  font-weight: 900;
+  font-size: 0.9rem;
+  border-radius: 50%;
+}
+
+.mw-exercise-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.mw-exercise-top {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.mw-exercise-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.mw-difficulty-badge {
+  display: inline-flex;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid;
+  border-radius: 2rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  /* text-transform removed */
+  letter-spacing: 0.04em;
+}
+
+.mw-exercise-params {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.4rem;
+}
+
+.mw-param {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.mw-param strong {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.mw-param-divider {
+  color: var(--color-border);
+  font-size: 0.85rem;
+}
+
+.mw-param-rest {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  color: #3b82f6;
+}
+
+.mw-exercise-context {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.mw-exercise-arrow {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  opacity: 0.4;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.mw-exercise-card:hover .mw-exercise-arrow {
+  opacity: 1;
+  color: var(--color-primary);
+}
+
+/* Related Sections */
+.mw-related {
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.mw-related-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mw-related-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: var(--subtle-hover);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease, transform 0.15s ease, color 0.2s ease;
+}
+
+.mw-related-link:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+/* Back CTA */
+.mw-back-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.mw-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  min-height: 44px;
+}
+
+.mw-back-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .mw-hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .mw-badges {
+    justify-content: center;
+  }
+
+  .mw-exercise-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .mw-exercise-arrow {
+    display: none;
+  }
+
+  .mw-exercise-params {
+    gap: 0.25rem;
+  }
+
+  .mw-exercise-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+}

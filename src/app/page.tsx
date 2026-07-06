@@ -1,0 +1,109 @@
+import { JsonLd } from '@/components/JsonLd';
+import HomePageClient from './HomePageClient';
+import type { Metadata } from 'next';
+import { techniques } from '@/data/techniques';
+import type { TechniqueSummary } from '@/views/HomePage';
+
+export const metadata: Metadata = {
+  title: 'FoodWiki — Sports Nutrition & Performance Fuel Library',
+  description:
+    'Learn sports nutrition with step-by-step macro and superfood profiles, interactive food harvesting tools, fuel planners, and training programs. Free for athletes.',
+  alternates: {
+    canonical: 'https://foodwiki.org',
+  },
+};
+
+const SITE_URL = 'https://foodwiki.org';
+
+const CATEGORIES = [
+  { name: 'Carbs', url: '/techniques/carbs' },
+  { name: 'Proteins', url: '/techniques/proteins' },
+  { name: 'Fats & Hydration', url: '/techniques/fats-hydration' },
+  { name: 'Vitamins & Minerals', url: '/techniques/vitamins-minerals' },
+  { name: 'Adaptogens', url: '/techniques/adaptogens' },
+  { name: 'Gut Health', url: '/techniques/gut-health' },
+];
+
+const techEntries = Object.values(techniques);
+const totalTechniques = techEntries.length;
+const categoryCounts: Record<string, number> = {};
+for (const t of techEntries) {
+  categoryCounts[t.category] = (categoryCounts[t.category] || 0) + 1;
+}
+const techniqueIndex: Record<string, TechniqueSummary> = {};
+for (const t of techEntries) {
+  techniqueIndex[t.id] = { id: t.id, name: t.name, category: t.category };
+}
+
+export default function Home() {
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Food Wiki Categories',
+    itemListElement: CATEGORIES.map((cat, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: cat.name,
+      url: `${SITE_URL}${cat.url}`,
+    })),
+  };
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Is FoodWiki free to use?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. The entire sports nutrition and performance fuel library — with step-by-step nutrient profiles, synergistic combinations, and bio-boost tips — is free and always will be. We also offer interactive tools including a fasting/harvest timer and meal planner.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How do I align my diet with my sport?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Different sports require different fuel structures. Runners benefit from slow-digesting complex carbohydrates for glycogen storage. Lifters require clean, amino-dense proteins to support protein synthesis and muscle hypertrophy. Combat fighters often benefit from adaptogens to manage stress levels and optimize recovery.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What makes FoodWiki different from other recipe sites?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'FoodWiki focuses purely on performance sports nutrition for athletic goals (endurance, strength, recovery). Each food profile includes exact biomechanical benefits, target goals, prep formats, synergistic foods (such as black pepper to boost curcumin absorption), and common preparation pitfalls to avoid.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Do I need supplements to succeed?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No. While targeted supplementation can offer minor performance increases, a whole-food diet containing nutrient-dense carbohydrates, proteins, anti-inflammatory fats, and adaptogenic mushrooms forms 95% of athletic success.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Who reviews the nutritional advice?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'All food profile entries are reviewed and updated under guidance from certified sports nutritionists and athletic coaches. We cross-reference peer-reviewed nutrition studies and sport-specific clinical trials.',
+        },
+      },
+    ],
+  };
+
+  return (
+    <>
+      <JsonLd data={itemListSchema} />
+      <JsonLd data={faqSchema} />
+      <HomePageClient
+        totalTechniques={totalTechniques}
+        categoryCounts={categoryCounts}
+        techniqueIndex={techniqueIndex}
+      />
+    </>
+  );
+}

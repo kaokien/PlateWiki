@@ -1,0 +1,116 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
+import { getStageForRank, getStageIndex, type FighterCustomization } from '@/data/fighterSprites';
+import { useFighterCustomization } from '@/hooks/useFighterCustomization';
+import './PixelFighter.css';
+
+// Client-side only rendering to prevent Next.js SSR crashes
+const PixelFighterCanvas = dynamic(() => import('./PixelFighterCanvas'), { ssr: false });
+
+interface PixelFighterProps {
+  /** Current rank name from RANK_TIERS */
+  rankName: string;
+  /** Size variant */
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  /** Show background scene */
+  showScene?: boolean;
+  /** Animation state */
+  animation?: 'idle' | 'training' | 'evolving' | 'none';
+  /** Show stage label below fighter */
+  showLabel?: boolean;
+  /** Optional className */
+  className?: string;
+  /** Click handler */
+  onClick?: () => void;
+  /** Color customization — when set, the sprite is recolored to match */
+  customization?: FighterCustomization | null;
+}
+
+export default function PixelFighter({
+  rankName,
+  size = 'md',
+  showScene = false,
+  animation = 'idle',
+  showLabel = false,
+  className = '',
+  onClick,
+  customization = null,
+}: PixelFighterProps) {
+  const stage = getStageForRank(rankName);
+  const stageIdx = getStageIndex(rankName);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Dimension mapping for placeholder preloading
+  const spriteSize = size === 'sm' ? 48 : size === 'md' ? 96 : size === 'lg' ? 160 : 240;
+
+  // Preload sprite image (acts as load-state gate)
+  useEffect(() => {
+    setIsLoaded(false);
+    const img = new Image();
+    img.onload = () => setIsLoaded(true);
+    img.src = `/fighters/${customization?.bodyType === 'female' ? 'female-' : ''}${stage.id}.png`;
+  }, [stage.id, customization?.bodyType]);
+
+  const containerClasses = [
+    'pixel-fighter',
+    `pixel-fighter--${size}`,
+    `pixel-fighter--${animation}`,
+    isLoaded ? 'pixel-fighter--loaded' : '',
+    onClick ? 'pixel-fighter--clickable' : '',
+    className,
+  ].filter(Boolean).join(' ');
+
+  return (
+    <div
+      className={containerClasses}
+      onClick={onClick}
+      role={onClick ? 'button' : undefined}
+      tabIndex={onClick ? 0 : undefined}
+      onKeyDown={onClick ? (e) => { if (e.key === 'Enter' || e.key === ' ') onClick(); } : undefined}
+      data-rank={stage.id}
+      data-stage={stageIdx}
+    >
+      <div className="pixel-fighter__sprite-wrap" style={{ width: spriteSize, height: spriteSize }}>
+        {isLoaded && (
+          <PixelFighterCanvas
+            rankName={rankName}
+            size={size}
+            animation={animation}
+            customization={customization}
+          />
+        )}
+      </div>
+
+      {/* Rank glow ring */}
+      {(size === 'lg' || size === 'xl') && (
+        <div className="pixel-fighter__glow-ring" aria-hidden="true" />
+      )}
+
+      {showLabel && (
+        <div className="pixel-fighter__label">
+          <span className="pixel-fighter__stage-name">{stage.stageName}</span>
+          <span className="pixel-fighter__rank-name">{stage.rankName}</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/** Mini variant for nav bar — just the sprite, no scene */
+export function PixelFighterMini({ rankName, onClick }: { rankName: string; onClick?: () => void }) {
+  const { customization } = useFighterCustomization();
+  return (
+    <PixelFighter
+      rankName={rankName}
+      size="sm"
+      animation="idle"
+      showScene={false}
+      showLabel={false}
+      onClick={onClick}
+      className="pixel-fighter--mini"
+      customization={customization}
+    />
+  );
+}

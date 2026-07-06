@@ -1,0 +1,228 @@
+/* ============================================================
+   Glossary Term Detail Page
+   ============================================================ */
+
+.term-page {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+}
+
+/* Hero */
+.term-hero {
+  padding: 2.5rem 0 1.5rem;
+}
+
+.term-hero__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  /* text-transform removed */
+  letter-spacing: 0.12em;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.term-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.term-hero__category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  /* text-transform removed */
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+}
+
+/* Definition card */
+.term-definition {
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.term-definition__text {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* Technique card — the important visual upgrade */
+.term-technique-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--color-primary);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+  text-decoration: none;
+  color: inherit;
+}
+
+.term-technique-card:hover {
+  border-color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.term-technique-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  background: rgba(45, 138, 78, 0.12);
+  border-radius: var(--radius-sm);
+  color: var(--color-primary);
+}
+
+.term-technique-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.term-technique-card__overline {
+  font-size: 0.65rem;
+  /* text-transform removed */
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.term-technique-card__name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.term-technique-card__desc {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.term-technique-card__arrow {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.term-technique-card:hover .term-technique-card__arrow {
+  transform: translateX(3px);
+  color: var(--color-primary);
+}
+
+/* Related terms section */
+.term-related {
+  margin-bottom: 1.5rem;
+}
+
+.term-related__heading {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  /* text-transform removed */
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.term-related__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.65rem;
+}
+
+.term-related__card {
+  display: block;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--transition-fast), transform 0.15s ease;
+}
+
+.term-related__card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.term-related__card-name {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.2rem;
+}
+
+.term-related__card-def {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Back nav */
+.term-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.term-back:hover {
+  color: var(--color-text);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .term-technique-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .term-technique-card__arrow {
+    align-self: flex-end;
+  }
+
+  .term-related__grid {
+    grid-template-columns: 1fr;
+  }
+}

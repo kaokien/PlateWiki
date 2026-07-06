@@ -1,0 +1,350 @@
+{
+  "prospect": {
+    "hair": {
+      "lumLo": 0.001,
+      "lumHi": 0.356,
+      "lumMid": 0.46,
+      "px": 4353
+    },
+    "gloves": {
+      "lumLo": 0.513,
+      "lumHi": 0.95,
+      "lumMid": 0.695,
+      "px": 1502
+    },
+    "shoes": {
+      "lumLo": 0.001,
+      "lumHi": 0.308,
+      "lumMid": 0.501,
+      "px": 3403
+    },
+    "skin": {
+      "lumLo": 0.512,
+      "lumHi": 0.779,
+      "lumMid": 0.592,
+      "px": 9697
+    }
+  },
+  "contender": {
+    "hair": {
+      "lumLo": 0.0,
+      "lumHi": 0.363,
+      "lumMid": 0.249,
+      "px": 3872
+    },
+    "gloves": {
+      "lumLo": 0.112,
+      "lumHi": 0.374,
+      "lumMid": 0.337,
+      "px": 3368
+    },
+    "shoes": {
+      "lumLo": 0.0,
+      "lumHi": 0.302,
+      "lumMid": 0.417,
+      "px": 6729
+    },
+    "skin": {
+      "lumLo": 0.218,
+      "lumHi": 0.68,
+      "lumMid": 0.433,
+      "px": 14715
+    }
+  },
+  "gatekeeper": {
+    "hair": {
+      "lumLo": 0,
+      "lumHi": 1,
+      "lumMid": 0.5,
+      "px": 0
+    },
+    "gloves": {
+      "lumLo": 0.126,
+      "lumHi": 0.28,
+      "lumMid": 0.499,
+      "px": 3201
+    },
+    "shoes": {
+      "lumLo": 0.003,
+      "lumHi": 0.354,
+      "lumMid": 0.321,
+      "px": 6639
+    },
+    "skin": {
+      "lumLo": 0.37,
+      "lumHi": 0.838,
+      "lumMid": 0.573,
+      "px": 14079
+    }
+  },
+  "rising-star": {
+    "hair": {
+      "lumLo": 0.0,
+      "lumHi": 0.338,
+      "lumMid": 0.183,
+      "px": 1469
+    },
+    "gloves": {
+      "lumLo": 0.325,
+      "lumHi": 0.953,
+      "lumMid": 0.495,
+      "px": 7792
+    },
+    "shoes": {
+      "lumLo": 0.0,
+      "lumHi": 0.79,
+      "lumMid": 0.256,
+      "px": 3080
+    },
+    "skin": {
+      "lumLo": 0.29,
+      "lumHi": 0.81,
+      "lumMid": 0.528,
+      "px": 18463
+    }
+  },
+  "champion": {
+    "hair": {
+      "lumLo": 0.037,
+      "lumHi": 0.398,
+      "lumMid": 0.352,
+      "px": 1562
+    },
+    "gloves": {
+      "lumLo": 0.125,
+      "lumHi": 0.355,
+      "lumMid": 0.439,
+      "px": 3924
+    },
+    "shoes": {
+      "lumLo": 0.003,
+      "lumHi": 0.333,
+      "lumMid": 0.458,
+      "px": 5654
+    },
+    "skin": {
+      "lumLo": 0.299,
+      "lumHi": 0.761,
+      "lumMid": 0.511,
+      "px": 22733
+    }
+  },
+  "hall-of-famer": {
+    "hair": {
+      "lumLo": 0.001,
+      "lumHi": 0.403,
+      "lumMid": 0.402,
+      "px": 1106
+    },
+    "gloves": {
+      "lumLo": 0.335,
+      "lumHi": 0.904,
+      "lumMid": 0.495,
+      "px": 5592
+    },
+    "shoes": {
+      "lumLo": 0.0,
+      "lumHi": 0.811,
+      "lumMid": 0.349,
+      "px": 6557
+    },
+    "skin": {
+      "lumLo": 0.248,
+      "lumHi": 0.651,
+      "lumMid": 0.392,
+      "px": 2669
+    }
+  },
+  "female-prospect": {
+    "hair": {
+      "lumLo": 0.008,
+      "lumHi": 0.381,
+      "lumMid": 0.364,
+      "px": 7041
+    },
+    "gloves": {
+      "lumLo": 0.542,
+      "lumHi": 1.0,
+      "lumMid": 0.626,
+      "px": 1556
+    },
+    "shoes": {
+      "lumLo": 0.548,
+      "lumHi": 1.0,
+      "lumMid": 0.612,
+      "px": 1782
+    },
+    "top": {
+      "lumLo": 0.165,
+      "lumHi": 1.0,
+      "lumMid": 0.492,
+      "px": 1248
+    },
+    "skin": {
+      "lumLo": 0.482,
+      "lumHi": 0.721,
+      "lumMid": 0.569,
+      "px": 8831
+    }
+  },
+  "female-contender": {
+    "hair": {
+      "lumLo": 0.0,
+      "lumHi": 0.296,
+      "lumMid": 0.425,
+      "px": 4187
+    },
+    "gloves": {
+      "lumLo": 0.149,
+      "lumHi": 0.486,
+      "lumMid": 0.277,
+      "px": 3222
+    },
+    "shoes": {
+      "lumLo": 0.0,
+      "lumHi": 0.285,
+      "lumMid": 0.429,
+      "px": 4957
+    },
+    "top": {
+      "lumLo": 0.355,
+      "lumHi": 0.591,
+      "lumMid": 0.479,
+      "px": 1014
+    },
+    "skin": {
+      "lumLo": 0.449,
+      "lumHi": 0.836,
+      "lumMid": 0.514,
+      "px": 9810
+    }
+  },
+  "female-gatekeeper": {
+    "hair": {
+      "lumLo": 0.001,
+      "lumHi": 0.298,
+      "lumMid": 0.421,
+      "px": 1745
+    },
+    "gloves": {
+      "lumLo": 0.139,
+      "lumHi": 0.352,
+      "lumMid": 0.36,
+      "px": 3052
+    },
+    "shoes": {
+      "lumLo": 0.0,
+      "lumHi": 0.255,
+      "lumMid": 0.308,
+      "px": 3380
+    },
+    "top": {
+      "lumLo": 0.001,
+      "lumHi": 0.244,
+      "lumMid": 0.513,
+      "px": 2850
+    },
+    "skin": {
+      "lumLo": 0.41,
+      "lumHi": 0.766,
+      "lumMid": 0.509,
+      "px": 10114
+    }
+  },
+  "female-rising-star": {
+    "hair": {
+      "lumLo": 0.0,
+      "lumHi": 0.294,
+      "lumMid": 0.302,
+      "px": 2861
+    },
+    "gloves": {
+      "lumLo": 0.329,
+      "lumHi": 0.977,
+      "lumMid": 0.504,
+      "px": 3521
+    },
+    "shoes": {
+      "lumLo": 0.001,
+      "lumHi": 0.81,
+      "lumMid": 0.254,
+      "px": 5194
+    },
+    "top": {
+      "lumLo": 0.002,
+      "lumHi": 0.285,
+      "lumMid": 0.439,
+      "px": 3746
+    },
+    "skin": {
+      "lumLo": 0.41,
+      "lumHi": 0.793,
+      "lumMid": 0.616,
+      "px": 8151
+    }
+  },
+  "female-champion": {
+    "hair": {
+      "lumLo": 0.0,
+      "lumHi": 0.309,
+      "lumMid": 0.307,
+      "px": 4404
+    },
+    "gloves": {
+      "lumLo": 0.117,
+      "lumHi": 0.41,
+      "lumMid": 0.356,
+      "px": 2110
+    },
+    "shoes": {
+      "lumLo": 0.0,
+      "lumHi": 0.293,
+      "lumMid": 0.34,
+      "px": 6334
+    },
+    "top": {
+      "lumLo": 0.0,
+      "lumHi": 0.325,
+      "lumMid": 0.381,
+      "px": 1641
+    },
+    "skin": {
+      "lumLo": 0.322,
+      "lumHi": 0.767,
+      "lumMid": 0.652,
+      "px": 8871
+    }
+  },
+  "female-hall-of-famer": {
+    "hair": {
+      "lumLo": 0.002,
+      "lumHi": 0.225,
+      "lumMid": 0.24,
+      "px": 3102
+    },
+    "gloves": {
+      "lumLo": 0.374,
+      "lumHi": 0.811,
+      "lumMid": 0.631,
+      "px": 2597
+    },
+    "shoes": {
+      "lumLo": 0.003,
+      "lumHi": 0.907,
+      "lumMid": 0.5,
+      "px": 6821
+    },
+    "top": {
+      "lumLo": 0.396,
+      "lumHi": 0.927,
+      "lumMid": 0.465,
+      "px": 4384
+    },
+    "skin": {
+      "lumLo": 0.367,
+      "lumHi": 0.652,
+      "lumMid": 0.338,
+      "px": 3500
+    }
+  }
+}

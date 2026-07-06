@@ -1,0 +1,41 @@
+# BoxingWiki
+
+> The free, interactive boxing encyclopedia: 98+ boxing techniques with
+> step-by-step breakdowns, coaching cues, common mistakes, muscles worked,
+> and conditioning drills — plus training programs, a workout generator,
+> a round timer, articles, and a glossary of boxing terms.
+
+BoxingWiki is a structured reference. Every technique page follows the same
+format: what it is, when to use it, step-by-step execution, muscles involved,
+common mistakes, pro tips, and related techniques.
+
+## Techniques
+
+- [All techniques](https://boxingwiki.org/techniques): browsable index of every technique
+- [Punches](https://boxingwiki.org/techniques/punches): jab, cross, hooks, uppercuts and variants
+- [Defense](https://boxingwiki.org/techniques/defense): blocks, parries, slips, rolls
+- [Footwork](https://boxingwiki.org/techniques/footwork): stance, movement, pivots
+- [Combinations](https://boxingwiki.org/techniques/combinations): punch sequences and setups
+- [Conditioning](https://boxingwiki.org/techniques/conditioning): roadwork, bag work, core training
+- Individual technique pages live at https://boxingwiki.org/technique/{id}
+
+## Training
+
+- [Programs](https://boxingwiki.org/programs): multi-week structured training programs
+- [Workout generator](https://boxingwiki.org/workout-generator): builds a session from goal, level, and equipment
+- [Exercises](https://boxingwiki.org/exercises): strength and conditioning exercise database
+- [Round timer](https://boxingwiki.org/timer): boxing round/rest interval timer
+- [Leaderboard](https://boxingwiki.org/leaderboard): global XP rankings across fighters
+
+## Learning
+
+- [Articles](https://boxingwiki.org/articles): technique deep-dives, strategy, equipment guides
+- [Glossary](https://boxingwiki.org/glossary): boxing terminology definitions
+- [Rules](https://boxingwiki.org/rules): boxing rules reference
+- [Famous fighters](https://boxingwiki.org/fighters): profiles of notable boxers
+
+## Notes
+
+- Content is free to read; signing in adds progress tracking (XP, streaks,
+  a pixel fighter avatar) but is never required to access techniques.
+- No paywalled technique content.

@@ -1,0 +1,560 @@
+/* ─── Workout Generator ─────────────────────────────────────────────── */
+
+.wg-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: var(--space-4) var(--space-4) 120px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ─── Progress Bar ─── */
+.wg-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-border);
+  z-index: 100;
+}
+
+.wg-progress-fill {
+  height: 100%;
+  background: var(--color-primary);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 12px rgba(45, 138, 78, 0.4);
+}
+
+/* ─── Header ─── */
+.wg-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+  min-height: 36px;
+}
+
+.wg-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.4rem 0;
+  transition: color 0.2s ease;
+  min-height: 44px;
+}
+
+.wg-back-btn:hover {
+  color: var(--color-text);
+}
+
+.wg-step-count {
+  font-size: 0.75rem;
+  font-weight: 700;
+  /* text-transform removed */
+  letter-spacing: 1.5px;
+  color: var(--color-text-muted);
+}
+
+/* ─── Step Container ─── */
+.wg-step {
+  display: flex;
+  flex-direction: column;
+}
+
+.wg-fade-in {
+  animation: wgFadeIn 0.35s ease-out;
+}
+
+@keyframes wgFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.wg-title {
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 0.4rem;
+}
+
+.wg-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-5);
+  line-height: 1.4;
+}
+
+/* ─── Option Cards (Goal step) ─── */
+.wg-options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.wg-option-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.4rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--subtle-hover);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+  text-align: center;
+  color: var(--color-text);
+  min-height: 44px;
+}
+
+.wg-option-card:hover {
+  border-color: rgba(45, 138, 78, 0.3);
+  background: rgba(45, 138, 78, 0.04);
+  transform: translateY(-2px);
+}
+
+.wg-option-card.selected {
+  border-color: var(--color-primary);
+  background: rgba(45, 138, 78, 0.08);
+  box-shadow: 0 0 20px rgba(45, 138, 78, 0.15);
+}
+
+.wg-option-card .wg-option-label {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.wg-option-card .wg-option-desc {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+}
+
+/* ─── Option Rows (Level, Equipment steps) ─── */
+.wg-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.wg-option-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--subtle-hover);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  text-align: left;
+  color: var(--color-text);
+  min-height: 44px;
+}
+
+.wg-option-row:hover {
+  border-color: rgba(45, 138, 78, 0.3);
+  background: rgba(45, 138, 78, 0.04);
+}
+
+.wg-option-row.selected {
+  border-color: var(--color-primary);
+  background: rgba(45, 138, 78, 0.08);
+}
+
+.wg-option-dots {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.wg-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-border);
+  transition: background-color 0.2s ease;
+}
+
+.wg-dot.active {
+  background: var(--color-primary);
+}
+
+.wg-option-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1;
+}
+
+.wg-option-text .wg-option-label {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.wg-option-text .wg-option-desc {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.wg-check {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* ─── Focus Chips ─── */
+.wg-chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.wg-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--subtle-hover);
+  color: var(--color-text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  min-height: 44px;
+}
+
+.wg-chip:hover {
+  border-color: rgba(45, 138, 78, 0.4);
+}
+
+.wg-chip.selected {
+  border-color: var(--color-primary);
+  background: rgba(45, 138, 78, 0.12);
+  color: var(--color-text);
+}
+
+/* ─── Navigation ─── */
+.wg-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(transparent, var(--color-bg) 30%);
+  z-index: 50;
+}
+
+.wg-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+  padding: 0.9rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: none;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+  min-height: 48px;
+}
+
+.wg-btn-primary:hover:not(:disabled) {
+  background: #34a85a;
+  transform: translateY(-1px);
+}
+
+.wg-btn-primary:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.wg-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  min-height: 48px;
+}
+
+.wg-btn-secondary:hover {
+  border-color: var(--color-primary);
+  background: rgba(45, 138, 78, 0.04);
+}
+
+.wg-skip-note {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* ─── Results ─── */
+.wg-results-header {
+  margin-bottom: var(--space-5);
+}
+
+.wg-results-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: var(--space-2);
+}
+
+.wg-meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: var(--subtle-hover);
+  border: 1px solid var(--color-border);
+  font-size: 0.72rem;
+  font-weight: 700;
+  /* text-transform removed */
+  letter-spacing: 0.5px;
+  color: var(--color-text-muted);
+}
+
+.wg-results-section {
+  margin-bottom: var(--space-5);
+}
+
+.wg-section-label {
+  font-size: 0.85rem;
+  font-weight: 800;
+  /* text-transform removed */
+  letter-spacing: 1px;
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.wg-checklist {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wg-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.wg-checklist li::before {
+  content: '•';
+  color: var(--color-primary);
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+/* Drill Cards */
+.wg-drill-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.wg-drill-card {
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--subtle-hover);
+}
+
+.wg-drill-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.wg-drill-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wg-drill-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.wg-drill-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  transition: color 0.2s ease;
+}
+
+.wg-drill-name:hover {
+  color: var(--color-primary);
+}
+
+.wg-drill-cat {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  /* text-transform removed */
+  letter-spacing: 0.5px;
+}
+
+.wg-drill-desc {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Gym Exercises */
+.wg-exercise-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.wg-exercise-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  grid-template-rows: auto auto;
+  gap: 0.2rem 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--subtle-hover);
+  border: 1px solid var(--color-border);
+  align-items: center;
+}
+
+.wg-ex-name {
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+
+.wg-ex-detail {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.wg-ex-rest {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.wg-ex-note {
+  grid-column: 1 / -1;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+  opacity: 0.8;
+}
+
+/* Results Actions */
+.wg-results-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding-bottom: var(--space-4);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 480px) {
+  .wg-options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wg-exercise-row {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+
+  .wg-ex-detail,
+  .wg-ex-rest {
+    font-size: 0.75rem;
+  }
+}
+
+/* Banners */
+.wg-limit-banner,
+.wg-error-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius-md);
+  margin-top: var(--space-4);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.wg-limit-banner {
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  background: rgba(245, 166, 35, 0.05);
+  color: var(--color-text);
+}
+
+.wg-error-banner {
+  border: 1px solid rgba(45, 138, 78, 0.3);
+  background: rgba(45, 138, 78, 0.05);
+  color: var(--color-primary);
+}
+
+/* Saved state button */
+.wg-btn-secondary.saved {
+  border-color: #2ec4b6;
+  background: rgba(46, 196, 182, 0.05);
+  color: #2ec4b6;
+  cursor: not-allowed;
+  opacity: 0.9;
+}

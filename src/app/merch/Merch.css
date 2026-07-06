@@ -1,0 +1,311 @@
+/* ── Merch Page ──────────────────────────────────────────────────── */
+
+.merch-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* Hero */
+.merch-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.merch-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(45, 138, 78, 0.12);
+  border: 1px solid rgba(45, 138, 78, 0.25);
+  color: #ff3333;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-weight: 700;
+  font-size: 0.75rem;
+  /* text-transform removed */
+  letter-spacing: 2px;
+  margin-bottom: 1.25rem;
+}
+
+.merch-hero h1 {
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-weight: 800;
+  /* text-transform removed */
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  letter-spacing: 2px;
+  margin: 0 0 1rem;
+  color: #fff;
+}
+
+.merch-hero__subtitle {
+  max-width: 560px;
+  margin: 0 auto 1.75rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Notify form */
+.merch-notify {
+  display: flex;
+  gap: 0;
+  max-width: 480px;
+  margin: 0 auto;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.merch-notify__input {
+  flex: 1;
+  padding: 0.75rem 1.25rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+  font-family: inherit;
+}
+
+.merch-notify__input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.merch-notify__btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-primary, #ff3333);
+  border: none;
+  color: #fff;
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-weight: 700;
+  font-size: 0.85rem;
+  /* text-transform removed */
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+
+.merch-notify__btn:hover {
+  background: #e62e2e;
+}
+
+.merch-notify__success {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #22c55e;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-weight: 600;
+  font-size: 0.85rem;
+  /* text-transform removed */
+  letter-spacing: 1px;
+}
+
+@media (max-width: 500px) {
+  .merch-notify {
+    flex-direction: column;
+    border-radius: 12px;
+  }
+
+  .merch-notify__input {
+    text-align: center;
+    padding: 0.85rem 1rem;
+  }
+
+  .merch-notify__btn {
+    justify-content: center;
+    padding: 0.85rem 1rem;
+  }
+}
+
+/* Sections */
+.merch-section {
+  margin-bottom: 3rem;
+}
+
+.merch-section__header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.merch-section__header h2 {
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-weight: 800;
+  /* text-transform removed */
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: #fff;
+  margin: 0;
+}
+
+.merch-section__count {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.3);
+  /* text-transform removed */
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* Grid */
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .merch-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .merch-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Product Card */
+.merch-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.merch-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.merch-card__image-wrap {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.merch-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.merch-card:hover .merch-card__image {
+  transform: scale(1.04);
+}
+
+.merch-card__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--color-primary, #ff3333);
+  color: #fff;
+  padding: 0.2rem 0.65rem;
+  border-radius: 4px;
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-weight: 700;
+  font-size: 0.65rem;
+  /* text-transform removed */
+  letter-spacing: 1.5px;
+}
+
+.merch-card__body {
+  padding: 1.25rem;
+}
+
+.merch-card__name {
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-weight: 700;
+  font-size: 1.15rem;
+  /* text-transform removed */
+  letter-spacing: 0.5px;
+  color: #fff;
+  margin: 0 0 0.35rem;
+}
+
+.merch-card__tagline {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.4;
+  margin: 0 0 1rem;
+}
+
+.merch-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.merch-card__price {
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.merch-card__btn {
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-weight: 600;
+  font-size: 0.75rem;
+  /* text-transform removed */
+  letter-spacing: 1px;
+  cursor: not-allowed;
+}
+
+/* Bottom CTA */
+.merch-bottom {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.merch-bottom__text {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.95rem;
+  margin: 0 0 0.75rem;
+}
+
+.merch-bottom__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--color-primary, #ff3333);
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  font-weight: 700;
+  font-size: 0.9rem;
+  /* text-transform removed */
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.merch-bottom__link:hover {
+  color: #fff;
+}

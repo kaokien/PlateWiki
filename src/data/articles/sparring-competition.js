@@ -1,0 +1,101 @@
+export const sparringCompetition = [
+  {
+    id: 'your-first-sparring-session',
+    title: 'Your First Sparring Session: What to Expect',
+    subtitle: 'Your first spar will not look like what you expect. This is what actually happens and how to get through it.',
+    category: 'Sparring & Competition',
+    tags: ['beginner', 'sparring', 'preparation'],
+    date: '2026-05-07',
+    dateModified: '2026-05-10',
+    author: 'BoxingWiki Editorial',
+    readTime: '6 min',
+    heroImage: '/images/articles/sparring-competition.png',
+    youtubeId: null,
+    relatedTechniques: ['jab', 'high-guard', 'pendulum-bounce'],
+    relatedArticles: ['your-first-amateur-fight', 'boxing-guard-positions-explained'],
+    sections: [
+      {
+        heading: 'When You Are Ready to Spar',
+        content: 'There is no universal timeline, but most coaches agree on a minimum: you should be able to throw basic combinations (1-2, 1-2-3) with decent form, maintain a proper guard, and move with basic footwork. You should understand how to step-drag in all four directions without crossing your feet, and your jab should travel in a straight line without flaring the elbow.\n\nFor most people, that takes about **2-3 months** of consistent training — attending the gym at least three times per week. Some people with athletic backgrounds pick it up faster; others take longer. Neither is a problem. **Freddie Roach**, one of the greatest trainers in boxing history, often said he could tell within six weeks whether someone was ready to start light contact work, but he would rarely let anyone spar before they had solid defensive habits.\n\nHere is a simple readiness test: if you can shadow box three rounds **without dropping your hands or losing your stance**, you are mechanically ready. Can you throw a 1-2-3 combination and return to guard without thinking? Can you move backward while keeping your eyes on an imaginary opponent? If yes, the physical foundation is there.\n\nMental readiness is a different story — and the only way to address it is to step in. Nobody is ever fully mentally prepared for their first spar. The anxiety is universal. **Andre Ward** has talked openly about being nervous before his first sparring session as a kid, and he went on to retire undefeated. The nerves are not a sign you are not ready. They are a sign you understand what you are about to do.',
+      },
+      {
+        heading: 'What Actually Happens',
+        content: 'Your first sparring session will not look like a fight on television. Forget highlight-reel knockouts and rapid-fire combinations. The reality is far more controlled — and that is by design.\n\nIn a well-run gym, your first spar will be **controlled and light.** Your coach or an experienced training partner will go at about 30-50% intensity. They are not trying to hurt you — they are creating a safe environment where you can apply your skills against a real person for the first time. A good sparring partner for your debut is someone with significantly more experience who can modulate their own output. Think of it like a tennis player rallying with a beginner — the experienced player keeps the ball in play, not blasting winners.\n\nMost gyms follow a specific protocol for first-timers. Your coach will pair you carefully, brief both fighters on the rules ("light work, nothing hard, stop when I say stop"), and stay within arm\'s reach of the ring. At **Wildcard Boxing Club** in Los Angeles and **Kronk Gym** in its heyday, the tradition was always the same: veterans had a responsibility to bring up newcomers safely. That culture is what separates a real boxing gym from a tough-guy storefront.',
+        list: [
+          'You will wear **headgear, a mouthguard, 16oz gloves**, and a groin protector. Some gyms also require a body protector for your first few sessions.',
+          'Rounds are typically 2-3 minutes with a full minute of rest. Some coaches shorten to 90-second rounds for absolute beginners.',
+          'Your partner will likely throw single jabs and light combinations while you practice your defense and basic counters.',
+          'Your coach will be **ringside giving real-time feedback** — calling out reminders like "hands up" and "breathe" throughout the round.',
+          'You will be exhausted after two rounds. **This is completely normal.** The adrenaline drain and the tension of keeping your guard up under live fire burns energy at a rate bag work cannot replicate.',
+        ],
+      },
+      {
+        heading: 'The Mental Side',
+        content: '**Getting hit in the face for the first time is a shock.** Not because it hurts (light sparring with headgear is more surprising than painful), but because it breaks the illusion of control. On the heavy bag, you dictate everything — the timing, the distance, the pace. In sparring, another human is actively trying to outthink you, and the bag does not punch back.\n\nThe adrenaline dump will be intense. Your heart rate will spike well above your normal training zone — often into the 170-180 BPM range even during light work. You may experience tunnel vision, where your peripheral awareness collapses and you can only see what is directly in front of you. Some people freeze. Others start swinging wildly, abandoning every technique they have spent months learning. **Both reactions are completely normal** and happen to almost everyone.\n\n**Floyd Mayweather Sr.** once described the first-spar adrenaline dump as "the filter" — it separates people who are willing to push through discomfort from those who are not. But here is the important part: the dump gets smaller every time. By your fifth or sixth sparring session, the panic is noticeably reduced. By your twentieth, you will feel almost calm in the ring. Your body learns to regulate the stress response through repeated exposure, which is the same principle behind stress inoculation training used by military and law enforcement.\n\nOne mental trick that helps: **give yourself a single task per round.** Not "win the round" or "look good." Something small and specific — "jab and move left after every exchange" or "keep my right hand glued to my cheek." A single focus point gives your brain something to hold onto when adrenaline tries to wipe your mental hard drive.',
+      },
+      {
+        heading: 'How to Survive',
+        content: 'When in doubt, **jab.** That is the answer to almost every problem in your first sparring session.\n\nThe jab keeps the opponent at distance, disrupts their timing, and gives you something productive to do other than stand there getting hit. **Larry Holmes** built an entire Hall of Fame career around the principle that a busy jab solves most problems. When you are lost in the ring, the jab is your compass.\n\n**Keep your hands up. Keep moving. And breathe.** Most beginners hold their breath during sparring, which accelerates fatigue catastrophically. Your muscles need oxygen to function, and your brain needs oxygen to make decisions. Exhale sharply on every punch — the "tss" sound you hear fighters make. This keeps air cycling through your system and prevents the suffocating tension that comes from a locked diaphragm.\n\nBiomechanically, focus on staying in your stance. The most common physical breakdown under pressure is **stance collapse** — feet come together, weight shifts to the heels, and the hands drop to the chest instead of staying at cheekbone height. When you feel yourself falling apart, consciously reset: widen your base, bend your knees, hands up, chin down. Then jab.\n\nIf you get hit cleanly, resist the urge to retaliate with a wild shot. Instead, **clinch or step back and reset your guard.** Counter-punching is a skill for later. Right now, your job is to survive, stay composed, and learn what it feels like to operate under pressure.\n\n**Do not try to win your first spar.** You will not win. And if you try, you will tense up, gas out, and learn nothing. The goal is information gathering — how does it feel when someone jabs at you? What happens to your footwork when you are under pressure? Where do your hands go when you are tired? These are the answers that will shape your next three months of training.',
+      },
+      {
+        heading: 'After the Session',
+        content: 'After sparring, talk to your coach immediately while the experience is fresh. Ask specifically what you did well and what needs work — not vague reassurances, but actionable feedback. "Your jab was active but you kept dropping your right hand after the cross" is the kind of note that transforms your next session.\n\n**Do not be discouraged** if you felt overwhelmed, clumsy, or scared. Every fighter in history felt the same way their first time. **Manny Pacquiao** has described his early sparring sessions as chaotic and frightening. **Canelo Alvarez** started sparring at age 13 and by his own account spent the first several sessions getting hit far more than he wanted. The ones who improve are the ones who **keep showing up** despite the discomfort.\n\nAfter your first session, expect to feel an emotional high followed by a crash. The adrenaline comedown can leave you feeling drained, emotional, or even mildly depressed for a few hours. Eat a solid meal with protein and carbohydrates, hydrate aggressively, and get quality sleep that night.\n\nSpar consistently — once or twice a week — and within a month, the panic fades and the learning accelerates. Keep a simple sparring journal: date, partner, rounds, and two bullet points about what you learned. Looking back at this journal after three months reveals progress you cannot see session to session. The distance between your first spar and your tenth is enormous. **Trust the process.**',
+      },
+    ],
+    callToAction: {
+      text: 'Build your sparring skills with structured training',
+      link: '/course',
+      type: 'course',
+    },
+  },
+  {
+    id: 'your-first-amateur-fight',
+    title: 'How to Prepare for Your First Amateur Boxing Fight',
+    subtitle: 'The jump from sparring to competition is real. Here is a roadmap for your first sanctioned bout.',
+    category: 'Sparring & Competition',
+    tags: ['advanced', 'competition', 'amateur', 'fight-prep'],
+    date: '2026-05-03',
+    dateModified: '2026-05-10',
+    author: 'BoxingWiki Editorial',
+    readTime: '7 min',
+    heroImage: '/images/articles/sparring-competition.png',
+    youtubeId: null,
+    relatedTechniques: ['distance-management', 'jab', 'one-two'],
+    relatedArticles: ['your-first-sparring-session', 'fighters-conditioning-blueprint'],
+    sections: [
+      {
+        heading: 'The Prerequisites',
+        content: 'Before entering competition, you should have a minimum of **6-12 months** of consistent training and regular sparring experience. That means training at least three to four times per week with structured sessions — not casual drop-ins or occasional bag work. You need a foundation of technical skills that you can execute under stress, because fight night pressure will erase anything that is not deeply ingrained.\n\nSpecifically, you should be comfortable getting hit without panicking, able to maintain composure under sustained pressure for three consecutive rounds, and have a basic game plan you can execute when your heart rate is through the roof. You need to have sparred regularly — not once or twice, but **at least 20-30 rounds** of live sparring with different partners of varying styles.\n\n**Terence Crawford** did not have his first amateur fight until he had spent over a year in the gym building a technical base. **Shakur Stevenson**, who went on to win Olympic silver, trained extensively before his first bout and credits that patience with building the defensive habits that carried him through amateur and professional careers.\n\nOne critical rule: **your coach should be the one who decides when you are ready** — not you, not your ego. Coaches see your blind spots better than you can. If your coach says you need more time, trust the process. Rushing into competition before you are prepared does not build character — it builds bad habits under pressure and potentially gets you hurt.\n\nAsk yourself these questions honestly: Can you go three hard rounds without your technique completely falling apart? Do you have at least two reliable combinations you can throw when tired? Can you take a clean shot without freezing or flailing? If the answer to all three is yes, you are likely ready. If any answer is no, keep building.',
+      },
+      {
+        heading: 'Registration and Requirements',
+        content: 'Amateur boxing is governed by **USA Boxing** (in the United States), **Boxing Canada**, **England Boxing**, or your country\'s national boxing federation. Your gym should handle most of the logistics, but understanding the process helps you avoid last-minute surprises. Registration typically opens months before events, and some tournaments have entry deadlines 3-4 weeks out, so plan accordingly.\n\nYour first bout will likely be at a local "smoker" or amateur show rather than a major tournament. These smaller events match novice fighters (0-5 fights) against other novices, which is exactly what you want. Avoid jumping into open-class tournaments where you might face someone with 30+ bouts.',
+        list: [
+          'Register with your **national boxing federation** — this typically costs $50-100 annually and includes insurance coverage for sanctioned bouts.',
+          'Complete a **pre-fight medical examination** — this includes a physical, blood work, and sometimes an eye exam. Some jurisdictions require an EKG or neurological baseline.',
+          'Obtain a **competition passbook** that tracks your fight record, medical clearances, and any suspensions.',
+          'Your coach must be registered as a **licensed cornerman** — they need their own credentials to work your corner on fight night.',
+          'Competition-approved equipment: headgear (AIBA/IBA approved), custom-fitted mouthguard, cup, **competition gloves (usually 10oz for fighters under 152lbs, 12oz above)**, and approved attire — tank top, shorts above the knee, no-mark boxing shoes.',
+          'Some jurisdictions require a **minimum number of documented sparring rounds** before approving your first bout.',
+        ],
+      },
+      {
+        heading: 'The 8-Week Fight Camp',
+        content: 'Fight preparation typically runs **8 weeks**, which gives you enough time to peak physically and mentally without burning out. This timeline is standard for everyone from novice amateurs to world champions — **Canelo Alvarez**, **Oleksandr Usyk**, and **Naoya Inoue** all run roughly 8-week camps, though the intensity is obviously different.\n\nThe first 4-6 weeks focus on building: increasing sparring frequency to 2-3 sessions per week, pushing conditioning to fight-pace intensity, and sharpening your game plan against the specific style you expect to face. This is where you do the heavy lifting — hard rounds on the pads, brutal conditioning circuits, and enough sparring to make the ring feel like a familiar environment rather than a terrifying one.\n\nDuring this building phase, a typical training day looks like this: warm-up and shadow boxing (3 rounds), technical drill or mitts (4-6 rounds), sparring (3-4 rounds on sparring days), conditioning finisher (heavy bag intervals or sprints), and core work. Total training time: 90-120 minutes. Strength training stays in the program at 2 sessions per week — compound movements like squats, deadlifts, and pull-ups at moderate intensity.\n\nThe final 2 weeks **taper**. You reduce training volume by 40-50% while maintaining intensity and sharpness. Sparring drops to once per week and goes lighter — you are not trying to learn anything new, just staying sharp. The last sparring session should be no later than 5-7 days before the fight. The goal is to **peak on fight night**, arriving rested, sharp, and energized — not depleted from camp.\n\n**Common camp mistakes to avoid:** sparring too hard in the final week (risking injury and fatigue), changing your game plan late in camp (trust what you have built), and neglecting sleep and nutrition because of anxiety (this is when recovery matters most).',
+      },
+      {
+        heading: 'Fight Night: What to Expect',
+        content: 'You will arrive at the venue early — usually 2-3 hours before your bout. You weigh in (typically same day for amateur bouts, usually in the morning or early afternoon), get your hands wrapped and inspected by an official, and then wait. **The waiting is the hardest part.** Adrenaline builds with nothing productive to channel it into. You will see other fighters competing, hear the crowd, and your imagination will run wild.\n\n**Manage the wait deliberately.** Bring headphones and a playlist that keeps you calm but focused. Stay warm — do light shadow boxing or stretching every 20-30 minutes. Eat a light snack 2-3 hours before your bout: a banana, a small sandwich, something easily digestible. Sip water with electrolytes. Do not chug a gallon of water right before you fight — sloshing liquid in your stomach during a fight is miserable.\n\nWhen your bout is called, your coach will glove you up, check your headgear and mouthguard, and walk you to the ring. The referee will bring both fighters to the center, give instructions ("protect yourself at all times, obey my commands, touch gloves"), and you will return to your corner.\n\nThen the bell rings.\n\nAmateur bouts are **3 rounds of 3 minutes each** with 1-minute rest between rounds. Scoring is based on clean punches landed — judges count quality connections, not wildly thrown volume. This means precision and ring generalship matter more than raw aggression. The fighter who lands clean, visible shots while avoiding return fire wins rounds.\n\n**Round 1 strategy:** Establish your jab. Move. Get your rhythm. Resist the urge to load up on power shots. Feel the opponent out — what do they throw first? Which direction do they move? Round 1 is about **intelligence gathering**, not finishing the fight.\n\n**The corner between rounds** is critical. Listen to your coach. They can see things you cannot. Take slow, deep breaths, sip water (don\'t swallow too much), and focus on one adjustment for the next round. Not five adjustments. **One.**',
+      },
+      {
+        heading: 'Win or Lose, You Win',
+        content: 'Your first fight is not about the result. It is about proving to yourself that you **can step into the ring** with another trained fighter and compete. That act alone — walking to the ring, touching gloves, and fighting — puts you in a category that most people will never experience. Regardless of the outcome, you have done something genuinely difficult.\n\n**Andre Ward** lost one of his early amateur bouts and used it as fuel to go on a 14-year undefeated professional career. **Guillermo Rigondeaux** lost amateur fights before becoming one of the most decorated amateurs in Cuban history. **Vasiliy Lomachenko** lost in his second professional fight and came back to win world titles in three weight classes. Losses are data, not destiny.\n\nYou will learn more about yourself in nine minutes of fighting than in six months of bag work. You will learn where your conditioning fails, which techniques hold up under pressure and which evaporate, how you react when you get hit hard, and whether you can impose your will on someone who is trying to impose theirs on you. These are answers you cannot get any other way.\n\nAfter the fight, win or lose, do a thorough debrief with your coach. Review footage if available — many amateur events allow corner-recorded video. Identify three specific things that worked and three that did not. Build your next training block around closing those gaps.\n\nThe fighters who build successful amateur careers are the ones who treat the first fight as **a lesson, not a test.** The result is temporary. The experience is permanent. Get back in the gym the following week, apply what you learned, and start preparing for the next one.',
+      },
+    ],
+    callToAction: {
+      text: 'Get competition-ready with the full training system',
+      link: '/course',
+      type: 'course',
+    },
+  },
+];

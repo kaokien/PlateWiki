@@ -1,0 +1,285 @@
+.anatomy-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  animation: fadeIn var(--transition-normal);
+  padding-bottom: var(--space-6);
+}
+
+/* Breadcrumb navigation */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.breadcrumb-link {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.breadcrumb-link:hover {
+  color: var(--color-primary);
+}
+
+.breadcrumb-chevron {
+  color: var(--color-border);
+  flex-shrink: 0;
+}
+
+.breadcrumb-current {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* Anatomy Hero */
+.anatomy-hero {
+  padding: var(--space-5);
+  text-align: center;
+}
+
+.anatomy-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(45, 138, 78, 0.08);
+  border: 1px solid rgba(45, 138, 78, 0.2);
+  color: var(--color-primary);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  /* text-transform removed */
+  letter-spacing: 1.5px;
+  margin-bottom: var(--space-4);
+}
+
+.muscle-title {
+  font-size: var(--font-size-hero);
+  font-weight: 900;
+  /* text-transform removed */
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+  line-height: 1;
+}
+
+.muscle-subtitle {
+  font-size: var(--font-size-subtitle);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+  letter-spacing: 1px;
+}
+
+.muscle-description {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--color-text-muted);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.ad-wrapper {
+  margin-top: var(--space-5);
+  display: flex;
+  justify-content: center;
+}
+
+/* Techniques Section */
+.techniques-section h2 {
+  font-size: var(--font-size-title);
+  margin-bottom: var(--space-4);
+  /* text-transform removed */
+  font-weight: 800;
+  text-align: center;
+}
+
+.techniques-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .techniques-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.technique-card-large {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  color: var(--color-text);
+}
+
+.technique-card-large:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(45, 138, 78, 0.1);
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.tech-category {
+  font-size: 0.75rem;
+  /* text-transform removed */
+  color: var(--color-text-muted);
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.difficulty-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  /* text-transform removed */
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.5px;
+}
+
+.difficulty-badge.beginner {
+  background: rgba(34, 197, 94, 0.12);
+  color: var(--color-success);
+}
+
+.difficulty-badge.intermediate {
+  background: rgba(255, 215, 0, 0.12);
+  color: var(--color-warning);
+}
+
+.difficulty-badge.advanced {
+  background: rgba(45, 138, 78, 0.12);
+  color: var(--color-primary);
+}
+
+.technique-card-large h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-2);
+  line-height: 1.2;
+}
+
+.technique-card-large p {
+  color: var(--color-text-muted);
+  flex-grow: 1;
+  margin-bottom: var(--space-3);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.read-more {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.empty-tech {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--space-5);
+  color: var(--color-text-muted);
+  border-style: dashed;
+}
+
+/* Not found state */
+.anatomy-not-found {
+  text-align: center;
+  padding: var(--space-6);
+  max-width: 500px;
+  margin: var(--space-6) auto;
+}
+
+.anatomy-not-found h2 {
+  margin-bottom: var(--space-2);
+}
+
+.anatomy-not-found p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.back-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.back-link-btn:hover {
+  transform: translateX(-4px);
+}
+
+/* Related Muscle Groups (#18) */
+.related-muscles-section {
+  margin-top: var(--space-2);
+}
+
+.related-muscles-section h2 {
+  font-size: var(--font-size-title);
+  margin-bottom: var(--space-4);
+  /* text-transform removed */
+  font-weight: 800;
+  text-align: center;
+}
+
+.related-muscles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-3);
+}
+
+.related-muscle-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: all var(--transition-fast);
+  min-height: 100px;
+}
+
+.related-muscle-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(45, 138, 78, 0.1);
+}
+
+.related-muscle-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.related-desc {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  flex-grow: 1;
+}
+
+/* Card height consistency (#16) */
+.technique-card-large {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  color: var(--color-text);
+  min-height: 220px;
+}

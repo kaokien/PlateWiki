@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #0a0a0a; }
+
+      .scene {
+        position: absolute;
+        top: 0; left: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+      }
+
+      .scene-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 120px 80px;
+        gap: 32px;
+        box-sizing: border-box;
+        position: relative;
+        text-align: center;
+      }
+
+      .display { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 0.03em; color: #ffffff; }
+      .body-text { font-family: 'Inter', sans-serif; color: #b0b0b0; }
+      .accent { color: #ff3333; }
+      .cyan-accent { color: #00e5ff; }
+
+      /* S1: visible */
+      #scene-1 { background: #0a0a0a; z-index: 1; }
+      .hook-logo { font-size: 32px; font-weight: 700; letter-spacing: 0.15em; }
+      .hook-title { font-size: 110px; font-weight: 900; line-height: 0.95; }
+      .hook-line { width: 160px; height: 5px; background: #ff3333; border-radius: 2px; }
+      .hook-sub { font-size: 28px; max-width: 700px; line-height: 1.4; }
+      .red-flash { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #ff3333; opacity: 0; z-index: 5; pointer-events: none; }
+      .corner-accent { position: absolute; width: 60px; height: 60px; border: 3px solid #ff3333; opacity: 0.4; }
+      .corner-tl { top: 50px; left: 50px; border-right: none; border-bottom: none; }
+      .corner-br { bottom: 50px; right: 50px; border-left: none; border-top: none; }
+
+      /* S2: hidden */
+      #scene-2 { background: #0a0a0a; z-index: 2; opacity: 0; }
+      .lib-count { font-size: 180px; font-weight: 900; line-height: 1; color: #ff3333; }
+      .lib-label { font-size: 56px; font-weight: 700; }
+      .category-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; width: 100%; }
+      .cat-pill {
+        font-family: 'Barlow Condensed', sans-serif;
+        text-transform: uppercase;
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        padding: 20px 24px;
+        border: 2px solid #2a2a2a;
+        border-radius: 4px;
+        background: #141414;
+        color: #ffffff;
+        text-align: center;
+      }
+      .cat-pill.active { border-color: #ff3333; color: #ff3333; }
+      .screenshot-frame {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
+      }
+      .screenshot-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+      /* S3: hidden */
+      #scene-3 { background: #0a0a0a; z-index: 3; opacity: 0; }
+      .bodymap-label { font-size: 24px; font-weight: 600; letter-spacing: 0.15em; color: #ff3333; }
+      .bodymap-title { font-size: 90px; font-weight: 900; line-height: 1.0; }
+      .bodymap-sub { font-size: 26px; line-height: 1.5; max-width: 700px; }
+      .pulse-ring {
+        position: absolute;
+        width: 80px; height: 80px;
+        border: 3px solid #00e5ff;
+        border-radius: 50%;
+        top: 35%; left: 45%;
+        transform: translate(-50%, -50%);
+      }
+
+      /* S4: hidden */
+      #scene-4 { background: #0a0a0a; z-index: 4; opacity: 0; }
+      .prog-title { font-size: 72px; font-weight: 900; }
+      .prog-sub { font-size: 26px; }
+      .prog-cards-v { display: flex; flex-direction: column; gap: 20px; width: 100%; }
+      .prog-card {
+        background: #141414;
+        border: 1px solid #2a2a2a;
+        border-radius: 8px;
+        padding: 28px 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        text-align: left;
+      }
+      .prog-badge {
+        display: inline-block;
+        font-family: 'Barlow Condensed', sans-serif;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        padding: 4px 12px;
+        border-radius: 4px;
+        width: fit-content;
+      }
+      .badge-beginner { background: #22c55e; color: #000; }
+      .badge-intermediate { background: #ffd700; color: #000; }
+      .prog-name { font-size: 28px; font-weight: 800; }
+      .prog-days { font-size: 18px; color: #b0b0b0; }
+      .prog-bar { width: 100%; height: 6px; background: #2a2a2a; border-radius: 3px; overflow: hidden; }
+      .prog-bar-fill { height: 100%; background: #ff3333; border-radius: 3px; width: 0%; }
+
+      /* S5: hidden */
+      #scene-5 { background: #0a0a0a; z-index: 5; opacity: 0; }
+      .feat-title { font-size: 64px; font-weight: 900; }
+      .feat-grid-v { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; width: 100%; }
+      .feat-card {
+        background: #141414;
+        border: 1px solid #2a2a2a;
+        border-radius: 8px;
+        padding: 32px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        text-align: center;
+      }
+      .feat-icon { font-size: 44px; }
+      .feat-name { font-size: 22px; font-weight: 700; }
+      .feat-desc { font-size: 15px; color: #b0b0b0; line-height: 1.3; }
+
+      /* S6: hidden */
+      #scene-6 { background: #0a0a0a; z-index: 6; opacity: 0; }
+      .cta-free { font-size: 100px; font-weight: 900; letter-spacing: 0.05em; }
+      .cta-dot { color: #ff3333; }
+      .cta-url { font-size: 48px; font-weight: 600; color: #00e5ff; letter-spacing: 0.02em; }
+      .cta-tagline { font-size: 26px; color: #b0b0b0; }
+      .cta-logo { font-size: 24px; font-weight: 700; letter-spacing: 0.15em; }
+      .cta-glow {
+        position: absolute;
+        width: 400px; height: 400px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255,51,51,0.15) 0%, rgba(255,51,51,0) 70%);
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="vertical" data-start="0" data-duration="35" data-width="1080" data-height="1920">
+
+      <!-- AUDIO: Kendrick Lamar - HUMBLE. Beat drop at ~26s into track, piano tension starts at 24s -->
+      <audio
+        id="bgm"
+        src="Kendrick_Lamar_-_HUMBLE._K-Dot-esquirrrre_(mp3.pm).mp3"
+        data-start="0"
+        data-duration="35"
+        data-track-index="0"
+        data-media-start="24"
+        data-volume="0.85"
+      ></audio>
+
+      <!-- S1: HOOK -->
+      <div id="scene-1" class="scene">
+        <div class="red-flash" id="red-flash"></div>
+        <div class="corner-accent corner-tl" id="corner-tl"></div>
+        <div class="corner-accent corner-br" id="corner-br"></div>
+        <div class="scene-content">
+          <div id="s1-logo" class="display hook-logo">
+            <span class="accent">BOXING</span> WIKI
+          </div>
+          <div id="s1-title" class="display hook-title">
+            MASTER<br>THE<br><span class="accent">SWEET<br>SCIENCE</span>
+          </div>
+          <div id="s1-line" class="hook-line"></div>
+          <div id="s1-sub" class="body-text hook-sub">
+            The free, interactive boxing encyclopedia
+          </div>
+        </div>
+      </div>
+
+      <!-- S2: LIBRARY -->
+      <div id="scene-2" class="scene">
+        <div class="scene-content">
+          <div id="s2-count" class="display lib-count">98</div>
+          <div id="s2-label" class="display lib-label">TECHNIQUES</div>
+          <div id="s2-pills" class="category-grid">
+            <div class="cat-pill active">Punches · 15</div>
+            <div class="cat-pill">Defense · 12</div>
+            <div class="cat-pill">Footwork · 11</div>
+            <div class="cat-pill">Combos · 31</div>
+            <div class="cat-pill">Conditioning · 13</div>
+            <div class="cat-pill">Ring IQ · 12</div>
+          </div>
+          <div id="s2-screenshot" class="screenshot-frame" style="width: 860px; height: 500px; margin-top: 20px;">
+            <img src="assets/screenshots/techniques.png" alt="Technique Library" crossorigin="anonymous" />
+          </div>
+        </div>
+      </div>
+
+      <!-- S3: BODY MAP -->
+      <div id="scene-3" class="scene">
+        <div class="scene-content">
+          <div id="s3-label" class="display bodymap-label">INTERACTIVE</div>
+          <div id="s3-title" class="display bodymap-title">BODY<br>MAP</div>
+          <div id="s3-sub" class="body-text bodymap-sub">
+            Click any muscle group to discover which techniques target it.
+          </div>
+          <div id="s3-screenshot" class="screenshot-frame" style="width: 800px; height: 700px; position: relative; margin-top: 20px;">
+            <img src="assets/screenshots/hero.png" alt="Body Map" crossorigin="anonymous" />
+            <div id="s3-pulse" class="pulse-ring"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S4: PROGRAMS -->
+      <div id="scene-4" class="scene">
+        <div class="scene-content">
+          <div id="s4-title" class="display prog-title">TRAINING<br><span class="accent">PROGRAMS</span></div>
+          <div id="s4-sub" class="body-text prog-sub">Structured paths to reach your goals.</div>
+          <div id="s4-cards" class="prog-cards-v">
+            <div class="prog-card" id="s4-card-1">
+              <div class="prog-badge badge-beginner">BEGINNER</div>
+              <div class="display prog-name">7-DAY FUNDAMENTALS</div>
+              <div class="prog-days">7 Days · Stance, Punches, Movement</div>
+              <div class="prog-bar"><div class="prog-bar-fill" id="bar-1"></div></div>
+            </div>
+            <div class="prog-card" id="s4-card-2">
+              <div class="prog-badge badge-intermediate">INTERMEDIATE</div>
+              <div class="display prog-name">14-DAY KNOCKOUT POWER</div>
+              <div class="prog-days">14 Days · Power Mechanics</div>
+              <div class="prog-bar"><div class="prog-bar-fill" id="bar-2"></div></div>
+            </div>
+            <div class="prog-card" id="s4-card-3">
+              <div class="prog-badge badge-intermediate">INTERMEDIATE</div>
+              <div class="display prog-name">21-DAY DEFENSE MASTERY</div>
+              <div class="prog-days">21 Days · Defensive Techniques</div>
+              <div class="prog-bar"><div class="prog-bar-fill" id="bar-3"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S5: FEATURES -->
+      <div id="scene-5" class="scene">
+        <div class="scene-content">
+          <div id="s5-title" class="display feat-title">EVERYTHING<br>YOU <span class="accent">NEED</span></div>
+          <div id="s5-grid" class="feat-grid-v">
+            <div class="feat-card" id="feat-1">
+              <div class="feat-icon">📝</div>
+              <div class="display feat-name">ARTICLES</div>
+              <div class="body-text feat-desc">Deep-dive technique breakdowns</div>
+            </div>
+            <div class="feat-card" id="feat-2">
+              <div class="feat-icon">⏱️</div>
+              <div class="display feat-name">ROUND TIMER</div>
+              <div class="body-text feat-desc">Custom rounds with rest intervals</div>
+            </div>
+            <div class="feat-card" id="feat-3">
+              <div class="feat-icon">🥊</div>
+              <div class="display feat-name">FIGHTER STYLES</div>
+              <div class="body-text feat-desc">Study legendary fighters</div>
+            </div>
+            <div class="feat-card" id="feat-4">
+              <div class="feat-icon">💪</div>
+              <div class="display feat-name">WORKOUT LOG</div>
+              <div class="body-text feat-desc">Track your training streaks</div>
+            </div>
+            <div class="feat-card" id="feat-5">
+              <div class="feat-icon">📖</div>
+              <div class="display feat-name">GLOSSARY</div>
+              <div class="body-text feat-desc">Every boxing term explained</div>
+            </div>
+            <div class="feat-card" id="feat-6">
+              <div class="feat-icon">⭐</div>
+              <div class="display feat-name">FAVORITES</div>
+              <div class="body-text feat-desc">Save for quick reference</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S6: CTA -->
+      <div id="scene-6" class="scene">
+        <div class="cta-glow" id="cta-glow"></div>
+        <div class="scene-content">
+          <div id="s6-free" class="display cta-free">FREE<span class="cta-dot">.</span><br>OPEN<span class="cta-dot">.</span></div>
+          <div id="s6-url" class="display cta-url">boxingwiki.org</div>
+          <div id="s6-tagline" class="body-text cta-tagline">Start training today.</div>
+          <div id="s6-logo" class="display cta-logo">
+            <span class="accent">BOXING</span> WIKI
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // S1: entrance only
+      tl.to("#red-flash", { opacity: 0.8, duration: 0.1 }, 0.1);
+      tl.to("#red-flash", { opacity: 0, duration: 0.4, ease: "power2.out" }, 0.2);
+      tl.from("#corner-tl", { opacity: 0, x: -30, y: -30, duration: 0.5, ease: "power3.out" }, 0.3);
+      tl.from("#corner-br", { opacity: 0, x: 30, y: 30, duration: 0.5, ease: "power3.out" }, 0.4);
+      tl.from("#s1-logo", { opacity: 0, y: -30, duration: 0.6, ease: "expo.out" }, 0.3);
+      tl.from("#s1-title", { opacity: 0, scale: 1.1, duration: 0.8, ease: "power4.out" }, 0.5);
+      tl.from("#s1-line", { scaleX: 0, duration: 0.6, ease: "power3.inOut" }, 1.0);
+      tl.from("#s1-sub", { opacity: 0, y: 20, duration: 0.5, ease: "power2.out" }, 1.3);
+
+      // T 1→2
+      tl.to("#scene-1", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 4.5);
+      tl.fromTo("#scene-2", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 4.5);
+
+      // S2: entrance only
+      tl.from("#s2-count", { opacity: 0, scale: 0.5, duration: 0.8, ease: "back.out(1.5)" }, 5.2);
+      tl.from("#s2-label", { opacity: 0, y: 30, duration: 0.6, ease: "power3.out" }, 5.6);
+      tl.from("#s2-pills .cat-pill", { opacity: 0, y: 30, duration: 0.4, ease: "power2.out", stagger: 0.1 }, 6.0);
+      tl.from("#s2-screenshot", { opacity: 0, y: 60, duration: 0.8, ease: "power3.out" }, 6.8);
+
+      // T 2→3
+      tl.to("#scene-2", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 11.5);
+      tl.fromTo("#scene-3", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 11.5);
+
+      // S3: entrance only
+      tl.from("#s3-label", { opacity: 0, y: -30, duration: 0.5, ease: "expo.out" }, 12.2);
+      tl.from("#s3-title", { opacity: 0, scale: 1.1, duration: 0.7, ease: "power4.out" }, 12.5);
+      tl.from("#s3-sub", { opacity: 0, y: 30, duration: 0.5, ease: "power2.out" }, 13.0);
+      tl.from("#s3-screenshot", { opacity: 0, y: 60, scale: 0.95, duration: 0.8, ease: "power3.out" }, 12.8);
+      tl.from("#s3-pulse", { opacity: 0, scale: 0, duration: 0.5, ease: "back.out(2)" }, 13.8);
+      tl.to("#s3-pulse", { scale: 1.5, opacity: 0, duration: 1.0, ease: "power1.out", repeat: 2 }, 14.5);
+
+      // T 3→4
+      tl.set("#s3-pulse", { opacity: 0 }, 17.50);
+      tl.to("#scene-3", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 17.5);
+      tl.fromTo("#scene-4", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 17.5);
+
+      // S4: entrance only
+      tl.from("#s4-title", { opacity: 0, y: -40, duration: 0.6, ease: "power3.out" }, 18.2);
+      tl.from("#s4-sub", { opacity: 0, y: 20, duration: 0.4, ease: "power2.out" }, 18.6);
+      tl.from("#s4-card-1", { opacity: 0, x: -60, duration: 0.5, ease: "power3.out" }, 19.0);
+      tl.from("#s4-card-2", { opacity: 0, x: 60, duration: 0.5, ease: "expo.out" }, 19.3);
+      tl.from("#s4-card-3", { opacity: 0, x: -60, duration: 0.5, ease: "back.out(1.2)" }, 19.6);
+      tl.to("#bar-1", { width: "75%", duration: 1.2, ease: "power2.inOut" }, 19.8);
+      tl.to("#bar-2", { width: "50%", duration: 1.0, ease: "power2.inOut" }, 20.0);
+      tl.to("#bar-3", { width: "30%", duration: 0.8, ease: "power2.inOut" }, 20.2);
+
+      // T 4→5
+      tl.to("#scene-4", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 23.5);
+      tl.fromTo("#scene-5", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 23.5);
+
+      // S5: entrance only
+      tl.from("#s5-title", { opacity: 0, y: -40, duration: 0.6, ease: "expo.out" }, 24.2);
+      tl.from("#feat-1", { opacity: 0, y: 40, scale: 0.95, duration: 0.4, ease: "power3.out" }, 24.6);
+      tl.from("#feat-2", { opacity: 0, y: 40, scale: 0.95, duration: 0.4, ease: "power2.out" }, 24.8);
+      tl.from("#feat-3", { opacity: 0, y: 40, scale: 0.95, duration: 0.4, ease: "back.out(1.1)" }, 25.0);
+      tl.from("#feat-4", { opacity: 0, y: 40, scale: 0.95, duration: 0.4, ease: "expo.out" }, 25.2);
+      tl.from("#feat-5", { opacity: 0, y: 40, scale: 0.95, duration: 0.4, ease: "power3.out" }, 25.4);
+      tl.from("#feat-6", { opacity: 0, y: 40, scale: 0.95, duration: 0.4, ease: "power2.out" }, 25.6);
+
+      // T 5→6
+      tl.to("#scene-5", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 29.5);
+      tl.fromTo("#scene-6", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 29.5);
+
+      // S6: entrance + FINAL exit
+      tl.from("#cta-glow", { opacity: 0, scale: 0.3, duration: 1.2, ease: "power2.out" }, 30.0);
+      tl.from("#s6-free", { opacity: 0, scale: 1.15, duration: 0.8, ease: "power4.out" }, 30.3);
+      tl.from("#s6-url", { opacity: 0, y: 30, duration: 0.6, ease: "expo.out" }, 31.0);
+      tl.from("#s6-tagline", { opacity: 0, y: 20, duration: 0.5, ease: "power2.out" }, 31.5);
+      tl.from("#s6-logo", { opacity: 0, duration: 0.4, ease: "power1.out" }, 32.0);
+      tl.to("#scene-6", { opacity: 0, duration: 0.8, ease: "power2.in" }, 34.0);
+
+      // Audio fade-out over last 2 seconds
+      tl.to("#bgm", { volume: 0, duration: 2.0, ease: "power2.in" }, 33.0);
+
+      window.__timelines["vertical"] = tl;
+    </script>
+  </body>
+</html>

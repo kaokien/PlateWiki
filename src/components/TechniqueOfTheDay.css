@@ -1,0 +1,95 @@
+/* Technique of the Day Card */
+.totd-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  text-decoration: none;
+  color: var(--color-text);
+  border-left: 3px solid var(--color-primary);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.totd-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 24px rgba(45, 138, 78, 0.1),
+              0 4px 8px rgba(0, 0, 0, 0.2);
+  color: var(--color-text);
+}
+
+.totd-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  /* text-transform removed */
+  letter-spacing: 1.5px;
+  color: var(--color-primary);
+  background: rgba(45, 138, 78, 0.08);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+  width: fit-content;
+}
+
+.totd-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.totd-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.totd-category {
+  font-size: 0.7rem;
+  font-weight: 700;
+  /* text-transform removed */
+  letter-spacing: 0.5px;
+  color: var(--color-text-muted);
+}
+
+.totd-name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 0.15rem 0 0.35rem;
+  /* text-transform removed */
+}
+
+.totd-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.totd-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  transition: transform 0.2s ease;
+}
+
+.totd-card:hover .totd-cta {
+  transform: translateX(3px);
+}
+
+.totd-cta-text {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .totd-cta-text {
+    display: inline;
+  }
+}

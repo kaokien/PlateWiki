@@ -1,0 +1,119 @@
+/* ShareButton */
+.share-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.share-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.share-trigger:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: rgba(45, 138, 78, 0.06);
+}
+
+.share-trigger-label {
+  display: inline;
+}
+
+/* Desktop menu */
+.share-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+}
+
+.share-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 100;
+  min-width: 180px;
+  padding: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  animation: shareMenuIn 0.15s ease;
+}
+
+@keyframes shareMenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.share-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.75rem;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s ease;
+  white-space: nowrap;
+  width: 100%;
+  text-align: left;
+}
+
+.share-option:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-primary);
+}
+
+/* Floating variant (for pages where it should stick) */
+.share-wrapper--floating {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.25rem;
+  z-index: 50;
+}
+
+.share-wrapper--floating .share-trigger {
+  padding: 0.6rem;
+  border-radius: 50%;
+  background: var(--color-surface);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.share-wrapper--floating .share-trigger-label {
+  display: none;
+}
+
+.share-wrapper--floating .share-menu {
+  bottom: calc(100% + 0.5rem);
+  top: auto;
+  right: 0;
+}
+
+@media (max-width: 600px) {
+  .share-trigger-label {
+    display: none;
+  }
+  .share-trigger {
+    padding: 0.45rem 0.55rem;
+  }
+}

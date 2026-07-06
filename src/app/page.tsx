@@ -16,12 +16,11 @@ export const metadata: Metadata = {
 const SITE_URL = 'https://foodwiki.org';
 
 const CATEGORIES = [
-  { name: 'Carbs', url: '/techniques/carbs' },
-  { name: 'Proteins', url: '/techniques/proteins' },
-  { name: 'Fats & Hydration', url: '/techniques/fats-hydration' },
-  { name: 'Vitamins & Minerals', url: '/techniques/vitamins-minerals' },
-  { name: 'Adaptogens', url: '/techniques/adaptogens' },
-  { name: 'Gut Health', url: '/techniques/gut-health' },
+  { name: 'Macronutrients', url: '/techniques/macronutrients' },
+  { name: 'Hydration & Salts', url: '/techniques/hydration-salts' },
+  { name: 'Micronutrients', url: '/techniques/micronutrients' },
+  { name: 'Gut & Digestion', url: '/techniques/gut-digestion' },
+  { name: 'Superfoods & Adaptogens', url: '/techniques/superfoods-adaptogens' },
 ];
 
 const techEntries = Object.values(techniques);

@@ -17,7 +17,7 @@ interface SearchResult {
   title: string;
   subtitle: string;
   href: string;
-  type: 'technique' | 'glossary' | 'article' | 'program' | 'exercise' | 'video';
+  type: 'technique' | 'glossary' | 'article' | 'program' | 'exercise';
 }
 
 interface GlobalSearchProps {
@@ -58,11 +58,6 @@ const TYPE_META: Record<
     label: 'Exercises',
     viewAllHref: (q) => `/exercises?search=${encodeURIComponent(q)}`,
   },
-  video: {
-    icon: Video,
-    label: 'Videos',
-    viewAllHref: () => '/watch',
-  },
 };
 
 const MAX_PER_GROUP = 5;
@@ -82,14 +77,12 @@ async function buildCorpus(): Promise<SearchResult[]> {
     { articles },
     { programs },
     { exercises },
-    { watchVideos },
   ] = await Promise.all([
     import('@/data/techniques'),
     import('@/data/glossary'),
     import('@/data/articles/index'),
     import('@/data/programs'),
     import('@/data/exercises'),
-    import('@/data/watchVideos'),
   ]);
 
   const results: SearchResult[] = [];
@@ -152,16 +145,7 @@ async function buildCorpus(): Promise<SearchResult[]> {
     });
   });
 
-  // Videos
-  watchVideos.forEach((v) => {
-    results.push({
-      id: `video-${v.id}`,
-      title: v.title,
-      subtitle: `${v.category} · ${v.platform === 'youtube' ? 'YouTube' : 'Instagram'} · Coach Josh`,
-      href: `/watch#${v.id}`,
-      type: 'video',
-    });
-  });
+
 
   return results;
 }
@@ -225,7 +209,6 @@ export default function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
       'article',
       'glossary',
       'program',
-      'video',
     ];
     for (const type of order) {
       if (grouped[type]) {
@@ -341,7 +324,6 @@ export default function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
     'article',
     'glossary',
     'program',
-    'video',
   ];
 
   return (

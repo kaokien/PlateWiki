@@ -5,38 +5,33 @@ import TechniquesPage from '@/views/TechniquesPage';
 import { TECHNIQUE_COUNT } from '@/data/techniqueCount';
 
 const VALID_CATEGORIES: Record<string, string> = {
-  punches: 'Punches',
-  defense: 'Defense',
-  footwork: 'Footwork',
-  combinations: 'Combinations',
-  conditioning: 'Conditioning',
-  'ring-iq': 'Ring IQ',
+  macronutrients: 'Macronutrients',
+  'hydration-salts': 'Hydration & Salts',
+  micronutrients: 'Micronutrients',
+  'gut-digestion': 'Gut & Digestion',
+  'superfoods-adaptogens': 'Superfoods & Adaptogens',
 };
 
 const CATEGORY_META: Record<string, { title: string; description: string }> = {
-  punches: {
-    title: `Boxing Punches — All ${TECHNIQUE_COUNT}+ Punch Techniques`,
-    description: `Master every boxing punch: jab, cross, hook, uppercut, and advanced variations. Step-by-step breakdowns with coaching cues, common mistakes, and drills.`,
+  macronutrients: {
+    title: `Macronutrient Performance Fuels — All Macronutrient Profiles`,
+    description: `Optimize glycogen replenishment, muscle protein synthesis, and hormone health with clean, athlete-focused macronutrients.`,
   },
-  defense: {
-    title: 'Boxing Defense Techniques — Slips, Parries, Rolls & Guards',
-    description: 'Learn essential boxing defense: slipping, parrying, rolling, blocking, and the shoulder roll. Step-by-step guides with pro tips and training drills.',
+  'hydration-salts': {
+    title: 'Hydration & Electrolyte Salts — Cellular Fluid Balance',
+    description: 'Maintain blood volume, prevent muscle cramping, and buffer lactic acid with natural electrolyte sources and mineral salts.',
   },
-  footwork: {
-    title: 'Boxing Footwork — Movement Patterns & Drills',
-    description: 'Master boxing footwork: pivots, lateral movement, angles, and ring cutting. Step-by-step guides with drills you can practice at home.',
+  micronutrients: {
+    title: 'Micronutrient Density — Vitamins, Minerals & Antioxidants',
+    description: 'Boost immune function, support oxygen transport, and neutralize oxidative stress with raw, bioavailable green vitamins.',
   },
-  combinations: {
-    title: 'Boxing Combinations — Numbered Combos & Sequences',
-    description: 'Every boxing combination explained: 1-2, 1-2-3, and advanced sequences. Step-by-step breakdowns for orthodox and southpaw fighters.',
+  'gut-digestion': {
+    title: 'Gut Health & Digestion — Active Enzymes & Probiotics',
+    description: 'Build a resilient gut barrier, optimize nutrient assimilation, and reduce bloating with fermented kefirs and digestive enzymes.',
   },
-  conditioning: {
-    title: 'Boxing Conditioning — Training Drills & Exercises',
-    description: 'Boxing conditioning drills for power, speed, and endurance. Heavy bag workouts, shadow boxing routines, and strength training for fighters.',
-  },
-  'ring-iq': {
-    title: 'Ring IQ — Boxing Strategy & Fight Intelligence',
-    description: 'Develop ring IQ: distance management, timing, feints, angles, and fight strategy. Concepts that separate technical boxers from brawlers.',
+  'superfoods-adaptogens': {
+    title: 'Superfoods & Adaptogens — Focus, Stress & CNS Recovery',
+    description: 'Modulate cortisol levels, combat physical fatigue, and sharpen cognitive focus with medicinal mushrooms and adaptogenic herbs.',
   },
 };
 
@@ -68,8 +63,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+const REDIRECT_CATEGORIES: Record<string, string> = {
+  carbs: 'macronutrients',
+  proteins: 'macronutrients',
+  'fats-hydration': 'hydration-salts',
+  'vitamins-minerals': 'micronutrients',
+  adaptogens: 'superfoods-adaptogens',
+  'gut-health': 'gut-digestion',
+};
+
 export default async function CategoryPage({ params }: Props) {
   const { category } = await params;
+
+  if (REDIRECT_CATEGORIES[category]) {
+    redirect(`/techniques/${REDIRECT_CATEGORIES[category]}`);
+  }
+
   const displayName = VALID_CATEGORIES[category];
 
   if (!displayName) {

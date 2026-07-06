@@ -11,7 +11,7 @@ import { analytics } from '../utils/analytics';
 import { isFavorite, toggleFavorite, getFavorites } from '../utils/favorites';
 import './TechniquesPage.css';
 
-const CATEGORIES = ['All', 'Carbs', 'Proteins', 'Fats & Hydration', 'Vitamins & Minerals', 'Adaptogens', 'Gut Health'];
+const CATEGORIES = ['All', 'Macronutrients', 'Hydration & Salts', 'Micronutrients', 'Gut & Digestion', 'Superfoods & Adaptogens'];
 const DIFFICULTIES = ['All Levels', 'beginner', 'intermediate', 'advanced'];
 const STANCES = ['Any Goal', 'runner', 'lifter', 'fighter'];
 const FORMATS = ['Any Form', 'cooked', 'raw', 'powder', 'capsule', 'liquid'];

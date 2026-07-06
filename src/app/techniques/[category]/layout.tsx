@@ -2,12 +2,11 @@ import { JsonLd } from '@/components/JsonLd';
 import { getBreadcrumbSchema } from '@/utils/seoSchemas';
 
 const VALID_CATEGORIES: Record<string, string> = {
-  punches: 'Punches',
-  defense: 'Defense',
-  footwork: 'Footwork',
-  combinations: 'Combinations',
-  conditioning: 'Conditioning',
-  'ring-iq': 'Ring IQ',
+  macronutrients: 'Macronutrients',
+  'hydration-salts': 'Hydration & Salts',
+  micronutrients: 'Micronutrients',
+  'gut-digestion': 'Gut & Digestion',
+  'superfoods-adaptogens': 'Superfoods & Adaptogens',
 };
 
 type Props = {

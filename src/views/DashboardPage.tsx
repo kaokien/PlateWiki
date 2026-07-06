@@ -44,7 +44,6 @@ const QUICK_ACTIONS = [
   { label: 'Foods Library', icon: BookOpen,   href: '/techniques',          desc: 'Browse all clean fuel sources' },
   { label: 'Physiology Map', icon: Activity,   href: '#body-map',            desc: 'Explore targeted biological systems' },
   { label: 'Meal Prep Guides', icon: ChefHat,   href: '/workouts',            desc: 'Structured sports nutrition plans' },
-  { label: 'Cooking Lab',   icon: Play,       href: '/watch',               desc: 'Watch prep guides & science videos' },
   { label: 'Kitchen Shop',  icon: ShoppingBag, href: '/shop',                desc: 'Unlock appliances with Seed Coins' },
   { label: 'Chewing Timer', icon: Timer,      href: '/timer',               desc: 'Eating interval & digestion tracker' },
   { label: 'Articles',      icon: ClipboardList, href: '/articles',            desc: 'Read performance nutrition science' },

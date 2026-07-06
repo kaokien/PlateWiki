@@ -59,7 +59,6 @@ const NAV_GROUPS: NavGroup[] = [
       { href: '/programs', label: 'Programs', icon: CalendarDays },
       { href: '/workout-generator', label: 'Meal Planner', icon: Wand2 },
       { href: '/workout', label: 'Fasting Timer', icon: Timer },
-      { href: '/watch', label: 'Nutrition Videos', icon: Play },
     ],
   },
   {

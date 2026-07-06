@@ -1,6 +1,11 @@
 import type { Technique } from './techniques';
+import { macronutrientsFoods } from './foods/macronutrients';
+import { hydrationFoods } from './foods/hydration';
+import { micronutrientsFoods } from './foods/micronutrients';
+import { gutFoods } from './foods/gut';
+import { superfoodsFoods } from './foods/superfoods';
 
-export const foodsData: Record<string, Technique> = {
+const originalFoodsData: Record<string, Technique> = {
   'sweet-potato': {
     id: 'sweet-potato',
     name: 'Sweet Potatoes',
@@ -1473,4 +1478,13 @@ export const foodsData: Record<string, Technique> = {
     combinations: [{ name: 'Connective Tissue Repair Stack (Collagen + Tart Cherry)', link: 'tart-cherry-juice' }],
     relatedTechniques: ['tart-cherry-juice', 'whey-isolate', 'greek-yogurt']
   }
+}
+
+export const foodsData: Record<string, Technique> = {
+  ...originalFoodsData,
+  ...macronutrientsFoods,
+  ...hydrationFoods,
+  ...micronutrientsFoods,
+  ...gutFoods,
+  ...superfoodsFoods
 };

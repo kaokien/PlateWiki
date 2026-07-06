@@ -82,9 +82,9 @@ describe('Articles Data Integrity', () => {
 
 describe('getArticleById', () => {
   it('should return the correct article by ID', () => {
-    const article = getArticleById('how-to-throw-a-jab');
+    const article = getArticleById('what-to-eat-before-boxing-training');
     expect(article).toBeDefined();
-    expect(article.title).toContain('Jab');
+    expect(article.title).toContain('Eat');
   });
 
   it('should return undefined for a non-existent ID', () => {
@@ -99,10 +99,10 @@ describe('getArticlesByCategory', () => {
   });
 
   it('should filter articles by category', () => {
-    const result = getArticlesByCategory('Boxing Fundamentals');
+    const result = getArticlesByCategory('Athlete Fueling');
     expect(result.length).toBeGreaterThan(0);
     result.forEach(a => {
-      expect(a.category).toBe('Boxing Fundamentals');
+      expect(a.category).toBe('Athlete Fueling');
     });
   });
 

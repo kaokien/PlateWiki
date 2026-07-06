@@ -12,7 +12,7 @@ export const nutritionWeight = [
     heroImage: '/images/articles/nutrition-weight.png',
     youtubeId: null,
     relatedTechniques: [],
-    relatedArticles: ['fight-week-weight-management', 'fighters-conditioning-blueprint'],
+    relatedArticles: ['fight-week-weight-management', 'recovery-for-boxers'],
     sections: [
       {
         heading: 'Timing Matters',
@@ -60,7 +60,7 @@ export const nutritionWeight = [
     heroImage: '/images/articles/nutrition-weight.png',
     youtubeId: null,
     relatedTechniques: [],
-    relatedArticles: ['what-to-eat-before-boxing-training', 'your-first-amateur-fight'],
+    relatedArticles: ['what-to-eat-before-boxing-training', 'recovery-for-boxers'],
     sections: [
       {
         heading: 'The Reality of Making Weight',

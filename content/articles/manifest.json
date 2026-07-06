@@ -1,488 +1,56 @@
 [
   {
-    "id": "5-beginner-boxing-combinations",
-    "title": "5 Boxing Combinations Every Beginner Should Master",
-    "subtitle": "Build your arsenal with these essential 2-3 punch combos that work in real sparring.",
-    "category": "Boxing Fundamentals",
-    "author": "Coach Josh",
-    "readTime": "6 min read",
-    "date": "2026-05-19"
-  },
-  {
-    "id": "how-to-throw-a-hook-punch",
-    "title": "How to Throw a Hook Punch: Left and Right Hook Technique",
-    "subtitle": "The hook is the punch that breaks open fights. The jab measures distance. The cross scores points. The hook ends it.",
-    "category": "Boxing Fundamentals",
-    "author": "BoxingWiki Editorial",
-    "readTime": "7 min",
-    "date": "2026-05-19"
-  },
-  {
-    "id": "how-to-throw-a-cross-straight-right",
-    "title": "How to Throw a Cross (Straight Right): Step-by-Step Guide",
-    "subtitle": "Learn how to throw a cross punch with full power using proper body mechanics, hip rotation, and footwork.",
-    "category": "Boxing Fundamentals",
-    "author": "Coach Josh",
-    "readTime": "6 min read",
-    "date": "2026-05-19"
-  },
-  {
-    "id": "future-test",
-    "title": "Future Release Test Article",
-    "subtitle": "This is a test article slated for future release to verify the scheduler.",
-    "category": "Boxing Fundamentals",
-    "author": "Test Author",
-    "readTime": "1 min read",
-    "date": "2029-12-31"
-  },
-  {
-    "id": "wrist-knuckle-strengthening",
-    "title": "Hand and Wrist Conditioning: Preventing Boxer's Fractures",
-    "subtitle": "Condition your hands, wrists, and knuckles to withstand maximum impact forces and prevent career-ending breaks.",
-    "category": "Conditioning & Fitness",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-07-12"
-  },
-  {
     "id": "meal-prep-for-fight-camps",
     "title": "Fight Camp Meal Prep: Nutrient-Dense Recipes for Endurance",
     "subtitle": "Fuel your performance and make weight without sacrificing muscle or stamina using structured fight-camp meal prep protocols.",
-    "category": "Nutrition & Weight",
-    "author": "BoxingWiki Editorial",
+    "category": "Cooking & Meal Prep",
+    "author": "FoodWiki Editorial",
     "readTime": "8 min read",
     "date": "2026-07-13"
-  },
-  {
-    "id": "amateur-boxing-rules-scoring",
-    "title": "Understanding Amateur Boxing: Rules, Rounds, and Scoring",
-    "subtitle": "Master the regulatory framework, scoring criteria, and procedural rules of amateur boxing to win on the judges' scorecards.",
-    "category": "Boxing Fundamentals",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-07-14"
-  },
-  {
-    "id": "the-shoulder-roll-counter-attacks",
-    "title": "Philly Shell Counter-Attacks: Right Hand and Check Hook Options",
-    "subtitle": "Turn defense into offense by mastering counter-punching options from the shoulder roll stance.",
-    "category": "Defense & Countering",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-07-15"
-  },
-  {
-    "id": "how-to-fight-off-the-ropes",
-    "title": "Fighting Off the Ropes: Technical Escape Mechanics",
-    "subtitle": "Learn how to defend yourself and pivot out of danger when trapped against the ropes by aggressive pressure fighters.",
-    "category": "Footwork & Movement",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-07-16"
-  },
-  {
-    "id": "interval-bagwork-endurance",
-    "title": "Heavy Bag Intervals: Building Fight-Specific Stems",
-    "subtitle": "Build the specific work capacity and cardiovascular endurance required to sustain high-volume output across multiple rounds.",
-    "category": "Conditioning & Fitness",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-07-17"
-  },
-  {
-    "id": "how-to-throw-a-check-hook",
-    "title": "The Check Hook: Pivoting Away from Aggressive Pressers",
-    "subtitle": "Shut down aggressive forward movement by executing a precise, pivoting check hook that punishes charging opponents.",
-    "category": "Boxing Fundamentals",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-07-18"
-  },
-  {
-    "id": "the-art-of-smothering-punches",
-    "title": "Smothering Power: How to Negate Your Opponent's Range",
-    "subtitle": "Learn the inside positioning tactics, clinch work, and physical framing needed to neutralize an opponent's punch power.",
-    "category": "Defense & Countering",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-07-19"
-  },
-  {
-    "id": "overhand-right-technique",
-    "title": "The Overhand Right: Mechanics of the Boxing Loop",
-    "subtitle": "Master the biomechanics, trajectory, and defense-dodging angle of boxing's most devastating looping power shot.",
-    "category": "Boxing Fundamentals",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-07-20"
-  },
-  {
-    "id": "the-one-two-three-combo-mastery",
-    "title": "Mastering the 1-2-3 Combo: Jab-Cross-Lead Hook Execution",
-    "subtitle": "Break down the core offensive combination of boxing to maximize speed, fluid weight transfer, and defensive recovery.",
-    "category": "Boxing Fundamentals",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-07-21"
   },
   {
     "id": "boxing-weight-cutting-dangers",
     "title": "The Dangers of Dehydration: Weight Cutting Mistakes",
     "subtitle": "Cutting weight through severe dehydration ruins performance and risks brain trauma. Learn the physiological costs and safer alternatives.",
-    "category": "Nutrition & Weight",
-    "author": "BoxingWiki Editorial",
+    "category": "Nutrition & Diet",
+    "author": "FoodWiki Editorial",
     "readTime": "8 min read",
     "date": "2026-06-22"
-  },
-  {
-    "id": "mouthguard-safety-dentistry",
-    "title": "Boil-and-Bite vs Custom Mouthguards: Dental Protection",
-    "subtitle": "A cheap mouthguard is a dental liability. Understand the force-dispersion differences between custom-fit laminates and drugstore plastic.",
-    "category": "Equipment & Gear",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-06-23"
-  },
-  {
-    "id": "sparring-etiquette-rules",
-    "title": "Sparring Etiquette: The Unwritten Rules of the Gym",
-    "subtitle": "Sparring is for learning, not winning gym wars. Master the unwritten code that separates elite gyms from dangerous brawling dens.",
-    "category": "Sparring & Competition",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-05-19"
-  },
-  {
-    "id": "tempo-control-boxing-strategy",
-    "title": "Controlling the Tempo: Slowing Down High-Volume Punchers",
-    "subtitle": "High-volume swarmers win by overwhelming your decision-making. Break their rhythm using lateral pivots, frame checks, and timed counters.",
-    "category": "Mindset & Strategy",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-06-25"
-  },
-  {
-    "id": "the-art-of-the-feint",
-    "title": "The Art of the Feint: How to Lie with Your Body",
-    "subtitle": "Feints force reactions without throwing punches. Master the subtle shifts in eyes, shoulders, and knees that create openings.",
-    "category": "Boxing Fundamentals",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-06-26"
-  },
-  {
-    "id": "catching-punch-deflections",
-    "title": "Catching and Deflecting: The Catch-and-Shoot Blueprint",
-    "subtitle": "Static blocking leaves you passive. Learn the biomechanics of catching jabs and deflecting crosses to fire instant counter-punches.",
-    "category": "Defense & Countering",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-06-27"
-  },
-  {
-    "id": "ring-generalship-space-control",
-    "title": "Ring Generalship: Controlling the Center and Forcing the Ropes",
-    "subtitle": "Ring generalship is the art of controlling where the fight happens. Master center-ring dominance and cutting off the ring.",
-    "category": "Footwork & Movement",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-06-28"
-  },
-  {
-    "id": "core-power-for-boxing",
-    "title": "Core Rotational Strength: The Power Source of the Hook",
-    "subtitle": "Six-pack abs do not generate punch power. Build functional rotational power using targeted medicine ball, band, and barbell movements.",
-    "category": "Conditioning & Fitness",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-06-29"
   },
   {
     "id": "supplement-guide-for-boxers",
     "title": "Boxing Supplements: Creatine, Beta-Alanine, and Caffeine",
     "subtitle": "Ditch the marketing hype. Learn the science, dosing, and timing of the three supplements proven to enhance boxing performance.",
-    "category": "Nutrition & Weight",
-    "author": "BoxingWiki Editorial",
+    "category": "Nutrition & Diet",
+    "author": "FoodWiki Editorial",
     "readTime": "8 min read",
     "date": "2026-06-30"
-  },
-  {
-    "id": "headgear-for-sparring-safety",
-    "title": "Sparring Headgear: Face Bar vs Cheek Protection",
-    "subtitle": "Headgear does not prevent concussions, but it stops cuts and facial fractures. Compare face bar and cheek protectors to choose your armor.",
-    "category": "Equipment & Gear",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-07-01"
-  },
-  {
-    "id": "how-to-throw-an-uppercut",
-    "title": "How to Throw an Uppercut: Rear and Lead Uppercut Technique",
-    "subtitle": "Master the mechanics of the lead and rear uppercut to pierce your opponent's guard and generate maximum power from the ground up.",
-    "category": "Boxing Fundamentals",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-06-02"
-  },
-  {
-    "id": "how-to-slip-punches",
-    "title": "Slipping Punches: Head Movement Mechanics",
-    "subtitle": "Master the mechanics of head movement to make opponents miss by inches and position yourself for devastating counter-attacks.",
-    "category": "Defense & Countering",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-06-03"
-  },
-  {
-    "id": "pivot-footwork-mechanics",
-    "title": "Pivoting in Boxing: Creating 90-Degree Angles",
-    "subtitle": "Master the mechanics of the pivot to escape pressure, create new offensive angles, and leave your opponents hitting empty air.",
-    "category": "Footwork & Movement",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-06-04"
-  },
-  {
-    "id": "boxing-roadwork-training",
-    "title": "Roadwork for Boxers: Aerobic Base vs Interval Sprints",
-    "subtitle": "Discover how to structure your running to build a massive aerobic engine and develop the explosive recovery needed for high-intensity rounds.",
-    "category": "Conditioning & Fitness",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-06-05"
   },
   {
     "id": "nutrition-for-boxing-sparring",
     "title": "Fueling the Sparring Day: Macronutrient Timing",
     "subtitle": "Learn how to time your meals, balance your macronutrients, and maintain hydration to maximize your performance and recovery on sparring days.",
-    "category": "Nutrition & Weight",
-    "author": "BoxingWiki Editorial",
+    "category": "Athlete Fueling",
+    "author": "FoodWiki Editorial",
     "readTime": "8 min read",
     "date": "2026-06-06"
-  },
-  {
-    "id": "how-to-choose-sparring-gloves",
-    "title": "Choosing Sparring Gloves: 16oz Safety Standards",
-    "subtitle": "Learn why 16oz gloves are the universal safety standard for sparring and how to choose the right pair to protect your hands and your training partners.",
-    "category": "Equipment & Gear",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-06-07"
-  },
-  {
-    "id": "managing-adrenaline-dump",
-    "title": "Adrenaline Dump: Controlling Fear and Anxiety in Sparring",
-    "subtitle": "Understand the physiology of the adrenaline dump and learn mental and physical strategies to control fear, preserve energy, and stay calm under pressure.",
-    "category": "Sparring & Competition",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-06-08"
-  },
-  {
-    "id": "how-to-fight-a-taller-boxer",
-    "title": "Fighting Taller Opponents: Closing the Distance",
-    "subtitle": "Learn the strategies, footwork, and defensive adjustments needed to bypass a taller opponent's reach and dominate the fight on the inside.",
-    "category": "Mindset & Strategy",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-06-09"
-  },
-  {
-    "id": "boxing-clinch-fundamentals",
-    "title": "Inside the Clinch: Crucial Stanchions and Safety Rules",
-    "subtitle": "Learn how to secure a dominant clinch position, control your opponent's arms, and execute inside defense safely under unified boxing rules.",
-    "category": "Boxing Fundamentals",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-06-10"
-  },
-  {
-    "id": "rolling-under-hooks",
-    "title": "Rolling Under Hooks: Changing Levels under Fire",
-    "subtitle": "Master the mechanics of the roll to duck under hooks, change levels safely, and create dominant counter-punching angles.",
-    "category": "Defense & Countering",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-06-11"
-  },
-  {
-    "id": "corner-instructions-mid-fight",
-    "title": "Listening to Your Corner: Processing Information under Stress",
-    "subtitle": "Learn how to filter out the noise, decode your coach's instructions, and execute strategic changes under fire.",
-    "category": "Sparring & Competition",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-07-02"
-  },
-  {
-    "id": "how-to-fight-an-inside-pressure-fighter",
-    "title": "Defeating the Swarmer: Distance Control and Pivots",
-    "subtitle": "Neutralize pressure fighters, command the center of the ring, and use defensive footwork to turn aggression into counters.",
-    "category": "Mindset & Strategy",
-    "author": "BoxingWiki Editorial",
-    "readTime": "9 min read",
-    "date": "2026-07-03"
-  },
-  {
-    "id": "southpaw-stance-mechanics",
-    "title": "Southpaw Stance Mechanics: The Left-Hander's Blueprint",
-    "subtitle": "Master the biomechanics of the southpaw stance, align your feet for power, and win the lead foot battle.",
-    "category": "Boxing Fundamentals",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-07-04"
-  },
-  {
-    "id": "countering-the-jab",
-    "title": "Countering the Jab: 5 Technical Strategies",
-    "subtitle": "Neutralize your opponent's most important weapon with five precise counter-punching strategies.",
-    "category": "Defense & Countering",
-    "author": "BoxingWiki Editorial",
-    "readTime": "9 min read",
-    "date": "2026-07-05"
-  },
-  {
-    "id": "lateral-movement-defense",
-    "title": "Lateral Movement for Defense: Escaping the Ropes",
-    "subtitle": "Master the footwork required to slip away from pressure, evade corner traps, and keep the center of the ring.",
-    "category": "Footwork & Movement",
-    "author": "BoxingWiki Editorial",
-    "readTime": "8 min read",
-    "date": "2026-07-06"
-  },
-  {
-    "id": "boxing-shadowboxing-workouts",
-    "title": "Structured Shadowboxing: 3 Pro Training Templates",
-    "subtitle": "Transform your shadowboxing from a lazy warm-up into a highly technical, combat-simulating workout.",
-    "category": "Conditioning & Fitness",
-    "author": "BoxingWiki Editorial",
-    "readTime": "9 min read",
-    "date": "2026-07-07"
   },
   {
     "id": "boxing-fat-loss-muscle-retention",
     "title": "Fat Loss for Boxers: Cutting Weight without Losing Power",
     "subtitle": "Learn the science of calorie deficits, protein intake, and training adjustments for boxing weight cuts.",
-    "category": "Nutrition & Weight",
-    "author": "BoxingWiki Editorial",
+    "category": "Nutrition & Diet",
+    "author": "FoodWiki Editorial",
     "readTime": "9 min read",
     "date": "2026-07-08"
-  },
-  {
-    "id": "boxing-defensive-guard-styles",
-    "title": "High Guard vs Philly Shell vs Peek-a-boo: Style Comparison",
-    "subtitle": "Analyze the mechanics, advantages, and vulnerabilities of boxing's three most prominent defensive stances.",
-    "category": "Boxing Fundamentals",
-    "author": "BoxingWiki Editorial",
-    "readTime": "10 min read",
-    "date": "2026-07-09"
-  },
-  {
-    "id": "defending-the-uppercut",
-    "title": "Defending the Uppercut: Tuck, Roll, or Step Back",
-    "subtitle": "Neutralize one of boxing's most dangerous punches with three distinct, biomechanically sound defensive strategies.",
-    "category": "Defense & Countering",
-    "author": "BoxingWiki Editorial",
-    "readTime": "9 min read",
-    "date": "2026-07-10"
-  },
-  {
-    "id": "boxing-angles-for-power-shots",
-    "title": "Creating Angles: How to Position Your Feet for Maximum Power",
-    "subtitle": "Learn how to use footwork to shift off the centerline and open up clean paths for devastating power punches.",
-    "category": "Footwork & Movement",
-    "author": "BoxingWiki Editorial",
-    "readTime": "9 min read",
-    "date": "2026-07-11"
-  },
-  {
-    "id": "the-pendulum-bounce-explained",
-    "title": "The Pendulum Bounce: Soviet Footwork Style",
-    "subtitle": "Master the biomechanics of the Soviet pendulum bounce to maintain constant motion, control range, and launch explosive attacks.",
-    "category": "Footwork & Movement",
-    "author": "BoxingWiki Editorial",
-    "readTime": "9 min read",
-    "date": "2026-06-12"
-  },
-  {
-    "id": "skipping-rope-for-boxers",
-    "title": "Jump Rope for Boxing: Footwork Rhythm and Calf Endurance",
-    "subtitle": "Build boxing-specific rhythm, hand-eye coordination, and elite calf endurance using structured jump rope training protocols.",
-    "category": "Conditioning & Fitness",
-    "author": "BoxingWiki Editorial",
-    "readTime": "9 min read",
-    "date": "2026-06-13"
   },
   {
     "id": "rehydration-after-weigh-in",
     "title": "Scientific Rehydration: Restoring Fluids and Electrolytes post Weigh-In",
     "subtitle": "Optimize post-weigh-in rehydration to restore brain fluid, muscle glycogen, and performance capacity safely before the bell rings.",
-    "category": "Nutrition & Weight",
-    "author": "BoxingWiki Editorial",
+    "category": "Health & Recovery",
+    "author": "FoodWiki Editorial",
     "readTime": "9 min read",
     "date": "2026-06-14"
-  },
-  {
-    "id": "boxing-shoes-buying-guide",
-    "title": "Boxing Shoes vs Cross Trainers: Pivot Speed and Grip",
-    "subtitle": "Understand why training in running shoes ruins your pivot speed and footwork safety, and choose the correct boxing footwear.",
-    "category": "Equipment & Gear",
-    "author": "BoxingWiki Editorial",
-    "readTime": "9 min read",
-    "date": "2026-06-15"
-  },
-  {
-    "id": "boxing-hand-wrapping-pro-style",
-    "title": "Pro Hand Wrapping: Gauze and Tape Commission Rules",
-    "subtitle": "Learn the exact professional hand wrapping techniques, rules, and layering procedures required by athletic commissions.",
-    "category": "Sparring & Competition",
-    "author": "BoxingWiki Editorial",
-    "readTime": "9 min read",
-    "date": "2026-06-16"
-  },
-  {
-    "id": "how-to-fight-a-southpaw",
-    "title": "Southpaw vs Orthodox: The Lead Foot Battle",
-    "subtitle": "Dominate the mirror stance matchup by winning the lead foot position, landing straight rights, and countering the southpaw jab.",
-    "category": "Mindset & Strategy",
-    "author": "BoxingWiki Editorial",
-    "readTime": "9 min read",
-    "date": "2026-06-17"
-  },
-  {
-    "id": "how-to-throw-a-body-hook",
-    "title": "Digging to the Body: Mechanics of the Liver Shot and Spleen Hook",
-    "subtitle": "Master the biomechanics, weight transfer, and entry angles needed to land devastating liver shots and spleen-rupturing hooks.",
-    "category": "Boxing Fundamentals",
-    "author": "BoxingWiki Editorial",
-    "readTime": "9 min read",
-    "date": "2026-06-18"
-  },
-  {
-    "id": "how-to-block-body-shots",
-    "title": "Elbow Blocks: Defending the Body without Dropping the Guard",
-    "subtitle": "Learn how to use elbow blocks and subtle weight shifts to protect your ribs and liver without exposing your chin.",
-    "category": "Defense & Countering",
-    "author": "BoxingWiki Editorial",
-    "readTime": "9 min read",
-    "date": "2026-06-19"
-  },
-  {
-    "id": "step-and-slide-footwork",
-    "title": "Step-and-Slide Footwork: Maintaining Balance in Motion",
-    "subtitle": "Establish a rock-solid foundation by mastering the fundamental step-and-slide footwork system used to maneuver under balance.",
-    "category": "Footwork & Movement",
-    "author": "BoxingWiki Editorial",
-    "readTime": "9 min read",
-    "date": "2026-06-20"
-  },
-  {
-    "id": "neck-training-for-punch-resistance",
-    "title": "Neck Training for Boxers: Absorbing Impact Safely",
-    "subtitle": "Strengthen the cervical spine and neck muscles to reduce rotational head acceleration and build elite punch resistance.",
-    "category": "Conditioning & Fitness",
-    "author": "BoxingWiki Editorial",
-    "readTime": "9 min read",
-    "date": "2026-06-21"
   }
 ]

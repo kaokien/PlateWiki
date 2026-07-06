@@ -1,43 +1,53 @@
-import { boxingFundamentals } from './boxing-fundamentals.js';
-import { defenseCounting } from './defense-countering.js';
-import { footworkMovement } from './footwork-movement.js';
-import { conditioningFitness } from './conditioning-fitness.js';
 import { nutritionWeight } from './nutrition-weight.js';
-import { equipmentGear } from './equipment-gear.js';
-import { sparringCompetition } from './sparring-competition.js';
-import { mindsetStrategy } from './mindset-strategy.js';
-import { newFundamentals } from './new-fundamentals.js';
-import { newConditioning } from './new-conditioning.js';
-import { newStrategy } from './new-strategy.js';
 import { newRecoveryFootwork } from './new-recovery-footwork.js';
-import { newBreathingDefense } from './new-breathing-defense.js';
 
 export const categories = [
   { id: 'all', name: 'All Articles', count: 0 },
-  { id: 'Boxing Fundamentals', name: 'Boxing Fundamentals', icon: 'fundamentals' },
-  { id: 'Defense & Countering', name: 'Defense & Countering', icon: 'defense' },
-  { id: 'Footwork & Movement', name: 'Footwork & Movement', icon: 'footwork' },
-  { id: 'Conditioning & Fitness', name: 'Conditioning & Fitness', icon: 'conditioning' },
-  { id: 'Nutrition & Weight', name: 'Nutrition & Weight', icon: 'nutrition' },
-  { id: 'Equipment & Gear', name: 'Equipment & Gear', icon: 'gear' },
-  { id: 'Sparring & Competition', name: 'Sparring & Competition', icon: 'sparring' },
-  { id: 'Mindset & Strategy', name: 'Mindset & Strategy', icon: 'mindset' },
+  { id: 'Nutrition & Diet', name: 'Nutrition & Diet', icon: 'nutrition' },
+  { id: 'Cooking & Meal Prep', name: 'Cooking & Meal Prep', icon: 'fundamentals' },
+  { id: 'Athlete Fueling', name: 'Athlete Fueling', icon: 'defense' },
+  { id: 'Health & Recovery', name: 'Health & Recovery', icon: 'conditioning' },
 ];
 
+// Re-map the local articles to be food/nutrition-focused
+const mappedNutritionWeight = nutritionWeight.map(art => {
+  if (art.id === 'what-to-eat-before-boxing-training') {
+    return {
+      ...art,
+      title: 'What to Eat Before Training: Fueling for Performance',
+      subtitle: 'What you eat before training decides whether you feel sharp or sluggish by the end.',
+      category: 'Athlete Fueling',
+      tags: ['nutrition', 'pre-workout', 'fueling'],
+      author: 'FoodWiki Editorial',
+    };
+  }
+  if (art.id === 'fight-week-weight-management') {
+    return {
+      ...art,
+      title: 'Weight Management & Energy Balance for Athletes',
+      subtitle: 'Understanding energy balance, caloric deficits, and hydration safely.',
+      category: 'Nutrition & Diet',
+      tags: ['nutrition', 'weight', 'diet'],
+      author: 'FoodWiki Editorial',
+    };
+  }
+  return art;
+});
+
+const recoveryArticle = newRecoveryFootwork
+  .filter(art => art.id === 'recovery-for-boxers')
+  .map(art => ({
+    ...art,
+    title: 'Athlete Recovery: Sleep, Hydration & Injury Prevention',
+    subtitle: 'Training breaks you down — recovery is where you actually get stronger.',
+    category: 'Health & Recovery',
+    tags: ['recovery', 'nutrition', 'rest'],
+    author: 'FoodWiki Editorial',
+  }));
+
 export const articles = [
-  ...boxingFundamentals,
-  ...defenseCounting,
-  ...footworkMovement,
-  ...conditioningFitness,
-  ...nutritionWeight,
-  ...equipmentGear,
-  ...sparringCompetition,
-  ...mindsetStrategy,
-  ...newFundamentals,
-  ...newConditioning,
-  ...newStrategy,
-  ...newRecoveryFootwork,
-  ...newBreathingDefense,
+  ...mappedNutritionWeight,
+  ...recoveryArticle,
 ].sort((a, b) => new Date(b.date) - new Date(a.date));
 
 // Update the "all" count

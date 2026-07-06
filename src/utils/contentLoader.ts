@@ -4,7 +4,7 @@ import DOMPurify from 'isomorphic-dompurify';
 import { articles as localArticles, categories as localCategories } from '../data/articles';
 
 // GitHub Contents API (works with private repos + token auth)
-const CONTENT_REPO = process.env.CONTENT_REPO || 'kaokien/FoodWiki';
+const CONTENT_REPO = process.env.CONTENT_REPO || 'kaokien/PlateWiki';
 const CONTENT_BRANCH = process.env.CONTENT_BRANCH || 'main';
 const GITHUB_API_BASE = `https://api.github.com/repos/${CONTENT_REPO}/contents/content/articles`;
 

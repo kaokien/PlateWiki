@@ -12,7 +12,7 @@ export const newRecoveryFootwork = [
     heroImage: '/images/articles/nutrition-weight.png',
     youtubeId: null,
     relatedTechniques: ['roadwork', 'shadow-boxing'],
-    relatedArticles: ['fighters-conditioning-blueprint', 'what-to-eat-before-boxing-training', 'fight-week-weight-management'],
+    relatedArticles: ['what-to-eat-before-boxing-training', 'fight-week-weight-management'],
     sections: [
       {
         heading: 'Recovery Is Where the Gains Happen',

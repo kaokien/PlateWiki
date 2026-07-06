@@ -15,14 +15,6 @@ const TrainingHistoryPage = () => {
   const [log, setLog] = useState<any[]>([]);
   const [stats, setStats] = useState<any>(null);
 
-  if (isLoaded && !user) {
-    return (
-      <div className="training-history-page">
-        <AuthGate feature="Training History" description="Sign in to track your workouts, streaks, and training stats." />
-      </div>
-    );
-  }
-
   useEffect(() => {
     window.scrollTo(0, 0);
     setLog(getWorkoutLog());
@@ -37,6 +29,14 @@ const TrainingHistoryPage = () => {
     window.addEventListener('cloud-sync-complete', handleSyncComplete);
     return () => window.removeEventListener('cloud-sync-complete', handleSyncComplete);
   }, []);
+
+  if (isLoaded && !user) {
+    return (
+      <div className="training-history-page">
+        <AuthGate feature="Training History" description="Sign in to track your workouts, streaks, and training stats." />
+      </div>
+    );
+  }
 
   // Group log entries by date
   const groupByDate = (entries: WorkoutLogRecord[]) => {

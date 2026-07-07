@@ -7,6 +7,7 @@ import {
   GLOVE_COLORS,
   SHOE_COLORS,
   TOP_COLORS,
+  normalizeRank,
   type FighterCustomization
 } from '@/data/fighterSprites';
 import { playLevelUpSound } from '@/utils/retroSound';
@@ -22,8 +23,9 @@ interface PixelFighterCanvasProps {
 const DIMS: Record<string, number> = { sm: 48, md: 96, lg: 160, xl: 240 };
 
 function getGrowthStage(rankName: string): 'stage1' | 'stage2' | 'stage3' {
-  if (rankName === 'Prospect' || rankName === 'Contender') return 'stage1';
-  if (rankName === 'Gatekeeper' || rankName === 'Rising Star') return 'stage2';
+  const normalized = normalizeRank(rankName);
+  if (normalized === 'Prospect' || normalized === 'Contender') return 'stage1';
+  if (normalized === 'Gatekeeper' || normalized === 'Rising Star') return 'stage2';
   return 'stage3'; // Champion & Hall of Famer
 }
 

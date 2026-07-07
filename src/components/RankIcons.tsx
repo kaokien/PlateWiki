@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { normalizeRank } from '@/data/fighterSprites';
 
 /**
  * Custom SVG rank icons for the athlete progression system.
@@ -103,6 +104,7 @@ const RANK_ICON_MAP: Record<string, React.ComponentType<RankIconProps>> = {
  * Falls back to ProspectIcon for unknown ranks.
  */
 export function RankIcon({ rankName, size = 24, color = 'currentColor', className }: RankIconProps & { rankName: string }) {
-  const IconComponent = RANK_ICON_MAP[rankName] || ProspectIcon;
+  const normalized = normalizeRank(rankName);
+  const IconComponent = RANK_ICON_MAP[normalized] || ProspectIcon;
   return <IconComponent size={size} color={color} className={className} />;
 }

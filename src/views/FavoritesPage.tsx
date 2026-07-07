@@ -18,14 +18,6 @@ const FavoritesPage = () => {
   const [historyItems, setHistoryItems] = useState<HistoryItem[]>([]);
   const { isPro } = useSubscription();
   const { user, isLoaded } = useUser();
-
-  if (isLoaded && !user) {
-    return (
-      <div className="favorites-page">
-        <AuthGate feature="Saved Items" description="Sign in to save techniques, workouts, and track your browsing history across devices." />
-      </div>
-    );
-  }
   
   const atLimit = !isPro && favoriteIds.length >= FREE_FAVORITES_LIMIT;
   const workoutsAtLimit = !isPro && savedWorkouts.length >= FREE_WORKOUTS_LIMIT;
@@ -36,6 +28,14 @@ const FavoritesPage = () => {
     setSavedWorkouts(getSavedWorkouts());
     setHistoryItems(getHistory());
   }, []);
+
+  if (isLoaded && !user) {
+    return (
+      <div className="favorites-page">
+        <AuthGate feature="Saved Items" description="Sign in to save techniques, workouts, and track your browsing history across devices." />
+      </div>
+    );
+  }
 
   const handleRemoveFavorite = (id: string, e: React.MouseEvent) => {
     e.preventDefault();

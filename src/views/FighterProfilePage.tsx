@@ -44,14 +44,6 @@ export default function FighterProfilePage() {
   const { user, isLoaded } = useUser();
   const { customization } = useFighterCustomization();
 
-  if (isLoaded && !user) {
-    return (
-      <div className="profile-page">
-        <AuthGate feature="Athlete Profile" description="Sign in to track your XP, badges, training streaks, and workout history." />
-      </div>
-    );
-  }
-
   const earnedBadgeIds = React.useMemo(() => getEarnedBadgeIds(profile), [profile]);
 
   const [showResetModal, setShowResetModal] = useState(false);
@@ -348,6 +340,14 @@ export default function FighterProfilePage() {
       analytics.fighterCardDownloaded(rank.name, streak, profile.xp);
     } catch { /* download/clipboard failed */ }
   }, [generateCardImage, profile, rank, streak, fightingStyle]);
+
+  if (isLoaded && !user) {
+    return (
+      <div className="profile-page">
+        <AuthGate feature="Athlete Profile" description="Sign in to track your XP, badges, training streaks, and workout history." />
+      </div>
+    );
+  }
 
   const joinedDate = new Date(profile.joinedAt).toLocaleDateString('en-US', {
     month: 'short',

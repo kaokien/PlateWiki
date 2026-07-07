@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import { getStageForRank, getStageIndex, type FighterCustomization } from '@/data/fighterSprites';
+import { getStageForRank, getStageIndex, normalizeRank, type FighterCustomization } from '@/data/fighterSprites';
 import { useFighterCustomization } from '@/hooks/useFighterCustomization';
 import './PixelFighter.css';
 
@@ -52,9 +52,10 @@ export default function PixelFighter({
     img.onload = () => setIsLoaded(true);
     img.onerror = () => setIsLoaded(true); // fallback to render even if error
 
+    const normalized = normalizeRank(rankName);
     let folderStage = 'stage3';
-    if (rankName === 'Prospect' || rankName === 'Contender') folderStage = 'stage1';
-    else if (rankName === 'Gatekeeper' || rankName === 'Rising Star') folderStage = 'stage2';
+    if (normalized === 'Prospect' || normalized === 'Contender') folderStage = 'stage1';
+    else if (normalized === 'Gatekeeper' || normalized === 'Rising Star') folderStage = 'stage2';
     
     const gender = customization?.bodyType === 'female' ? 'female_' : '';
     img.src = `/athletes/${folderStage}_${gender}idle.png`;

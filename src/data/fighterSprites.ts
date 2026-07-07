@@ -98,12 +98,26 @@ export const FIGHTER_STAGES: FighterStage[] = [
   },
 ];
 
+export function normalizeRank(rankName: string): string {
+  const map: Record<string, string> = {
+    'Sprout': 'Prospect',
+    'Forager': 'Contender',
+    'Cultivator': 'Gatekeeper',
+    'Artisanal Chef': 'Rising Star',
+    'Harvest Master': 'Champion',
+    'Earthy Sage': 'Hall of Famer'
+  };
+  return map[rankName] || rankName;
+}
+
 export function getStageForRank(rankName: string): FighterStage {
-  return FIGHTER_STAGES.find(s => s.rankName === rankName) || FIGHTER_STAGES[0];
+  const normalized = normalizeRank(rankName);
+  return FIGHTER_STAGES.find(s => s.rankName === normalized) || FIGHTER_STAGES[0];
 }
 
 export function getStageIndex(rankName: string): number {
-  const idx = FIGHTER_STAGES.findIndex(s => s.rankName === rankName);
+  const normalized = normalizeRank(rankName);
+  const idx = FIGHTER_STAGES.findIndex(s => s.rankName === normalized);
   return idx >= 0 ? idx : 0;
 }
 

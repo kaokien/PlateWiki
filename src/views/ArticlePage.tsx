@@ -64,7 +64,7 @@ const ArticlePage = ({ article: propArticle }: ArticlePageProps) => {
   // Award XP when user scrolls past ~80% of article
   useEffect(() => {
     if (article) {
-      addToHistory({ id, type: 'article', title: article.title, href: `/article/${id}` });
+      addToHistory({ id, type: 'article', title: article.title, href: `/articles/${id}` });
     }
   }, [id, article]);
 

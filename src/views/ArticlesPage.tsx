@@ -37,19 +37,15 @@ const CATEGORY_ICONS: Record<string, React.ComponentType<{ size?: number; classN
 
 // Category → fallback thumbnail (matches existing images in /public/images/articles/)
 const CATEGORY_IMAGES: Record<string, string> = {
-  'Athletic Nutrition Fundamentals': '/images/articles/athletic nutrition-fundamentals.png',
-  'Defense & Countering': '/images/articles/defense-countering.png',
-  'Footwork & Movement': '/images/articles/footwork-movement.png',
-  'Conditioning & Fitness': '/images/articles/conditioning-fitness.png',
-  'Nutrition & Weight': '/images/articles/nutrition-weight.png',
-  'Equipment & Gear': '/images/articles/equipment-gear.png',
-  'Training & Competition': '/images/articles/training-competition.png',
-  'Mindset & Strategy': '/images/articles/mindset-strategy.png',
+  'Nutrition & Diet': '/images/articles/nutrition-weight.png',
+  'Cooking & Meal Prep': '/images/articles/boxing-fundamentals.png',
+  'Athlete Fueling': '/images/articles/defense-countering.png',
+  'Health & Recovery': '/images/articles/conditioning-fitness.png',
 };
 
 /** Returns heroImage if set, otherwise the category fallback image. */
 function getArticleImage(article: Article): string {
-  return article.heroImage || CATEGORY_IMAGES[article.category] || '/images/articles/athletic nutrition-fundamentals.png';
+  return article.heroImage || CATEGORY_IMAGES[article.category] || '/images/articles/nutrition-weight.png';
 }
 
 interface ArticlesPageProps {

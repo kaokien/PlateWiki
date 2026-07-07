@@ -13,6 +13,7 @@ import { RankIcon } from '@/components/RankIcons';
 import WeeklyChallengeCard from '@/components/WeeklyChallengeCard';
 import AuthGate from '@/components/AuthGate';
 import { techniques } from '@/data/techniques';
+import { getFavorites } from '@/utils/favorites';
 import {
   Zap, ArrowRight, Shield, Crosshair, Move, Brain,
   Dumbbell, Flame, Check, Lock, ChevronRight,
@@ -110,6 +111,18 @@ export default function DashboardPage() {
       window.location.href = `/anatomy/${partId}`;
     });
   }, []);
+
+  // My Pantry — user's saved favorites
+  const [pantryIds, setPantryIds] = useState<string[]>([]);
+  useEffect(() => {
+    setPantryIds(getFavorites());
+  }, []);
+  const pantryFoods = useMemo(() => {
+    return pantryIds
+      .slice(0, 5)
+      .map(id => (techniques as any)[id])
+      .filter(Boolean);
+  }, [pantryIds]);
 
   if (isLoaded && !user) {
     return (
@@ -288,6 +301,25 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
+
+      {/* ── My Pantry (IKEA/Endowment Effect) ──────────────────────── */}
+      {pantryFoods.length > 0 && (
+        <section className="dash-pantry">
+          <div className="dash-section-head">
+            <h2 className="section-heading">MY <span className="text-primary">PANTRY</span></h2>
+            <Link href="/favorites" className="dash-section-link">View all ({pantryIds.length}) <ChevronRight size={14} /></Link>
+          </div>
+          <div className="dash-pantry__grid">
+            {pantryFoods.map((food: any) => (
+              <Link key={food.id} href={`/technique/${food.id}`} className="dash-pantry-card glass-panel">
+                <Heart size={12} className="dash-pantry-card__heart" fill="currentColor" />
+                <span className="dash-pantry-card__name">{food.name}</span>
+                <span className="dash-pantry-card__cat">{food.category}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ── Continue Fueling CTA ──────────────────────────────────── */}
       {(() => {

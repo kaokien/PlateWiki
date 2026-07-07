@@ -761,6 +761,72 @@
   color: var(--color-text);
 }
 
+/* ── My Pantry ──────────────────────────────────────────────────────── */
+.dash-pantry__grid {
+  display: flex;
+  gap: var(--space-sm);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 2px;
+}
+
+.dash-pantry__grid::-webkit-scrollbar {
+  display: none;
+}
+
+.dash-pantry-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  min-width: 140px;
+  flex-shrink: 0;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.dash-pantry-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.dash-pantry-card__heart {
+  color: #e74c3c;
+  flex-shrink: 0;
+}
+
+.dash-pantry-card__name {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.dash-pantry-card__cat {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.dash-section-link {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dash-section-link:hover {
+  text-decoration: underline;
+}
+
 /* ── Body Map ───────────────────────────────────────────────────────── */
 .dash-bodymap {
   display: flex;

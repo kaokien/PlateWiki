@@ -164,71 +164,53 @@
   color: #eae6df;
 }
 
-/* Gym control buttons panel */
-.gym-controls {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 8px;
-  padding: 10px;
+/* Gamification Octalysis Alignment Legend */
+.gym-octalysis-mirror-legend {
+  padding: 12px;
   background: #111413;
-}
-
-.gym-btn {
-  padding: 8px 4px;
+  border-top: 1px solid #2e3532;
   font-family: monospace;
-  font-weight: 700;
-  font-size: 11px;
-  color: #111413;
-  background: #eae6df;
-  border: 2px solid #2e3532;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  outline: none;
 }
 
-.gym-btn:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-  background: #232a27 !important;
-  color: #5c6c66 !important;
-  border-color: #1f2523 !important;
+.gym-legend-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #2d8a4e;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
 }
 
-.gym-btn:hover:not(:disabled) {
-  transform: translateY(-1px);
-  filter: brightness(1.15);
+.gym-legend-desc {
+  font-size: 10px;
+  color: #8c9c96;
+  margin: 0 0 8px;
+  line-height: 1.4;
 }
 
-.gym-btn:active:not(:disabled) {
-  transform: translateY(0);
+.gym-legend-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.btn-feed {
-  background: #2d8a4e;
+.gym-legend-list li {
+  font-size: 10px;
   color: #eae6df;
-  border-color: #1f5f35;
+  line-height: 1.3;
 }
 
-.btn-train {
-  background: #3b82f6;
-  color: #eae6df;
-  border-color: #1d4ed8;
-}
-
-.btn-sleep {
-  background: #eab308;
-  color: #111413;
-  border-color: #a16207;
-}
-
-.btn-active {
-  background: #111413 !important;
-  color: #eab308 !important;
-  border-color: #eab308 !important;
+.gym-legend-list li strong {
+  color: #8c9c96;
 }
 
 /* Color references */
 .text-red { color: #ef4444; }
 .text-orange { color: #f97316; }
 .text-yellow { color: #eab308; }
+.text-accent { color: #2d8a4e; }

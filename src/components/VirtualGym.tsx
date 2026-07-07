@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import PixelFighterCanvas from './PixelFighterCanvas';
 import { useFighterProfile } from '@/context/FighterProfileContext';
 import { useFighterCustomization } from '@/hooks/useFighterCustomization';
-import { Zap, Flame, Heart, Play } from 'lucide-react';
+import { Zap, Flame, Heart, Info } from 'lucide-react';
 import './VirtualGym.css';
 
 const LOCAL_STORAGE_KEY = 'FoodWiki_tamagotchi_gym';
@@ -17,7 +17,7 @@ interface GymState {
 }
 
 export default function VirtualGym() {
-  const { rank, awardXP } = useFighterProfile();
+  const { rank } = useFighterProfile();
   const { customization } = useFighterCustomization();
 
   // Coordinates (percentage of container width/height)
@@ -43,27 +43,50 @@ export default function VirtualGym() {
   const [floatingText, setFloatingText] = useState<{ id: number; text: string; x: number; y: number }[]>([]);
   const floatIdCounter = useRef(0);
 
-  // Load state from local storage on mount
+  // Helper to check if it is nighttime (10 PM to 6 AM)
+  const checkIsNighttime = (): boolean => {
+    const hour = new Date().getHours();
+    return hour >= 22 || hour < 6;
+  };
+
+  // Helper to trigger floating text
+  const addFloatText = (text: string, x: number, y: number) => {
+    const id = floatIdCounter.current++;
+    setFloatingText((prev) => [...prev, { id, text, x, y }]);
+    setTimeout(() => {
+      setFloatingText((prev) => prev.filter((item) => item.id !== id));
+    }, 2000);
+  };
+
+  // 1. Load state and check decay on mount
   useEffect(() => {
     try {
       const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+      const isNight = checkIsNighttime();
+      
       if (saved) {
         const parsed: GymState = JSON.parse(saved);
-        const elapsedMinutes = (Date.now() - parsed.lastUpdated) / 60000;
+        const elapsedHours = (Date.now() - parsed.lastUpdated) / 3600000;
         
-        // Decay status based on time passed
-        const decayNourishment = Math.max(0, parsed.nourishment - Math.floor(elapsedMinutes * 0.1)); // 1% per 10 mins
-        const decayFitness = Math.max(0, parsed.fitness - Math.floor(elapsedMinutes * 0.08));     // 1% per 12 mins
-        const decayEnergy = Math.max(0, parsed.energy - Math.floor(elapsedMinutes * 0.05));       // 1% per 20 mins
+        // Decay status bars: 2% per hour
+        const decayNourishment = Math.max(0, parsed.nourishment - Math.floor(elapsedHours * 2.0));
+        const decayFitness = Math.max(0, parsed.fitness - Math.floor(elapsedHours * 2.0));
+        
+        // Energy: Restores 10% per hour if sleeping/idle
+        const restoreEnergy = Math.min(100, parsed.energy + Math.floor(elapsedHours * 8.0));
 
         setNourishment(decayNourishment);
         setFitness(decayFitness);
-        setEnergy(decayEnergy);
+        setEnergy(restoreEnergy);
+      }
+      
+      if (isNight) {
+        setGymState('sleeping');
       }
     } catch { /* ignore */ }
   }, []);
 
-  // Save state to local storage on changes
+  // 2. Save state to local storage on changes
   useEffect(() => {
     try {
       const state: GymState = {
@@ -76,84 +99,115 @@ export default function VirtualGym() {
     } catch { /* ignore */ }
   }, [nourishment, fitness, energy]);
 
-  // Decay bars slowly during active usage
+  // 3. Periodic natural decay (1% every 15 minutes) and energy recovery
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (gymState !== 'sleeping') {
-        setNourishment((prev) => Math.max(0, prev - 1));
-        setFitness((prev) => Math.max(0, prev - 1));
-        setEnergy((prev) => Math.max(0, prev - 1));
+    const decayInterval = setInterval(() => {
+      const isNight = checkIsNighttime();
+      
+      setNourishment((prev) => Math.max(0, prev - 1));
+      setFitness((prev) => Math.max(0, prev - 1));
+      
+      if (isNight || gymState === 'sleeping') {
+        setEnergy((prev) => Math.min(100, prev + 2)); // recover energy
+        setGymState('sleeping');
+      } else {
+        setEnergy((prev) => Math.max(0, prev - 1)); // active energy drain
       }
-    }, 25000); // decay 1% every 25s while active
+    }, 900000); // 15 minutes
 
-    return () => clearInterval(timer);
+    return () => clearInterval(decayInterval);
   }, [gymState]);
 
-  // Trigger sleeping energy restore
+  // 4. Listen for Real-life logged events (Meal Log & Workouts)
   useEffect(() => {
-    if (gymState !== 'sleeping') return;
+    const handleMealLogged = () => {
+      // Restore nourishment
+      setNourishment((prev) => Math.min(100, prev + 45));
+      
+      // Wake up if sleeping
+      if (gymState === 'sleeping') {
+        setGymState('idle');
+      }
 
-    const timer = setInterval(() => {
-      setEnergy((prev) => {
-        if (prev >= 100) {
-          setGymState('idle');
-          addFloatText('Fully Energized!', 50, 40);
-          return 100;
-        }
-        return Math.min(100, prev + 5);
-      });
-    }, 1000); // restore 5% every second
+      // Spawn food item & move to it
+      const fx = 20 + Math.random() * 40;
+      const fy = 60 + Math.random() * 15;
+      setFoodItem({ x: fx, y: fy });
+      setTargetX(fx);
+      setTargetY(fy);
+      setGymState('walking');
 
-    return () => clearInterval(timer);
+      addFloatText('Logged Meal Prep! 🍎', fx, fy - 15);
+    };
+
+    const handleWorkoutLogged = () => {
+      // Restore fitness & drain energy
+      setFitness((prev) => Math.min(100, prev + 45));
+      setEnergy((prev) => Math.max(0, prev - 25));
+
+      // Wake up if sleeping
+      if (gymState === 'sleeping') {
+        setGymState('idle');
+      }
+
+      // Walk to training center
+      setTargetX(45);
+      setTargetY(70);
+      setGymState('walking');
+
+      addFloatText('Logged Workout Completed! 🥊', 45, 45);
+    };
+
+    window.addEventListener('foodwiki:meal-logged', handleMealLogged);
+    window.addEventListener('foodwiki:workout-logged', handleWorkoutLogged);
+
+    return () => {
+      window.removeEventListener('foodwiki:meal-logged', handleMealLogged);
+      window.removeEventListener('foodwiki:workout-logged', handleWorkoutLogged);
+    };
   }, [gymState]);
 
-  // Helper to trigger floating text
-  const addFloatText = (text: string, x: number, y: number) => {
-    const id = floatIdCounter.current++;
-    setFloatingText((prev) => [...prev, { id, text, x, y }]);
-    setTimeout(() => {
-      setFloatingText((prev) => prev.filter((item) => item.id !== id));
-    }, 1500);
-  };
-
-  // Walk animation logic loop
+  // 5. Walking animation movement loop
   useEffect(() => {
     if (gymState === 'sleeping' || gymState === 'eating' || gymState === 'training') return;
 
-    const intervalTime = 80; // step calculation frequency (ms)
-    const stepSize = 1.2;     // X/Y coordinates change per step
+    const intervalTime = 70; // coordinate update rate
+    const stepSize = 1.4;
 
     const moveTimer = setInterval(() => {
       if (targetX !== null && targetY !== null) {
-        // Calculate distance
         const dx = targetX - posX;
         const dy = targetY - posY;
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < stepSize) {
-          // Destination reached
           setPosX(targetX);
           setPosY(targetY);
           setTargetX(null);
           setTargetY(null);
 
           if (foodItem) {
-            // Reached spawned food! Begin eating animation
+            // Reached food, play chewing animation
             setGymState('eating');
             setFoodItem(null);
-            setNourishment((prev) => Math.min(100, prev + 25));
-            awardXP('daily_login'); // Award actual XP
-            addFloatText('+5 XP', targetX, targetY - 15);
-            addFloatText('+10 Coins', targetX + 10, targetY - 5);
-
+            addFloatText('MUNCH MUNCH... 😋', targetX, targetY - 15);
             setTimeout(() => {
-              setGymState('idle');
-            }, 4000);
+              const isNight = checkIsNighttime();
+              setGymState(isNight ? 'sleeping' : 'idle');
+            }, 5000);
+          } else if (posX === 45 && posY === 70 && fitness > 70) {
+            // Reached training spot, play training shadowboxing animation
+            setGymState('training');
+            addFloatText('TRAINING HARD... ⚡', 45, 45);
+            setTimeout(() => {
+              const isNight = checkIsNighttime();
+              setGymState(isNight ? 'sleeping' : 'idle');
+            }, 5000);
           } else {
-            setGymState('idle');
+            const isNight = checkIsNighttime();
+            setGymState(isNight ? 'sleeping' : 'idle');
           }
         } else {
-          // Move towards target
           const vx = (dx / dist) * stepSize;
           const vy = (dy / dist) * stepSize;
 
@@ -166,96 +220,36 @@ export default function VirtualGym() {
     }, intervalTime);
 
     return () => clearInterval(moveTimer);
-  }, [posX, posY, targetX, targetY, gymState, foodItem, awardXP]);
+  }, [posX, posY, targetX, targetY, gymState, foodItem, fitness]);
 
-  // Random wander loop (picks target coordinate every few seconds)
+  // 6. Wander wander wander (when idle)
   useEffect(() => {
     if (gymState !== 'idle') return;
 
-    const wanderingTimer = setInterval(() => {
-      // 30% chance to start wandering
-      if (Math.random() < 0.3) {
-        const randX = 10 + Math.random() * 70;
-        const randY = 55 + Math.random() * 25;
-        setTargetX(randX);
-        setTargetY(randY);
+    const wanderTimer = setInterval(() => {
+      if (checkIsNighttime()) {
+        setGymState('sleeping');
+        return;
       }
-    }, 4000);
 
-    return () => clearInterval(wanderingTimer);
+      if (Math.random() < 0.25) {
+        const rx = 15 + Math.random() * 65;
+        const ry = 55 + Math.random() * 20;
+        setTargetX(rx);
+        setTargetY(ry);
+      }
+    }, 5000);
+
+    return () => clearInterval(wanderTimer);
   }, [gymState]);
-
-  // Action Button - Feed
-  const handleFeed = () => {
-    if (gymState === 'sleeping') return;
-    
-    // Spawn food on the gym floor
-    const rx = 20 + Math.random() * 50;
-    const ry = 60 + Math.random() * 20;
-    
-    setFoodItem({ x: rx, y: ry });
-    setTargetX(rx);
-    setTargetY(ry);
-    setGymState('walking');
-    
-    addFloatText('Yum! 🍎', rx, ry - 10);
-  };
-
-  // Action Button - Train
-  const handleTrain = () => {
-    if (gymState === 'sleeping' || gymState === 'eating' || gymState === 'training') return;
-    
-    if (energy < 25) {
-      addFloatText('Too tired to train!', posX, posY - 20);
-      return;
-    }
-
-    // Walk to gym center first
-    setTargetX(45);
-    setTargetY(70);
-    
-    const checkCenter = setInterval(() => {
-      // Check if arrived at center
-      if (targetX === null && targetY === null) {
-        clearInterval(checkCenter);
-        setGymState('training');
-        setFitness((prev) => Math.min(100, prev + 30));
-        setEnergy((prev) => Math.max(0, prev - 25));
-        
-        // Award XP and coins
-        awardXP('workout_complete');
-        addFloatText('+10 XP', 45, 50);
-        addFloatText('+20 Coins', 55, 60);
-
-        setTimeout(() => {
-          setGymState('idle');
-        }, 5000);
-      }
-    }, 200);
-  };
-
-  // Action Button - Sleep
-  const handleSleep = () => {
-    if (gymState === 'sleeping') {
-      // Wake up
-      setGymState('idle');
-      addFloatText('Good morning! ☀️', posX, posY - 20);
-    } else {
-      setGymState('sleeping');
-      setTargetX(null);
-      setTargetY(null);
-      addFloatText('Zzz... 😴', posX, posY - 20);
-    }
-  };
 
   return (
     <div className={`virtual-gym-container ${gymState === 'sleeping' ? 'virtual-gym--dark' : ''}`}>
-      {/* Gym screen viewport */}
+      {/* Viewport Gym Screen */}
       <div className="gym-viewport">
-        {/* Neon floor grid */}
         <div className="gym-grid-floor" />
-        
-        {/* Spawned Food Item */}
+
+        {/* Food Item rendering */}
         {foodItem && (
           <div 
             className="spawned-food"
@@ -265,7 +259,7 @@ export default function VirtualGym() {
           </div>
         )}
 
-        {/* Character Object */}
+        {/* Character Wrap */}
         <div 
           className={`gym-character-wrap ${facingRight ? 'facing-right' : 'facing-left'}`}
           style={{ 
@@ -287,7 +281,7 @@ export default function VirtualGym() {
           {gymState === 'sleeping' && <div className="sleep-particle">Zzz</div>}
         </div>
 
-        {/* Floating XP/Coin Notifications */}
+        {/* Float tags */}
         {floatingText.map((f) => (
           <div 
             key={f.id} 
@@ -299,7 +293,7 @@ export default function VirtualGym() {
         ))}
       </div>
 
-      {/* Tamagotchi LED status bars */}
+      {/* Retro Status Panel */}
       <div className="gym-stats-panel">
         <div className="gym-stat-bar">
           <div className="gym-stat-label">
@@ -332,29 +326,20 @@ export default function VirtualGym() {
         </div>
       </div>
 
-      {/* Interactive Hub Controllers */}
-      <div className="gym-controls">
-        <button 
-          onClick={handleFeed} 
-          disabled={gymState === 'sleeping' || gymState === 'eating' || gymState === 'training'}
-          className="gym-btn btn-feed"
-        >
-          🍎 FEED ATHLETE
-        </button>
-        <button 
-          onClick={handleTrain} 
-          disabled={gymState === 'sleeping' || gymState === 'eating' || gymState === 'training'}
-          className="gym-btn btn-train"
-        >
-          🥊 TRAIN ATHLETE
-        </button>
-        <button 
-          onClick={handleSleep}
-          disabled={gymState === 'eating' || gymState === 'training'}
-          className={`gym-btn btn-sleep ${gymState === 'sleeping' ? 'btn-active' : ''}`}
-        >
-          {gymState === 'sleeping' ? '☀️ WAKE UP' : '😴 REST ATHLETE'}
-        </button>
+      {/* Gamification Octalysis Alignment Legend */}
+      <div className="gym-octalysis-mirror-legend">
+        <div className="gym-legend-title">
+          <Info size={14} className="text-accent" />
+          <span>BIOMETRIC MIRROR SYSTEM</span>
+        </div>
+        <p className="gym-legend-desc">
+          This avatar represents your health. It decays when neglected. Maintain it through real action:
+        </p>
+        <ul className="gym-legend-list">
+          <li><strong>🍎 Nourishment:</strong> Log recipe/meal preps to feed your avatar.</li>
+          <li><strong>🥊 Fitness:</strong> Log technique workouts and timers to keep your avatar fit.</li>
+          <li><strong>⚡ Energy:</strong> Drains when training; recovers automatically over time.</li>
+        </ul>
       </div>
     </div>
   );

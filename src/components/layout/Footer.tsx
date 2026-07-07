@@ -9,23 +9,34 @@ export default function Footer() {
         <div className="footer-brand">
           <Link href="/" className="footer-logo" style={{ display: 'flex', alignItems: 'center' }}>
             <svg
-              viewBox="0 0 24 24"
+              viewBox="0 0 12 12"
               width="22"
               height="22"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="logo-icon"
+              fill="currentColor"
+              className="logo-icon-pixel"
               style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '8px', color: 'var(--color-primary)' }}
             >
-              <circle cx="12" cy="12" r="9" />
-              <circle cx="12" cy="12" r="5" strokeWidth="1.5" strokeDasharray="2 2" opacity="0.6" />
-              <path d="M8 8v3c0 .4.3.7.7.7h0c.4 0 .7-.3.7-.7V8" strokeWidth="1.5" />
-              <line x1="8.7" y1="11.7" x2="8.7" y2="15.5" strokeWidth="1.5" />
-              <line x1="15.3" y1="8" x2="15.3" y2="15.5" strokeWidth="1.5" />
-              <path d="M15.3 8.5h1.2c.3 0 .5.3.5.5v2.5c0 .3-.2.5-.5.5h-1.2" fill="currentColor" strokeWidth="1.5" />
+              {/* Plate top & bottom rim */}
+              <rect x="3" y="1" width="6" height="1" />
+              <rect x="3" y="10" width="6" height="1" />
+              {/* Plate corners */}
+              <rect x="2" y="2" width="1" height="1" />
+              <rect x="9" y="2" width="1" height="1" />
+              <rect x="2" y="9" width="1" height="1" />
+              <rect x="9" y="9" width="1" height="1" />
+              {/* Plate sides */}
+              <rect x="1" y="3" width="1" height="6" />
+              <rect x="10" y="3" width="1" height="6" />
+              
+              {/* Left Fork */}
+              <rect x="3" y="4" width="1" height="2" />
+              <rect x="5" y="4" width="1" height="2" />
+              <rect x="4" y="5" width="1" height="3" />
+              
+              {/* Right Knife */}
+              <rect x="7" y="4" width="1" height="3" />
+              <rect x="8" y="4" width="1" height="2" />
+              <rect x="7" y="7" width="1" height="1" />
             </svg>
             <span><span className="logo-accent">PLATE</span>WIKI</span>
           </Link>

@@ -61,11 +61,26 @@ export default function VirtualGym() {
     }, 2000);
   };
 
-  // 1. Start asleep if mounted during nighttime
+  // 1. Keep sleep state synced with auto-nighttime and manual overrides
   useEffect(() => {
-    if (isNighttime()) {
-      setGymState('sleeping');
-    }
+    const checkSleep = () => {
+      const isNight = isNighttime();
+      if (isNight) {
+        setGymState('sleeping');
+      } else {
+        setGymState((prev) => (prev === 'sleeping' ? 'idle' : prev));
+      }
+    };
+
+    checkSleep();
+
+    window.addEventListener('storage', checkSleep);
+    window.addEventListener('foodwiki:sleep-toggled', checkSleep);
+
+    return () => {
+      window.removeEventListener('storage', checkSleep);
+      window.removeEventListener('foodwiki:sleep-toggled', checkSleep);
+    };
   }, []);
 
   // 2. Listen for Real-life logged events (Meal Log & Workouts).

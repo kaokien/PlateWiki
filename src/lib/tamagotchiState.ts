@@ -49,6 +49,9 @@ let installed = false;
 
 // Nighttime window (10 PM – 6 AM): the avatar sleeps and energy recovers.
 export function isNighttime(): boolean {
+  if (typeof window !== 'undefined' && localStorage.getItem('FoodWiki_manual_sleep') === 'true') {
+    return true;
+  }
   const hour = new Date().getHours();
   return hour >= 22 || hour < 6;
 }

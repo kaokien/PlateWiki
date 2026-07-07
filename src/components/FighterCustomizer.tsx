@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Palette, User, Scissors, Shield, Shirt, Users, ChevronDown } from 'lucide-react';
+import { Palette, User, Scissors, Shield, Shirt, Users, ChevronDown, Moon } from 'lucide-react';
 import { SKIN_TONES, HAIR_COLORS, GLOVE_COLORS, SHOE_COLORS, TOP_COLORS, type BodyType } from '@/data/fighterSprites';
 import { useFighterCustomization } from '@/hooks/useFighterCustomization';
 import './FighterCustomizer.css';
@@ -69,6 +69,20 @@ const BODY_TYPES: { id: BodyType; label: string }[] = [
 export default function FighterCustomizer() {
 const { customization: custom, update } = useFighterCustomization();
 const [isOpen, setIsOpen] = useState(false);
+const [manualSleep, setManualSleep] = useState(() => {
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem('FoodWiki_manual_sleep') === 'true';
+  }
+  return false;
+});
+
+const handleToggleSleep = () => {
+  const next = !manualSleep;
+  setManualSleep(next);
+  localStorage.setItem('FoodWiki_manual_sleep', String(next));
+  window.dispatchEvent(new Event('storage'));
+  window.dispatchEvent(new Event('foodwiki:sleep-toggled'));
+};
 
 if (!custom) return null;
 
@@ -188,6 +202,21 @@ return (
               }}
             />
           )}
+          <div className="customizer-row" style={{ marginTop: '0.5rem', borderTop: '1px dashed rgba(255,255,255,0.08)', paddingTop: '1rem' }}>
+            <div className="customizer-row__header">
+              <Moon size={16} className="customizer-row__icon" />
+              <span className="customizer-row__label">Sleep Override (Dev)</span>
+              <span className="customizer-row__value">{manualSleep ? 'Force Nighttime' : 'Auto (System)'}</span>
+            </div>
+            <button
+              type="button"
+              className={`customizer-body-btn ${manualSleep ? 'customizer-body-btn--active' : ''}`}
+              onClick={handleToggleSleep}
+              style={{ width: '100%', marginTop: '0.25rem' }}
+            >
+              {manualSleep ? '☀️ Force Daytime (Wake Up)' : '🌙 Force Nighttime (Send to Sleep)'}
+            </button>
+          </div>
         </div>
       )}
     </div>

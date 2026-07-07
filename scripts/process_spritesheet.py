@@ -114,6 +114,7 @@ def process_spritesheet(sheet_path, output_sheet_path, num_frames=10, cols=4, ro
         target_height = 145
 
     cells = []
+    cell_bboxes = [] # (xmin, ymin, xmax, ymax)
     cell_heights = []
     
     # Extract frames
@@ -130,11 +131,16 @@ def process_spritesheet(sheet_path, output_sheet_path, num_frames=10, cols=4, ro
         cell_cleaned = clean_despeckle(cell)
         
         alphas = np.array(cell_cleaned)[:, :, 3]
-        char_h = get_character_height(alphas)
+        y_indices, x_indices = np.where(alphas > 0)
         
         cells.append(cell_cleaned)
-        if char_h > 0:
-            cell_heights.append(char_h)
+        if len(y_indices) > 0:
+            ymin, ymax = np.min(y_indices), np.max(y_indices)
+            xmin, xmax = np.min(x_indices), np.max(x_indices)
+            cell_bboxes.append((xmin, ymin, xmax, ymax))
+            cell_heights.append(int(ymax - ymin + 1))
+        else:
+            cell_bboxes.append(None)
 
     # Compute sheet-wide uniform scaling factor
     if len(cell_heights) > 0:
@@ -142,34 +148,38 @@ def process_spritesheet(sheet_path, output_sheet_path, num_frames=10, cols=4, ro
         scale_factor = target_height / median_h
     else:
         scale_factor = 0.5 # fallback
+        median_h = 100
 
-    print(f"  Scale Factor calculated: {scale_factor:.3f} (median height: {np.median(cell_heights) if cell_heights else 0}px)")
+    print(f"  Scale Factor calculated: {scale_factor:.3f} (median character height: {median_h:.1f}px)")
 
     aligned_frames = []
     
     # Align and crop each frame
     for idx, cell in enumerate(cells):
-        # Resize using Nearest Neighbor to retain sharp pixelated look
-        new_w = int(cell.size[0] * scale_factor)
-        new_h = int(cell.size[1] * scale_factor)
-        scaled_cell = cell.resize((new_w, new_h), Image.Resampling.NEAREST)
-        
-        scaled_alphas = np.array(scaled_cell)[:, :, 3]
-        landmark = get_landmark_bottom_center(scaled_alphas)
-        
+        bbox = cell_bboxes[idx]
         aligned = Image.new("RGBA", (frame_out_size, frame_out_size), (0, 0, 0, 0))
         
-        if landmark is not None:
-            ly, lx = landmark
-            # Feet anchor: X=128, Y=205
-            target_x = frame_out_size // 2
-            target_y = 205
+        if bbox is not None:
+            xmin, ymin, xmax, ymax = bbox
+            # Crop just the character
+            char_crop = cell.crop((xmin, ymin, xmax, ymax))
             
-            offset_x = target_x - lx
-            offset_y = target_y - ly
+            # Scale character to fit target height exactly
+            new_h = int(target_height)
+            new_w = int((xmax - xmin + 1) * scale_factor)
+            
+            # Avoid 0 width
+            if new_w <= 0:
+                new_w = 1
+                
+            scaled_char = char_crop.resize((new_w, new_h), Image.Resampling.NEAREST)
+            
+            # Place character: feet centered at X=128, Y=205
+            offset_x = 128 - (new_w // 2)
+            offset_y = 205 - new_h
             
             # Paste scaled sprite into 256x256 frame
-            aligned.paste(scaled_cell, (int(offset_x), int(offset_y)), scaled_cell)
+            aligned.paste(scaled_char, (int(offset_x), int(offset_y)), scaled_char)
             
         aligned_frames.append(np.array(aligned))
 

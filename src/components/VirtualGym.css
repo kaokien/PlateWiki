@@ -20,14 +20,16 @@
 .gym-viewport {
   height: 200px;
   position: relative;
-  background: linear-gradient(180deg, #161e1a 0%, #0d1210 100%);
+  background-image: url('/fighters/forest_bg.png');
+  background-size: cover;
+  background-position: center bottom;
   overflow: hidden;
   border-bottom: 2px solid #2e3532;
-  transition: background 0.5s ease;
+  transition: background 0.5s ease, filter 0.5s ease;
 }
 
 .virtual-gym--dark .gym-viewport {
-  background: linear-gradient(180deg, #050a07 0%, #020403 100%);
+  filter: brightness(0.25) contrast(1.1) saturate(0.8);
 }
 
 /* Floor perspective grid lines */

@@ -50,8 +50,15 @@ export default function PixelFighter({
     setIsLoaded(false);
     const img = new Image();
     img.onload = () => setIsLoaded(true);
-    img.src = `/fighters/${customization?.bodyType === 'female' ? 'female-' : ''}${stage.id}.png`;
-  }, [stage.id, customization?.bodyType]);
+    img.onerror = () => setIsLoaded(true); // fallback to render even if error
+
+    let folderStage = 'stage3';
+    if (rankName === 'Prospect' || rankName === 'Contender') folderStage = 'stage1';
+    else if (rankName === 'Gatekeeper' || rankName === 'Rising Star') folderStage = 'stage2';
+    
+    const gender = customization?.bodyType === 'female' ? 'female_' : '';
+    img.src = `/fighters/${folderStage}_${gender}idle.png`;
+  }, [rankName, customization?.bodyType]);
 
   const containerClasses = [
     'pixel-fighter',
@@ -72,6 +79,11 @@ export default function PixelFighter({
       data-rank={stage.id}
       data-stage={stageIdx}
     >
+      {showScene && (
+        <div className="pixel-fighter__scene" aria-hidden="true">
+          <div className="pixel-fighter__scene-glow" />
+        </div>
+      )}
       <div className="pixel-fighter__sprite-wrap" style={{ width: spriteSize, height: spriteSize }}>
         {isLoaded && (
           <PixelFighterCanvas

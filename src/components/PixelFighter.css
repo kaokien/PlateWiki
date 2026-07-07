@@ -215,12 +215,16 @@
   z-index: 0;
   border-radius: 12px;
   overflow: hidden;
+  background-image: url('/fighters/forest_bg.png');
+  background-size: cover;
+  background-position: center bottom;
 }
 
 .pixel-fighter__scene-glow {
   position: absolute;
   inset: 0;
-  opacity: 0.5;
+  opacity: 0.4;
+  background: radial-gradient(circle at 50% 30%, rgba(45, 138, 78, 0.3), transparent 70%);
   animation: pf-scene-pulse 4s ease-in-out infinite;
 }
 

@@ -18,14 +18,14 @@ export async function generateMetadata({
   const { id } = await params;
   const exercise = exerciseMap[id];
   if (!exercise) {
-    return { title: 'Exercise Not Found' };
+    return { title: 'Recipe Not Found' };
   }
-  const title = `${exercise.name} — Boxing Exercise Guide`;
+  const title = `${exercise.name} — Meal Prep Guide`;
   return {
     title,
     description:
       exercise.boxingContext?.slice(0, 155) ||
-      `Learn how to do ${exercise.name} for boxing. Step-by-step instructions, sets, reps, and why this exercise matters for fighters.`,
+      `Learn how to prepare ${exercise.name}. Step-by-step instructions, macro profiles, prep parameters, and dietary roles.`,
     robots: { index: true, follow: true },
     alternates: {
       canonical: `${SITE_URL}/exercise/${id}`,
@@ -34,7 +34,7 @@ export async function generateMetadata({
       title,
       description:
         exercise.boxingContext?.slice(0, 155) ||
-        `Boxing-specific guide to the ${exercise.name}. Equipment needed, pro tips, and related techniques.`,
+        `Sports-nutrition guide to ${exercise.name}. Equipment needed, tips, and active ingredients.`,
       images: [{ url: '/og-image.png' }],
     },
   };

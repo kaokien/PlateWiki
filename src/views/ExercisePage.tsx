@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import {
   ChevronRight,
@@ -12,6 +12,12 @@ import {
   ChefHat,
   Heart,
   Scale,
+  X,
+  Copy,
+  Download,
+  Calendar,
+  MapPin,
+  Check,
 } from 'lucide-react';
 import { exercises } from '@/data/exercises';
 import { techniques } from '@/data/techniques';
@@ -30,13 +36,9 @@ const DIFFICULTY_COLOR: Record<string, string> = {
 
 const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
   const exercise = (exercises as Record<string, any>)[exerciseId];
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    if (exercise) {
-      addToHistory({ id: exercise.id ?? exerciseId, type: 'exercise', title: exercise.name, href: `/exercise/${exerciseId}` });
-    }
-  }, [exerciseId, exercise]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [checkedIngredients, setCheckedIngredients] = useState<Record<string, boolean>>({});
 
   // Resolve linked techniques (ingredients/foods)
   const linkedTechniques = useMemo(() => {
@@ -48,6 +50,112 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
       })
       .filter(Boolean);
   }, [exercise]);
+
+  useEffect(() => {
+    if (linkedTechniques.length > 0) {
+      const initial: Record<string, boolean> = {};
+      linkedTechniques.forEach((t: any) => {
+        initial[t.id] = true;
+      });
+      setCheckedIngredients(initial);
+    }
+  }, [linkedTechniques]);
+
+  const handleCopyList = () => {
+    const listToCopy = linkedTechniques
+      .filter((t: any) => checkedIngredients[t.id])
+      .map((t: any) => `- ${t.name}`)
+      .join('\n');
+
+    const fullText = `Shopping List for ${exercise.name}:\n${listToCopy}\n\nExported from FoodWiki`;
+    navigator.clipboard.writeText(fullText).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  const handleDownloadTxt = () => {
+    const listToDownload = linkedTechniques
+      .filter((t: any) => checkedIngredients[t.id])
+      .map((t: any) => `- [ ] ${t.name} (${t.category})`)
+      .join('\n');
+
+    const txtContent = [
+      `SHOPPING LIST: ${exercise.name}`,
+      `==============================`,
+      `Ingredients to gather:`,
+      listToDownload,
+      ``,
+      `Macronutrients: ${exercise.rest}`,
+      `Prep Time: ${exercise.reps}`,
+      ``,
+      `Preparation:`,
+      ...(exercise.howTo as string[]).map((step, idx) => `${idx + 1}. ${step}`),
+      ``,
+      `Bio-Booster Tips:`,
+      ...(exercise.tips as string[] || []).map(tip => `* ${tip}`),
+      ``,
+      `Exported from FoodWiki.org`
+    ].join('\n');
+
+    const blob = new Blob([txtContent], { type: 'text/plain;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.setAttribute('download', `shopping-list-${exerciseId}.txt`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleCreateReminder = () => {
+    const listToReminder = linkedTechniques
+      .filter((t: any) => checkedIngredients[t.id])
+      .map((t: any) => t.name)
+      .join(', ');
+
+    const title = `Cook: ${exercise.name}`;
+    const description = `Prep meal recipe from FoodWiki. Gather: ${listToReminder}`;
+    const startDate = new Date();
+    startDate.setHours(startDate.getHours() + 1); // default 1 hr from now
+    const endDate = new Date(startDate);
+    endDate.setMinutes(endDate.getMinutes() + 45); // default 45 minutes prep time
+
+    const formatICSDate = (date: Date) => date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//FoodWiki//Meal Prep Calendar//EN',
+      'BEGIN:VEVENT',
+      `UID:${Date.now()}@foodwiki.org`,
+      `DTSTAMP:${formatICSDate(new Date())}`,
+      `DTSTART:${formatICSDate(startDate)}`,
+      `DTEND:${formatICSDate(endDate)}`,
+      `SUMMARY:${title}`,
+      `DESCRIPTION:${description}`,
+      'STATUS:CONFIRMED',
+      'SEQUENCE:0',
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ].join('\r\n');
+
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.setAttribute('download', `prep-reminder-${exerciseId}.ics`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (exercise) {
+      addToHistory({ id: exercise.id ?? exerciseId, type: 'exercise', title: exercise.name, href: `/exercise/${exerciseId}` });
+    }
+  }, [exerciseId, exercise]);
+
+
 
   // Related exercises: share at least one muscle group, exclude self, limit 6
   const relatedExercises = useMemo(() => {
@@ -167,6 +275,20 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
         </div>
       </div>
 
+      {/* Build This Meal CTA */}
+      <div className="ex-build-meal-card glass-panel">
+        <div className="ex-build-left">
+          <div className="ex-build-icon">🍳</div>
+          <div className="ex-build-text">
+            <h3>Ready to cook this meal?</h3>
+            <p>Export ingredients checklist, download file, set calendar reminder, or find stores nearby.</p>
+          </div>
+        </div>
+        <button className="ex-build-btn" onClick={() => setIsModalOpen(true)}>
+          Build This Meal
+        </button>
+      </div>
+
       {/* Cooking Tips */}
       {exercise.tips && exercise.tips.length > 0 && (
         <div className="ex-section glass-panel ex-tips-section">
@@ -253,6 +375,77 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
           <ArrowLeft size={16} /> Browse All Recipes
         </Link>
       </div>
+
+      {/* Build Meal Modal */}
+      {isModalOpen && (
+        <div className="ex-modal-overlay" onClick={() => setIsModalOpen(false)}>
+          <div className="ex-modal-content glass-panel" onClick={e => e.stopPropagation()}>
+            <div className="ex-modal-header">
+              <h2>Build Meal: {exercise.name}</h2>
+              <button className="ex-modal-close" onClick={() => setIsModalOpen(false)} aria-label="Close modal">
+                <X size={18} />
+              </button>
+            </div>
+            
+            <div className="ex-modal-body">
+              <div className="ex-modal-ingredients">
+                <h3>Shopping List Checklist</h3>
+                <p className="ex-modal-help">Select the ingredients you need to buy or prepare:</p>
+                <div className="ex-checklist">
+                  {linkedTechniques.map((t: any) => (
+                    <label key={t.id} className="ex-checklist-item">
+                      <input
+                        type="checkbox"
+                        checked={!!checkedIngredients[t.id]}
+                        onChange={(e) => {
+                          setCheckedIngredients(prev => ({
+                            ...prev,
+                            [t.id]: e.target.checked
+                          }));
+                        }}
+                      />
+                      <span className="ex-checkbox-custom"></span>
+                      <span className="ex-item-name">{t.name}</span>
+                      <span className="ex-item-cat">{t.category}</span>
+                    </label>
+                  ))}
+                  {linkedTechniques.length === 0 && (
+                    <p className="ex-no-ingredients">No direct food library items linked. You can export the full prep guide!</p>
+                  )}
+                </div>
+              </div>
+
+              <div className="ex-modal-actions">
+                <button className="ex-action-btn" onClick={handleCopyList}>
+                  {copied ? (
+                    <>
+                      <Check size={16} className="ex-success-icon" /> Copied!
+                    </>
+                  ) : (
+                    <>
+                      <Copy size={16} /> Copy Checklist to Notes
+                    </>
+                  )}
+                </button>
+                <button className="ex-action-btn" onClick={handleDownloadTxt}>
+                  <Download size={16} /> Save Shopping List (.txt)
+                </button>
+                <button className="ex-action-btn" onClick={handleCreateReminder}>
+                  <Calendar size={16} /> Set Prep Reminder (.ics)
+                </button>
+                <a
+                  className="ex-action-btn ex-maps-btn"
+                  href="https://www.google.com/maps/search/?api=1&query=grocery+stores+near+me"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MapPin size={16} /> Find Grocery Stores Nearby
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

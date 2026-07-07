@@ -4,16 +4,16 @@ import WorkoutsPageClient from './WorkoutsPageClient';
 import { SITE_URL } from '@/utils/config';
 
 export const metadata: Metadata = {
-  title: 'Boxing Workouts — Training Programs for Fighters',
+  title: 'Athletic Meals — Fueling Plans for Athletes',
   description:
-    'Complete boxing workout programs organized by muscle group and training goal. Build punching power, hand speed, defensive conditioning, and fight-ready cardio.',
+    'Complete athletic nutrition workout programs organized by muscle group and training goal. Build punching power, hand speed, defensive conditioning, and fight-ready cardio.',
   alternates: {
     canonical: `${SITE_URL}/meals`,
   },
   openGraph: {
-    title: 'Boxing Workouts — Training Programs for Fighters',
+    title: 'Athletic Meals — Fueling Plans for Athletes',
     description:
-      'Boxing-specific workout programs for every muscle group and training goal. From punch power to knockout prevention.',
+      'Athletic Nutrition-specific workout programs for every muscle group and training goal. From punch power to knockout prevention.',
     images: [{ url: '/og-image.png' }],
   },
 };

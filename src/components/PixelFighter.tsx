@@ -18,7 +18,7 @@ interface PixelFighterProps {
   showScene?: boolean;
   /** Animation state */
   animation?: 'idle' | 'training' | 'evolving' | 'none';
-  /** Show stage label below fighter */
+  /** Show stage label below athlete */
   showLabel?: boolean;
   /** Optional className */
   className?: string;
@@ -61,11 +61,11 @@ export default function PixelFighter({
   }, [rankName, customization?.bodyType]);
 
   const containerClasses = [
-    'pixel-fighter',
-    `pixel-fighter--${size}`,
-    `pixel-fighter--${animation}`,
-    isLoaded ? 'pixel-fighter--loaded' : '',
-    onClick ? 'pixel-fighter--clickable' : '',
+    'pixel-athlete',
+    `pixel-athlete--${size}`,
+    `pixel-athlete--${animation}`,
+    isLoaded ? 'pixel-athlete--loaded' : '',
+    onClick ? 'pixel-athlete--clickable' : '',
     className,
   ].filter(Boolean).join(' ');
 
@@ -121,7 +121,7 @@ export function PixelFighterMini({ rankName, onClick }: { rankName: string; onCl
       showScene={false}
       showLabel={false}
       onClick={onClick}
-      className="pixel-fighter--mini"
+      className="pixel-athlete--mini"
       customization={customization}
     />
   );

@@ -7,7 +7,7 @@ date: "2026-06-14"
 author: "BoxingWiki Editorial"
 readTime: "9 min read"
 heroImage: "/images/articles/category-fallback.png"
-relatedArticles: ["boxing-weight-cutting-dangers", "nutrition-for-boxing-sparring"]
+relatedArticles: ["athletic nutrition-weight-cutting-dangers", "nutrition-for-athletic nutrition-training"]
 relatedTechniques: []
 ---
 # Scientific Rehydration: Restoring Fluids and Electrolytes post Weigh-In
@@ -30,13 +30,13 @@ More critically, severe dehydration drains water from your brain tissue. The bra
 
 When you get hit with a dry brain, the brain collides directly with the hard bones of the skull. The risk of concussions, bleeding, and permanent neurological damage increases. 
 
-Restoring CSF and brain volume is a slow process that takes 24 to 48 hours. If you are an amateur boxer with only two hours between weigh-in and your fight, you cannot fully restore your brain fluid. You must focus on maximizing plasma volume and electrolyte balance to maintain blood pressure and muscle function. If you are a professional with 24 to 36 hours, you have the time to fully rehydrate your brain, but only if you avoid gastric distress and fluid dumping.
+Restoring CSF and brain volume is a slow process that takes 24 to 48 hours. If you are an amateur athlete with only two hours between weigh-in and your fight, you cannot fully restore your brain fluid. You must focus on maximizing plasma volume and electrolyte balance to maintain blood pressure and muscle function. If you are a professional with 24 to 36 hours, you have the time to fully rehydrate your brain, but only if you avoid gastric distress and fluid dumping.
 
 ---
 
 ## The Danger of Pure Water: Hyponatremia
 
-The most common mistake boxers make after weigh-in is drinking gallons of plain water. 
+The most common mistake athletes make after weigh-in is drinking gallons of plain water. 
 
 When you sweat, you lose water and essential salts, primarily sodium. Sodium is the primary solute in your extracellular fluid. It holds water in your bloodstream and tissues. 
 

@@ -112,12 +112,12 @@ export default function OnboardingPage() {
         {/* Step 1: Identity */}
         {step === 1 && (
           <div className="ob-step-card animation-fade">
-            <h1 className="ob-title">First, what should we call your fighter?</h1>
+            <h1 className="ob-title">First, what should we call your athlete?</h1>
             <p className="ob-desc">This is the name of your training avatar. We&apos;ll use this as your identity through techniques, badges, and streaks.</p>
             <div className="ob-input-group">
-              <label htmlFor="fighter-name" className="ob-label">Fighter Name</label>
+              <label htmlFor="athlete-name" className="ob-label">athlete Name</label>
               <input
-                id="fighter-name"
+                id="athlete-name"
                 type="text"
                 className="ob-input"
                 placeholder="e.g. Iron Mike"
@@ -137,8 +137,8 @@ export default function OnboardingPage() {
         {step === 2 && (
           <div className="ob-step-card ob-step-card--split animation-fade">
             <div className="ob-customizer-controls">
-              <h1 className="ob-title">Customize your base fighter</h1>
-              <p className="ob-desc">Pick your fighter&apos;s style. You can customize this anytime, and unlock premium gear like robes and belts as you rank up.</p>
+              <h1 className="ob-title">Customize your base athlete</h1>
+              <p className="ob-desc">Pick your athlete&apos;s style. You can customize this anytime, and unlock premium gear like robes and belts as you rank up.</p>
 
               {/* Body Type */}
               <div className="ob-option-group">
@@ -199,7 +199,7 @@ export default function OnboardingPage() {
               </button>
             </div>
 
-            {/* Fighter Preview Panel */}
+            {/* athlete Preview Panel */}
             <div className="ob-preview-panel glass-panel">
               <div className="ob-preview-inner">
                 <PixelFighter
@@ -220,7 +220,7 @@ export default function OnboardingPage() {
                   }}
                 />
               </div>
-              <span className="ob-preview-tag">Fighter Preview</span>
+              <span className="ob-preview-tag">athlete Preview</span>
             </div>
           </div>
         )}
@@ -263,7 +263,7 @@ export default function OnboardingPage() {
           <div className="ob-step-card ob-step-card--split animation-fade">
             <div className="ob-finish-options">
               <h1 className="ob-title">Ready to enter the gym?</h1>
-              <p className="ob-desc">Create a free account to save your customized fighter, preserve your streaks, collect badges, and access the round timer history on any device.</p>
+              <p className="ob-desc">Create a free account to save your customized athlete, preserve your streaks, collect badges, and access the nutrition timer history on any device.</p>
               
               <div className="ob-action-buttons">
                 <button className="ob-cta-btn ob-cta-btn--gold" onClick={handleFinishSignUp}>
@@ -275,7 +275,7 @@ export default function OnboardingPage() {
               </div>
             </div>
 
-            {/* Final Fighter Card Preview */}
+            {/* Final athlete Card Preview */}
             <div className="ob-final-card glass-panel">
               <div className="ob-final-sprite">
                 <PixelFighter

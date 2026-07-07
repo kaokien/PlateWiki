@@ -1,24 +1,24 @@
 /* ─────────────────────────────────────────────
-   Fighters Page — Editorial Brutalism
+   Athletes Page — Editorial Brutalism
    ───────────────────────────────────────────── */
 
-.fighters-page {
+.athletes-page {
   animation: fadeIn var(--transition-normal);
   padding-bottom: var(--space-6);
 }
 
 /* ── Header ── */
-.fighters-header {
+.athletes-header {
   text-align: center;
   margin-bottom: var(--space-5);
 }
 
-.fighters-header h1 {
+.athletes-header h1 {
   font-size: var(--font-size-hero);
   font-weight: 900;
 }
 
-.fighters-subtitle {
+.athletes-subtitle {
   color: var(--color-text-muted);
   margin-top: var(--space-2);
   max-width: 600px;
@@ -28,7 +28,7 @@
 }
 
 /* ── Controls ── */
-.fighters-controls {
+.athletes-controls {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
@@ -37,13 +37,13 @@
 }
 
 /* Search bar */
-.fighters-search-wrap {
+.athletes-search-wrap {
   position: relative;
   width: 100%;
   max-width: 420px;
 }
 
-.fighters-search-wrap .search-icon {
+.athletes-search-wrap .search-icon {
   position: absolute;
   left: var(--space-3);
   top: 50%;
@@ -52,7 +52,7 @@
   pointer-events: none;
 }
 
-.fighters-search-wrap .search-input {
+.athletes-search-wrap .search-input {
   width: 100%;
   padding: var(--space-3) 2.5rem;
   background: var(--color-surface);
@@ -64,17 +64,17 @@
   transition: border-color var(--transition-fast);
 }
 
-.fighters-search-wrap .search-input::placeholder {
+.athletes-search-wrap .search-input::placeholder {
   color: var(--color-text-muted);
   opacity: 0.6;
 }
 
-.fighters-search-wrap .search-input:focus {
+.athletes-search-wrap .search-input:focus {
   border-color: var(--color-primary);
   outline: none;
 }
 
-.fighters-search-wrap .search-clear-btn {
+.athletes-search-wrap .search-clear-btn {
   position: absolute;
   right: var(--space-3);
   top: 50%;
@@ -91,20 +91,20 @@
   transition: all var(--transition-fast);
 }
 
-.fighters-search-wrap .search-clear-btn:hover {
+.athletes-search-wrap .search-clear-btn:hover {
   color: var(--color-primary);
   background: rgba(45, 138, 78, 0.1);
 }
 
 /* Filter pills */
-.fighters-filter-row {
+.athletes-filter-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.35rem;
 }
 
-.fighters-filter-row .pill {
+.athletes-filter-row .pill {
   padding: 0.4rem 0.85rem;
   border: 1px solid var(--color-border);
   background: transparent;
@@ -117,19 +117,19 @@
   font-family: var(--font-sans);
 }
 
-.fighters-filter-row .pill:hover {
+.athletes-filter-row .pill:hover {
   border-color: var(--color-text-muted);
   color: var(--color-text);
 }
 
-.fighters-filter-row .pill.active {
+.athletes-filter-row .pill.active {
   background: var(--color-primary);
   border-color: var(--color-primary);
   color: #fff;
 }
 
 /* Results bar */
-.fighters-results-bar {
+.athletes-results-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -139,26 +139,26 @@
 }
 
 /* ── Grid ── */
-.fighters-grid {
+.athletes-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-4);
 }
 
 @media (min-width: 768px) {
-  .fighters-grid {
+  .athletes-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1100px) {
-  .fighters-grid {
+  .athletes-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* ── Fighter Card ── */
-.fighter-card {
+/* ── athlete Card ── */
+.athlete-card {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -170,7 +170,7 @@
   overflow: hidden;
 }
 
-.fighter-card::before {
+.athlete-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -183,40 +183,40 @@
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.fighter-card:hover {
+.athlete-card:hover {
   border-color: var(--color-primary);
   transform: translateY(-4px);
   box-shadow: 0 10px 30px rgba(45, 138, 78, 0.1);
   color: var(--color-text);
 }
 
-.fighter-card:hover::before {
+.athlete-card:hover::before {
   transform: scaleY(1);
 }
 
 /* Card header */
-.fighter-card__header {
+.athlete-card__header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 0.5rem;
 }
 
-.fighter-card__identity h2 {
+.athlete-card__identity h2 {
   font-size: 1.3rem;
   font-weight: 800;
   margin: 0;
   line-height: 1.2;
 }
 
-.fighter-card__nickname {
+.athlete-card__nickname {
   font-size: 0.8rem;
   color: var(--color-secondary);
   font-style: italic;
   opacity: 0.85;
 }
 
-.fighter-card__stance {
+.athlete-card__stance {
   font-size: 0.7rem;
   font-weight: 700;
   /* text-transform removed */
@@ -231,14 +231,14 @@
 }
 
 /* Card meta row */
-.fighter-card__meta {
+.athlete-card__meta {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
   align-items: center;
 }
 
-.fighter-card__style {
+.athlete-card__style {
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--color-primary);
@@ -246,27 +246,27 @@
   letter-spacing: 0.5px;
 }
 
-.fighter-card__record,
-.fighter-card__era {
+.athlete-card__record,
+.athlete-card__era {
   font-size: 0.75rem;
   color: var(--color-text-muted);
 }
 
-.fighter-card__record::before,
-.fighter-card__era::before {
+.athlete-card__record::before,
+.athlete-card__era::before {
   content: '·';
   margin-right: 0.35rem;
 }
 
 /* ── Stat Bars (inline card preview) ── */
-.fighter-card__stats {
+.athlete-card__stats {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
   padding: 0.75rem 0;
 }
 
-.fighter-stat-row {
+.athlete-stat-row {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -305,7 +305,7 @@
 }
 
 /* ── Style Tags ── */
-.fighter-card__tags {
+.athlete-card__tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem;
@@ -324,7 +324,7 @@
 }
 
 /* ── CTA ── */
-.fighter-card__cta {
+.athlete-card__cta {
   display: flex;
   align-items: center;
   gap: 0.25rem;
@@ -336,7 +336,7 @@
   transition: gap var(--transition-fast);
 }
 
-.fighter-card:hover .fighter-card__cta {
+.athlete-card:hover .athlete-card__cta {
   gap: 0.5rem;
 }
 
@@ -360,19 +360,19 @@
 
 /* ── Mobile ── */
 @media (max-width: 600px) {
-  .fighters-header h1 {
+  .athletes-header h1 {
     font-size: clamp(1.6rem, 8vw, 2.5rem);
   }
 
-  .fighters-search-wrap {
+  .athletes-search-wrap {
     max-width: 100%;
   }
 
-  .fighter-card {
+  .athlete-card {
     padding: 1.25rem;
   }
 
-  .fighter-card__identity h2 {
+  .athlete-card__identity h2 {
     font-size: 1.1rem;
   }
 }

@@ -25,7 +25,7 @@ export const exercises = {
     sets: '1 Bowl',
     reps: '5 mins prep',
     rest: 'Carbs: 55g | Protein: 12g | Fat: 6g',
-    boxingContext: 'Provides slow-release complex carbohydrates (beta-glucans) to saturate muscle glycogen stores before endurance runs or heavy sparring. Sprouting neutralizes anti-nutrients for easy pre-workout digestion.',
+    performanceContext: 'Provides slow-release complex carbohydrates (beta-glucans) to saturate muscle glycogen stores before endurance runs or heavy workouts. Sprouting neutralizes anti-nutrients for easy pre-workout digestion.',
     howTo: [
       'Combine 1/2 cup sprouted rolled oats and 3/4 cup almond milk in a jar.',
       'Stir in 1 tsp chia seeds and 1/2 tsp cinnamon.',
@@ -46,7 +46,7 @@ export const exercises = {
     sets: '2 Servings',
     reps: '25 mins cook',
     rest: 'Carbs: 45g | Protein: 6g | Fat: 15g',
-    boxingContext: 'Saturates your skeletal muscles with low-glycemic starches to power high-intensity endurance. Avocado adds monounsaturated fats that increase the absorption of fat-soluble beta-carotenes by 400%.',
+    performanceContext: 'Saturates your skeletal muscles with low-glycemic starches to power high-intensity endurance. Avocado adds monounsaturated fats that increase the absorption of fat-soluble beta-carotenes by 400%.',
     howTo: [
       'Dice 2 medium sweet potatoes into 1/2 inch cubes.',
       'Sauté in 1 tbsp avocado oil on medium heat for 15-20 minutes until tender.',
@@ -67,7 +67,7 @@ export const exercises = {
     sets: '1 Shake',
     reps: '5 mins prep',
     rest: 'Carbs: 35g | Protein: 5g | Fat: 2g',
-    boxingContext: 'High in inorganic nitrates that reduce to nitric oxide, dilating blood vessels to increase oxygen delivery to skeletal muscles. Improves mitochondrial output and endurance capacity.',
+    performanceContext: 'High in inorganic nitrates that reduce to nitric oxide, dilating blood vessels to increase oxygen delivery to skeletal muscles. Improves mitochondrial output and endurance capacity.',
     howTo: [
       'Add 1/2 cup raw peeled beetroot, 1 cup frozen berries, and 1/2 cup spinach to the blender.',
       'Pour in 1 cup coconut water and 1/2 inch fresh ginger.',
@@ -88,7 +88,7 @@ export const exercises = {
     sets: '1 Shake',
     reps: '3 mins prep',
     rest: 'Carbs: 25g | Protein: 30g | Fat: 5g',
-    boxingContext: 'Provides rapidly absorbing whey isolate to trigger muscle protein synthesis (MPS) via the mTOR pathway. Replenishes amino acid pools after heavy resistance training.',
+    performanceContext: 'Provides rapidly absorbing whey isolate to trigger muscle protein synthesis (MPS) via the mTOR pathway. Replenishes amino acid pools after heavy resistance training.',
     howTo: [
       'Add 1 scoop (30g) grassfed whey isolate to your shaker cup.',
       'Add 1 cup cold water or unsweetened almond milk.',
@@ -109,7 +109,7 @@ export const exercises = {
     sets: '1 Serving',
     reps: '8 mins cook',
     rest: 'Carbs: 4g | Protein: 22g | Fat: 16g',
-    boxingContext: 'Pasture-raised egg yolks are rich in choline, supporting neurotransmitter synthesis (acetylcholine) for fast reflexes and cognitive focus, while providing complete bioavailable amino acids.',
+    performanceContext: 'Pasture-raised egg yolks are rich in choline, supporting neurotransmitter synthesis (acetylcholine) for fast reflexes and cognitive focus, while providing complete bioavailable amino acids.',
     howTo: [
       'Whisk 3 organic pasture-raised eggs in a bowl with a pinch of sea salt.',
       'Heat 1 tsp grassfed butter in a skillet on medium-low heat.',
@@ -130,7 +130,7 @@ export const exercises = {
     sets: '2 Servings',
     reps: '15 mins cook',
     rest: 'Carbs: 2g | Protein: 34g | Fat: 18g',
-    boxingContext: 'Wild salmon delivers highly concentrated anti-inflammatory EPA and DHA omega-3 fatty acids. Accelerates recovery from muscle soreness (DOMS) and supports joint structural integrity.',
+    performanceContext: 'Wild salmon delivers highly concentrated anti-inflammatory EPA and DHA omega-3 fatty acids. Accelerates recovery from muscle soreness (DOMS) and supports joint structural integrity.',
     howTo: [
       'Pat salmon skin dry and season with sea salt and black pepper.',
       'Heat 1 tbsp avocado oil in a pan on medium-high heat.',
@@ -152,7 +152,7 @@ export const exercises = {
     sets: '1 Salad',
     reps: '5 mins prep',
     rest: 'Carbs: 18g | Protein: 5g | Fat: 12g',
-    boxingContext: 'Organic baby spinach leaves are rich in iron, vital for oxygen transport in red blood cells, and ecdysteroids to support muscle protein accretion. Walnuts add heart-healthy omega-3s.',
+    performanceContext: 'Organic baby spinach leaves are rich in iron, vital for oxygen transport in red blood cells, and ecdysteroids to support muscle protein accretion. Walnuts add heart-healthy omega-3s.',
     howTo: [
       'Place 3 cups of washed organic baby spinach in a large bowl.',
       'Toss in 1/2 cup fresh wild blueberries and 1/4 cup chopped raw walnuts.',
@@ -173,7 +173,7 @@ export const exercises = {
     sets: '1 Bowl',
     reps: '3 mins prep',
     rest: 'Carbs: 15g | Protein: 14g | Fat: 9g',
-    boxingContext: 'Milk kefir is packed with billions of active probiotic strains that populate the gut microbiome, strengthening the intestinal lining and enhancing overall nutrient absorption.',
+    performanceContext: 'Milk kefir is packed with billions of active probiotic strains that populate the gut microbiome, strengthening the intestinal lining and enhancing overall nutrient absorption.',
     howTo: [
       'Pour 1 cup of organic plain unsweetened milk kefir into a bowl.',
       'Stir in 1 tbsp organic raw honey.',
@@ -194,7 +194,7 @@ export const exercises = {
     sets: '1 Serving',
     reps: '5 mins prep',
     rest: 'Carbs: 22g | Protein: 10g | Fat: 14g',
-    boxingContext: 'Pumpkin seeds deliver highly bioavailable magnesium (supporting ATP energy production and muscle relaxation) and zinc (supporting natural testosterone production and immune response).',
+    performanceContext: 'Pumpkin seeds deliver highly bioavailable magnesium (supporting ATP energy production and muscle relaxation) and zinc (supporting natural testosterone production and immune response).',
     howTo: [
       'Toast a slice of sprouted grain sourdough bread.',
       'Spread 1 tbsp of raw pumpkin seed butter (or almond butter) evenly.',
@@ -215,7 +215,7 @@ export const exercises = {
     sets: '1 Bottle',
     reps: '2 mins prep',
     rest: 'Carbs: 12g | Protein: 0g | Fat: 0g',
-    boxingContext: 'Provides potassium and sodium in a perfect isotonic ratio. Replenishes intracellular fluids to prevent cramping, preserve blood volume, and maintain cardiac output during hard training.',
+    performanceContext: 'Provides potassium and sodium in a perfect isotonic ratio. Replenishes intracellular fluids to prevent cramping, preserve blood volume, and maintain cardiac output during hard training.',
     howTo: [
       'Pour 500ml of chilled raw coconut water into your sports bottle.',
       'Add 1/4 tsp of Himalayan pink salt.',
@@ -236,7 +236,7 @@ export const exercises = {
     sets: '1 Mug',
     reps: '8 mins cook',
     rest: 'Carbs: 8g | Protein: 2g | Fat: 10g',
-    boxingContext: 'Turmeric containing curcumin inhibits inflammatory pathways. When paired with black pepper (piperine), curcumin absorption is boosted by 2000% to protect joints and accelerate tissue recovery.',
+    performanceContext: 'Turmeric containing curcumin inhibits inflammatory pathways. When paired with black pepper (piperine), curcumin absorption is boosted by 2000% to protect joints and accelerate tissue recovery.',
     howTo: [
       'Warm 1 cup of coconut milk in a small pot on low heat.',
       'Whisk in 1 tsp organic turmeric powder, 1/2 tsp ginger, and 1/4 tsp cinnamon.',
@@ -257,7 +257,7 @@ export const exercises = {
     sets: '2 Shots',
     reps: '10 mins prep',
     rest: 'Carbs: 4g | Protein: 0g | Fat: 0g',
-    boxingContext: 'Gingerols stimulate stomach digestive enzymes and accelerate gastric emptying (motility). Lowers systemic gut inflammation and alleviates exercise-induced nausea or muscle soreness.',
+    performanceContext: 'Gingerols stimulate stomach digestive enzymes and accelerate gastric emptying (motility). Lowers systemic gut inflammation and alleviates exercise-induced nausea or muscle soreness.',
     howTo: [
       'Peel a 3-inch knob of fresh ginger root.',
       'Juice the ginger root, or blend with 1/4 cup water and strain through cheesecloth.',
@@ -278,7 +278,7 @@ export const exercises = {
     sets: '1 Mug',
     reps: '5 mins prep',
     rest: 'Carbs: 2g | Protein: 1g | Fat: 0g',
-    boxingContext: 'Stimulates Nerve Growth Factor (NGF) synthesis in the brain. Enhances myelination, neural signaling speed, and spatial awareness, improving reflexes and sparring split-second decisions.',
+    performanceContext: 'Stimulates Nerve Growth Factor (NGF) synthesis in the brain. Enhances myelination, neural signaling speed, and spatial awareness, improving reflexes and training split-second decisions.',
     howTo: [
       'Heat 1 cup of water to 195F (just off-boil).',
       'Add 1 tsp of organic hot-water-extracted Lion\'s Mane powder to a mug.',
@@ -299,7 +299,7 @@ export const exercises = {
     sets: '1 Serving',
     reps: '5 mins cook',
     rest: 'Carbs: 10g | Protein: 4g | Fat: 8g',
-    boxingContext: 'Standardized withanolides block cortisol receptors, bringing the central nervous system out of fight-or-flight and into rest-and-digest, optimizing sleep and testosterone production.',
+    performanceContext: 'Standardized withanolides block cortisol receptors, bringing the central nervous system out of fight-or-flight and into rest-and-digest, optimizing sleep and testosterone production.',
     howTo: [
       'Heat 1 cup of oat milk or grassfed milk in a saucepan over medium-low heat.',
       'Whisk in 1/2 tsp of organic ashwagandha powder (KSM-66).',
@@ -320,7 +320,7 @@ export const exercises = {
     sets: '1 Shot',
     reps: '2 mins prep',
     rest: 'Carbs: 0g | Protein: 0g | Fat: 0g',
-    boxingContext: 'Expands blood volume, improving cardiac output and vascular thermoregulation during heavy efforts. Prevents pre-workout cramping and provides 84 trace minerals to saturate cells.',
+    performanceContext: 'Expands blood volume, improving cardiac output and vascular thermoregulation during heavy efforts. Prevents pre-workout cramping and provides 84 trace minerals to saturate cells.',
     howTo: [
       'Fill a glass with 250ml of clean water.',
       'Stir in 1/4 tsp of Himalayan pink salt until fully dissolved.',
@@ -343,7 +343,7 @@ export const exercises = {
     sets: '4 Pancakes',
     reps: '15 mins cook',
     rest: 'Carbs: 38g | Protein: 32g | Fat: 8g',
-    boxingContext: 'Combines fast-digesting banana carbohydrates with whey isolate protein to deliver a balanced glycemic and anabolic response. Oat flour adds soluble beta-glucan fiber for sustained energy release during morning training.',
+    performanceContext: 'Combines fast-digesting banana carbohydrates with whey isolate protein to deliver a balanced glycemic and anabolic response. Oat flour adds soluble beta-glucan fiber for sustained energy release during morning training.',
     howTo: [
       'Mash 1 ripe banana in a mixing bowl until smooth.',
       'Whisk in 1 scoop whey protein, 1/3 cup oat flour, 1 egg, and a pinch of baking powder.',
@@ -365,7 +365,7 @@ export const exercises = {
     sets: '1 Jar',
     reps: '5 mins prep',
     rest: 'Carbs: 32g | Protein: 24g | Fat: 10g',
-    boxingContext: 'Greek yogurt delivers slow-digesting casein protein that provides a sustained amino acid drip to muscles over 4-6 hours. Layering with granola and berries adds glycogen fuel and cell-protecting anthocyanins.',
+    performanceContext: 'Greek yogurt delivers slow-digesting casein protein that provides a sustained amino acid drip to muscles over 4-6 hours. Layering with granola and berries adds glycogen fuel and cell-protecting anthocyanins.',
     howTo: [
       'Spoon 1 cup full-fat plain Greek yogurt into a glass jar.',
       'Layer 1/4 cup homemade granola or sprouted oats on top.',
@@ -387,7 +387,7 @@ export const exercises = {
     sets: '1 Serving',
     reps: '10 mins cook',
     rest: 'Carbs: 28g | Protein: 18g | Fat: 22g',
-    boxingContext: 'Avocado provides monounsaturated oleic acid that supports hormone production (testosterone, growth hormone) while the poached egg delivers complete bioavailable protein with intact fat-soluble nutrients in the runny yolk.',
+    performanceContext: 'Avocado provides monounsaturated oleic acid that supports hormone production (testosterone, growth hormone) while the poached egg delivers complete bioavailable protein with intact fat-soluble nutrients in the runny yolk.',
     howTo: [
       'Toast 1 slice of sprouted sourdough bread until crisp.',
       'Smash half a ripe avocado onto the toast with a fork, add sea salt and red pepper flakes.',
@@ -409,7 +409,7 @@ export const exercises = {
     sets: '1 Bowl',
     reps: '8 mins prep',
     rest: 'Carbs: 45g | Protein: 18g | Fat: 12g',
-    boxingContext: 'Açaí berries contain anthocyanins with an exceptionally high ORAC score for neutralizing exercise-induced free radicals. Collagen peptides rebuild stressed connective tissues while the banana base provides fast-acting glycogen.',
+    performanceContext: 'Açaí berries contain anthocyanins with an exceptionally high ORAC score for neutralizing exercise-induced free radicals. Collagen peptides rebuild stressed connective tissues while the banana base provides fast-acting glycogen.',
     howTo: [
       'Add 1 frozen açaí packet, 1 frozen banana, and 1 cup spinach to a blender.',
       'Pour in 1/2 cup unsweetened almond milk and 1 scoop collagen peptides.',
@@ -430,7 +430,7 @@ export const exercises = {
     sets: '1 Serving',
     reps: '5 mins prep',
     rest: 'Carbs: 18g | Protein: 22g | Fat: 14g',
-    boxingContext: 'Wild sardines are one of the most nutrient-dense foods on Earth — packed with calcium (bones), vitamin D, omega-3 EPA/DHA, and selenium. The small fish size means negligible mercury accumulation compared to larger predatory fish.',
+    performanceContext: 'Wild sardines are one of the most nutrient-dense foods on Earth — packed with calcium (bones), vitamin D, omega-3 EPA/DHA, and selenium. The small fish size means negligible mercury accumulation compared to larger predatory fish.',
     howTo: [
       'Toast 1 slice of dark rye bread until crisp.',
       'Drain 1 tin of wild-caught sardines in olive oil and arrange on the toast.',
@@ -451,7 +451,7 @@ export const exercises = {
     sets: '1 Bowl',
     reps: '10 mins cook',
     rest: 'Carbs: 12g | Protein: 16g | Fat: 8g',
-    boxingContext: 'Traditional Japanese breakfast staple. Miso paste contains digestive enzymes and isoflavones that prime the gut for nutrient absorption early in the day. The soft-boiled egg adds complete protein without overwhelming the digestive system.',
+    performanceContext: 'Traditional Japanese breakfast staple. Miso paste contains digestive enzymes and isoflavones that prime the gut for nutrient absorption early in the day. The soft-boiled egg adds complete protein without overwhelming the digestive system.',
     howTo: [
       'Bring 2 cups of water to a gentle simmer (not boiling) in a small pot.',
       'Add 1 tbsp dried wakame seaweed and simmer for 2 minutes.',
@@ -473,7 +473,7 @@ export const exercises = {
     sets: '4 Servings',
     reps: '25 mins cook',
     rest: 'Carbs: 15g | Protein: 20g | Fat: 16g',
-    boxingContext: 'Beef liver is the single most nutrient-dense food available — containing 800% DV of retinol (vitamin A), 1,200% DV of B12, bioavailable heme iron, and copper. Provides the raw materials for red blood cell production and oxygen carrying capacity.',
+    performanceContext: 'Beef liver is the single most nutrient-dense food available — containing 800% DV of retinol (vitamin A), 1,200% DV of B12, bioavailable heme iron, and copper. Provides the raw materials for red blood cell production and oxygen carrying capacity.',
     howTo: [
       'Sauté 250g grassfed beef liver with 1 diced shallot in butter for 4-5 minutes until just cooked through.',
       'Transfer to a food processor with 2 tbsp butter, 1 tbsp brandy or ACV, salt, and pepper.',
@@ -495,7 +495,7 @@ export const exercises = {
     sets: '1 Jar',
     reps: '5 mins prep + overnight',
     rest: 'Carbs: 35g | Protein: 8g | Fat: 14g',
-    boxingContext: 'Chia seeds absorb 10x their weight in liquid, forming a hydrating gel that delivers sustained soluble fiber, omega-3 ALA, and minerals. The overnight soak neutralizes anti-nutrients, and the mango adds natural fructose for quick glycogen topping.',
+    performanceContext: 'Chia seeds absorb 10x their weight in liquid, forming a hydrating gel that delivers sustained soluble fiber, omega-3 ALA, and minerals. The overnight soak neutralizes anti-nutrients, and the mango adds natural fructose for quick glycogen topping.',
     howTo: [
       'Combine 3 tbsp chia seeds with 1 cup full-fat coconut milk in a glass jar.',
       'Stir in 1/2 tsp vanilla extract and 1 tsp maple syrup.',
@@ -519,7 +519,7 @@ export const exercises = {
     sets: '2 Servings',
     reps: '25 mins cook',
     rest: 'Carbs: 42g | Protein: 38g | Fat: 16g',
-    boxingContext: 'Quinoa is one of the only plant foods containing all 9 essential amino acids, making it a complete protein source. Combined with grilled chicken breast, this bowl delivers high-density protein with slow-release carbohydrates and fiber for sustained afternoon energy.',
+    performanceContext: 'Quinoa is one of the only plant foods containing all 9 essential amino acids, making it a complete protein source. Combined with grilled chicken breast, this bowl delivers high-density protein with slow-release carbohydrates and fiber for sustained afternoon energy.',
     howTo: [
       'Rinse 1 cup quinoa thoroughly and cook in 2 cups water for 15 minutes.',
       'Season 2 chicken breasts with cumin, paprika, salt, and grill or pan-sear for 6 minutes per side.',
@@ -541,7 +541,7 @@ export const exercises = {
     sets: '2 Servings',
     reps: '30 mins cook',
     rest: 'Carbs: 35g | Protein: 28g | Fat: 12g',
-    boxingContext: 'Bone broth delivers bioavailable collagen peptides (types I and III) that rebuild stressed tendons, ligaments, and joint cartilage. The glycine content supports deep sleep quality and growth hormone release during overnight recovery.',
+    performanceContext: 'Bone broth delivers bioavailable collagen peptides (types I and III) that rebuild stressed tendons, ligaments, and joint cartilage. The glycine content supports deep sleep quality and growth hormone release during overnight recovery.',
     howTo: [
       'Heat 4 cups of pre-made bone broth in a large pot with 1 tbsp soy sauce and 1 tsp sesame oil.',
       'Cook ramen noodles (or rice noodles) according to package directions.',
@@ -563,7 +563,7 @@ export const exercises = {
     sets: '3 Servings',
     reps: '30 mins cook',
     rest: 'Carbs: 55g | Protein: 22g | Fat: 6g',
-    boxingContext: 'Lentils are loaded with resistant starch that feeds beneficial gut bacteria and stabilizes blood sugar for hours. Combined with brown rice, this creates a complete amino acid profile rivaling animal protein. The turmeric and ginger deliver anti-inflammatory curcuminoids.',
+    performanceContext: 'Lentils are loaded with resistant starch that feeds beneficial gut bacteria and stabilizes blood sugar for hours. Combined with brown rice, this creates a complete amino acid profile rivaling animal protein. The turmeric and ginger deliver anti-inflammatory curcuminoids.',
     howTo: [
       'Rinse 1 cup red lentils and add to a pot with 3 cups water, 1 tsp turmeric, and 1/2 tsp cumin.',
       'Simmer for 20 minutes until lentils break down into a creamy consistency.',
@@ -585,7 +585,7 @@ export const exercises = {
     sets: '1 Serving',
     reps: '15 mins prep',
     rest: 'Carbs: 48g | Protein: 32g | Fat: 18g',
-    boxingContext: 'Raw wild tuna delivers maximum omega-3 fatty acids (undenatured by heat) and complete protein with exceptional selenium content. Selenium is a critical cofactor for glutathione peroxidase — the body\'s master antioxidant enzyme that neutralizes exercise-induced oxidative damage.',
+    performanceContext: 'Raw wild tuna delivers maximum omega-3 fatty acids (undenatured by heat) and complete protein with exceptional selenium content. Selenium is a critical cofactor for glutathione peroxidase — the body\'s master antioxidant enzyme that neutralizes exercise-induced oxidative damage.',
     howTo: [
       'Cut 150g sushi-grade wild tuna into 1cm cubes.',
       'Marinate tuna in 2 tbsp soy sauce, 1 tsp sesame oil, and 1/2 tsp rice vinegar for 10 minutes.',
@@ -607,7 +607,7 @@ export const exercises = {
     sets: '4 Servings',
     reps: '35 mins cook',
     rest: 'Carbs: 40g | Protein: 42g | Fat: 10g',
-    boxingContext: 'The classic bodybuilder meal prep — lean chicken breast provides the highest protein-per-calorie ratio of any whole food. Combined with glycogen-loading sweet potatoes and sulforaphane-rich broccoli, this delivers a complete macro profile for muscle maintenance.',
+    performanceContext: 'The classic bodybuilder meal prep — lean chicken breast provides the highest protein-per-calorie ratio of any whole food. Combined with glycogen-loading sweet potatoes and sulforaphane-rich broccoli, this delivers a complete macro profile for muscle maintenance.',
     howTo: [
       'Preheat oven to 400°F. Line a large sheet pan with parchment paper.',
       'Season 4 chicken breasts with olive oil, garlic powder, paprika, salt, and pepper.',
@@ -629,7 +629,7 @@ export const exercises = {
     sets: '2 Servings',
     reps: '15 mins cook',
     rest: 'Carbs: 52g | Protein: 18g | Fat: 12g',
-    boxingContext: 'Kimchi delivers billions of Lactobacillus bacteria that colonize the gut and strengthen the intestinal barrier. The capsaicin in the chili peppers thermogenically raises metabolic rate. Using day-old rice creates resistant starch, which feeds beneficial gut bacteria.',
+    performanceContext: 'Kimchi delivers billions of Lactobacillus bacteria that colonize the gut and strengthen the intestinal barrier. The capsaicin in the chili peppers thermogenically raises metabolic rate. Using day-old rice creates resistant starch, which feeds beneficial gut bacteria.',
     howTo: [
       'Heat 1 tbsp sesame oil in a wok over high heat.',
       'Add 1 cup chopped aged kimchi and stir-fry for 2 minutes until caramelized.',
@@ -651,7 +651,7 @@ export const exercises = {
     sets: '1 Serving',
     reps: '10 mins cook',
     rest: 'Carbs: 15g | Protein: 24g | Fat: 18g',
-    boxingContext: 'Raw sauerkraut is the richest food source of Lactobacillus plantarum — a probiotic strain clinically proven to reduce gut permeability and inflammation. Paired with quality protein from sausage, this plate supports both gut integrity and muscle repair.',
+    performanceContext: 'Raw sauerkraut is the richest food source of Lactobacillus plantarum — a probiotic strain clinically proven to reduce gut permeability and inflammation. Paired with quality protein from sausage, this plate supports both gut integrity and muscle repair.',
     howTo: [
       'Pan-fry 2 high-quality chicken or pork sausages in a skillet until browned and cooked through.',
       'Heap 1/2 cup raw unpasteurized sauerkraut alongside the sausages.',
@@ -672,7 +672,7 @@ export const exercises = {
     sets: '1 Serving',
     reps: '10 mins prep',
     rest: 'Carbs: 38g | Protein: 18g | Fat: 24g',
-    boxingContext: 'The Mediterranean diet pattern is the most researched dietary approach for reducing systemic inflammation and supporting cardiovascular health. Extra virgin olive oil delivers oleocanthal — a compound with ibuprofen-equivalent anti-inflammatory properties.',
+    performanceContext: 'The Mediterranean diet pattern is the most researched dietary approach for reducing systemic inflammation and supporting cardiovascular health. Extra virgin olive oil delivers oleocanthal — a compound with ibuprofen-equivalent anti-inflammatory properties.',
     howTo: [
       'Arrange a generous portion of hummus, baba ganoush, or white bean dip in the center of a plate.',
       'Surround with sliced cucumber, cherry tomatoes, Kalamata olives, and roasted red peppers.',
@@ -696,7 +696,7 @@ export const exercises = {
     sets: '2 Servings',
     reps: '25 mins cook',
     rest: 'Carbs: 52g | Protein: 36g | Fat: 16g',
-    boxingContext: 'Wild salmon coated in a teriyaki glaze delivers concentrated EPA/DHA omega-3 fatty acids alongside quick-digesting jasmine rice for glycogen restoration. The bok choy adds calcium and vitamin K for bone density and blood clotting factor production.',
+    performanceContext: 'Wild salmon coated in a teriyaki glaze delivers concentrated EPA/DHA omega-3 fatty acids alongside quick-digesting jasmine rice for glycogen restoration. The bok choy adds calcium and vitamin K for bone density and blood clotting factor production.',
     howTo: [
       'Mix teriyaki glaze: 3 tbsp soy sauce, 1 tbsp mirin, 1 tbsp honey, 1 tsp grated ginger.',
       'Brush glaze on 2 wild salmon fillets and bake at 400°F for 12-15 minutes.',
@@ -718,7 +718,7 @@ export const exercises = {
     sets: '2 Servings',
     reps: '20 mins cook',
     rest: 'Carbs: 45g | Protein: 35g | Fat: 14g',
-    boxingContext: 'Lean beef delivers the most bioavailable form of heme iron — essential for hemoglobin synthesis and oxygen transport to working muscles. Bell peppers add 300% DV of vitamin C, which enhances non-heme iron absorption by 6x when eaten in the same meal.',
+    performanceContext: 'Lean beef delivers the most bioavailable form of heme iron — essential for hemoglobin synthesis and oxygen transport to working muscles. Bell peppers add 300% DV of vitamin C, which enhances non-heme iron absorption by 6x when eaten in the same meal.',
     howTo: [
       'Slice 300g lean beef sirloin into thin strips against the grain.',
       'Marinate in 2 tbsp soy sauce, 1 tsp cornstarch, and 1 tsp sesame oil for 10 minutes.',
@@ -740,7 +740,7 @@ export const exercises = {
     sets: '4 Servings',
     reps: '35 mins cook',
     rest: 'Carbs: 40g | Protein: 36g | Fat: 12g',
-    boxingContext: 'This one-pot meal combines high-density chicken protein with curcumin-rich turmeric (anti-inflammatory NF-kB blocker) and resistant-starch lentils. The black pepper increases curcumin bioavailability by 2,000%, making this a potent anti-inflammatory recovery dinner.',
+    performanceContext: 'This one-pot meal combines high-density chicken protein with curcumin-rich turmeric (anti-inflammatory NF-kB blocker) and resistant-starch lentils. The black pepper increases curcumin bioavailability by 2,000%, making this a potent anti-inflammatory recovery dinner.',
     howTo: [
       'Dice 500g chicken thighs and brown in a Dutch oven with 1 tbsp coconut oil.',
       'Add diced onion, 3 cloves garlic, 1 tbsp grated ginger, and cook 2 minutes.',
@@ -762,7 +762,7 @@ export const exercises = {
     sets: '1 Serving',
     reps: '12 mins cook',
     rest: 'Carbs: 12g | Protein: 40g | Fat: 22g',
-    boxingContext: 'Searing tuna rare preserves the heat-sensitive omega-3 fatty acids and selenium. This high-protein, low-carb meal is ideal for athletes in a caloric deficit who need maximum protein density without excess glycemic load.',
+    performanceContext: 'Searing tuna rare preserves the heat-sensitive omega-3 fatty acids and selenium. This high-protein, low-carb meal is ideal for athletes in a caloric deficit who need maximum protein density without excess glycemic load.',
     howTo: [
       'Pat a 200g sushi-grade tuna steak dry and season generously with salt, pepper, and sesame seeds.',
       'Heat a cast iron skillet until smoking hot with 1 tbsp avocado oil.',
@@ -784,7 +784,7 @@ export const exercises = {
     sets: '2 Servings',
     reps: '50 mins cook',
     rest: 'Carbs: 62g | Protein: 18g | Fat: 8g',
-    boxingContext: 'A plant-forward powerhouse combining slow-release sweet potato starches with fiber-rich black beans for sustained energy and gut health. Greek yogurt adds casein protein while the salsa provides lycopene and vitamin C for collagen synthesis.',
+    performanceContext: 'A plant-forward powerhouse combining slow-release sweet potato starches with fiber-rich black beans for sustained energy and gut health. Greek yogurt adds casein protein while the salsa provides lycopene and vitamin C for collagen synthesis.',
     howTo: [
       'Preheat oven to 400°F. Pierce 2 sweet potatoes with a fork and bake for 40-45 minutes.',
       'While baking, warm 1 can of rinsed black beans with cumin, chili powder, and lime juice.',
@@ -806,7 +806,7 @@ export const exercises = {
     sets: '4 Servings',
     reps: '40 mins cook',
     rest: 'Carbs: 42g | Protein: 38g | Fat: 10g',
-    boxingContext: 'A no-fuss one-pan meal that delivers lean protein, sulforaphane-rich broccoli, and brown rice complex carbs. Sulforaphane activates Nrf2 — the body\'s master antioxidant switch — helping clear exercise-induced oxidative damage at the cellular level.',
+    performanceContext: 'A no-fuss one-pan meal that delivers lean protein, sulforaphane-rich broccoli, and brown rice complex carbs. Sulforaphane activates Nrf2 — the body\'s master antioxidant switch — helping clear exercise-induced oxidative damage at the cellular level.',
     howTo: [
       'Preheat oven to 375°F. Spread 1.5 cups uncooked brown rice in a casserole dish.',
       'Pour 3 cups chicken broth over the rice.',
@@ -828,7 +828,7 @@ export const exercises = {
     sets: '2 Servings',
     reps: '20 mins cook',
     rest: 'Carbs: 18g | Protein: 32g | Fat: 8g',
-    boxingContext: 'White fish like cod delivers exceptionally lean, easy-to-digest protein with minimal fat. The miso glaze adds digestive enzymes and umami depth while the steamed vegetables preserve heat-sensitive micronutrients like vitamin C and folate.',
+    performanceContext: 'White fish like cod delivers exceptionally lean, easy-to-digest protein with minimal fat. The miso glaze adds digestive enzymes and umami depth while the steamed vegetables preserve heat-sensitive micronutrients like vitamin C and folate.',
     howTo: [
       'Mix glaze: 2 tbsp white miso, 1 tbsp mirin, 1 tsp sesame oil, 1 tsp honey.',
       'Coat 2 cod fillets with the miso glaze and marinate for 15 minutes (or overnight).',
@@ -850,7 +850,7 @@ export const exercises = {
     sets: '8 Pieces',
     reps: '15 mins + chill',
     rest: 'Carbs: 12g | Protein: 4g | Fat: 14g',
-    boxingContext: 'Dark chocolate (85%+ cacao) contains theobromine — a mild vasodilator that enhances blood flow — plus 64mg of magnesium per ounce for muscle relaxation and 500mg of flavanols for endothelial function. The nut and seed toppings add zinc, selenium, and healthy fats.',
+    performanceContext: 'Dark chocolate (85%+ cacao) contains theobromine — a mild vasodilator that enhances blood flow — plus 64mg of magnesium per ounce for muscle relaxation and 500mg of flavanols for endothelial function. The nut and seed toppings add zinc, selenium, and healthy fats.',
     howTo: [
       'Melt 200g of 85% dark chocolate using a double boiler (or microwave in 30-second bursts).',
       'Pour melted chocolate onto a parchment-lined sheet pan and spread evenly.',
@@ -875,7 +875,7 @@ export const exercises = {
     sets: '12 Balls',
     reps: '15 mins prep',
     rest: 'Carbs: 18g | Protein: 6g | Fat: 8g (per 2 balls)',
-    boxingContext: 'Spirulina is 60% complete protein by weight with exceptional iron density and phycocyanin — a potent anti-inflammatory blue pigment. Combined with oats and honey, these energy balls deliver sustained fuel for between-meal energy without blood sugar spikes.',
+    performanceContext: 'Spirulina is 60% complete protein by weight with exceptional iron density and phycocyanin — a potent anti-inflammatory blue pigment. Combined with oats and honey, these energy balls deliver sustained fuel for between-meal energy without blood sugar spikes.',
     howTo: [
       'Combine 1 cup rolled oats, 1/2 cup almond butter, 1/4 cup raw honey, and 2 tsp spirulina powder in a bowl.',
       'Mix in 2 tbsp mini dark chocolate chips, 1 tbsp chia seeds, and 1 tbsp coconut flakes.',
@@ -896,7 +896,7 @@ export const exercises = {
     sets: '1 Smoothie',
     reps: '5 mins prep',
     rest: 'Carbs: 40g | Protein: 12g | Fat: 10g',
-    boxingContext: 'Maca root is a Peruvian adaptogen clinically shown to improve energy, stamina, and hormonal balance without stimulating the adrenals. Raw cacao adds theobromine for smooth vasodilation and mood-boosting phenylethylamine (PEA).',
+    performanceContext: 'Maca root is a Peruvian adaptogen clinically shown to improve energy, stamina, and hormonal balance without stimulating the adrenals. Raw cacao adds theobromine for smooth vasodilation and mood-boosting phenylethylamine (PEA).',
     howTo: [
       'Add 1 frozen banana, 1 cup unsweetened almond milk, and 1 tbsp raw cacao powder to a blender.',
       'Add 1 tsp maca root powder and 1 tbsp almond butter.',
@@ -917,7 +917,7 @@ export const exercises = {
     sets: '1 Serving',
     reps: '2 mins prep',
     rest: 'Carbs: 35g | Protein: 0g | Fat: 0g',
-    boxingContext: 'Creatine monohydrate is the most researched ergogenic supplement in sports science. It replenishes phosphocreatine stores in Type II muscle fibers, enabling 1-2 extra reps on heavy sets and improving power output by 5-10%. Grape juice provides the insulin spike needed for optimal creatine uptake.',
+    performanceContext: 'Creatine monohydrate is the most researched ergogenic supplement in sports science. It replenishes phosphocreatine stores in Type II muscle fibers, enabling 1-2 extra reps on heavy sets and improving power output by 5-10%. Grape juice provides the insulin spike needed for optimal creatine uptake.',
     howTo: [
       'Measure 5g (1 rounded teaspoon) of micronized creatine monohydrate.',
       'Pour into a glass of 250ml 100% grape juice (not from concentrate).',
@@ -938,7 +938,7 @@ export const exercises = {
     sets: '1 Cup',
     reps: '3 mins prep',
     rest: 'Carbs: 0g | Protein: 10g | Fat: 0g',
-    boxingContext: 'Collagen peptides (types I and III) are rapidly absorbed and provide the specific amino acids (glycine, proline, hydroxyproline) needed to rebuild tendons, ligaments, cartilage, and gut lining. Dissolving in hot coffee enhances solubility without denaturing the bioactive peptides.',
+    performanceContext: 'Collagen peptides (types I and III) are rapidly absorbed and provide the specific amino acids (glycine, proline, hydroxyproline) needed to rebuild tendons, ligaments, cartilage, and gut lining. Dissolving in hot coffee enhances solubility without denaturing the bioactive peptides.',
     howTo: [
       'Brew your preferred black coffee (espresso, pour-over, or drip).',
       'Add 1 scoop (10g) of hydrolyzed collagen peptides to the hot coffee.',
@@ -959,7 +959,7 @@ export const exercises = {
     sets: '1 Large Glass',
     reps: '5 mins prep',
     rest: 'Carbs: 28g | Protein: 2g | Fat: 0g',
-    boxingContext: 'Watermelon is 92% water and uniquely rich in L-citrulline — an amino acid that converts to L-arginine, boosting nitric oxide production for enhanced blood flow and reduced muscle soreness. The natural sugars and potassium provide rapid rehydration during or after training.',
+    performanceContext: 'Watermelon is 92% water and uniquely rich in L-citrulline — an amino acid that converts to L-arginine, boosting nitric oxide production for enhanced blood flow and reduced muscle soreness. The natural sugars and potassium provide rapid rehydration during or after training.',
     howTo: [
       'Cube 3 cups of seedless watermelon and freeze for 2 hours (or use pre-frozen).',
       'Add frozen watermelon, juice of 1 lime, and a pinch of pink Himalayan salt to a blender.',
@@ -980,7 +980,7 @@ export const exercises = {
     sets: '1 Shot',
     reps: '2 mins prep',
     rest: 'Carbs: 18g | Protein: 1g | Fat: 0g',
-    boxingContext: 'Tart Montmorency cherries contain the highest natural concentration of melatonin (for sleep quality) and anthocyanins (for inflammation reduction). Clinical studies show 30ml of tart cherry concentrate reduces DOMS by 40% and improves sleep onset by 20 minutes.',
+    performanceContext: 'Tart Montmorency cherries contain the highest natural concentration of melatonin (for sleep quality) and anthocyanins (for inflammation reduction). Clinical studies show 30ml of tart cherry concentrate reduces DOMS by 40% and improves sleep onset by 20 minutes.',
     howTo: [
       'Pour 30ml of tart cherry concentrate into a small glass.',
       'Add 60ml of cold water and stir.',
@@ -1143,8 +1143,8 @@ export const goalWorkouts = {
     keyPrinciple: 'Myelination and transmission speed are highly dependent on essential fats, choline, and bioactive compounds. Load acetylcholine precursors to speed up reflex loops.',
     techniques: ['lions-mane', 'eggs', 'spinach', 'pumpkin-seeds'],
   },
-  'boxing-cardio': {
-    slug: 'boxing-cardio',
+  'athletic nutrition-cardio': {
+    slug: 'athletic nutrition-cardio',
     name: 'Metabolism & Fat Burn',
     title: 'Metabolic Drive: Safe Caloric Deficits and Energy Stability',
     description: 'Lose weight safely without losing lean tissue or energy. This plan utilizes raw ginger, apple cider vinegar, and clean proteins to stimulate metabolism and stabilize blood sugar.',

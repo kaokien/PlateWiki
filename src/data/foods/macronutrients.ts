@@ -20,7 +20,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
       "calves"
     ],
     "description": "A nutrient-dense stone fruit loaded with easily digestible simple sugars, potassium, and soluble fiber. Medjool dates offer a rapid yet sustained release of carbohydrates, making them a perfect pre-workout glycogen booster for high-intensity training.",
-    "whenToUse": "Consume 2-3 Medjool dates 30-45 minutes before a workout or sparring session for quick energy.",
+    "whenToUse": "Consume 2-3 Medjool dates 30-45 minutes before a workout or training session for quick energy.",
     "coachingCues": [
       "Remove the pit before eating.",
       "Combine with a small amount of almond butter to slow sugar absorption.",
@@ -88,7 +88,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
       "Heating honey in boiling tea, which denatures its active proteins and beneficial enzymes."
     ],
     "proTips": [
-      "Take 1 tablespoon of raw honey with a pinch of pink salt before sparring to sustain endurance and prevent cramping.",
+      "Take 1 tablespoon of raw honey with a pinch of pink salt before training to sustain endurance and prevent cramping.",
       "Drizzle over oatmeal or blend into post-workout recovery shakes to aid in rapid glycogen replenishment."
     ],
     "conditioning": [

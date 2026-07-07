@@ -22,7 +22,7 @@ const TermsPage = () => {
           <strong>WARNING: PHYSICAL TRAINING AND COMBAT SPORTS ARE INHERENTLY STRENUOUS AND CARRY SIGNIFICANT RISK OF INJURY, PERMANENT DISABILITY, OR DEATH.</strong>
         </p>
         <p>
-          All boxing combinations, drills, round generator coaching callouts, and programs presented on PlateWiki are for **educational and informational purposes only**. 
+          All athletic nutrition combinations, drills, round generator coaching callouts, and programs presented on PlateWiki are for **educational and informational purposes only**. 
           We do not provide medical advice, diagnosis, or treatment. 
         </p>
         <p>
@@ -52,7 +52,7 @@ const TermsPage = () => {
 
         <h2>6. Account Data & Cloud Storage</h2>
         <p>
-          Your training data (profile, XP, workout history, favorites) is stored in our cloud database. You can delete your account and all associated data at any time via the Fighter Profile settings. We do not sell or share your training data with third parties.
+          Your training data (profile, XP, workout history, favorites) is stored in our cloud database. You can delete your account and all associated data at any time via the athlete Profile settings. We do not sell or share your training data with third parties.
         </p>
 
         <h2>7. Age Limits and Supervised Use</h2>

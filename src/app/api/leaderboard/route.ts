@@ -61,7 +61,7 @@ export async function GET(req: NextRequest) {
   // Strip user ids before responding; expose only display data.
   const entries = rows.map((r, i) => ({
     rank: i + 1,
-    displayName: r.display_name || 'Fighter',
+    displayName: r.display_name || 'athlete',
     xp: r.xp ?? 0,
     currentStreak: r.current_streak ?? 0,
     workoutsCompleted: r.workouts_completed ?? 0,

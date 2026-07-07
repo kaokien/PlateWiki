@@ -50,7 +50,7 @@ const OnboardingOverlay = () => {
             Welcome to <span className="text-primary">PlateWiki</span>
           </h2>
           <p className="onboarding-desc">
-            The interactive fighter&apos;s manual. Set up your fighter profile to track streaks, complete weekly challenges, and unlock gear.
+            The interactive athlete&apos;s manual. Set up your athlete profile to track streaks, complete weekly challenges, and unlock gear.
           </p>
 
           <div className="onboarding-features">

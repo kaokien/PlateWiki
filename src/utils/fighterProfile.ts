@@ -1,5 +1,5 @@
 /**
- * Fighter Profile — XP engine, rank math, and localStorage persistence.
+ * athlete Profile — XP engine, rank math, and localStorage persistence.
  * Pure utility module (no React). Handles all gamification logic.
  */
 import { isAuthenticated } from './authState';
@@ -154,7 +154,7 @@ export function saveProfile(profile: FighterProfile): void {
     profileCacheRaw = raw;
     profileCacheValue = structuredClone(profile);
   } catch (e) {
-    console.warn('Failed to save fighter profile:', e);
+    console.warn('Failed to save athlete profile:', e);
   }
 }
 
@@ -440,7 +440,7 @@ export function resetProfile(): void {
 
 /**
  * Determine the user's "fighting style" based on their most-trained categories.
- * Returns a style label for the fighter card.
+ * Returns a style label for the athlete card.
  */
 export function detectFightingStyle(profile: FighterProfile): string {
   if (profile.workoutsCompleted === 0) return 'Undetermined';
@@ -450,7 +450,7 @@ export function detectFightingStyle(profile: FighterProfile): string {
   
   if (ratio > 1.5) return 'Conditioning Machine';
   if (profile.articlesRead.length > profile.workoutsCompleted) return 'Student of the Game';
-  if (profile.workoutsCompleted >= 20) return 'Pressure Fighter';
+  if (profile.workoutsCompleted >= 20) return 'Pressure athlete';
   if (profile.workoutsCompleted >= 10) return 'Counter Puncher';
   if (profile.workoutsCompleted >= 5) return 'Volume Puncher';
   return 'Prospect';

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Boxing Styles — Fighter Analysis & Technique Breakdowns',
-  description: 'Study the boxing styles of legends like Tyson, Mayweather, Ali, and Pacquiao. See their signature techniques, stat breakdowns, and tactical analysis.',
+  title: 'Athletic Fueling — Athlete Profiles & Nutrition Breakdowns',
+  description: 'Study the athletic nutrition styles of legends like Tyson, Mayweather, Ali, and Pacquiao. See their signature techniques, stat breakdowns, and tactical analysis.',
 };
 
 import FightersPageClient from './FightersPageClient';

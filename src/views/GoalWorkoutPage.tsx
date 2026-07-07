@@ -162,9 +162,9 @@ const GoalWorkoutPage = ({ slug }: GoalWorkoutPageProps) => {
                     <Scale size={12} /> {ex.rest}
                   </span>
                 </div>
-                {ex.boxingContext && (
+                {ex.performanceContext && (
                   <p className="gw-exercise-context">
-                    {truncate(ex.boxingContext, 120)}
+                    {truncate(ex.performanceContext, 120)}
                   </p>
                 )}
               </div>

@@ -1,15 +1,15 @@
 [
   {
-    "id": "meal-prep-for-fight-camps",
-    "title": "Fight Camp Meal Prep: Nutrient-Dense Recipes for Endurance",
-    "subtitle": "Fuel your performance and make weight without sacrificing muscle or stamina using structured fight-camp meal prep protocols.",
+    "id": "meal-prep-for-training-camps",
+    "title": "Training Camp Meal Prep: Nutrient-Dense Recipes for Endurance",
+    "subtitle": "Fuel your performance and make weight without sacrificing muscle or stamina using structured training-camp meal prep protocols.",
     "category": "Cooking & Meal Prep",
     "author": "PlateWiki Editorial",
     "readTime": "8 min read",
     "date": "2026-07-13"
   },
   {
-    "id": "boxing-weight-cutting-dangers",
+    "id": "athletic-nutrition-weight-cutting-dangers",
     "title": "The Dangers of Dehydration: Weight Cutting Mistakes",
     "subtitle": "Cutting weight through severe dehydration ruins performance and risks brain trauma. Learn the physiological costs and safer alternatives.",
     "category": "Nutrition & Diet",
@@ -18,27 +18,27 @@
     "date": "2026-06-22"
   },
   {
-    "id": "supplement-guide-for-boxers",
-    "title": "Boxing Supplements: Creatine, Beta-Alanine, and Caffeine",
-    "subtitle": "Ditch the marketing hype. Learn the science, dosing, and timing of the three supplements proven to enhance boxing performance.",
+    "id": "supplement-guide-for-athletes",
+    "title": "Athletic Nutrition Supplements: Creatine, Beta-Alanine, and Caffeine",
+    "subtitle": "Ditch the marketing hype. Learn the science, dosing, and timing of the three supplements proven to enhance athletic nutrition performance.",
     "category": "Nutrition & Diet",
     "author": "PlateWiki Editorial",
     "readTime": "8 min read",
     "date": "2026-06-30"
   },
   {
-    "id": "nutrition-for-boxing-sparring",
-    "title": "Fueling the Sparring Day: Macronutrient Timing",
-    "subtitle": "Learn how to time your meals, balance your macronutrients, and maintain hydration to maximize your performance and recovery on sparring days.",
+    "id": "nutrition-for-athletic-training",
+    "title": "Fueling the Training Day: Macronutrient Timing",
+    "subtitle": "Learn how to time your meals, balance your macronutrients, and maintain hydration to maximize your performance and recovery on training days.",
     "category": "Athlete Fueling",
     "author": "PlateWiki Editorial",
     "readTime": "8 min read",
     "date": "2026-06-06"
   },
   {
-    "id": "boxing-fat-loss-muscle-retention",
-    "title": "Fat Loss for Boxers: Cutting Weight without Losing Power",
-    "subtitle": "Learn the science of calorie deficits, protein intake, and training adjustments for boxing weight cuts.",
+    "id": "athletic-nutrition-fat-loss-muscle-retention",
+    "title": "Fat Loss for Athletes: Cutting Weight without Losing Power",
+    "subtitle": "Learn the science of calorie deficits, protein intake, and training adjustments for athletic nutrition weight cuts.",
     "category": "Nutrition & Diet",
     "author": "PlateWiki Editorial",
     "readTime": "9 min read",

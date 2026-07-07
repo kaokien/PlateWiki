@@ -1,12 +1,12 @@
 ---
 title: "Future Release Test Article"
 subtitle: "This is a test article slated for future release to verify the scheduler."
-category: "Boxing Fundamentals"
+category: "Athletic Nutrition Fundamentals"
 tags: ["Test", "Scheduler"]
 date: "2029-12-31"
 author: "Test Author"
 readTime: "1 min read"
-heroImage: "/images/articles/boxing-fundamentals.png"
+heroImage: "/images/articles/athletic nutrition-fundamentals.png"
 relatedArticles: []
 relatedTechniques: ["jab"]
 ---

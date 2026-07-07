@@ -175,9 +175,9 @@ const MuscleWorkoutPage = ({ slug }: MuscleWorkoutPageProps) => {
                     <Scale size={12} /> {ex.rest}
                   </span>
                 </div>
-                {ex.boxingContext && (
+                {ex.performanceContext && (
                   <p className="mw-exercise-context">
-                    {truncate(ex.boxingContext, 120)}
+                    {truncate(ex.performanceContext, 120)}
                   </p>
                 )}
               </div>

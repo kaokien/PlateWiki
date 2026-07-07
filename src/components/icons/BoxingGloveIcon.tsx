@@ -7,7 +7,7 @@ interface BoxingGloveIconProps {
 }
 
 /**
- * Boxing glove SVG icon — matches Lucide's stroke-based style.
+ * Athletic Nutrition glove SVG icon — matches Lucide's stroke-based style.
  * Used for the stance toggle (Orthodox / Southpaw).
  */
 export function BoxingGloveIcon({ size = 24, color = 'currentColor', className }: BoxingGloveIconProps) {

@@ -24,7 +24,7 @@ export async function generateMetadata({
   return {
     title,
     description:
-      exercise.boxingContext?.slice(0, 155) ||
+      exercise.performanceContext?.slice(0, 155) ||
       `Learn how to prepare ${exercise.name}. Step-by-step instructions, macro profiles, prep parameters, and dietary roles.`,
     robots: { index: true, follow: true },
     alternates: {
@@ -33,7 +33,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description:
-        exercise.boxingContext?.slice(0, 155) ||
+        exercise.performanceContext?.slice(0, 155) ||
         `Sports-nutrition guide to ${exercise.name}. Equipment needed, tips, and active ingredients.`,
       images: [{ url: '/og-image.png' }],
     },
@@ -54,7 +54,7 @@ export default async function ExerciseRoute({
         '@context': 'https://schema.org',
         '@type': 'HowTo',
         name: exercise.name,
-        description: exercise.boxingContext,
+        description: exercise.performanceContext,
         image: `${SITE_URL}/og-image.png`,
         totalTime: 'PT5M',
         author: {

@@ -7,7 +7,7 @@ import './CoursePromo.css';
 
 /**
  * Inline course upsell component. Drop this on any page to promote
- * The Boxing Blueprint course. Tracks clicks via GA4.
+ * The Athletic Fueling Blueprint course. Tracks clicks via GA4.
  *
  * @param {string} location - Page placement for analytics (e.g. 'homepage', 'technique_page')
  * @param {string} variant - 'banner' (wide) or 'card' (compact). Default: 'banner'
@@ -29,8 +29,8 @@ const CoursePromo = ({ location = 'unknown', variant = 'banner' }) => {
         </div>
         <div className="promo-card-text">
           <span className="promo-label">VIDEO COURSE</span>
-          <h3>The Boxing Blueprint</h3>
-          <p>4 deep-dive modules. Real boxing, not cardio kickboxing.</p>
+          <h3>The Athletic Fueling Blueprint</h3>
+          <p>4 deep-dive modules. Real athletic nutrition, not cardio kickboxing.</p>
         </div>
         <ArrowRight size={16} className="promo-card-arrow" />
       </Link>
@@ -48,7 +48,7 @@ const CoursePromo = ({ location = 'unknown', variant = 'banner' }) => {
         <h3>STOP DOING CARDIO KICKBOXING. <span className="text-primary">LEARN THE REAL THING.</span></h3>
         <p>The complete fundamentals course. 4 deep-dive modules covering striking mechanics, conditioning, defense, and footwork. Featured on PlateWiki.</p>
         <Link href="/course" className="promo-banner-cta" onClick={handleClick}>
-          <PlayCircle size={16} /> View Boxing Blueprint <ArrowRight size={14} />
+          <PlayCircle size={16} /> View Athletic Fueling Blueprint <ArrowRight size={14} />
         </Link>
       </div>
     </div>

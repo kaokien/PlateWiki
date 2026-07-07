@@ -90,7 +90,7 @@ describe('Program Progress', () => {
   });
 
   it('should start a new program correctly', () => {
-    const progress = startProgram('boxing-101');
+    const progress = startProgram('athletic nutrition-101');
     expect(progress).toBeDefined();
     expect(progress!.currentDay).toBe(1);
     expect(progress!.completedDays).toEqual([]);
@@ -98,22 +98,22 @@ describe('Program Progress', () => {
   });
 
   it('should track a completed day', () => {
-    startProgram('boxing-101');
-    const progress = completeProgramDay('boxing-101', 1);
+    startProgram('athletic nutrition-101');
+    const progress = completeProgramDay('athletic nutrition-101', 1);
     expect(progress!.completedDays).toContain(1);
   });
 
   it('should auto-advance currentDay when completing the current day', () => {
-    startProgram('boxing-101');
-    const progress = completeProgramDay('boxing-101', 1);
+    startProgram('athletic nutrition-101');
+    const progress = completeProgramDay('athletic nutrition-101', 1);
     expect(progress!.currentDay).toBe(2);
   });
 
   it('should not duplicate completed days', () => {
-    startProgram('boxing-101');
-    completeProgramDay('boxing-101', 1);
-    completeProgramDay('boxing-101', 1);
-    const progress = getProgramProgress('boxing-101');
+    startProgram('athletic nutrition-101');
+    completeProgramDay('athletic nutrition-101', 1);
+    completeProgramDay('athletic nutrition-101', 1);
+    const progress = getProgramProgress('athletic nutrition-101');
     expect(progress.completedDays.filter(d => d === 1).length).toBe(1);
   });
 
@@ -125,18 +125,18 @@ describe('Program Progress', () => {
   });
 
   it('should reset a program', () => {
-    startProgram('boxing-101');
-    completeProgramDay('boxing-101', 1);
-    resetProgram('boxing-101');
-    expect(getProgramProgress('boxing-101')).toBeNull();
+    startProgram('athletic nutrition-101');
+    completeProgramDay('athletic nutrition-101', 1);
+    resetProgram('athletic nutrition-101');
+    expect(getProgramProgress('athletic nutrition-101')).toBeNull();
   });
 
   it('should handle multiple programs independently', () => {
-    startProgram('boxing-101');
+    startProgram('athletic nutrition-101');
     startProgram('advanced-footwork');
-    completeProgramDay('boxing-101', 1);
+    completeProgramDay('athletic nutrition-101', 1);
 
-    const prog1 = getProgramProgress('boxing-101');
+    const prog1 = getProgramProgress('athletic nutrition-101');
     const prog2 = getProgramProgress('advanced-footwork');
 
     expect(prog1.completedDays).toContain(1);

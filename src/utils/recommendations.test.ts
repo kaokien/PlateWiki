@@ -20,7 +20,7 @@ describe('getPersonalizedWorkout', () => {
   });
 
   it('returns advanced workout for high rank users (e.g. 1000+ XP) with no history', () => {
-    // Mock high XP fighter profile
+    // Mock high XP athlete profile
     const highXPProfile = {
       displayName: 'Champ',
       xp: 1200,

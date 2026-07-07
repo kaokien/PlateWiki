@@ -109,7 +109,7 @@ export function useCloudSync() {
         const { profile: cloud } = await profileRes.json();
         if (cloud) {
           const mapped: FighterProfile = {
-            displayName: cloud.display_name || 'Fighter',
+            displayName: cloud.display_name || 'athlete',
             xp: cloud.xp || 0,
             workoutsCompleted: cloud.workouts_completed || 0,
             articlesRead: cloud.articles_read || [],

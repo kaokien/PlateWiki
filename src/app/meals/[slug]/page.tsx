@@ -24,7 +24,7 @@ export async function generateMetadata({
     title: workout.title,
     description:
       workout.description?.slice(0, 155) ||
-      `Complete ${workout.name} program for boxing. ${workout.exercises?.length || 0} exercises targeting the muscles that matter for fighters.`,
+      `Complete ${workout.name} program for athletic nutrition. ${workout.exercises?.length || 0} exercises targeting the muscles that matter for athletes.`,
     robots: { index: true, follow: true },
     alternates: {
       canonical: `${SITE_URL}/meals/${slug}`,
@@ -33,7 +33,7 @@ export async function generateMetadata({
       title: workout.title,
       description:
         workout.description?.slice(0, 155) ||
-        `${workout.name} — boxing-specific workout program.`,
+        `${workout.name} — athlete-specific workout program.`,
       images: [{ url: '/og-image.png' }],
     },
   };

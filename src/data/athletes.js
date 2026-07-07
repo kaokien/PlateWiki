@@ -4,7 +4,7 @@
  * signatureTechniques[] maps to food IDs in foodsData.ts
  */
 
-export const fighters = [
+export const athletes = [
   {
     id: 'usain-bolt',
     name: 'Usain Bolt',
@@ -53,7 +53,7 @@ export const fighters = [
     stance: 'both', // hybrid/all-around
     weightClass: 'Mixed Martial Arts',
     style: 'Intermittent Fasting & Adaptogens',
-    styleTags: ['fighter', 'adaptogens'],
+    styleTags: ['athlete', 'adaptogens'],
     signatureTechniques: ['kefir', 'ginger', 'ashwagandha', 'lions-mane', 'turmeric', 'himalayan-salt'],
     stats: { power: 90, speed: 90, defense: 95, footwork: 88, ringIQ: 99, stamina: 95 },
     analysis: `Georges St-Pierre transitioned to a highly scientific anti-inflammatory diet later in his career. To manage gut health and reduce inflammation from years of combat training, GSP adopted strict intermittent fasting (16/8 window). He focused on fermented kefir for gut microflora, wild salmon for omega-3s, and adaptogenic mushrooms like Lion's Mane and Ashwagandha to regulate stress and mental focus. This protocol allowed him to recover faster and enter the cage in peak physical shape.`,

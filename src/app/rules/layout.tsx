@@ -4,7 +4,7 @@ import { getBreadcrumbSchema } from '@/utils/seoSchemas';
 export default function RulesLayout({ children }: { children: React.ReactNode }) {
   const breadcrumb = getBreadcrumbSchema([
     { name: 'Home', url: '/' },
-    { name: 'Boxing Rules' },
+    { name: 'Nutrition Guidelines' },
   ]);
 
   return (

@@ -190,7 +190,7 @@ const PricingPage = () => {
       <div className="pricing-framing">
         {framingVariant === 'B' ? (
           <>
-            That's less than <strong>a single drop-in fee</strong> at any boxing gym — with full training tools 24/7.
+            That's less than <strong>a single drop-in fee</strong> at any athletic nutrition gym — with full training tools 24/7.
           </>
         ) : (
           <>

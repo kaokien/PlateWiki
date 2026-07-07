@@ -27,7 +27,7 @@ export async function generateMetadata({
     (t: Technique) => t.muscles && t.muscles.includes(id)
   ).length;
   return {
-    title: `${muscle.name} — Boxing Anatomy & Techniques`,
+    title: `${muscle.name} — Nutritional Anatomy & Foods`,
     description:
       muscle.description ||
       `Discover ${techniqueCount} nutritions that target the ${muscle.name.toLowerCase()}. Muscle anatomy, training tips, and related exercises.`,
@@ -35,7 +35,7 @@ export async function generateMetadata({
       canonical: `${SITE_URL}/body-map/${id}`,
     },
     openGraph: {
-      title: `${muscle.name} — Boxing Anatomy`,
+      title: `${muscle.name} — Nutritional Anatomy`,
       description: `${techniqueCount} nutritions that train your ${muscle.name.toLowerCase()}. Interactive anatomy map.`,
       images: [{ url: '/og-image.png' }],
     },

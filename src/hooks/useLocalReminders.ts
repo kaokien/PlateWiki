@@ -31,7 +31,7 @@ export function useLocalReminders() {
 
           if (lastReminderDate !== todayStr) {
             new Notification('Time to Train! 🥊', {
-              body: "Keep your daily boxing streak active. Open PlateWiki and complete your Drill of the Day!",
+              body: "Keep your daily athletic nutrition streak active. Open PlateWiki and complete your Drill of the Day!",
               icon: '/favicon.svg',
             });
             localStorage.setItem('bw_last_reminder_date', todayStr);

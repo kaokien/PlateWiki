@@ -324,7 +324,7 @@ export default function PixelFighterCanvas({
 
   return (
     <div 
-      className={`pixel-fighter-canvas pixel-fighter-canvas--${size}`}
+      className={`pixel-athlete-canvas pixel-athlete-canvas--${size}`}
       style={{ width: canvasSize, height: canvasSize }}
     >
       <canvas

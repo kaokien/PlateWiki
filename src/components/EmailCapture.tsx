@@ -26,7 +26,7 @@ const EmailCapture = ({ location = 'homepage' }: { location?: string }) => {
         <p>
           {isProfile 
             ? "Your training stats are synced to your inbox. We'll also keep you updated with new drills."
-            : "We'll send you boxing tips, new techniques, and training plans. No spam, ever."}
+            : "We'll send you athletic nutrition tips, new techniques, and training plans. No spam, ever."}
         </p>
       </div>
     );
@@ -38,7 +38,7 @@ const EmailCapture = ({ location = 'homepage' }: { location?: string }) => {
         <div className="email-icon-wrap">
           <Mail size={24} className="text-primary" />
         </div>
-        <h3>{isProfile ? 'Back Up Your Stats' : 'Join the Boxing Lab'}</h3>
+        <h3>{isProfile ? 'Back Up Your Stats' : 'Join the Athletic Nutrition Lab'}</h3>
         <p>
           {isProfile 
             ? 'Save your XP, level, and workout history. Never lose your local training progress.'

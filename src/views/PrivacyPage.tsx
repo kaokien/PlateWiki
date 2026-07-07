@@ -50,9 +50,9 @@ const PrivacyPage = () => {
           We fully support your data subject rights under global frameworks (such as GDPR and California CCPA):
         </p>
         <ul>
-          <li><strong>Right to Erasure (Delete Data):</strong> Delete your account and all associated data via the Fighter Profile page settings (<strong>Danger Zone &gt; Delete Account</strong>), or by contacting us.</li>
-          <li><strong>Right to Data Portability (Export Data):</strong> Export a machine-readable copy of your data via the Fighter Profile page (<strong>Download My Data</strong>).</li>
-          <li><strong>Right to Access:</strong> All your data is visible in your Fighter Profile dashboard.</li>
+          <li><strong>Right to Erasure (Delete Data):</strong> Delete your account and all associated data via the athlete Profile page settings (<strong>Danger Zone &gt; Delete Account</strong>), or by contacting us.</li>
+          <li><strong>Right to Data Portability (Export Data):</strong> Export a machine-readable copy of your data via the athlete Profile page (<strong>Download My Data</strong>).</li>
+          <li><strong>Right to Access:</strong> All your data is visible in your athlete Profile dashboard.</li>
         </ul>
 
         <h2>5. Children's Privacy (Age Limits)</h2>

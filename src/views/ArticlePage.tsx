@@ -211,9 +211,9 @@ const ArticlePage = ({ article: propArticle }: ArticlePageProps) => {
           {article.callToAction && (
             <div className="article-course-cta">
               <h3>{article.callToAction.text}</h3>
-              <p>The Boxing Blueprint is a 4-part video course covering fundamentals, conditioning, footwork, and fight strategy.</p>
+              <p>The Athletic Fueling Blueprint is a 4-part video course covering fundamentals, conditioning, footwork, and fight strategy.</p>
               <Link href={article.callToAction.link} className="article-course-cta__button">
-                View The Boxing Blueprint
+                View The Athletic Fueling Blueprint
                 <ChevronRight size={16} />
               </Link>
             </div>

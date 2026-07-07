@@ -91,7 +91,7 @@ export const addRecentlyViewed = (techniqueId: string) => {
 
 export type HistoryItem = {
   id: string;
-  type: 'technique' | 'article' | 'exercise' | 'workout' | 'fighter';
+  type: 'technique' | 'article' | 'exercise' | 'workout' | 'athlete';
   title: string;
   href: string;
   timestamp: number;

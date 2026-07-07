@@ -16,7 +16,7 @@ function isCookedMeal(ex: any): boolean {
 
 const TYPE_OPTIONS = [
   { key: 'all', label: 'All Recipes', icon: null },
-  { key: 'boxing', label: 'Cooked & Prepared', icon: Flame },
+  { key: 'athletic nutrition', label: 'Cooked & Prepared', icon: Flame },
   { key: 'strength', label: 'Raw & Zero Prep', icon: Leaf },
 ] as const;
 
@@ -42,9 +42,9 @@ const ExercisesPage = () => {
       const matchesSearch = searchQuery === '' ||
         ex.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         ex.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        ex.boxingContext.toLowerCase().includes(searchQuery.toLowerCase());
+        ex.performanceContext.toLowerCase().includes(searchQuery.toLowerCase());
       const matchesType = activeType === 'all' ||
-        (activeType === 'boxing' && isCookedMeal(ex)) ||
+        (activeType === 'athletic nutrition' && isCookedMeal(ex)) ||
         (activeType === 'strength' && !isCookedMeal(ex));
       return matchesMuscle && matchesDifficulty && matchesSearch && matchesType;
     });
@@ -59,13 +59,13 @@ const ExercisesPage = () => {
 
   const hasActiveFilters = activeMuscle !== 'all' || activeDifficulty !== 'All' || searchQuery !== '' || activeType !== 'all';
 
-  const pageTitle = activeType === 'boxing'
+  const pageTitle = activeType === 'athletic nutrition'
     ? <>COOKED & <span className="text-primary">PREPARED</span></>
     : activeType === 'strength'
       ? <>RAW & <span className="text-primary">ZERO PREP</span></>
       : <>ATHLETE <span className="text-primary">RECIPE BOOK</span></>;
 
-  const pageSubtitle = activeType === 'boxing'
+  const pageSubtitle = activeType === 'athletic nutrition'
     ? 'Warm, cooked, and prepared recipes requiring kitchen appliances for high bio-availability.'
     : activeType === 'strength'
       ? 'Raw nutrition, smoothies, and supplement infusions requiring zero stove-work.'
@@ -177,14 +177,14 @@ const ExercisesPage = () => {
 
               <h3>{ex.name}</h3>
 
-              <span className={`exl-type-badge ${isCookedMeal(ex) ? 'boxing' : 'strength'}`}>
+              <span className={`exl-type-badge ${isCookedMeal(ex) ? 'athletic nutrition' : 'strength'}`}>
                 {isCookedMeal(ex) ? '🔥 Cooked Meal' : '🌿 Raw / Powder'}
               </span>
 
               <p className="exl-context">
-                {ex.boxingContext.length > 100
-                  ? ex.boxingContext.substring(0, 100) + '...'
-                  : ex.boxingContext}
+                {ex.performanceContext.length > 100
+                  ? ex.performanceContext.substring(0, 100) + '...'
+                  : ex.performanceContext}
               </p>
 
               <div className="exl-muscles">

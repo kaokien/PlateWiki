@@ -110,7 +110,7 @@ const HomePage = ({ totalTechniques, categoryCounts, techniqueIndex }: HomePageP
       <section className="hero-content" id="body-map">
         <div className="hero-copy">
           <h1 className="hero-title hero-entrance">Fuel Your Body, <span className="text-primary">Master Your Meals</span></h1>
-          <p className="hero-subtitle hero-entrance stagger-1">Your complete food science library — {totalTechniques} whole foods, 45 athlete recipes, and step-by-step nutrition guides built for runners, lifters, and fighters.</p>
+          <p className="hero-subtitle hero-entrance stagger-1">Your complete food science library — {totalTechniques} whole foods, 45 athlete recipes, and step-by-step nutrition guides built for runners, lifters, and athletes.</p>
           <div className="hero-cta-row hero-entrance stagger-2">
             <Show when="signed-out">
               <Link href="/onboarding" className="hero-cta-primary">
@@ -363,7 +363,7 @@ const HomePage = ({ totalTechniques, categoryCounts, techniqueIndex }: HomePageP
             <span className="learn-card-icon"><Target size={24} /></span>
             <h3>Goal-Aware Fueling</h3>
             <p>
-              Browse food options tailored to your physical focus: runners, weightlifters, or endurance fighters. Learn nutrient synergies and clean fueling guides.
+              Browse food options tailored to your physical focus: runners, weightlifters, or endurance athletes. Learn nutrient synergies and clean fueling guides.
             </p>
           </div>
           <div className="learn-card">

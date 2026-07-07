@@ -37,7 +37,11 @@ const originalFoodsData: Record<string, Technique> = {
       'Earthy Roasted Fuel Bowl: Cube 1 sweet potato, toss with 1 tbsp avocado oil, sea salt, rosemary, and roast at 400F for 25 minutes. Serve with spinach and organic soft-boiled eggs.'
     ],
     combinations: [{ name: 'Protein-Glycogen Recovery (Sweet Potato + Whey Isolate)', link: 'whey-isolate' }],
-    relatedTechniques: ['whey-isolate', 'oatmeal', 'salmon']
+    relatedTechniques: ['whey-isolate', 'oatmeal', 'salmon'],
+    citations: [
+      { title: 'Muscle Glycogen Synthesis After Exercise: Effect of Time of Carbohydrate Ingestion', source: 'Journal of Applied Physiology', link: 'https://pubmed.ncbi.nlm.nih.gov/3132449/' },
+      { title: 'International Society of Sports Nutrition Position Stand: Nutritional Considerations for Single-Stage Ultra-Marathon Training and Racing', source: 'JISSN', link: 'https://pubmed.ncbi.nlm.nih.gov/31102928/' }
+    ]
   },
   'whey-isolate': {
     id: 'whey-isolate',
@@ -70,7 +74,11 @@ const originalFoodsData: Record<string, Technique> = {
       'Earthy Recovery Shake: Blend 1 scoop grass-fed whey isolate, 1 ripe banana, 1 tbsp organic almond butter, 1 cup unsweetened oat milk, and a pinch of ground cinnamon.'
     ],
     combinations: [{ name: 'Anabolic Recovery Combo (Whey Isolate + Sweet Potato)', link: 'sweet-potato' }],
-    relatedTechniques: ['sweet-potato', 'eggs', 'salmon']
+    relatedTechniques: ['sweet-potato', 'eggs', 'salmon'],
+    citations: [
+      { title: 'International Society of Sports Nutrition Position Stand: Protein and Exercise', source: 'JISSN', link: 'https://pubmed.ncbi.nlm.nih.gov/28642684/' },
+      { title: 'Stimulus of Muscle Protein Synthesis by Leucine Ingestion', source: 'The Journal of Nutrition', link: 'https://pubmed.ncbi.nlm.nih.gov/11015482/' }
+    ]
   },
   'beetroot-juice': {
     id: 'beetroot-juice',
@@ -82,7 +90,7 @@ const originalFoodsData: Record<string, Technique> = {
     trainingFormat: ['raw', 'infusion', 'powder'],
     muscles: ['calves', 'quadriceps', 'hamstring', 'head'],
     description: 'A vibrant red vegetable extract that is exceptionally high in inorganic nitrates (NO3-). Inside the body, these nitrates are reduced to nitric oxide (NO), a powerful vasodilator that relaxes blood vessels, increases oxygen delivery to active skeletal muscles, and enhances mitochondrial efficiency during aerobic and anaerobic workloads.',
-    whenToUse: 'Drink 500ml of beetroot juice 2-3 hours before a race, sparring session, or high-repetition workout to allow peak nitric oxide concentration in the blood.',
+    whenToUse: 'Drink 500ml of beetroot juice 2-3 hours before a race, training session, or high-repetition workout to allow peak nitric oxide concentration in the blood.',
     coachingCues: ['Do not use antiseptic mouthwash after drinking, as oral bacteria are required to convert nitrates.', 'Consume consistently for 3-5 days leading up to competition for maximum performance benefit.', 'Be prepared for harmless red discoloration of urine (beeturia).'],
     steps: [
       'Inorganic nitrates are ingested and absorbed in the upper gastrointestinal tract.',
@@ -103,7 +111,11 @@ const originalFoodsData: Record<string, Technique> = {
       'Nitric Oxide Booster Shot: Juiced raw beetroot, half an apple, 1 inch of fresh ginger root, and a squeeze of lemon juice. Drink chilled.'
     ],
     combinations: [{ name: 'Endurance Fuel Combo (Beetroot Juice + Oatmeal)', link: 'oatmeal' }],
-    relatedTechniques: ['oatmeal', 'coconut-water', 'spinach']
+    relatedTechniques: ['oatmeal', 'coconut-water', 'spinach'],
+    citations: [
+      { title: 'Dietary Nitrate Supplementation and Exercise Performance', source: 'Sports Medicine', link: 'https://pubmed.ncbi.nlm.nih.gov/22242543/' },
+      { title: 'Beetroot Juice Supplementation Speed-up Oxygen Uptake Kinetics in Athletes', source: 'Journal of Applied Physiology', link: 'https://pubmed.ncbi.nlm.nih.gov/19661447/' }
+    ]
   },
   'eggs': {
     id: 'eggs',
@@ -133,7 +145,7 @@ const originalFoodsData: Record<string, Technique> = {
       'Consuming whole eggs leads to 40% greater muscle protein synthesis post-workout than consuming equivalent protein from whites alone.'
     ],
     conditioning: [
-      'Fighter\'s Scramble: Whisk 3 eggs, scramble in 1 tsp grass-fed butter, fold in a handful of fresh spinach, cherry tomatoes, and serve alongside a sliced avocado.'
+      'athlete\'s Scramble: Whisk 3 eggs, scramble in 1 tsp grass-fed butter, fold in a handful of fresh spinach, cherry tomatoes, and serve alongside a sliced avocado.'
     ],
     combinations: [{ name: 'Choline-Brain Stack (Eggs + Salmon)', link: 'salmon' }],
     relatedTechniques: ['salmon', 'spinach', 'whey-isolate']
@@ -294,7 +306,7 @@ const originalFoodsData: Record<string, Technique> = {
       'Consuming with high-protein dairy if looking for maximum antioxidant absorption, as some research suggests dairy proteins can bind to polyphenols.'
     ],
     proTips: [
-      'Blend wild blueberries into your recovery shake; the polyphenols directly mitigate the muscle damage caused by eccentric lifting or heavy sparring.',
+      'Blend wild blueberries into your recovery shake; the polyphenols directly mitigate the muscle damage caused by eccentric lifting or heavy workouts.',
       'Consuming blueberries pre-workout has been shown to support fat oxidation and maintain cellular integrity during endurance training.'
     ],
     conditioning: [
@@ -327,7 +339,7 @@ const originalFoodsData: Record<string, Technique> = {
       'Drinking warm coconut water, which can be unpalatable and reduce fluid intake.'
     ],
     proTips: [
-      'Add 1/4 tsp of Himalayan pink salt to 500ml of coconut water to create the perfect natural intra-workout electrolyte drink for fighters.',
+      'Add 1/4 tsp of Himalayan pink salt to 500ml of coconut water to create the perfect natural intra-workout electrolyte drink for athletes.',
       'Ideal for rapid rehydration after making weight or undergoing a grueling weight cut.'
     ],
     conditioning: [
@@ -526,7 +538,7 @@ const originalFoodsData: Record<string, Technique> = {
     ],
     proTips: [
       'Mix Lion\'s Mane extract directly into your morning coffee or green tea; the caffeine synergizes with the mushroom to produce clean, jitter-free focus.',
-      'An essential recovery tool for fighters to protect and repair brain tissue after hard sparring or head impact.'
+      'An essential recovery tool for athletes to protect and repair brain tissue after hard training or head impact.'
     ],
     conditioning: [
       'Mushroom Focus Coffee: Brew organic coffee, stir in 1/2 tsp dual-extracted Lion\'s Mane powder, 1 tsp MCT oil, and a dash of cinnamon. Blend until frothy.'
@@ -544,7 +556,7 @@ const originalFoodsData: Record<string, Technique> = {
     trainingFormat: ['powder', 'capsule'],
     muscles: ['heart', 'calves', 'quadriceps', 'hamstring'],
     description: 'A medicinal mushroom famed for boosting energy, aerobic capacity, and respiratory efficiency. Cordyceps increases ATP (cellular energy) production via mitochondrial pathways and enhances oxygen utilization (VO2 max) by expanding lung ventilation capacity.',
-    whenToUse: 'Take 45-60 minutes before aerobic training, sparring, or intense lifting to maximize oxygen delivery and delay threshold fatigue.',
+    whenToUse: 'Take 45-60 minutes before aerobic training, training, or intense lifting to maximize oxygen delivery and delay threshold fatigue.',
     coachingCues: ['Ensure the product is cordyceps extract with standardized cordycepin levels.', 'Best taken pre-workout to harness its immediate oxygenation benefits.', 'Cycle or take consistently for cumulative respiratory gains.'],
     steps: [
       'Cordycepin and active adenosine analogs bind to cellular receptors.',
@@ -826,7 +838,7 @@ const originalFoodsData: Record<string, Technique> = {
       'Cook a large batch of lentil soup at the start of the week—lentils improve in flavor and resistant starch content when cooled and reheated.'
     ],
     conditioning: [
-      'Fighter\'s Lentil Stew: Simmer 1 cup dried red lentils with diced sweet potato, cumin, turmeric, garlic, and a can of diced tomatoes for 25 minutes. Finish with fresh lemon juice and a drizzle of olive oil.'
+      'athlete\'s Lentil Stew: Simmer 1 cup dried red lentils with diced sweet potato, cumin, turmeric, garlic, and a can of diced tomatoes for 25 minutes. Finish with fresh lemon juice and a drizzle of olive oil.'
     ],
     combinations: [{ name: 'Complete Plant Protein (Lentils + Quinoa)', link: 'quinoa' }],
     relatedTechniques: ['quinoa', 'brown-rice', 'sweet-potato']

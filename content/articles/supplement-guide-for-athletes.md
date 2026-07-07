@@ -1,6 +1,6 @@
 ---
-title: "Boxing Supplements: Creatine, Beta-Alanine, and Caffeine"
-subtitle: "Ditch the marketing hype. Learn the science, dosing, and timing of the three supplements proven to enhance boxing performance."
+title: "Athletic Nutrition Supplements: Creatine, Beta-Alanine, and Caffeine"
+subtitle: "Ditch the marketing hype. Learn the science, dosing, and timing of the three supplements proven to enhance athletic nutrition performance."
 category: "Nutrition & Weight"
 tags: ["nutrition", "supplements", "creatine", "conditioning", "fitness"]
 date: "2026-06-30"
@@ -10,13 +10,13 @@ heroImage: "/images/articles/category-fallback.png"
 relatedArticles: []
 relatedTechniques: []
 ---
-# Boxing Supplements: Creatine, Beta-Alanine, and Caffeine
+# Athletic Nutrition Supplements: Creatine, Beta-Alanine, and Caffeine
 
 The sports supplement industry is built on marketing hype. Walk into any supplement shop, and you will see shelves lined with proprietary pre-workout formulas, test boosters, and fat burners. The packaging promises explosive power, instant fat loss, and infinite endurance. Most of these products are waste. They are under-dosed, overpriced, and often packed with cheap stimulants that make your heart race but do nothing to improve your performance in the ring.
 
-I once trained a lightweight amateur named Leo. He was spending two hundred dollars a month on various colorful powders and pills. He would drink a heavy pre-workout before sparring, start sweating before he even warmed up, and then crash completely in the third round. His hands would drop, his heart rate would skyrocket, and he would become a sitting target. We threw all his tubs in the trash and replaced them with a simple, science-backed supplement plan. His endurance improved, his recovery times dropped, and his wallet thanked him.
+I once trained a lightweight amateur named Leo. He was spending two hundred dollars a month on various colorful powders and pills. He would drink a heavy pre-workout before training, start sweating before he even warmed up, and then crash completely in the third round. His hands would drop, his heart rate would skyrocket, and he would become a sitting target. We threw all his tubs in the trash and replaced them with a simple, science-backed supplement plan. His endurance improved, his recovery times dropped, and his wallet thanked him.
 
-In boxing, you only need three supplements that are scientifically proven to enhance performance: Creatine, Beta-Alanine, and Caffeine. This guide breaks down the science, the dosing protocols, and the safety considerations for each.
+In athletic nutrition, you only need three supplements that are scientifically proven to enhance performance: Creatine, Beta-Alanine, and Caffeine. This guide breaks down the science, the dosing protocols, and the safety considerations for each.
 
 ## 1. Creatine Monohydrate: The Explosive Energy Source
 
@@ -32,14 +32,14 @@ To keep firing punches at full power, your body must rapidly convert ADP back in
 ATP (Energy Used) -> ADP + Phosphate -> Creatine Donates Phosphate -> ATP Restored
 ```
 
-### Performance Benefits for Boxers
+### Performance Benefits for Athletes
 
 - **Explosive Power:** Creatine helps you throw repeat power combinations without your punches slowing down.
 - **Cognitive Function:** Emerging research shows that creatine supplementation supports brain health. It helps maintain cognitive function when you are fatigued and may offer protective benefits against mild traumatic brain injury (concussions) by supporting cellular energy during impact.
 
 ### Myth Busting: Water Weight
 
-Fighters often avoid creatine because they fear weight gain from water retention. 
+Athletes often avoid creatine because they fear weight gain from water retention. 
 Creatine does pull water into your body, but it pulls it *inside* the muscle cells (intracellular hydration). It does not hold water under your skin (subcutaneous water), meaning it will not make you look soft or slow you down. It actually makes your muscles look fuller and helps them work more efficiently. If you have a weigh-in coming up, you can simply stop taking creatine seven to ten days before to shed the water weight, then resume post-weigh-in.
 
 ### Dosing Protocol
@@ -57,10 +57,10 @@ During high-intensity training, your body breaks down glucose for energy, produc
 
 Beta-alanine is an amino acid that combines with histidine in your body to produce carnosine. Carnosine acts as a buffer against hydrogen ions. It absorbs the acidity, keeping the pH level in your muscles stable and allowing you to maintain high-intensity output for longer periods.
 
-### Performance Benefits for Boxers
+### Performance Benefits for Athletes
 
 - **Late-Round Endurance:** Beta-alanine extends your time to exhaustion. It allows you to keep your hands up, maintain your footwork, and fire volume combinations in the final rounds of a tough spar or fight.
-- **High-Volume Sparring:** It helps you recover faster between rounds, ensuring you enter the next frame with fresh arms.
+- **High-Volume Training:** It helps you recover faster between rounds, ensuring you enter the next frame with fresh arms.
 
 ### Dosing Protocol
 
@@ -76,7 +76,7 @@ Caffeine is a powerful central nervous system stimulant. It is the active ingred
 
 As you stay awake and exercise, your brain accumulates a chemical called adenosine, which binds to adenosine receptors and makes you feel tired. Caffeine acts as an adenosine receptor antagonist. It blocks these receptors, preventing adenosine from binding. This increases the release of neurotransmitters like dopamine and norepinephrine, leading to increased alertness and focus.
 
-### Performance Benefits for Boxers
+### Performance Benefits for Athletes
 
 - **Reaction Time:** Caffeine sharpens your focus, helping you spot openings and react to incoming punches faster.
 - **Reduced Perceived Exertion:** It makes hard training feel easier, allowing you to push harder for longer.
@@ -85,7 +85,7 @@ As you stay awake and exercise, your brain accumulates a chemical called adenosi
 ### Dosing Protocol
 
 - **Timing:** Consume caffeine forty-five to sixty minutes before your training session.
-- **Dose:** 3 to 6 milligrams per kilogram of body weight. For a 70kg (154 lb) fighter, this is 210 to 420mg of caffeine. Start at the lower end to test your tolerance.
+- **Dose:** 3 to 6 milligrams per kilogram of body weight. For a 70kg (154 lb) athlete, this is 210 to 420mg of caffeine. Start at the lower end to test your tolerance.
 - **Source:** Use black coffee, green tea, or caffeine anhydrous pills. Avoid sugary energy drinks, which cause insulin spikes and subsequent energy crashes.
 - **Warning:** Do not use caffeine close to bedtime. Quality sleep is the ultimate recovery tool, and caffeine will disrupt your sleep cycles.
 

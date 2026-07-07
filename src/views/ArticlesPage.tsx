@@ -31,25 +31,25 @@ const CATEGORY_ICONS: Record<string, React.ComponentType<{ size?: number; classN
   conditioning: Dumbbell,
   nutrition: Apple,
   gear: ShoppingBag,
-  sparring: Swords,
+  training: Swords,
   mindset: Brain,
 };
 
 // Category → fallback thumbnail (matches existing images in /public/images/articles/)
 const CATEGORY_IMAGES: Record<string, string> = {
-  'Boxing Fundamentals': '/images/articles/boxing-fundamentals.png',
+  'Athletic Nutrition Fundamentals': '/images/articles/athletic nutrition-fundamentals.png',
   'Defense & Countering': '/images/articles/defense-countering.png',
   'Footwork & Movement': '/images/articles/footwork-movement.png',
   'Conditioning & Fitness': '/images/articles/conditioning-fitness.png',
   'Nutrition & Weight': '/images/articles/nutrition-weight.png',
   'Equipment & Gear': '/images/articles/equipment-gear.png',
-  'Sparring & Competition': '/images/articles/sparring-competition.png',
+  'Training & Competition': '/images/articles/training-competition.png',
   'Mindset & Strategy': '/images/articles/mindset-strategy.png',
 };
 
 /** Returns heroImage if set, otherwise the category fallback image. */
 function getArticleImage(article: Article): string {
-  return article.heroImage || CATEGORY_IMAGES[article.category] || '/images/articles/boxing-fundamentals.png';
+  return article.heroImage || CATEGORY_IMAGES[article.category] || '/images/articles/athletic nutrition-fundamentals.png';
 }
 
 interface ArticlesPageProps {
@@ -234,8 +234,8 @@ const ArticlesPage = ({
       <section className="articles-hero">
         <div className="articles-hero__content">
           <span className="articles-hero__label">Knowledge Base</span>
-          <h1>Boxing Articles & Guides</h1>
-          <p>In-depth guides covering everything from your first jab to fight-night preparation. Written for boxers, by boxers.</p>
+          <h1>Sports Nutrition Articles & Guides</h1>
+          <p>In-depth guides covering everything from your first jab to fight-night preparation. Written for athletes, by athletes.</p>
           <div className="articles-hero__stats">
             <div className="articles-hero__stat">
               <strong>{articles.length}</strong>
@@ -316,9 +316,9 @@ const ArticlesPage = ({
       {/* CTA */}
       <section className="articles-cta">
         <h2>Want structured training, not just articles?</h2>
-        <p>The Boxing Blueprint is a 4-part video course that takes you from zero to ring-ready.</p>
+        <p>The Athletic Fueling Blueprint is a 4-part video course that takes you from zero to ring-ready.</p>
         <Link href="/course" className="articles-cta__button">
-          View The Boxing Blueprint
+          View The Athletic Fueling Blueprint
           <ChevronRight size={18} />
         </Link>
       </section>

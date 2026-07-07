@@ -1,7 +1,7 @@
 export const programs = {
-  'weight-cut-fighter': {
-    id: 'weight-cut-fighter',
-    title: '7-Day Fighter Weight Cut',
+  'weight-cut-athlete': {
+    id: 'weight-cut-athlete',
+    title: '7-Day athlete Weight Cut',
     level: 'Advanced',
     duration: '7 Days',
     shortDesc: 'A safe, science-based electrolyte and macro cycling program to drop water weight and maintain power.',

@@ -14,7 +14,7 @@ import './TechniquesPage.css';
 
 const CATEGORIES = ['All', 'Macronutrients', 'Hydration & Salts', 'Micronutrients', 'Gut & Digestion', 'Superfoods & Adaptogens'];
 const DIFFICULTIES = ['All Levels', 'beginner', 'intermediate', 'advanced'];
-const STANCES = ['Any Goal', 'runner', 'lifter', 'fighter'];
+const STANCES = ['Any Goal', 'runner', 'lifter', 'athlete'];
 const FORMATS = ['Any Form', 'cooked', 'raw', 'powder', 'capsule', 'liquid'];
 
 const MUSCLE_GROUPS = [
@@ -366,7 +366,7 @@ const TechniquesPage = ({ initialCategory }: { initialCategory?: string }) => {
                   <span className="recipe-starter-time">{recipe.reps}</span>
                 </div>
                 <h3>{recipe.name}</h3>
-                <p>{recipe.boxingContext ? recipe.boxingContext.substring(0, 140) + '...' : ''}</p>
+                <p>{recipe.performanceContext ? recipe.performanceContext.substring(0, 140) + '...' : ''}</p>
                 <div className="recipe-starter-footer">
                   <span className="recipe-starter-macros">{recipe.rest}</span>
                   <span className="recipe-starter-arrow">View Recipe →</span>

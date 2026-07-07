@@ -21,7 +21,7 @@ export const WEEKLY_CHALLENGES: WeeklyChallenge[] = [
   {
     id: 'jab-week',
     name: 'Jab Week',
-    description: 'Master the most important punch in boxing. Study techniques and put in the work.',
+    description: 'Master the most important punch in athletic nutrition. Study techniques and put in the work.',
     emoji: '🥊',
     requirements: [
       { type: 'technique_studied', count: 3, label: 'Study 3 techniques' },
@@ -33,7 +33,7 @@ export const WEEKLY_CHALLENGES: WeeklyChallenge[] = [
   {
     id: 'iron-chin',
     name: 'Iron Chin',
-    description: 'Build your boxing IQ. Read up on the science and test your knowledge.',
+    description: 'Build your athletic nutrition IQ. Read up on the science and test your knowledge.',
     emoji: '🛡️',
     requirements: [
       { type: 'article_read', count: 5, label: 'Read 5 articles' },
@@ -90,8 +90,8 @@ export const WEEKLY_CHALLENGES: WeeklyChallenge[] = [
     durationDays: 7,
   },
   {
-    id: 'sparring-prep',
-    name: 'Sparring Prep',
+    id: 'training-prep',
+    name: 'Training Prep',
     description: 'Get ring-ready. Mix conditioning, technique work, and round practice.',
     emoji: '🔔',
     requirements: [
@@ -103,8 +103,8 @@ export const WEEKLY_CHALLENGES: WeeklyChallenge[] = [
     durationDays: 7,
   },
   {
-    id: 'scholar-boxer',
-    name: 'Scholar Boxer',
+    id: 'scholar-athlete',
+    name: 'Scholar athlete',
     description: 'Brains over brawn. Read the material and ace the quizzes.',
     emoji: '📚',
     requirements: [

@@ -61,7 +61,7 @@ const DailyWidget = () => {
             <span className="daily-muscle">{exercise.muscles?.[0]}</span>
             <span className={`daily-diff ${exercise.difficulty}`}>{exercise.difficulty}</span>
           </div>
-          <p>{exercise.boxingContext?.substring(0, 100)}…</p>
+          <p>{exercise.performanceContext?.substring(0, 100)}…</p>
         </div>
         <Link href={`/recipe/${exercise.id}`} className="daily-btn">
           View Recipe <ArrowRight size={16} />

@@ -82,7 +82,7 @@ describe('Articles Data Integrity', () => {
 
 describe('getArticleById', () => {
   it('should return the correct article by ID', () => {
-    const article = getArticleById('what-to-eat-before-boxing-training');
+    const article = getArticleById('what-to-eat-before-athletic-training');
     expect(article).toBeDefined();
     expect(article.title).toContain('Eat');
   });

@@ -370,14 +370,14 @@ export const migrateLocalStorageSchema = () => {
       }
     }
 
-    // Migration v2: Ensure fighter profile has all the default arrays & structures
+    // Migration v2: Ensure athlete profile has all the default arrays & structures
     if (oldVersion < 2) {
       const profileRaw = localStorage.getItem('PlateWiki_fighter_profile');
       if (profileRaw) {
         try {
           const profile = JSON.parse(profileRaw);
           const defaultProfile = {
-            displayName: 'Fighter',
+            displayName: 'athlete',
             xp: 0,
             workoutsCompleted: 0,
             articlesRead: [],
@@ -392,7 +392,7 @@ export const migrateLocalStorageSchema = () => {
           const migratedProfile = { ...defaultProfile, ...profile };
           localStorage.setItem('PlateWiki_fighter_profile', JSON.stringify(migratedProfile));
         } catch (e) {
-          console.warn('Failed to migrate fighter profile schema in v2:', e);
+          console.warn('Failed to migrate athlete profile schema in v2:', e);
         }
       }
     }

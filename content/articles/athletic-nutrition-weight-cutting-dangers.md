@@ -12,11 +12,11 @@ relatedTechniques: []
 ---
 # The Dangers of Dehydration: Weight Cutting Mistakes
 
-Weight cutting is the most dangerous routine in amateur and professional boxing. You walk into almost any boxing gym, and you will see fighters running on treadmills while wearing heavy plastics, sitting in steaming saunas for hours, or refusing to swallow their own saliva. They believe they are gaining a size advantage for fight night. They are wrong. They are destroying their organs, killing their athletic performance, and putting their lives at risk. 
+Weight cutting is the most dangerous routine in amateur and professional athletic nutrition. You walk into almost any athletic nutrition gym, and you will see athletes running on treadmills while wearing heavy plastics, sitting in steaming saunas for hours, or refusing to swallow their own saliva. They believe they are gaining a size advantage for fight night. They are wrong. They are destroying their organs, killing their athletic performance, and putting their lives at risk. 
 
-I once trained a lightweight named Danny. He was scheduled for a six-round bout and decided to cut twelve pounds of water weight in the final forty-eight hours. He spent the night before weigh-ins wrapped in plastic garbage bags inside a dry sauna. On the scales, he looked like a walking ghost. He made weight, but during the fight, his legs went heavy in the second round. His reactions were slow, his punch volume dropped to zero, and he suffered a severe concussion from a punch he easily slipped in sparring. His body had nothing left to protect itself. 
+I once trained a lightweight named Danny. He was scheduled for a six-round bout and decided to cut twelve pounds of water weight in the final forty-eight hours. He spent the night before weigh-ins wrapped in plastic garbage bags inside a dry sauna. On the scales, he looked like a walking ghost. He made weight, but during the fight, his legs went heavy in the second round. His reactions were slow, his punch volume dropped to zero, and he suffered a severe concussion from a punch he easily slipped in training. His body had nothing left to protect itself. 
 
-This guide breaks down the biological cost of dehydration, identifies the critical errors fighters make, and provides a structured protocol to manage weight without sacrificing your health.
+This guide breaks down the biological cost of dehydration, identifies the critical errors athletes make, and provides a structured protocol to manage weight without sacrificing your health.
 
 ## The Physiology of Dehydration
 
@@ -26,7 +26,7 @@ Your body is mostly water. When you dehydrate to make weight, you pull water fro
 
 When plasma volume drops, your blood becomes thick and viscous. Think of it as pump oil turning into sludge. Your heart must contract harder and faster to move this thick blood through your blood vessels. 
 
-Your stroke volume—the amount of blood pumped per heartbeat—decreases. To compensate, your heart rate rises. If you are dehydrated, your resting heart rate can be ten to fifteen beats higher than normal. During sparring or a fight, you will redline almost immediately. Your body cannot deliver oxygen to your working muscles fast enough, leading to rapid lactic acid accumulation and muscle failure.
+Your stroke volume—the amount of blood pumped per heartbeat—decreases. To compensate, your heart rate rises. If you are dehydrated, your resting heart rate can be ten to fifteen beats higher than normal. During training or a fight, you will redline almost immediately. Your body cannot deliver oxygen to your working muscles fast enough, leading to rapid lactic acid accumulation and muscle failure.
 
 ### Thermoregulation Failure
 
@@ -40,7 +40,7 @@ When you get hit in the head, your brain slams directly into the hard bone of yo
 
 ## Critical Weight Cutting Mistakes
 
-Boxers make the same errors cycle after cycle. Stop following old-school gym lore and look at the science.
+Athletes make the same errors cycle after cycle. Stop following old-school gym lore and look at the science.
 
 ### Using Sauna Suits and Plastics
 
@@ -48,7 +48,7 @@ Sauna suits trap heat and prevent sweat evaporation. Your body keeps sweating be
 
 ### Total Water Fasting
 
-Fighters often stop drinking water entirely forty-eight hours before weigh-ins. This triggers your body's survival mechanisms. Your body releases aldosterone, a hormone that causes you to retain sodium and water. When you stop drinking, your body holds onto every drop it can. A structured water taper is far more effective and less stressful.
+Athletes often stop drinking water entirely forty-eight hours before weigh-ins. This triggers your body's survival mechanisms. Your body releases aldosterone, a hormone that causes you to retain sodium and water. When you stop drinking, your body holds onto every drop it can. A structured water taper is far more effective and less stressful.
 
 ### Skipping Electrolytes
 
@@ -70,7 +70,7 @@ Total Weight = Lean Mass + Fat Mass + Glycogen & Bound Water + Free Water
 
 Your body stores carbohydrates in your muscles and liver as glycogen. Every gram of glycogen binds to roughly three grams of water. 
 
-If you reduce your carbohydrate intake three to four days before weigh-ins, you empty these glycogen stores. A typical boxer can safely lose three to five pounds of glycogen-bound water weight simply by switching to a low-carbohydrate, high-protein diet for a few days. This is not dehydration; it is energy management. Once you weigh in, you consume clean carbohydrates to refill these stores, pulling the water back into the muscle tissue where it belongs.
+If you reduce your carbohydrate intake three to four days before weigh-ins, you empty these glycogen stores. A typical athlete can safely lose three to five pounds of glycogen-bound water weight simply by switching to a low-carbohydrate, high-protein diet for a few days. This is not dehydration; it is energy management. Once you weigh in, you consume clean carbohydrates to refill these stores, pulling the water back into the muscle tissue where it belongs.
 
 ### The 5% Limit
 
@@ -111,7 +111,7 @@ To manage your weight without guessing, use these monitoring techniques during y
 
 You must know how much water you lose during a typical training session.
 
-1. Weigh yourself naked before a ninety-minute sparring or conditioning session. Write down the weight in pounds.
+1. Weigh yourself naked before a ninety-minute training or conditioning session. Write down the weight in pounds.
 2. Track every ounce of water you drink during the session.
 3. Weigh yourself naked after the session, after towel-drying all sweat.
 4. Calculate the difference. One pound of weight loss equals sixteen ounces of water. Subtract the water you drank to find your true sweat loss.
@@ -125,7 +125,7 @@ Weigh yourself every morning immediately after waking up and using the bathroom.
 ### The Urine Color Test
 
 Keep a color chart in the gym bathroom. 
-- Straw yellow to pale yellow: Hydrated. Ready for hard sparring.
+- Straw yellow to pale yellow: Hydrated. Ready for hard training.
 - Dark yellow to amber: Dehydrated. You must drink 500ml of water before stepping onto the canvas.
 - Brownish or tea-colored: Severe dehydration. Stop training immediately. Drink electrolytes and rest.
 
@@ -137,4 +137,4 @@ Keep a color chart in the gym bathroom.
 - Rehydrate with sodium, potassium, and glucose—not plain water.
 - Track your morning weight and sweat rate daily.
 
-Manage your weight with math and biology, not sweat and suffering. A healthy, fully hydrated fighter at their natural weight will always beat a depleted, dehydrated fighter who cut too much. Protect your brain, protect your kidneys, and keep your power.
+Manage your weight with math and biology, not sweat and suffering. A healthy, fully hydrated athlete at their natural weight will always beat a depleted, dehydrated athlete who cut too much. Protect your brain, protect your kidneys, and keep your power.

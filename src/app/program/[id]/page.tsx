@@ -13,12 +13,12 @@ export async function generateMetadata({ params }: ProgramPageProps): Promise<Me
   if (!program) {
     return {
       title: 'Training Program',
-      description: 'Follow a structured boxing training program — day-by-day workouts, technique drills, and conditioning sessions.',
+      description: 'Follow a structured athletic fueling program — day-by-day workouts, technique drills, and conditioning sessions.',
     };
   }
 
   return {
-    title: `${program.title} — Boxing Training Program`,
+    title: `${program.title} — Athletic Nutrition Training Program`,
     description: program.shortDesc,
     robots: { index: false, follow: true },
     alternates: {

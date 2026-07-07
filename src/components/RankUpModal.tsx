@@ -10,7 +10,7 @@ import './RankUpModal.css';
 
 /**
  * RankUpModal — full-screen celebration when the user ranks up.
- * Shows pixel fighter evolution: old sprite → new sprite.
+ * Shows pixel athlete evolution: old sprite → new sprite.
  * Auto-dismisses after 6s or on click.
  */
 export default function RankUpModal() {
@@ -33,7 +33,7 @@ export default function RankUpModal() {
     }));
     setParticles(newParticles);
 
-    // Delay the new fighter reveal for dramatic effect
+    // Delay the new athlete reveal for dramatic effect
     const evolveTimer = setTimeout(() => setShowNewFighter(true), 800);
     const dismissTimer = setTimeout(clearRankUpEvent, 6000);
     return () => {
@@ -42,7 +42,7 @@ export default function RankUpModal() {
     };
   }, [rankUpEvent, clearRankUpEvent]);
 
-  // Reset new fighter state when event clears
+  // Reset new athlete state when event clears
   useEffect(() => {
     if (!rankUpEvent) setShowNewFighter(false);
   }, [rankUpEvent]);
@@ -68,13 +68,13 @@ export default function RankUpModal() {
       </div>
 
       <div ref={modalRef} className="rankup-modal" onClick={e => e.stopPropagation()}>
-        {/* Fighter Evolution */}
+        {/* athlete Evolution */}
         <div className="rankup-evolution">
-          <div className={`rankup-fighter rankup-fighter--old ${showNewFighter ? 'rankup-fighter--fade-out' : ''}`}>
+          <div className={`rankup-athlete rankup-athlete--old ${showNewFighter ? 'rankup-athlete--fade-out' : ''}`}>
             <PixelFighter rankName={oldRank.name} size="lg" animation="none" customization={customization} />
           </div>
           <div className="rankup-evolve-flash" aria-hidden="true" />
-          <div className={`rankup-fighter rankup-fighter--new ${showNewFighter ? 'rankup-fighter--fade-in' : ''}`}>
+          <div className={`rankup-athlete rankup-athlete--new ${showNewFighter ? 'rankup-athlete--fade-in' : ''}`}>
             <PixelFighter rankName={newRank.name} size="lg" animation={showNewFighter ? 'idle' : 'none'} customization={customization} />
           </div>
         </div>

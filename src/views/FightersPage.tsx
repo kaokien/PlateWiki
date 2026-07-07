@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { Search, X, ChevronRight } from 'lucide-react';
-import { fighters } from '../data/athletes';
+import { athletes } from '../data/athletes';
 import './FightersPage.css';
 
 const STYLE_FILTERS = [
@@ -11,7 +11,7 @@ const STYLE_FILTERS = [
   { label: 'Swarmer', value: 'swarmer' },
   { label: 'Outboxer', value: 'outboxer' },
   { label: 'Counter-Puncher', value: 'counter-puncher' },
-  { label: 'Boxer-Puncher', value: 'boxer-puncher' },
+  { label: 'athlete-Puncher', value: 'athlete-puncher' },
   { label: 'Pressure', value: 'pressure' },
   { label: 'Movement', value: 'movement' },
   { label: 'Technical', value: 'technical' },
@@ -20,7 +20,7 @@ const STYLE_FILTERS = [
 const STANCE_FILTERS = ['All Goals', 'Endurance', 'Strength'];
 
 const StatBar = ({ label, value, color }: { label: string; value: number; color: string }) => (
-  <div className="fighter-stat-row">
+  <div className="athlete-stat-row">
     <span className="stat-label">{label}</span>
     <div className="stat-bar-track">
       <div className="stat-bar-fill" style={{ width: `${value}%`, background: color }} />
@@ -35,7 +35,7 @@ const FightersPage = () => {
   const [activeStance, setActiveStance] = useState('All Goals');
 
   const filtered = useMemo(() => {
-    return fighters.filter(f => {
+    return athletes.filter(f => {
       const matchesSearch = searchQuery === '' ||
         f.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         f.nickname.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -87,7 +87,7 @@ const FightersPage = () => {
           ))}
         </div>
 
-        <div className="fighters-filter-row">
+        <div className="athletes-filter-row">
           {STANCE_FILTERS.map(s => (
             <button
               key={s}
@@ -100,43 +100,43 @@ const FightersPage = () => {
         </div>
       </div>
 
-      <div className="fighters-results-bar">
+      <div className="athletes-results-bar">
         <span>{filtered.length} athlete{filtered.length !== 1 ? 's' : ''}</span>
       </div>
 
-      <div className="fighters-grid">
+      <div className="athletes-grid">
         {filtered.length > 0 ? (
-          filtered.map(fighter => (
-            <Link href={`/athletes/${fighter.id}`} key={fighter.id} className="glass-panel fighter-card">
-              <div className="fighter-card__header">
-                <div className="fighter-card__identity">
-                  <h2>{fighter.name}</h2>
-                  <span className="fighter-card__nickname">&ldquo;{fighter.nickname}&rdquo;</span>
+          filtered.map(athlete => (
+            <Link href={`/athletes/${athlete.id}`} key={athlete.id} className="glass-panel athlete-card">
+              <div className="athlete-card__header">
+                <div className="athlete-card__identity">
+                  <h2>{athlete.name}</h2>
+                  <span className="athlete-card__nickname">&ldquo;{athlete.nickname}&rdquo;</span>
                 </div>
-                <span className={`fighter-card__stance ${fighter.stance}`}>
-                  {fighter.stance === 'orthodox' ? '🏃 Endurance' : '💪 Strength'}
+                <span className={`athlete-card__stance ${athlete.stance}`}>
+                  {athlete.stance === 'orthodox' ? '🏃 Endurance' : '💪 Strength'}
                 </span>
               </div>
 
-              <div className="fighter-card__meta">
-                <span className="fighter-card__style">{fighter.style}</span>
-                <span className="fighter-card__record">{fighter.record}</span>
-                <span className="fighter-card__era">{fighter.era}</span>
+              <div className="athlete-card__meta">
+                <span className="athlete-card__style">{athlete.style}</span>
+                <span className="athlete-card__record">{athlete.record}</span>
+                <span className="athlete-card__era">{athlete.era}</span>
               </div>
 
-              <div className="fighter-card__stats">
-                <StatBar label="Power" value={fighter.stats.power} color="var(--color-primary)" />
-                <StatBar label="Speed" value={fighter.stats.speed} color="#00e5ff" />
-                <StatBar label="Defense" value={fighter.stats.defense} color="var(--color-success)" />
+              <div className="athlete-card__stats">
+                <StatBar label="Power" value={athlete.stats.power} color="var(--color-primary)" />
+                <StatBar label="Speed" value={athlete.stats.speed} color="#00e5ff" />
+                <StatBar label="Defense" value={athlete.stats.defense} color="var(--color-success)" />
               </div>
 
-              <div className="fighter-card__tags">
-                {fighter.styleTags.map(tag => (
+              <div className="athlete-card__tags">
+                {athlete.styleTags.map(tag => (
                   <span key={tag} className="style-tag">{tag}</span>
                 ))}
               </div>
 
-              <div className="fighter-card__cta">
+              <div className="athlete-card__cta">
                 Full Breakdown <ChevronRight size={16} />
               </div>
             </Link>
@@ -144,7 +144,7 @@ const FightersPage = () => {
         ) : (
           <div className="glass-panel no-results">
             <div className="no-results-emoji">🥊</div>
-            <h3>No fighters match</h3>
+            <h3>No athletes match</h3>
             <p>Try adjusting your filters.</p>
           </div>
         )}

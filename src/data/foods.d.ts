@@ -25,6 +25,7 @@ export interface Technique {
   relatedTechniques?: string[];
   image?: string;
   video?: string;
+  citations?: { title: string; source: string; link: string }[];
 }
 
 export const bodyParts: Record<string, BodyPart>;

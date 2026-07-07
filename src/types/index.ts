@@ -18,6 +18,7 @@ export interface Technique {
   combinations?: { name: string; link: string }[];
   relatedTechniques?: string[];
   image?: string;
+  citations?: { title: string; source: string; link: string }[];
 }
 
 export interface BodyPart {

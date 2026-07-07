@@ -54,7 +54,7 @@
   margin-bottom: 0.5rem;
 }
 
-.rankup-fighter {
+.rankup-athlete {
   position: absolute;
   inset: 0;
   display: flex;
@@ -63,22 +63,22 @@
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.rankup-fighter--old {
+.rankup-athlete--old {
   opacity: 1;
   transform: scale(1);
 }
 
-.rankup-fighter--old.rankup-fighter--fade-out {
+.rankup-athlete--old.rankup-athlete--fade-out {
   opacity: 0;
   transform: scale(0.6);
 }
 
-.rankup-fighter--new {
+.rankup-athlete--new {
   opacity: 0;
   transform: scale(1.4);
 }
 
-.rankup-fighter--new.rankup-fighter--fade-in {
+.rankup-athlete--new.rankup-athlete--fade-in {
   opacity: 1;
   transform: scale(1);
 }

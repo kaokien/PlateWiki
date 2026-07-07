@@ -1,8 +1,8 @@
 /* ================================================================
-   FighterPage.css — The pixel fighter's dedicated page
+   FighterPage.css — The pixel athlete's dedicated page
    ================================================================ */
 
-.fighter-page {
+.athlete-page {
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem 1rem 4rem;
@@ -10,7 +10,7 @@
 
 /* ── Section Title ───────────────────────────────────────────────── */
 
-.fighter-section-title {
+.athlete-section-title {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -23,14 +23,14 @@
   margin: 0 0 1.25rem;
 }
 
-.fighter-section-title svg {
+.athlete-section-title svg {
   color: var(--accent);
   flex-shrink: 0;
 }
 
 /* ── Hero Section ────────────────────────────────────────────────── */
 
-.fighter-hero {
+.athlete-hero {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -45,7 +45,7 @@
   border: 1px solid var(--glass-specular, rgba(255, 255, 255, 0.08));
 }
 
-.fighter-hero__spotlight {
+.athlete-hero__spotlight {
   position: absolute;
   top: -80px;
   left: 50%;
@@ -56,7 +56,7 @@
   pointer-events: none;
 }
 
-.fighter-hero__content {
+.athlete-hero__content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,14 +64,14 @@
   text-align: center;
 }
 
-.fighter-hero__info {
+.athlete-hero__info {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
 }
 
-.fighter-hero__stage-badge {
+.athlete-hero__stage-badge {
   position: relative;
   z-index: 2;
   display: inline-flex;
@@ -88,7 +88,7 @@
   color: var(--text-secondary);
 }
 
-.fighter-hero__title {
+.athlete-hero__title {
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 5vw, 2.25rem);
   font-weight: 900;
@@ -99,7 +99,7 @@
   line-height: 1.1;
 }
 
-.fighter-hero__desc {
+.athlete-hero__desc {
   font-size: 0.95rem;
   color: var(--text-secondary);
   margin: 0;
@@ -107,7 +107,7 @@
   line-height: 1.5;
 }
 
-.fighter-hero__flavor {
+.athlete-hero__flavor {
   font-size: 0.8rem;
   font-style: italic;
   color: var(--text-muted, rgba(255, 255, 255, 0.4));
@@ -116,25 +116,25 @@
 
 /* ── XP Bar ──────────────────────────────────────────────────────── */
 
-.fighter-hero__xp-section {
+.athlete-hero__xp-section {
   width: 100%;
   max-width: 500px;
 }
 
-.fighter-xp-bar {
+.athlete-xp-bar {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
 }
 
-.fighter-xp-bar__labels {
+.athlete-xp-bar__labels {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.75rem;
 }
 
-.fighter-xp-bar__current {
+.athlete-xp-bar__current {
   display: flex;
   align-items: center;
   gap: 0.25rem;
@@ -142,15 +142,15 @@
   color: var(--text-primary);
 }
 
-.fighter-xp-bar__current svg {
+.athlete-xp-bar__current svg {
   color: var(--accent);
 }
 
-.fighter-xp-bar__next {
+.athlete-xp-bar__next {
   color: var(--text-muted, rgba(255, 255, 255, 0.5));
 }
 
-.fighter-xp-bar__max {
+.athlete-xp-bar__max {
   font-weight: 800;
   color: #ffd700;
   /* text-transform removed */
@@ -158,14 +158,14 @@
   font-size: 0.7rem;
 }
 
-.fighter-xp-bar__track {
+.athlete-xp-bar__track {
   height: 8px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   overflow: hidden;
 }
 
-.fighter-xp-bar__fill {
+.athlete-xp-bar__fill {
   height: 100%;
   border-radius: 999px;
   transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -174,13 +174,13 @@
 
 /* ── Customizer Section ──────────────────────────────────────────── */
 
-.fighter-customizer-section {
+.athlete-customizer-section {
   margin-bottom: 2.5rem;
 }
 
 /* ── Evolution Timeline ──────────────────────────────────────────── */
 
-.fighter-evolution {
+.athlete-evolution {
   margin-bottom: 2.5rem;
 }
 
@@ -301,7 +301,7 @@
 
 /* ── Earn XP Grid ────────────────────────────────────────────────── */
 
-.fighter-earn {
+.athlete-earn {
   margin-bottom: 2.5rem;
 }
 
@@ -351,7 +351,7 @@
 
 /* ── Stats Grid ──────────────────────────────────────────────────── */
 
-.fighter-stats {
+.athlete-stats {
   margin-bottom: 2.5rem;
 }
 
@@ -410,13 +410,13 @@
 
 /* ── Train CTA ───────────────────────────────────────────────────── */
 
-.fighter-cta-section {
+.athlete-cta-section {
   display: flex;
   justify-content: center;
   padding: 1rem 0;
 }
 
-.fighter-train-cta {
+.athlete-train-cta {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -433,34 +433,34 @@
   transition: background 0.2s, transform 0.15s;
 }
 
-.fighter-train-cta:hover {
+.athlete-train-cta:hover {
   background: #ff3333;
   transform: translateY(-1px);
 }
 
-.fighter-train-cta:active {
+.athlete-train-cta:active {
   transform: translateY(0);
 }
 
 /* ── Responsive ──────────────────────────────────────────────────── */
 
 @media (max-width: 640px) {
-  .fighter-page {
+  .athlete-page {
     padding: 1.5rem 0.75rem 3rem;
   }
 
-  .fighter-hero {
+  .athlete-hero {
     padding: 1.5rem 1rem 1.25rem;
     gap: 1rem;
   }
 
-  /* Scale fighter down on mobile */
-  .fighter-hero .pixel-fighter--xl {
+  /* Scale athlete down on mobile */
+  .athlete-hero .pixel-athlete--xl {
     width: 160px;
     height: 160px;
   }
 
-  .fighter-hero .pixel-fighter--with-scene.pixel-fighter--xl {
+  .athlete-hero .pixel-athlete--with-scene.pixel-athlete--xl {
     height: 200px;
   }
 
@@ -494,7 +494,7 @@
 
   .earn-grid {
     grid-template-columns: 1fr;
-.fighter-shop-cta {
+.athlete-shop-cta {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
@@ -534,12 +534,12 @@
 
 /* ── Light Mode ──────────────────────────────────────────────────── */
 
-[data-theme='light'] .fighter-hero {
+[data-theme='light'] .athlete-hero {
   background: rgba(255, 255, 255, 0.7);
   border-color: rgba(0, 0, 0, 0.08);
 }
 
-[data-theme='light'] .fighter-hero__spotlight {
+[data-theme='light'] .athlete-hero__spotlight {
   background: radial-gradient(ellipse at center, rgba(45, 138, 78, 0.06) 0%, transparent 70%);
 }
 
@@ -555,7 +555,7 @@
 
 /* ── Name Editing Styles ─────────────────────────────────────────── */
 
-.fighter-hero__name-edit-container {
+.athlete-hero__name-edit-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -563,14 +563,14 @@
   min-height: 48px;
 }
 
-.fighter-hero__name-display-wrapper {
+.athlete-hero__name-display-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
 }
 
-.fighter-hero__edit-btn {
+.athlete-hero__edit-btn {
   background: none;
   border: none;
   color: var(--text-secondary);
@@ -583,19 +583,19 @@
   transition: all 0.2s ease;
 }
 
-.fighter-hero__edit-btn:hover {
+.athlete-hero__edit-btn:hover {
   color: var(--accent);
   background: rgba(255, 255, 255, 0.08);
 }
 
-.fighter-hero__name-input-wrapper {
+.athlete-hero__name-input-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
 }
 
-.fighter-hero__name-input {
+.athlete-hero__name-input {
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 4vw, 1.8rem);
   font-weight: 900;
@@ -611,7 +611,7 @@
   text-align: center;
 }
 
-.fighter-hero__name-btn {
+.athlete-hero__name-btn {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text-secondary);
@@ -625,30 +625,30 @@
   transition: all 0.2s ease;
 }
 
-.fighter-hero__name-btn:hover {
+.athlete-hero__name-btn:hover {
   background: var(--accent);
   color: white;
   border-color: var(--accent);
 }
 
-[data-theme='light'] .fighter-hero__name-input {
+[data-theme='light'] .athlete-hero__name-input {
   background: rgba(255, 255, 255, 0.9);
   border-color: var(--accent);
   color: var(--text-primary);
 }
 
-[data-theme='light'] .fighter-hero__name-btn {
+[data-theme='light'] .athlete-hero__name-btn {
   background: rgba(0, 0, 0, 0.04);
   border-color: rgba(0, 0, 0, 0.15);
   color: var(--text-secondary);
 }
 
-[data-theme='light'] .fighter-hero__name-btn:hover {
+[data-theme='light'] .athlete-hero__name-btn:hover {
   background: var(--accent);
   color: white;
 }
 
-.fighter-hero__gym-wrap {
+.athlete-hero__gym-wrap {
   width: 100%;
   max-width: 480px;
   margin: 0 auto;

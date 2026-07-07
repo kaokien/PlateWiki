@@ -64,7 +64,7 @@ export default function Home() {
         name: 'How do I align my diet with my sport?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Different sports require different fuel structures. Runners benefit from slow-digesting complex carbohydrates for glycogen storage. Lifters require clean, amino-dense proteins to support protein synthesis and muscle hypertrophy. Combat fighters often benefit from adaptogens to manage stress levels and optimize recovery.',
+          text: 'Different sports require different fuel structures. Runners benefit from slow-digesting complex carbohydrates for glycogen storage. Lifters require clean, amino-dense proteins to support protein synthesis and muscle hypertrophy. Combat athletes often benefit from adaptogens to manage stress levels and optimize recovery.',
         },
       },
       {

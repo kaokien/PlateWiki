@@ -7,7 +7,7 @@
   animation: fadeIn 0.3s ease;
 }
 
-/* ── Fighter Card ── */
+/* ── athlete Card ── */
 
 .fp-card {
   position: relative;
@@ -57,7 +57,7 @@
   color: var(--color-text-muted);
 }
 
-/* Identity — fighter sprite + rank ring + name */
+/* Identity — athlete sprite + rank ring + name */
 .fp-card__identity {
   display: flex;
   align-items: center;

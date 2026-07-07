@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { Scale, Shield, AlertTriangle, Award, Ruler } from 'lucide-react';
-import { weightClasses, sanctioningBodies, fouls, scoringRules, amateurRules, professionalRules, ringDimensions } from '../data/rulesData';
+import { weightClasses, sanctioningBodies, fouls, scoringRules, amateurRules, professionalRules, timingWindows } from '../data/rulesData';
 import './RulesPage.css';
 
 const TABS = [
@@ -65,11 +65,11 @@ interface RuleSet {
   title: string;
   governingBody?: string;
   governingBodies?: string;
-  rounds: string;
-  restPeriod: string;
-  gloveSize: string;
-  headgear: string;
-  scoring: string;
+  cycleDuration: string;
+  fastingPeriod: string;
+  guidelines: string;
+  intakeBalance: string;
+  aimsPurpose: string;
   keyDifferences: string[];
 }
 
@@ -83,23 +83,23 @@ const RulesTab = ({ rules }: { rules: RuleSet }) => (
       </div>
       <div className="glass-panel rules-detail">
         <span className="rules-detail__label">Cycle Duration</span>
-        <span className="rules-detail__value">{rules.rounds}</span>
+        <span className="rules-detail__value">{rules.cycleDuration}</span>
       </div>
       <div className="glass-panel rules-detail">
         <span className="rules-detail__label">Fasting Period</span>
-        <span className="rules-detail__value">{rules.restPeriod}</span>
+        <span className="rules-detail__value">{rules.fastingPeriod}</span>
       </div>
       <div className="glass-panel rules-detail">
         <span className="rules-detail__label">Guidelines</span>
-        <span className="rules-detail__value">{rules.gloveSize}</span>
+        <span className="rules-detail__value">{rules.guidelines}</span>
       </div>
       <div className="glass-panel rules-detail">
         <span className="rules-detail__label">Intake Balance</span>
-        <span className="rules-detail__value">{rules.headgear}</span>
+        <span className="rules-detail__value">{rules.intakeBalance}</span>
       </div>
       <div className="glass-panel rules-detail">
         <span className="rules-detail__label">Aims & Purpose</span>
-        <span className="rules-detail__value">{rules.scoring}</span>
+        <span className="rules-detail__value">{rules.aimsPurpose}</span>
       </div>
     </div>
 
@@ -143,27 +143,27 @@ const WeightsTab = () => (
     <div className="rules-details-grid">
       <div className="glass-panel rules-detail">
         <span className="rules-detail__label">Pre-Workout Window</span>
-        <span className="rules-detail__value">{ringDimensions.size}</span>
+        <span className="rules-detail__value">{timingWindows.preWorkout}</span>
       </div>
       <div className="glass-panel rules-detail">
         <span className="rules-detail__label">Intra-Workout Window</span>
-        <span className="rules-detail__value">{ringDimensions.standard}</span>
+        <span className="rules-detail__value">{timingWindows.intraWorkout}</span>
       </div>
       <div className="glass-panel rules-detail">
         <span className="rules-detail__label">Post-Workout Window</span>
-        <span className="rules-detail__value">{ringDimensions.ropes}</span>
+        <span className="rules-detail__value">{timingWindows.postWorkout}</span>
       </div>
       <div className="glass-panel rules-detail">
         <span className="rules-detail__label">Sleep Window</span>
-        <span className="rules-detail__value">{ringDimensions.canvas}</span>
+        <span className="rules-detail__value">{timingWindows.sleep}</span>
       </div>
       <div className="glass-panel rules-detail">
         <span className="rules-detail__label">Microbiome Shield</span>
-        <span className="rules-detail__value">{ringDimensions.corners}</span>
+        <span className="rules-detail__value">{timingWindows.microbiome}</span>
       </div>
       <div className="glass-panel rules-detail">
         <span className="rules-detail__label">Thermic Spacing</span>
-        <span className="rules-detail__value">{ringDimensions.apron}</span>
+        <span className="rules-detail__value">{timingWindows.thermic}</span>
       </div>
     </div>
   </div>

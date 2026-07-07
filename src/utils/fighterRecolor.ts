@@ -1,5 +1,5 @@
 /**
- * Fighter Recolor — applies customization colors to sprite zones at runtime.
+ * athlete Recolor — applies customization colors to sprite zones at runtime.
  *
  * The sprites in /public/athletes/ are transparent PNGs. For each evolution
  * stage there are four zone masks in /public/athletes/masks/ (skin, hair,

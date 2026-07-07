@@ -95,7 +95,7 @@ const DevToolbar = () => {
             </button>
           </div>
 
-          {/* Fighter Profile Section */}
+          {/* athlete Profile Section */}
           <div style={{ marginTop: '0.75rem', borderTop: '1px solid #333', paddingTop: '0.75rem' }}>
             <div style={{ marginBottom: '0.5rem', padding: '0.5rem', background: '#1a1a1a', borderRadius: '0.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.25rem' }}>

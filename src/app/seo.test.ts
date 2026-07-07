@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { glossary, toSlug } from '../data/glossary';
 import { techniques, TECHNIQUE_COUNT } from '../data/foods';
 import { articles } from '../data/articles';
-import { fighters } from '../data/athletes';
+import { athletes } from '../data/athletes';
 import {
   getTechniqueFAQs,
   getFAQSchema,
@@ -33,9 +33,9 @@ describe('Sitemap coverage', () => {
     });
   });
 
-  it('has entries for all fighters', () => {
-    expect(fighters.length).toBeGreaterThanOrEqual(4);
-    fighters.forEach(f => {
+  it('has entries for all athletes', () => {
+    expect(athletes.length).toBeGreaterThanOrEqual(4);
+    athletes.forEach(f => {
       expect(f.id).toBeTruthy();
     });
   });

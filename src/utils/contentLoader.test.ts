@@ -19,8 +19,8 @@ describe('Article Release Scheduler (Option A) Verification', () => {
   });
 
   it('should successfully load a past-dated article directly', async () => {
-    const article = await getArticle('nutrition-for-boxing-sparring');
+    const article = await getArticle('nutrition-for-athletic-training');
     expect(article).not.toBeNull();
-    expect(article?.id).toBe('nutrition-for-boxing-sparring');
+    expect(article?.id).toBe('nutrition-for-athletic-training');
   });
 });

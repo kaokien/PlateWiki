@@ -5,8 +5,8 @@ import { getBreadcrumbSchema, getItemListSchema } from '@/utils/seoSchemas';
 import { glossary, toSlug } from '@/data/glossary';
 
 export const metadata: Metadata = {
-  title: 'Boxing Glossary — 100+ Terms Defined',
-  description: 'Complete A-Z boxing glossary covering technique, rules, scoring, equipment, slang, and conditioning terminology. From jab to uppercut, every term explained.',
+  title: 'Nutrition Glossary — 100+ Terms Defined',
+  description: 'Complete A-Z nutrition glossary covering technique, rules, scoring, equipment, slang, and conditioning terminology. From jab to uppercut, every term explained.',
   alternates: {
     canonical: 'https://PlateWiki.org/glossary',
   },

@@ -25,7 +25,7 @@ export async function generateMetadata({
     return { title: 'Term Not Found | PlateWiki Glossary' };
   }
   return {
-    title: `${entry.term} — Boxing Glossary`,
+    title: `${entry.term} — Nutrition Glossary`,
     description: entry.definition,
     robots: { index: true, follow: true },
     alternates: {

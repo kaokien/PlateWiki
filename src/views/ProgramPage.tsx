@@ -23,7 +23,7 @@ interface PhaseGroup {
 
 function getPhaseGroups(programId: string, days: ProgramDay[]): PhaseGroup[] | null {
   // Only group programs with phases defined
-  if (programId === 'gym-boxing-12week') {
+  if (programId === 'gym-athletic nutrition-12week') {
     const phases = [
       { phase: 'Phase 1 — Foundation', start: 1, end: 20 },
       { phase: 'Phase 2 — Development', start: 21, end: 40 },

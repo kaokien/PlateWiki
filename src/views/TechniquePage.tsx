@@ -309,6 +309,33 @@ const TechniquePage = ({ routeId }: { routeId?: string }) => {
 
           {/* Knowledge Check Quiz */}
           <KnowledgeCheck techniqueId={id} techniqueName={technique.name} />
+
+          {/* Scientific Evidence & Citations */}
+          {technique.citations && technique.citations.length > 0 && (
+            <div className="instruction-card glass-panel citations-card" style={{ marginTop: '1.5rem' }}>
+              <div className="card-header">
+                <BookOpen className="icon-target" />
+                <h2>Scientific Evidence & Citations</h2>
+              </div>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginBottom: '1rem' }}>
+                PlateWiki is committed to evidence-based sports science. The nutritional claims for {technique.name} are backed by the following peer-reviewed studies:
+              </p>
+              <ul className="citations-list" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                {technique.citations.map((citation, idx) => (
+                  <li key={idx} style={{ marginBottom: '1rem', paddingBottom: '1rem', borderBottom: idx === (technique.citations?.length ?? 0) - 1 ? 'none' : '1px solid rgba(255, 255, 255, 0.05)' }}>
+                    <h4 style={{ margin: '0 0 0.25rem 0', fontSize: '0.95rem', fontWeight: 700 }}>
+                      <a href={citation.link} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', textDecoration: 'underline' }}>
+                        {citation.title}
+                      </a>
+                    </h4>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', fontWeight: 600 }}>
+                      Source: {citation.source}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
         <div className="tech-sidebar">

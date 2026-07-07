@@ -76,7 +76,7 @@ export async function GET() {
   return json({ profile: data });
 }
 
-// ── POST /api/profile — upsert fighter profile ──────────────────
+// ── POST /api/profile — upsert athlete profile ──────────────────
 
 export async function POST(req: NextRequest) {
   const userId = await getUser();
@@ -90,7 +90,7 @@ export async function POST(req: NextRequest) {
 
   const profileData = {
     clerk_user_id: userId,
-    display_name: typeof body.displayName === 'string' ? body.displayName.trim().slice(0, 30) || 'Fighter' : 'Fighter',
+    display_name: typeof body.displayName === 'string' ? body.displayName.trim().slice(0, 30) || 'athlete' : 'athlete',
     xp: typeof body.xp === 'number' && body.xp >= 0 ? Math.floor(body.xp) : 0,
     workouts_completed: typeof body.workoutsCompleted === 'number' ? Math.max(0, Math.floor(body.workoutsCompleted)) : 0,
     articles_read: stringList(body.articlesRead),

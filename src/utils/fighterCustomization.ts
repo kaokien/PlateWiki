@@ -1,5 +1,5 @@
 /**
- * Fighter Customization — localStorage persistence for appearance settings.
+ * athlete Customization — localStorage persistence for appearance settings.
  * Separate from fighterProfile to keep concerns clean.
  * Future: sync with cloud when theme store launches.
  */
@@ -8,7 +8,7 @@ import { createDefaultCustomization, type FighterCustomization } from '@/data/fi
 const STORAGE_KEY = 'PlateWiki_fighter_customization';
 
 /** Dispatched on window whenever customization is saved. */
-export const CUSTOMIZATION_CHANGED_EVENT = 'PlateWiki:fighter-customization-changed';
+export const CUSTOMIZATION_CHANGED_EVENT = 'PlateWiki:athlete-customization-changed';
 
 export function getCustomization(): FighterCustomization {
   try {
@@ -25,7 +25,7 @@ export function saveCustomization(custom: FighterCustomization): void {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(custom));
     window.dispatchEvent(new Event(CUSTOMIZATION_CHANGED_EVENT));
   } catch (e) {
-    console.warn('Failed to save fighter customization:', e);
+    console.warn('Failed to save athlete customization:', e);
   }
 }
 

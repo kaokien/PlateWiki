@@ -53,7 +53,7 @@ export default function LeaderboardPage() {
           GLOBAL <span className="text-primary">LEADERBOARD</span>
         </h1>
         <p className="leaderboard-sub">
-          Top fighters ranked by training XP — earned from workouts, technique study, quizzes, and streaks.
+          Top athletes ranked by training XP — earned from workouts, technique study, quizzes, and streaks.
         </p>
         {data?.you && (
           <div className="leaderboard-you-banner">
@@ -78,7 +78,7 @@ export default function LeaderboardPage() {
 
       {state === 'ready' && entries.length === 0 && (
         <div className="leaderboard-status">
-          No ranked fighters yet — <Link href="/dashboard">start training</Link> to claim the top spot.
+          No ranked athletes yet — <Link href="/dashboard">start training</Link> to claim the top spot.
         </div>
       )}
 

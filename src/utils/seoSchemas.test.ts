@@ -71,7 +71,7 @@ describe('getBreadcrumbSchema', () => {
 describe('getFAQSchema', () => {
   it('returns valid FAQPage with questions', () => {
     const faqs = [
-      { q: 'What is boxing?', a: 'A combat sport.' },
+      { q: 'What is athletic nutrition?', a: 'A combat sport.' },
       { q: 'How to jab?', a: 'Extend your lead hand.' },
     ];
     const schema = getFAQSchema(faqs);
@@ -84,8 +84,8 @@ describe('getFAQSchema', () => {
 describe('getArticleSchema', () => {
   it('returns valid Article JSON-LD', () => {
     const article = {
-      id: 'boxing-fundamentals',
-      title: 'Boxing Fundamentals',
+      id: 'athletic nutrition-fundamentals',
+      title: 'Athletic Nutrition Fundamentals',
       subtitle: 'Learn the basics.',
       date: '2025-01-01',
       category: 'fundamentals',
@@ -93,7 +93,7 @@ describe('getArticleSchema', () => {
     };
     const schema = getArticleSchema(article);
     expect(schema['@type']).toBe('Article');
-    expect(schema.headline).toBe('Boxing Fundamentals');
+    expect(schema.headline).toBe('Athletic Nutrition Fundamentals');
   });
 });
 
@@ -110,17 +110,17 @@ describe('getTechniqueTitle', () => {
 
   it('uses "Use" for structural defenses', () => {
     expect(getTechniqueTitle({ name: 'High Guard', category: 'Defense' }))
-      .toBe('How to Use the High Guard — Boxing Defense Guide');
+      .toBe('How to Use the High Guard — Athletic Nutrition Defense Guide');
   });
 
   it('avoids "Use the" for gerund defense names', () => {
     expect(getTechniqueTitle({ name: 'Rolling with Punches', category: 'Defense' }))
-      .toBe('Rolling with Punches — Boxing Defense Guide');
+      .toBe('Rolling with Punches — Athletic Nutrition Defense Guide');
   });
 
   it('uses a training guide title for conditioning', () => {
     expect(getTechniqueTitle({ name: 'Heavy Bag Rounds', category: 'Conditioning' }))
-      .toBe('Heavy Bag Rounds — Boxing Training Guide');
+      .toBe('Heavy Bag Rounds — Athletic Nutrition Training Guide');
   });
 
   it('falls back to a plain descriptor for skill categories', () => {

@@ -42,10 +42,10 @@ export function getPersonalizedWorkout(): RecommendedWorkout {
     }
     if (profile.trainingGoal === 'stamina') {
       return {
-        id: 'shadow-boxing',
-        title: workoutsByCategory['shadow-boxing']?.title || 'Shadowboxing Conditioning',
-        duration: workoutsByCategory['shadow-boxing']?.duration || '15 min',
-        focus: workoutsByCategory['shadow-boxing']?.focus || 'Aerobic base, rhythm, high volume rounds',
+        id: 'shadow-athletic nutrition',
+        title: workoutsByCategory['shadow-athletic nutrition']?.title || 'Shadowboxing Conditioning',
+        duration: workoutsByCategory['shadow-athletic nutrition']?.duration || '15 min',
+        focus: workoutsByCategory['shadow-athletic nutrition']?.focus || 'Aerobic base, rhythm, high volume rounds',
         reason: 'Build stamina: start with interval rounds of active shadowboxing.',
       };
     }
@@ -75,7 +75,7 @@ export function getPersonalizedWorkout(): RecommendedWorkout {
       title: workoutsByCategory['jab']?.title || 'Jab Power & Speed',
       duration: workoutsByCategory['jab']?.duration || '20 min',
       focus: workoutsByCategory['jab']?.focus || 'Shoulder snap, tricep extension, wrist stability',
-      reason: 'Start your journey with the most important punch in boxing.',
+      reason: 'Start your journey with the most important punch in athletic nutrition.',
     };
   }
 
@@ -109,7 +109,7 @@ export function getPersonalizedWorkout(): RecommendedWorkout {
     { id: 'lateral-movement', category: 'Footwork' },
     { id: 'step-drag', category: 'Footwork' },
     { id: 'pivot-escape', category: 'Footwork' },
-    { id: 'shadow-boxing', category: 'Conditioning' },
+    { id: 'shadow-athletic nutrition', category: 'Conditioning' },
     { id: 'core-conditioning', category: 'Conditioning' },
     { id: 'heavy-bag-conditioning', category: 'Conditioning' },
     { id: 'one-two', category: 'Combinations' },
@@ -162,7 +162,7 @@ export function getPersonalizedWorkout(): RecommendedWorkout {
 
   return {
     id: selection.id,
-    title: workoutInfo?.title || 'Boxing Workout',
+    title: workoutInfo?.title || 'Athletic Nutrition Workout',
     duration: workoutInfo?.duration || '20 min',
     focus: workoutInfo?.focus || 'Balance & Form',
     reason: isBiased && profile.trainingGoal

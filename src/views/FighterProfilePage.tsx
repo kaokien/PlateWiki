@@ -185,7 +185,7 @@ export default function FighterProfilePage() {
     }
   };
 
-  // ── Share Fighter Card ──────────────────────────────────────────
+  // ── Share athlete Card ──────────────────────────────────────────
   const generateCardImage = useCallback(async (): Promise<Blob | null> => {
     const canvas = canvasRef.current;
     if (!canvas) return null;
@@ -314,7 +314,7 @@ export default function FighterProfilePage() {
     // Try native share (mobile)
     if (navigator.share && navigator.canShare) {
       try {
-        const file = new File([blob], 'PlateWiki-fighter-card.png', { type: 'image/png' });
+        const file = new File([blob], 'PlateWiki-athlete-card.png', { type: 'image/png' });
         if (navigator.canShare({ files: [file] })) {
           await navigator.share({
             title: `${profile.displayName} — ${rank.name} on PlateWiki`,
@@ -333,13 +333,13 @@ export default function FighterProfilePage() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `${profile.displayName.toLowerCase().replace(/\s+/g, '-')}-fighter-card.png`;
+      a.download = `${profile.displayName.toLowerCase().replace(/\s+/g, '-')}-athlete-card.png`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
 
-      const text = `My PlateWiki Fighter Stats\n  Rank: ${rank.name}\n  XP: ${profile.xp.toLocaleString()}\n  Workouts: ${profile.workoutsCompleted}\n  Streak: ${streak} days\n  Style: ${fightingStyle}\n  PlateWiki.org`;
+      const text = `My PlateWiki Athlete Stats\n  Rank: ${rank.name}\n  XP: ${profile.xp.toLocaleString()}\n  Workouts: ${profile.workoutsCompleted}\n  Streak: ${streak} days\n  Style: ${fightingStyle}\n  PlateWiki.org`;
       await navigator.clipboard.writeText(text);
       setShareState('copied');
       setTimeout(() => setShareState('idle'), 2000);
@@ -362,7 +362,7 @@ export default function FighterProfilePage() {
       {/* Hidden canvas for card generation */}
       <canvas ref={canvasRef} style={{ display: 'none' }} />
 
-      {/* ── Fighter Card Hero ── */}
+      {/* ── athlete Card Hero ── */}
       <section className="fp-card glass-panel">
         <div className="fp-card__accent" style={{ background: `linear-gradient(90deg, ${rank.color}, ${rank.color}44)` }} />
 
@@ -371,7 +371,7 @@ export default function FighterProfilePage() {
           <span className="fp-card__joined">Since {joinedDate}</span>
         </div>
 
-        {/* Pixel Fighter + Rank Icon */}
+        {/* Pixel Athlete + Rank Icon */}
         <div className="fp-card__identity">
           <Link href="/athlete" className="fp-card__fighter-link">
             <PixelFighter rankName={rank.name} size="md" animation="idle" showScene={false} customization={customization} />
@@ -512,7 +512,7 @@ export default function FighterProfilePage() {
         {/* Share */}
         <button className="fp-card__share" onClick={handleShare}>
           {shareState === 'copied' ? <Check size={16} /> : <Share2 size={16} />}
-          {shareState === 'copied' ? 'Copied!' : 'Share Fighter Card'}
+          {shareState === 'copied' ? 'Copied!' : 'Share athlete Card'}
         </button>
       </section>
 
@@ -656,7 +656,7 @@ export default function FighterProfilePage() {
         <Link href="/timer" className="fp-action glass-panel">
           <Timer size={20} />
           <div>
-            <h3>Round Timer</h3>
+            <h3>Nutrition Timer</h3>
             <p>+{XP_VALUES.timer_session} XP per session</p>
           </div>
           <ChevronRight size={16} />

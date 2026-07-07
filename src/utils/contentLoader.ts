@@ -204,7 +204,7 @@ export async function getArticle(id: string): Promise<Article | null> {
       id,
       title: data.title || '',
       subtitle: data.subtitle || '',
-      category: data.category || 'Boxing Fundamentals',
+      category: data.category || 'Athletic Nutrition Fundamentals',
       tags: data.tags || [],
       date: articleDate,
       dateModified: data.dateModified,

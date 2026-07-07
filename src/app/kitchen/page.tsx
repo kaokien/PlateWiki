@@ -3,8 +3,8 @@ import { Suspense } from 'react';
 import TrainPage from '@/views/TrainPage';
 
 export const metadata: Metadata = {
-  title: 'Boxing Workout Generator — Custom Training Sessions',
-  description: 'Generate custom boxing workouts based on your skill level and goals. Warm-up, technique drills, bag rounds, and conditioning combined into complete training sessions.',
+  title: 'Meal & Fuel Generator — Custom Training Sessions',
+  description: 'Generate custom athletic nutrition workouts based on your skill level and goals. Warm-up, technique drills, bag rounds, and conditioning combined into complete training sessions.',
   robots: { index: false, follow: true },
 };
 

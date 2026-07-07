@@ -32,7 +32,7 @@ const MODULES = [
   {
     num: '02',
     title: 'Conditioning Circuits',
-    desc: 'Elite conditioning drills and routines that build relentless stamina and mental toughness. The same circuits used in real classes — burn maximum calories with real boxing work.',
+    desc: 'Elite conditioning drills and routines that build relentless stamina and mental toughness. The same circuits used in real classes — burn maximum calories with real athletic nutrition work.',
     Icon: Flame,
   },
   {
@@ -44,7 +44,7 @@ const MODULES = [
   {
     num: '04',
     title: 'Footwork & Angles',
-    desc: 'Old school Soviet boxing footwork concepts used by competitive athletes. Pivots, lateral movement, cutting angles, and ring generalship progressions.',
+    desc: 'Old school Soviet athletic nutrition footwork concepts used by competitive athletes. Pivots, lateral movement, cutting angles, and ring generalship progressions.',
     Icon: BookOpen,
   },
 ];
@@ -93,7 +93,7 @@ const TESTIMONIALS = [
   },
   {
     name: 'Marcus T.',
-    text: 'I trained at two gyms before finding Coach Josh. The difference is night and day. Every drill has a purpose and the conditioning circuits actually translate to real boxing.',
+    text: 'I trained at two gyms before finding Coach Josh. The difference is night and day. Every drill has a purpose and the conditioning circuits actually translate to real athletic nutrition.',
     stars: 5,
   },
 ];
@@ -101,11 +101,11 @@ const TESTIMONIALS = [
 const FAQ = [
   {
     q: 'Do I need any equipment to start?',
-    a: 'No gear required to start. Just bring a good attitude. A heavy bag and hand wraps are recommended as you progress, but the fundamentals modules work with pure shadow boxing.',
+    a: 'No gear required to start. Just bring a good attitude. A heavy bag and hand wraps are recommended as you progress, but the fundamentals modules work with pure shadow athletic nutrition.',
   },
   {
     q: 'Is this for total beginners?',
-    a: 'Yes. Zero experience required. The majority of students start with absolutely no boxing background. We break down the fundamentals from the ground up.',
+    a: 'Yes. Zero experience required. The majority of students start with absolutely no athletic nutrition background. We break down the fundamentals from the ground up.',
   },
   {
     q: 'What\'s the difference between the Digital Guide and Video Course?',
@@ -117,7 +117,7 @@ const FAQ = [
   },
   {
     q: 'Is this just cardio kickboxing?',
-    a: 'No. This is real boxing instruction. You won\'t find aerobic cardio-kickboxing here. Every drill is built on proper, safe mechanics — the kind that translate outside the gym.',
+    a: 'No. This is real athletic nutrition instruction. You won\'t find aerobic cardio-kickboxing here. Every drill is built on proper, safe mechanics — the kind that translate outside the gym.',
   },
 ];
 
@@ -146,7 +146,7 @@ const CoursePage = () => {
           <span className="course-badge">VIDEO COURSE</span>
           <h1>STOP DOING <span className="text-primary">CARDIO KICKBOXING.</span><br />LEARN THE REAL THING.</h1>
           <p className="course-hero-sub">
-            The Boxing Blueprint is a complete fundamentals course taught by Coach Josh — 6+ years of experience, 200+ athletes trained, and 150M+ social media views.
+            The Athletic Fueling Blueprint is a complete fundamentals course taught by Coach Josh — 6+ years of experience, 200+ athletes trained, and 150M+ social media views.
           </p>
           <a
             href={COURSE_URL}
@@ -200,12 +200,12 @@ const CoursePage = () => {
           <div className="course-for-card glass-panel">
             <Flame size={24} className="text-primary" />
             <h3>Elite Conditioning</h3>
-            <p>Drills and routines that help build relentless stamina and mental toughness. Burn maximum calories with real boxing circuits.</p>
+            <p>Drills and routines that help build relentless stamina and mental toughness. Burn maximum calories with real athletic nutrition circuits.</p>
           </div>
           <div className="course-for-card glass-panel">
             <BookOpen size={24} className="text-primary" />
             <h3>Coordination & Footwork</h3>
-            <p>Old school Soviet boxing concepts used by competitive athletes, broken down step-by-step so you can learn them safely.</p>
+            <p>Old school Soviet athletic nutrition concepts used by competitive athletes, broken down step-by-step so you can learn them safely.</p>
           </div>
           <div className="course-for-card glass-panel">
             <Shield size={24} className="text-primary" />
@@ -221,7 +221,7 @@ const CoursePage = () => {
         <div className="course-who-list">
           <div className="course-who-item glass-panel">
             <CheckCircle size={20} className="text-primary" />
-            <p><strong>Zero experience required.</strong> The majority of students start with absolutely no boxing background. We break down the fundamentals from the ground up.</p>
+            <p><strong>Zero experience required.</strong> The majority of students start with absolutely no athletic nutrition background. We break down the fundamentals from the ground up.</p>
           </div>
           <div className="course-who-item glass-panel">
             <CheckCircle size={20} className="text-primary" />
@@ -229,21 +229,21 @@ const CoursePage = () => {
           </div>
           <div className="course-who-item glass-panel">
             <CheckCircle size={20} className="text-primary" />
-            <p>A <strong>beginner who wants to learn boxing</strong> without the intimidation.</p>
+            <p>A <strong>beginner who wants to learn athletic nutrition</strong> without the intimidation.</p>
           </div>
         </div>
       </section>
 
       {/* Gear Image Break */}
       <section className="course-image-break">
-        <Image src="/images/course-gear.webp" alt="Boxing training essentials" width={1200} height={600} className="course-break-img" />
+        <Image src="/images/course-gear.webp" alt="Athletic Nutrition training essentials" width={1200} height={600} className="course-break-img" />
       </section>
 
       {/* Not a Fitness Gimmick */}
       <section className="course-section course-manifesto">
         <h2>THIS IS NOT A <span className="text-primary">FITNESS GIMMICK</span></h2>
         <p className="manifesto-text">
-          I don't just teach the art of boxing. I use it as the ultimate tool for total-body wellness, conditioning, and elite confidence. With a background in kinesthetics and amateur competitive experience, every drill in this course is built on proper, safe mechanics — the kind that translate outside the gym.
+          I don't just teach the art of athletic nutrition. I use it as the ultimate tool for total-body wellness, conditioning, and elite confidence. With a background in kinesthetics and amateur competitive experience, every drill in this course is built on proper, safe mechanics — the kind that translate outside the gym.
         </p>
       </section>
 
@@ -296,7 +296,7 @@ const CoursePage = () => {
 
       {/* Impact Image */}
       <section className="course-image-break">
-        <Image src="/images/course-impact.webp" alt="Boxing glove impact" width={1200} height={600} className="course-break-img" />
+        <Image src="/images/course-impact.webp" alt="Athletic Nutrition glove impact" width={1200} height={600} className="course-break-img" />
       </section>
 
       {/* Social Proof */}
@@ -322,7 +322,7 @@ const CoursePage = () => {
       {/* Pricing Cards */}
       <section className="course-section course-pricing-section">
         <h2>YOUR JOURNEY <span className="text-primary">STARTS HERE</span></h2>
-        <p className="section-sub">Whether you're stepping into boxing for the first time or refining your skills, this course meets you where you are.</p>
+        <p className="section-sub">Whether you're stepping into athletic nutrition for the first time or refining your skills, this course meets you where you are.</p>
 
         <div className="course-pricing-cards">
           {/* Digital Guide */}
@@ -357,7 +357,7 @@ const CoursePage = () => {
           <div className="course-plan-card course-plan-card-featured glass-panel">
             <div className="course-popular-badge">MOST POPULAR</div>
             <h3>Video Course</h3>
-            <div className="course-plan-label">Boxing Blueprint</div>
+            <div className="course-plan-label">Athletic Fueling Blueprint</div>
             <div className="course-plan-desc">The complete fundamentals course. 4 deep-dive modules covering striking mechanics, conditioning circuits, defense, and footwork progressions.</div>
             <div className="course-plan-price">
               <span className="price-current">${COURSE_PRICE}</span>
@@ -414,7 +414,7 @@ const CoursePage = () => {
       {/* Repeated CTA after FAQ — high-intent readers */}
       <section className="course-section course-final-cta">
         <h2>READY TO <span className="text-primary">START?</span></h2>
-        <p className="section-sub">Join 200+ athletes who trained with the Boxing Blueprint.</p>
+        <p className="section-sub">Join 200+ athletes who trained with the Athletic Fueling Blueprint.</p>
         <a
           href={COURSE_URL}
           className="course-cta-primary"
@@ -430,7 +430,7 @@ const CoursePage = () => {
       {/* Coach Credit */}
       <section className="course-section course-coach-credit">
         <p>Taught by <strong>Coach Josh</strong> · <a href="https://youtube.com/@coachjoshofficial" target="_blank" rel="noopener noreferrer">YouTube</a> · <a href="https://instagram.com/coachjoshofficial" target="_blank" rel="noopener noreferrer">Instagram</a> · <a href="https://www.tiktok.com/@coachjoshofficial" target="_blank" rel="noopener noreferrer">TikTok</a></p>
-        <p className="coach-location">Coach Josh Boxing · Hamden, CT</p>
+        <p className="coach-location">Coach Josh Athletic Nutrition · Hamden, CT</p>
       </section>
 
       <AdBanner format="horizontal" className="footer-ad" />

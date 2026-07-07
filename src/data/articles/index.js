@@ -11,7 +11,7 @@ export const categories = [
 
 // Re-map the local articles to be food/nutrition-focused
 const mappedNutritionWeight = nutritionWeight.map(art => {
-  if (art.id === 'what-to-eat-before-boxing-training') {
+  if (art.id === 'what-to-eat-before-athletic-training') {
     return {
       ...art,
       title: 'What to Eat Before Training: Fueling for Performance',
@@ -35,7 +35,7 @@ const mappedNutritionWeight = nutritionWeight.map(art => {
 });
 
 const recoveryArticle = newRecoveryFootwork
-  .filter(art => art.id === 'recovery-for-boxers')
+  .filter(art => art.id === 'recovery-for-athletes')
   .map(art => ({
     ...art,
     title: 'Athlete Recovery: Sleep, Hydration & Injury Prevention',

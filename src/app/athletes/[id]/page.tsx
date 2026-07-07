@@ -2,10 +2,10 @@ import type { Metadata } from 'next';
 import { JsonLd } from '@/components/JsonLd';
 import { getBreadcrumbSchema, getFighterSchema } from '@/utils/seoSchemas';
 import FighterPageClient from './FighterPageClient';
-import { fighters } from '@/data/athletes';
+import { athletes } from '@/data/athletes';
 
 export function generateStaticParams() {
-  return fighters.map((f) => ({ id: f.id }));
+  return athletes.map((f) => ({ id: f.id }));
 }
 
 export async function generateMetadata({
@@ -14,8 +14,8 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const fighter = fighters.find((f) => f.id === id);
-  if (!fighter) {
+  const athlete = athletes.find((f) => f.id === id);
+  if (!athlete) {
     return { title: 'Athlete Profile Not Found' };
   }
 
@@ -40,8 +40,8 @@ export async function generateMetadata({
   };
 
   const meta = ctrMeta[id] || {
-    title: `${fighter.name} Fueling Profile — ${fighter.style} Nutrition`,
-    description: `${fighter.name} (${fighter.nickname}) fueling analysis. ${fighter.style} breakdown with signature foods, biometric stats, and strengths.`,
+    title: `${athlete.name} Fueling Profile — ${athlete.style} Nutrition`,
+    description: `${athlete.name} (${athlete.nickname}) fueling analysis. ${athlete.style} breakdown with signature foods, biometric stats, and strengths.`,
   };
 
   return {
@@ -59,17 +59,17 @@ export default async function FighterRoute({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const fighter = fighters.find((f) => f.id === id);
+  const athlete = athletes.find((f) => f.id === id);
 
-  const breadcrumbSchema = fighter
+  const breadcrumbSchema = athlete
     ? getBreadcrumbSchema([
         { name: 'Home', url: '/' },
-        { name: 'Fighters', url: '/athletes' },
-        { name: fighter.name },
+        { name: 'Athletes', url: '/athletes' },
+        { name: athlete.name },
       ])
     : null;
 
-  const fighterSchema = fighter ? getFighterSchema(fighter) : null;
+  const fighterSchema = athlete ? getFighterSchema(athlete) : null;
 
   return (
     <>

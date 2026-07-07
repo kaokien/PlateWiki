@@ -96,7 +96,7 @@ export const TRAINING_COMBOS: Combo[] = [
       'Shake vigorously until salt dissolves and serve chilled.'
     ],
     tips: [
-      'Chef Tip: Drink during sparring, long runs, or lifting to maintain muscle cell volume.',
+      'Chef Tip: Drink during training, long runs, or lifting to maintain muscle cell volume.',
       'Common Mistake: Using store-bought sports drinks filled with synthetic colorings and high-fructose corn syrup.'
     ],
     sequence: [

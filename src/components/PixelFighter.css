@@ -14,7 +14,7 @@
    Base
    ========================================================================== */
 
-.pixel-fighter {
+.pixel-athlete {
   --rank-glow: #a0a0a0;
 
   position: relative;
@@ -27,24 +27,24 @@
   opacity: 0;
 }
 
-.pixel-fighter--loaded {
+.pixel-athlete--loaded {
   opacity: 1;
 }
 
-.pixel-fighter--clickable {
+.pixel-athlete--clickable {
   cursor: pointer;
 }
 
-.pixel-fighter--clickable:hover .pixel-fighter__sprite {
+.pixel-athlete--clickable:hover .pixel-fighter__sprite {
   filter: brightness(1.15);
 }
 
-.pixel-fighter--clickable:active .pixel-fighter__sprite {
+.pixel-athlete--clickable:active .pixel-fighter__sprite {
   filter: brightness(0.9);
   transform: scale(0.96);
 }
 
-.pixel-fighter--clickable:focus-visible {
+.pixel-athlete--clickable:focus-visible {
   outline: 2px solid var(--rank-glow);
   outline-offset: 4px;
   border-radius: 8px;
@@ -54,31 +54,31 @@
    Size Variants
    ========================================================================== */
 
-.pixel-fighter--sm {
+.pixel-athlete--sm {
   width: 48px;
   height: 48px;
 }
 
-.pixel-fighter--md {
+.pixel-athlete--md {
   width: 96px;
   height: 96px;
 }
 
-.pixel-fighter--lg {
+.pixel-athlete--lg {
   width: 160px;
   height: 160px;
 }
 
-.pixel-fighter--xl {
+.pixel-athlete--xl {
   width: 240px;
   height: 240px;
 }
 
 /* With scene, container is taller to hold background + label */
-.pixel-fighter--with-scene.pixel-fighter--sm  { height: 72px; }
-.pixel-fighter--with-scene.pixel-fighter--md  { height: 128px; }
-.pixel-fighter--with-scene.pixel-fighter--lg  { height: 200px; }
-.pixel-fighter--with-scene.pixel-fighter--xl  { height: 300px; }
+.pixel-athlete--with-scene.pixel-athlete--sm  { height: 72px; }
+.pixel-athlete--with-scene.pixel-athlete--md  { height: 128px; }
+.pixel-athlete--with-scene.pixel-athlete--lg  { height: 200px; }
+.pixel-athlete--with-scene.pixel-athlete--xl  { height: 300px; }
 
 /* ==========================================================================
    Sprite
@@ -105,7 +105,7 @@
    Idle Animation — Gentle floating bounce
    ========================================================================== */
 
-.pixel-fighter--idle .pixel-fighter__sprite-wrap {
+.pixel-athlete--idle .pixel-fighter__sprite-wrap {
   animation: pf-idle 3s ease-in-out infinite;
 }
 
@@ -122,7 +122,7 @@
    Training Animation — Punching jab motion
    ========================================================================== */
 
-.pixel-fighter--training .pixel-fighter__sprite-wrap {
+.pixel-athlete--training .pixel-fighter__sprite-wrap {
   animation: pf-train 0.4s ease-out;
 }
 
@@ -148,11 +148,11 @@
    Evolving Animation — Flash + scale + reveal
    ========================================================================== */
 
-.pixel-fighter--evolving .pixel-fighter__sprite-wrap {
+.pixel-athlete--evolving .pixel-fighter__sprite-wrap {
   animation: pf-evolve 1.2s ease-out forwards;
 }
 
-.pixel-fighter--evolving::after {
+.pixel-athlete--evolving::after {
   content: '';
   position: absolute;
   inset: -20%;
@@ -201,7 +201,7 @@
 }
 
 /* No animation */
-.pixel-fighter--none .pixel-fighter__sprite-wrap {
+.pixel-athlete--none .pixel-fighter__sprite-wrap {
   animation: none;
 }
 
@@ -234,41 +234,41 @@
 }
 
 /* Garage — dark concrete */
-.pixel-fighter--scene-garage .pixel-fighter__scene {
+.pixel-athlete--scene-garage .pixel-fighter__scene {
   background:
     radial-gradient(ellipse at 50% 80%, #3a3a3a 0%, transparent 60%),
     linear-gradient(180deg, #1a1a1a 0%, #2a2a2a 50%, #222 100%);
 }
 
-.pixel-fighter--scene-garage .pixel-fighter__scene-glow {
+.pixel-athlete--scene-garage .pixel-fighter__scene-glow {
   background: radial-gradient(circle at 50% 30%, rgba(160, 160, 160, 0.15), transparent 60%);
 }
 
 /* Gym — warm amber / dark wood */
-.pixel-fighter--scene-gym .pixel-fighter__scene {
+.pixel-athlete--scene-gym .pixel-fighter__scene {
   background:
     radial-gradient(ellipse at 50% 80%, #4a3520 0%, transparent 60%),
     linear-gradient(180deg, #1e1610 0%, #2d1f14 50%, #1a1208 100%);
 }
 
-.pixel-fighter--scene-gym .pixel-fighter__scene-glow {
+.pixel-athlete--scene-gym .pixel-fighter__scene-glow {
   background: radial-gradient(circle at 50% 30%, rgba(245, 180, 80, 0.2), transparent 60%);
 }
 
 /* Ring — blue spotlight */
-.pixel-fighter--scene-ring .pixel-fighter__scene {
+.pixel-athlete--scene-ring .pixel-fighter__scene {
   background:
     radial-gradient(ellipse at 50% 20%, #1e3a5f 0%, transparent 50%),
     radial-gradient(ellipse at 50% 90%, #0a1628 0%, transparent 50%),
     linear-gradient(180deg, #0a1628 0%, #0f2240 50%, #0a1628 100%);
 }
 
-.pixel-fighter--scene-ring .pixel-fighter__scene-glow {
+.pixel-athlete--scene-ring .pixel-fighter__scene-glow {
   background: radial-gradient(circle at 50% 25%, rgba(96, 165, 250, 0.25), transparent 55%);
 }
 
 /* Tournament — golden lights */
-.pixel-fighter--scene-tournament .pixel-fighter__scene {
+.pixel-athlete--scene-tournament .pixel-fighter__scene {
   background:
     radial-gradient(ellipse at 30% 20%, rgba(251, 191, 36, 0.15) 0%, transparent 40%),
     radial-gradient(ellipse at 70% 20%, rgba(251, 191, 36, 0.15) 0%, transparent 40%),
@@ -276,12 +276,12 @@
     linear-gradient(180deg, #1a1508 0%, #261c0a 50%, #1a1508 100%);
 }
 
-.pixel-fighter--scene-tournament .pixel-fighter__scene-glow {
+.pixel-athlete--scene-tournament .pixel-fighter__scene-glow {
   background: radial-gradient(circle at 50% 25%, rgba(251, 191, 36, 0.2), transparent 55%);
 }
 
 /* Arena — purple / magenta lights */
-.pixel-fighter--scene-arena .pixel-fighter__scene {
+.pixel-athlete--scene-arena .pixel-fighter__scene {
   background:
     radial-gradient(ellipse at 30% 30%, rgba(192, 132, 252, 0.12) 0%, transparent 40%),
     radial-gradient(ellipse at 70% 30%, rgba(236, 72, 153, 0.12) 0%, transparent 40%),
@@ -289,19 +289,19 @@
     linear-gradient(180deg, #120a20 0%, #1e1030 50%, #120a20 100%);
 }
 
-.pixel-fighter--scene-arena .pixel-fighter__scene-glow {
+.pixel-athlete--scene-arena .pixel-fighter__scene-glow {
   background: radial-gradient(circle at 50% 30%, rgba(192, 132, 252, 0.25), transparent 55%);
 }
 
 /* Hall of Fame — golden radiance */
-.pixel-fighter--scene-hall-of-fame .pixel-fighter__scene {
+.pixel-athlete--scene-hall-of-fame .pixel-fighter__scene {
   background:
     radial-gradient(ellipse at 50% 40%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
     radial-gradient(ellipse at 50% 80%, #2a2410 0%, transparent 50%),
     linear-gradient(180deg, #1a1608 0%, #2e2410 40%, #1a1608 100%);
 }
 
-.pixel-fighter--scene-hall-of-fame .pixel-fighter__scene-glow {
+.pixel-athlete--scene-hall-of-fame .pixel-fighter__scene-glow {
   background: radial-gradient(circle at 50% 35%, rgba(255, 215, 0, 0.3), transparent 50%);
 }
 
@@ -336,7 +336,7 @@
 }
 
 /* ==========================================================================
-   Label — Glass-panel below fighter
+   Label — Glass-panel below athlete
    ========================================================================== */
 
 .pixel-fighter__label {
@@ -376,22 +376,22 @@
    Mini Variant — Inline nav-bar sizing
    ========================================================================== */
 
-.pixel-fighter--mini {
+.pixel-athlete--mini {
   width: 32px !important;
   height: 32px !important;
 }
 
-.pixel-fighter--mini .pixel-fighter__sprite {
+.pixel-athlete--mini .pixel-fighter__sprite {
   width: 32px !important;
   height: 32px !important;
 }
 
-.pixel-fighter--mini.pixel-fighter--idle .pixel-fighter__sprite-wrap {
+.pixel-athlete--mini.pixel-athlete--idle .pixel-fighter__sprite-wrap {
   animation-duration: 4s;
 }
 
 /* Smaller bounce for mini */
-.pixel-fighter--mini .pixel-fighter__sprite-wrap {
+.pixel-athlete--mini .pixel-fighter__sprite-wrap {
   animation-name: pf-idle-mini;
 }
 
@@ -409,31 +409,31 @@
    ========================================================================== */
 
 @media (max-width: 480px) {
-  .pixel-fighter--xl {
+  .pixel-athlete--xl {
     width: 160px;
     height: 160px;
   }
 
-  .pixel-fighter--xl .pixel-fighter__sprite {
+  .pixel-athlete--xl .pixel-fighter__sprite {
     width: 160px !important;
     height: 160px !important;
   }
 
-  .pixel-fighter--with-scene.pixel-fighter--xl {
+  .pixel-athlete--with-scene.pixel-athlete--xl {
     height: 200px;
   }
 
-  .pixel-fighter--lg {
+  .pixel-athlete--lg {
     width: 120px;
     height: 120px;
   }
 
-  .pixel-fighter--lg .pixel-fighter__sprite {
+  .pixel-athlete--lg .pixel-fighter__sprite {
     width: 120px !important;
     height: 120px !important;
   }
 
-  .pixel-fighter--with-scene.pixel-fighter--lg {
+  .pixel-athlete--with-scene.pixel-athlete--lg {
     height: 160px;
   }
 }
@@ -443,16 +443,16 @@
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .pixel-fighter--idle .pixel-fighter__sprite-wrap,
-  .pixel-fighter--training .pixel-fighter__sprite-wrap,
-  .pixel-fighter--evolving .pixel-fighter__sprite-wrap,
-  .pixel-fighter--evolving::after,
+  .pixel-athlete--idle .pixel-fighter__sprite-wrap,
+  .pixel-athlete--training .pixel-fighter__sprite-wrap,
+  .pixel-athlete--evolving .pixel-fighter__sprite-wrap,
+  .pixel-athlete--evolving::after,
   .pixel-fighter__glow-ring,
   .pixel-fighter__scene-glow {
     animation: none;
   }
 
-  .pixel-fighter--evolving .pixel-fighter__sprite-wrap {
+  .pixel-athlete--evolving .pixel-fighter__sprite-wrap {
     transform: scale(1);
     opacity: 1;
     filter: brightness(1);

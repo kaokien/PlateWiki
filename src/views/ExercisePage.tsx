@@ -44,10 +44,41 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
   const [checkedIngredients, setCheckedIngredients] = useState<Record<string, boolean>>({});
   const [savedToList, setSavedToList] = useState(false);
   const [shareSupported, setShareSupported] = useState(false);
+  const [weight, setWeight] = useState<number>(150);
+  const [goal, setGoal] = useState<string>('endurance');
+  const [portionScale, setPortionScale] = useState<number>(1);
 
   useEffect(() => {
     setShareSupported(typeof navigator !== 'undefined' && !!navigator.share);
   }, []);
+
+  // Parse original macros: e.g. "Carbs: 55g | Protein: 12g | Fat: 6g"
+  const originalMacros = useMemo(() => {
+    if (!exercise || !exercise.rest) return { carbs: 0, protein: 0, fat: 0 };
+    const carbMatch = exercise.rest.match(/Carbs:\s*(\d+)g/i);
+    const proteinMatch = exercise.rest.match(/Protein:\s*(\d+)g/i);
+    const fatMatch = exercise.rest.match(/Fat:\s*(\d+)g/i);
+    return {
+      carbs: carbMatch ? parseInt(carbMatch[1], 10) : 0,
+      protein: proteinMatch ? parseInt(proteinMatch[1], 10) : 0,
+      fat: fatMatch ? parseInt(fatMatch[1], 10) : 0
+    };
+  }, [exercise]);
+
+  const scaledCarbs = Math.round(originalMacros.carbs * portionScale);
+  const scaledProtein = Math.round(originalMacros.protein * portionScale);
+  const scaledFat = Math.round(originalMacros.fat * portionScale);
+  const scaledCalories = Math.round(scaledCarbs * 4 + scaledProtein * 4 + scaledFat * 9);
+
+  const advisoryText = useMemo(() => {
+    if (goal === 'strength') {
+      return `For an athlete weighing ${weight} lbs, a portion size of ${portionScale}x yields ${scaledProtein}g of protein. This meets your post-workout leucine-threshold for optimal muscle protein synthesis (MPS) and skeletal repair.`;
+    } else if (goal === 'endurance') {
+      return `This carbohydrate-dominant portion of ${scaledCarbs}g is ideal for glycogen replenishment. Recommended consumption window: 2-3 hours pre-event or immediately post-training to maximize glycogen re-synthesis.`;
+    } else {
+      return `A balanced recovery profile yielding ${scaledProtein}g of protein and ${scaledCarbs}g of carbohydrates helps lower systemic stress and cortisol while maintaining stable blood sugar.`;
+    }
+  }, [goal, weight, portionScale, scaledCarbs, scaledProtein]);
 
   // Resolve linked techniques (ingredients/foods)
   const linkedTechniques = useMemo(() => {
@@ -291,7 +322,7 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
           <div className="ex-context-icon">🥑</div>
           <h2>Nutritional Role & Bio-benefit</h2>
         </div>
-        <p className="ex-context-body">{exercise.boxingContext}</p>
+        <p className="ex-context-body">{exercise.performanceContext}</p>
       </div>
 
       {/* Preparation Steps */}
@@ -332,6 +363,109 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
           </div>
           <div className="ex-param-label">Macronutrients</div>
           <div className="ex-param-value text-xs font-mono">{exercise.rest}</div>
+        </div>
+      </div>
+
+      {/* Athletic Portion & Macro Calculator */}
+      <div className="ex-section glass-panel calculator-section">
+        <div className="ex-section-header">
+          <Scale size={18} className="ex-icon-calc" />
+          <h2>Personalized Portions & Macros</h2>
+        </div>
+        <p className="calc-intro">
+          Scale this recipe's portion size to align with your bodyweight and athletic training requirements.
+        </p>
+        
+        <div className="calc-inputs-grid">
+          <div className="calc-input-group">
+            <label htmlFor="athlete-weight">Athlete Weight</label>
+            <div className="weight-input-container">
+              <input
+                id="athlete-weight"
+                type="number"
+                value={weight}
+                onChange={(e) => setWeight(Number(e.target.value))}
+                min="80"
+                max="400"
+              />
+              <span className="unit-label">lbs</span>
+            </div>
+          </div>
+          
+          <div className="calc-input-group">
+            <label htmlFor="training-goal">Athletic Focus</label>
+            <select
+              id="training-goal"
+              value={goal}
+              onChange={(e) => setGoal(e.target.value)}
+            >
+              <option value="endurance">Endurance (High Glycogen Load)</option>
+              <option value="strength">Strength / Hypertrophy (Muscle Repair)</option>
+              <option value="recovery">Active Recovery (Anti-Inflammatory)</option>
+            </select>
+          </div>
+
+          <div className="calc-input-group">
+            <label htmlFor="portion-scale">Portion Multiplier</label>
+            <div className="portion-scale-container">
+              <input
+                id="portion-scale"
+                type="range"
+                min="0.5"
+                max="3.0"
+                step="0.25"
+                value={portionScale}
+                onChange={(e) => setPortionScale(Number(e.target.value))}
+              />
+              <span className="scale-value">{portionScale}x</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="calc-results-panel">
+          <div className="calc-result-header">
+            <h3>Scaled Nutrition Results ({portionScale}x serving)</h3>
+            <span className="calc-calories">{scaledCalories} kcal</span>
+          </div>
+          
+          <div className="macro-progress-bars">
+            <div className="macro-progress-item">
+              <div className="macro-label">
+                <span>Carbs</span>
+                <span className="font-mono">{scaledCarbs}g</span>
+              </div>
+              <div className="progress-bar-bg">
+                <div className="progress-bar-fill carb-fill" style={{ width: `${Math.min(100, (scaledCarbs / 150) * 100)}%` }}></div>
+              </div>
+            </div>
+
+            <div className="macro-progress-item">
+              <div className="macro-label">
+                <span>Protein</span>
+                <span className="font-mono">{scaledProtein}g</span>
+              </div>
+              <div className="progress-bar-bg">
+                <div className="progress-bar-fill protein-fill" style={{ width: `${Math.min(100, (scaledProtein / 80) * 100)}%` }}></div>
+              </div>
+            </div>
+
+            <div className="macro-progress-item">
+              <div className="macro-label">
+                <span>Fat</span>
+                <span className="font-mono">{scaledFat}g</span>
+              </div>
+              <div className="progress-bar-bg">
+                <div className="progress-bar-fill fat-fill" style={{ width: `${Math.min(100, (scaledFat / 60) * 100)}%` }}></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="calc-advisory">
+            <div className="advisory-icon">💡</div>
+            <p className="advisory-text">
+              {advisoryText}
+            </p>
+          </div>
         </div>
       </div>
 

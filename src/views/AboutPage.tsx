@@ -59,7 +59,7 @@ const AboutPage = () => {
             <strong>AI Digestion & Fasting Timer:</strong> Track your feeding intervals and refeed schedules in real-time.
           </li>
           <li>
-            <strong>Goal-Aware Instructions:</strong> Adapt recommendations to your athlete type (runner, lifter, fighter) and biometric goals.
+            <strong>Goal-Aware Instructions:</strong> Adapt recommendations to your athlete type (runner, lifter, athlete) and biometric goals.
           </li>
           <li>
             <strong>No Paywalls on Fundamentals:</strong> The core food library will always be free. We

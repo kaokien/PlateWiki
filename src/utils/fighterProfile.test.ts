@@ -160,7 +160,7 @@ describe('setDisplayName', () => {
     expect(getProfile().displayName.length).toBeLessThanOrEqual(30);
   });
 
-  it('falls back to Fighter for empty string', () => {
+  it('falls back to athlete for empty string', () => {
     setDisplayName('   ');
     expect(getProfile().displayName).toBe('Harvest Sprout');
   });

@@ -21,7 +21,7 @@ export function parseStanceText(text: string | null | undefined, isSouthpaw: boo
   let parsed = text;
 
   // Replace explicit right/left mentions that are stance-dependent
-  // (Note: this is basic and assumes the context is the fighter's body, not general directions)
+  // (Note: this is basic and assumes the context is the athlete's body, not general directions)
   // We use word boundaries \b to avoid matching parts of other words.
   
   // Actually, since we used Lead/Rear in the data, the best approach for the toggle 

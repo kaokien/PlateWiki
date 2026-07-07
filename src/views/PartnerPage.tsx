@@ -60,7 +60,7 @@ const WHY_CARDS = [
   {
     icon: Zap,
     title: 'Hyper-Engaged Audience',
-    desc: 'A dedicated following of fighters, athletes, and fitness enthusiasts who take action and buy what works.',
+    desc: 'A dedicated following of athletes, athletes, and fitness enthusiasts who take action and buy what works.',
     color: '#ff9500',
   },
   {
@@ -161,7 +161,7 @@ const TIERS = [
 const FAQ_ITEMS = [
   {
     q: 'What kind of brands do you work with?',
-    a: 'We partner with boxing equipment companies, fitness apparel brands, supplement brands, sports tech, and any brand targeting active, health-conscious consumers. If your audience trains, we can help.',
+    a: 'We partner with athletic nutrition equipment companies, fitness apparel brands, supplement brands, sports tech, and any brand targeting active, health-conscious consumers. If your audience trains, we can help.',
   },
   {
     q: 'What are the deliverables for UGC?',
@@ -361,9 +361,9 @@ const PartnerPage = () => {
           <div className="case-label">
             <Sparkles size={14} /> CASE STUDY
           </div>
-          <h3>CES Boxing Campaign</h3>
+          <h3>CES Athletic Nutrition Campaign</h3>
           <p>
-            Partnered with CES Boxing to drive awareness and ticket hype for their recent fight night.
+            Partnered with CES Athletic Nutrition to drive awareness and ticket hype for their recent fight night.
             Through a strategic mix of immersive ringside reels, fight breakdowns, and behind-the-scenes
             interviews, we captured the raw energy of the event and delivered massive organic reach.
           </p>

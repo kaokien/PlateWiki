@@ -12,15 +12,15 @@ relatedTechniques: ["jab"]
 ---
 # Fight Camp Meal Prep: Nutrient-Dense Recipes for Endurance
 
-You cannot out-train a poor diet. During a six-to-eight-week fight camp, your body endures extreme physical stress from sparring, roadwork, and conditioning. If you fuel your body with processed foods or random meals, you will gas out in sparring and struggle to make weight.
+You cannot out-train a poor diet. During a six-to-eight-week fight camp, your body endures extreme physical stress from training, roadwork, and conditioning. If you fuel your body with processed foods or random meals, you will gas out in training and struggle to make weight.
 
 Structured meal preparation keeps your energy stable and ensures you hit your target weight safely. By cooking your meals in advance, you remove the daily decision-making that leads to poor nutritional choices when you are fatigued.
 
-This guide provides a comprehensive fight-camp meal prep protocol, detailing macronutrient requirements, batch-cooking strategies, and nutrient-dense recipes designed specifically for boxing endurance.
+This guide provides a comprehensive fight-camp meal prep protocol, detailing macronutrient requirements, batch-cooking strategies, and nutrient-dense recipes designed specifically for athletic nutrition endurance.
 
 ---
 
-## Macronutrient Rules for Boxers
+## Macronutrient Rules for Athletes
 
 Your body requires a specific balance of macronutrients to sustain high-volume training while gradually dropping fat.
 
@@ -82,7 +82,7 @@ This meal provides clean carbohydrates for glycogen replenishment and lean prote
 ---
 
 ### 2. The Recovery Bowl: Quinoa, Salmon, and Spinach Prep
-Salmon contains omega-3 fatty acids, which reduce joint inflammation caused by heavy bag work and sparring.
+Salmon contains omega-3 fatty acids, which reduce joint inflammation caused by heavy bag work and training.
 
 * **Ingredients (Makes 5 servings):**
   * 800 grams of salmon fillets (skin removed)
@@ -107,7 +107,7 @@ Salmon contains omega-3 fatty acids, which reduce joint inflammation caused by h
 ---
 
 ### 3. Pre-Workout Endurance Oats
-Eat this meal two hours before your sparring or conditioning sessions. It provides sustained energy and prevents cramping.
+Eat this meal two hours before your training or conditioning sessions. It provides sustained energy and prevents cramping.
 
 * **Ingredients (Makes 5 servings):**
   * 400 grams of rolled oats (not instant oats)

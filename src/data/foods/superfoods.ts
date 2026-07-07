@@ -35,7 +35,7 @@ export const superfoodsFoods: Record<string, Technique> = {
       "Buying cheap matcha mixes containing added sugar and milk solids."
     ],
     "proTips": [
-      "Whisk ceremonial matcha with hot water and drink 45 minutes before sparring; it provides the mental focus of caffeine without raising your heart rate too high.",
+      "Whisk ceremonial matcha with hot water and drink 45 minutes before training; it provides the mental focus of caffeine without raising your heart rate too high.",
       "Blend matcha with oat milk and a touch of raw honey for a delicious, antioxidant-dense pre-workout latte."
     ],
     "conditioning": [
@@ -346,7 +346,7 @@ export const superfoodsFoods: Record<string, Technique> = {
       "Taking fish oil on an empty stomach, which reduces its absorption rate."
     ],
     "proTips": [
-      "Take 2g of high-potency liquid fish oil daily during intense sparring or contact sports blocks; EPA/DHA helps protect brain cells and reduce neuroinflammation.",
+      "Take 2g of high-potency liquid fish oil daily during intense training or contact sports blocks; EPA/DHA helps protect brain cells and reduce neuroinflammation.",
       "Pair fish oil with Vitamin D3 in the morning; the healthy fats in fish oil maximize the absorption of the fat-soluble Vitamin D3."
     ],
     "conditioning": [

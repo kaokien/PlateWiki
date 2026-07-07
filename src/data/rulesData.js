@@ -47,11 +47,11 @@ export const scoringRules = {
 export const amateurRules = {
   title: 'Refeed Guidelines',
   governingBody: 'International Society of Sports Nutrition (ISSN)',
-  rounds: '24 to 48 hours in duration',
-  restPeriod: 'Conducted every 7-14 days depending on body fat levels',
-  gloveSize: 'Focus on high glycemic index complex carbohydrates',
-  headgear: 'Moderate protein intake; minimize dietary fats to avoid storage',
-  scoring: 'Goal is to upregulate leptin hormone levels and restore depleted glycogen reserves.',
+  cycleDuration: '24 to 48 hours in duration',
+  fastingPeriod: 'Conducted every 7-14 days depending on body fat levels',
+  guidelines: 'Focus on high glycemic index complex carbohydrates',
+  intakeBalance: 'Moderate protein intake; minimize dietary fats to avoid storage',
+  aimsPurpose: 'Goal is to upregulate leptin hormone levels and restore depleted glycogen reserves.',
   keyDifferences: [
     'Temporary caloric surplus (maintenance or 10-20% above)',
     'Increases metabolic rate and thyroid activity',
@@ -64,11 +64,11 @@ export const amateurRules = {
 export const professionalRules = {
   title: 'Intermittent Fasting',
   governingBodies: 'WHO / Sports Science Institutes',
-  rounds: '16 hours fasting / 8 hours feeding window standard',
-  restPeriod: 'Zero calorie liquids allowed during fasting (water, black coffee)',
-  gloveSize: 'Hydration should include trace sea salts for electrolyte balance',
-  headgear: 'Not recommended during heavy glycogen depletion cycles',
-  scoring: 'Aims to induce mild ketosis, enhance insulin sensitivity, and promote cellular autophagy.',
+  cycleDuration: '16 hours fasting / 8 hours feeding window standard',
+  fastingPeriod: 'Zero calorie liquids allowed during fasting (water, black coffee)',
+  guidelines: 'Hydration should include trace sea salts for electrolyte balance',
+  intakeBalance: 'Not recommended during heavy glycogen depletion cycles',
+  aimsPurpose: 'Aims to induce mild ketosis, enhance insulin sensitivity, and promote cellular autophagy.',
   keyDifferences: [
     'Improves insulin sensitivity and glucose clearance',
     'Promotes growth hormone secretion to protect muscle tissue',
@@ -78,11 +78,11 @@ export const professionalRules = {
   ],
 };
 
-export const ringDimensions = {
-  size: 'Pre-Workout Window: 2-3 hours before exercise (complex carbs + lean protein)',
-  standard: 'Intra-Workout: Electrolytes + simple sugars if duration exceeds 60 minutes',
-  ropes: 'Post-Workout: Within 45 minutes (fast-acting protein + insulin-spiking carbs)',
-  canvas: 'Sleep Window: 8 hours (avoid heavy meals within 2 hours of bedtime)',
-  corners: 'Microbiome Shield: Daily intake of fermented foods (kefir, sauerkraut)',
-  apron: 'Thermic Window: High protein meal spacing every 3-4 hours to trigger muscle growth',
+export const timingWindows = {
+  preWorkout: 'Pre-Workout Window: 2-3 hours before exercise (complex carbs + lean protein)',
+  intraWorkout: 'Intra-Workout: Electrolytes + simple sugars if duration exceeds 60 minutes',
+  postWorkout: 'Post-Workout: Within 45 minutes (fast-acting protein + insulin-spiking carbs)',
+  sleep: 'Sleep Window: 8 hours (avoid heavy meals within 2 hours of bedtime)',
+  microbiome: 'Microbiome Shield: Daily intake of fermented foods (kefir, sauerkraut)',
+  thermic: 'Thermic Window: High protein meal spacing every 3-4 hours to trigger muscle growth',
 };

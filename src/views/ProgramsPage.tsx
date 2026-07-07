@@ -17,7 +17,7 @@ const ProgramsPage = () => {
     <div className="programs-page">
 <div className="programs-header text-center">
         <h1>TRAINING <span className="text-primary">PROGRAMS</span></h1>
-        <p className="subtitle">Structured paths to reach your boxing goals.</p>
+        <p className="subtitle">Structured paths to reach your athletic nutrition goals.</p>
       </div>
 
       <div className="programs-grid">

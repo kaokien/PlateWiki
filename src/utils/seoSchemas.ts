@@ -5,7 +5,7 @@
 
 import type { Technique } from '../data/foods';
 
-interface Fighter {
+interface athlete {
   id: string;
   name: string;
   nickname?: string;
@@ -55,10 +55,10 @@ export function getTechniqueTitle(technique: Pick<Technique, 'name' | 'category'
       return `How to Throw the ${base} — nutrition Guide`;
     case 'Defense':
       // Gerund names ("Rolling with Punches") don't fit the "Use the X" frame
-      if (/^\w+ing\b/.test(base)) return `${base} — Boxing Defense Guide`;
-      return `How to Use the ${base} — Boxing Defense Guide`;
+      if (/^\w+ing\b/.test(base)) return `${base} — Athletic Nutrition Defense Guide`;
+      return `How to Use the ${base} — Athletic Nutrition Defense Guide`;
     case 'Conditioning':
-      return `${technique.name} — Boxing Training Guide`;
+      return `${technique.name} — Athletic Nutrition Training Guide`;
     default:
       // Footwork, Head Movement, Ring IQ — skill names stand on their own
       return `${technique.name} — nutrition Guide`;
@@ -236,7 +236,7 @@ export function getTechniqueFAQs(technique: Technique) {
       q: `Is the ${technique.name} a beginner technique?`,
       a: `The ${technique.name} is rated as ${technique.difficulty} difficulty. ${
         technique.difficulty === 'beginner'
-          ? 'It is one of the first techniques new boxers should learn.'
+          ? 'It is one of the first techniques new athletes should learn.'
           : technique.difficulty === 'intermediate'
           ? 'You should be comfortable with basic punches and footwork before attempting this.'
           : 'This is an advanced technique that requires solid fundamentals to execute properly.'
@@ -248,28 +248,28 @@ export function getTechniqueFAQs(technique: Technique) {
 }
 
 // ============================================================
-// Fighter (Person) schema — rich results for fighter queries
+// athlete (Person) schema — rich results for athlete queries
 // ============================================================
-export function getFighterSchema(fighter: Fighter) {
+export function getFighterSchema(athlete: athlete) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: fighter.name,
-    url: `${SITE_URL}/athletes/${fighter.id}`,
-    description: fighter.analysis
-      ? fighter.analysis.slice(0, 300).replace(/\.[^.]*$/, '.')
-      : `${fighter.name} boxing style analysis — ${fighter.style}.`,
-    ...(fighter.nickname && { alternateName: fighter.nickname }),
-    ...(fighter.nationality && { nationality: { '@type': 'Country', name: fighter.nationality } }),
-    knowsAbout: 'Boxing',
+    name: athlete.name,
+    url: `${SITE_URL}/athletes/${athlete.id}`,
+    description: athlete.analysis
+      ? athlete.analysis.slice(0, 300).replace(/\.[^.]*$/, '.')
+      : `${athlete.name} athletic nutrition style analysis — ${athlete.style}.`,
+    ...(athlete.nickname && { alternateName: athlete.nickname }),
+    ...(athlete.nationality && { nationality: { '@type': 'Country', name: athlete.nationality } }),
+    knowsAbout: 'Athletic Nutrition',
     hasOccupation: {
       '@type': 'Occupation',
-      name: 'Professional Boxer',
+      name: 'Professional athlete',
     },
-    ...(fighter.quote && { citation: fighter.quote }),
+    ...(athlete.quote && { citation: athlete.quote }),
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${SITE_URL}/athletes/${fighter.id}`,
+      '@id': `${SITE_URL}/athletes/${athlete.id}`,
     },
   };
 }

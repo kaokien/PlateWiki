@@ -121,7 +121,7 @@ export default function MerchPage() {
         </div>
         <h1>PlateWiki Merch</h1>
         <p className="merch-hero__subtitle">
-          Premium gear for fighters, coaches, and fans. Every piece designed to
+          Premium gear for athletes, coaches, and fans. Every piece designed to
           rep the sport, not just wear it.
         </p>
 

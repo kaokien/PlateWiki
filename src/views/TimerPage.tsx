@@ -16,7 +16,7 @@ const PRESETS = [
 ];
 
 /**
- * Generates a boxing bell sound using the Web Audio API.
+ * Generates a athletic nutrition bell sound using the Web Audio API.
  * Creates a metallic ring by layering multiple sine waves with rapid decay.
  */
 function playBell(audioCtxRef: React.MutableRefObject<AudioContext | null>, bellCount = 1) {
@@ -104,7 +104,7 @@ const TimerPage = () => {
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
       if (phase !== 'ready' && phase !== 'done') {
         e.preventDefault();
-        e.returnValue = 'You have an active round timer session in progress. Are you sure you want to leave?';
+        e.returnValue = 'You have an active nutrition timer session in progress. Are you sure you want to leave?';
         return e.returnValue;
       }
     };

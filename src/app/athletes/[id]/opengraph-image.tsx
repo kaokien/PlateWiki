@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
-import { fighters } from '@/data/athletes';
+import { athletes } from '@/data/athletes';
 
-export const alt = 'Fighter style breakdown on PlateWiki';
+export const alt = 'athlete style breakdown on PlateWiki';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -14,9 +14,9 @@ const STAT_LABELS: Record<string, string> = {
 
 export default async function Image({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const fighter = fighters.find((f) => f.id === id);
+  const athlete = athletes.find((f) => f.id === id);
 
-  if (!fighter) {
+  if (!athlete) {
     return new ImageResponse(
       (
         <div
@@ -39,7 +39,7 @@ export default async function Image({ params }: { params: Promise<{ id: string }
     );
   }
 
-  const stats = (fighter.stats || {}) as Record<string, number>;
+  const stats = (athlete.stats || {}) as Record<string, number>;
   const shownStats = Object.keys(STAT_LABELS).filter((k) => typeof stats[k] === 'number');
 
   return new ImageResponse(
@@ -74,16 +74,16 @@ export default async function Image({ params }: { params: Promise<{ id: string }
           <div style={{ fontSize: 30, fontWeight: 800, letterSpacing: 4, color: '#e02929', display: 'flex' }}>
             PlateWiki
           </div>
-          <div style={{ fontSize: 26, color: '#8a8a8a', display: 'flex' }}>Fighter Styles</div>
+          <div style={{ fontSize: 26, color: '#8a8a8a', display: 'flex' }}>athlete Styles</div>
         </div>
 
         {/* name + nickname */}
         <div style={{ display: 'flex', flexDirection: 'column', marginTop: 48 }}>
           <div style={{ fontSize: 84, fontWeight: 800, lineHeight: 1.05, textTransform: 'uppercase', display: 'flex' }}>
-            {fighter.name}
+            {athlete.name}
           </div>
           <div style={{ fontSize: 36, color: '#e02929', fontWeight: 700, marginTop: 8, display: 'flex' }}>
-            “{fighter.nickname}”
+            “{athlete.nickname}”
           </div>
         </div>
 
@@ -91,15 +91,15 @@ export default async function Image({ params }: { params: Promise<{ id: string }
         <div style={{ display: 'flex', gap: 40, marginTop: 40, fontSize: 30, color: '#cfcfcf' }}>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div style={{ fontSize: 22, color: '#8a8a8a', letterSpacing: 2, display: 'flex' }}>STYLE</div>
-            <div style={{ fontWeight: 700, display: 'flex' }}>{fighter.style}</div>
+            <div style={{ fontWeight: 700, display: 'flex' }}>{athlete.style}</div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div style={{ fontSize: 22, color: '#8a8a8a', letterSpacing: 2, display: 'flex' }}>RECORD</div>
-            <div style={{ fontWeight: 700, display: 'flex' }}>{fighter.record}</div>
+            <div style={{ fontWeight: 700, display: 'flex' }}>{athlete.record}</div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div style={{ fontSize: 22, color: '#8a8a8a', letterSpacing: 2, display: 'flex' }}>DIVISION</div>
-            <div style={{ fontWeight: 700, display: 'flex' }}>{fighter.weightClass}</div>
+            <div style={{ fontWeight: 700, display: 'flex' }}>{athlete.weightClass}</div>
           </div>
         </div>
 

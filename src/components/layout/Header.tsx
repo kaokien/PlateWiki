@@ -77,7 +77,7 @@ const NAV_GROUPS: NavGroup[] = [
 ];
 
 const NAV_SINGLES: NavItem[] = [
-  { href: '/athletes', label: 'Fighters', icon: Users },
+  { href: '/athletes', label: 'Athletes', icon: Users },
   { href: '/favorites', label: 'Saved', icon: Heart },
 ];
 
@@ -253,7 +253,7 @@ export default function Header() {
   /* ── Shared account/utility controls (desktop tail + mobile drawer foot) ── */
   const utilityControls = (
     <>
-      {/* Fighter Rank Chip + Streak Flame — only for signed-in users */}
+      {/* athlete Rank Chip + Streak Flame — only for signed-in users */}
       <Show when="signed-in">
         <Link
           href="/athlete"

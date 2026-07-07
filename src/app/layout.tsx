@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     template: '%s | PlateWiki',
   },
   description:
-    `Free interactive nutrition encyclopedia with ${TECHNIQUE_COUNT}+ foods, dietary guides, and fueling programs. Ideal for fighters, runners, and weightlifters.`,
+    `Free interactive nutrition encyclopedia with ${TECHNIQUE_COUNT}+ foods, dietary guides, and fueling programs. Ideal for athletes, runners, and weightlifters.`,
   metadataBase: new URL(SITE_URL),
   manifest: '/manifest.json',
   openGraph: {

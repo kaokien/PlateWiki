@@ -6,7 +6,7 @@ interface GearIconProps {
 }
 
 /**
- * Filled boxing glove — bold silhouette, instantly recognizable.
+ * Filled athletic nutrition glove — bold silhouette, instantly recognizable.
  */
 export function GloveFilledIcon({ size = 24, className }: GearIconProps) {
   return (
@@ -36,7 +36,7 @@ export function WrapsFilledIcon({ size = 24, className }: GearIconProps) {
 }
 
 /**
- * Filled headgear — boxing headguard silhouette.
+ * Filled headgear — athletic nutrition headguard silhouette.
  */
 export function HeadgearFilledIcon({ size = 24, className }: GearIconProps) {
   return (
@@ -76,7 +76,7 @@ export function MittsFilledIcon({ size = 24, className }: GearIconProps) {
 }
 
 /**
- * Filled boxing set — gift box / bundle silhouette.
+ * Filled athletic nutrition set — gift box / bundle silhouette.
  */
 export function SetFilledIcon({ size = 24, className }: GearIconProps) {
   return (
@@ -96,9 +96,9 @@ export function SetFilledIcon({ size = 24, className }: GearIconProps) {
 }
 
 /**
- * Filled sparring glove — tilted silhouette with laces on the cuff.
+ * Filled training glove — tilted silhouette with laces on the cuff.
  */
-export function SparringGloveFilledIcon({ size = 24, className }: GearIconProps) {
+export function TrainingGloveFilledIcon({ size = 24, className }: GearIconProps) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" className={className}>
       <path

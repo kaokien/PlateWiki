@@ -54,7 +54,7 @@ export default function FighterPage() {
       <div className="athlete-page">
         <AuthGate
           feature="Your Avatar"
-          description="Sign in to see your pixel fighter evolve as you train. Every food profile, recipe, and article earns XP that transforms your avatar."
+          description="Sign in to see your pixel athlete evolve as you train. Every food profile, recipe, and article earns XP that transforms your avatar."
         />
       </div>
     );
@@ -65,24 +65,24 @@ export default function FighterPage() {
   const { nextRank, xpNeeded, progress } = nextRankInfo;
 
   return (
-    <div className="fighter-page">
-      {/* ── Hero: The Fighter ──────────────────────────────────── */}
+    <div className="athlete-page">
+      {/* ── Hero: The athlete ──────────────────────────────────── */}
       <section className="athlete-hero">
-        <div className="fighter-hero__spotlight" aria-hidden="true" />
+        <div className="athlete-hero__spotlight" aria-hidden="true" />
 
-        <div className="fighter-hero__content">
-          <div className="fighter-hero__gym-wrap">
+        <div className="athlete-hero__content">
+          <div className="athlete-hero__gym-wrap">
             <VirtualGym />
           </div>
 
-          <div className="fighter-hero__info">
-            <div className="fighter-hero__stage-badge" style={{ borderColor: rank.color }}>
+          <div className="athlete-hero__info">
+            <div className="athlete-hero__stage-badge" style={{ borderColor: rank.color }}>
               <RankIcon rankName={rank.name} size={18} />
               <span>{currentStage.stageName}</span>
             </div>
-            <div className="fighter-hero__name-edit-container">
+            <div className="athlete-hero__name-edit-container">
               {isEditingName ? (
-                <div className="fighter-hero__name-input-wrapper">
+                <div className="athlete-hero__name-input-wrapper">
                   <input
                     type="text"
                     value={nameInput}
@@ -92,23 +92,23 @@ export default function FighterPage() {
                       if (e.key === 'Escape') setIsEditingName(false);
                     }}
                     maxLength={25}
-                    className="fighter-hero__name-input"
+                    className="athlete-hero__name-input"
                     autoFocus
                   />
-                  <button className="fighter-hero__name-btn fighter-hero__name-btn--save" onClick={handleSaveName} aria-label="Save name">
+                  <button className="athlete-hero__name-btn athlete-hero__name-btn--save" onClick={handleSaveName} aria-label="Save name">
                     <Check size={14} />
                   </button>
-                  <button className="fighter-hero__name-btn fighter-hero__name-btn--cancel" onClick={() => setIsEditingName(false)} aria-label="Cancel">
+                  <button className="athlete-hero__name-btn athlete-hero__name-btn--cancel" onClick={() => setIsEditingName(false)} aria-label="Cancel">
                     <X size={14} />
                   </button>
                 </div>
               ) : (
-                <div className="fighter-hero__name-display-wrapper">
-                  <h1 className="fighter-hero__title">
+                <div className="athlete-hero__name-display-wrapper">
+                  <h1 className="athlete-hero__title">
                     {customization?.fighterName || profile.displayName || currentStage.title}
                   </h1>
                   <button
-                    className="fighter-hero__edit-btn"
+                    className="athlete-hero__edit-btn"
                     onClick={() => {
                       setNameInput(customization?.fighterName || profile.displayName || currentStage.title);
                       setIsEditingName(true);
@@ -120,31 +120,31 @@ export default function FighterPage() {
                 </div>
               )}
             </div>
-            <p className="fighter-hero__desc">{currentStage.description}</p>
-            <p className="fighter-hero__flavor">{currentStage.flavorText}</p>
+            <p className="athlete-hero__desc">{currentStage.description}</p>
+            <p className="athlete-hero__flavor">{currentStage.flavorText}</p>
           </div>
         </div>
 
         {/* XP Progress bar */}
-        <div className="fighter-hero__xp-section">
+        <div className="athlete-hero__xp-section">
           <div className="athlete-xp-bar">
-            <div className="fighter-xp-bar__labels">
-              <span className="fighter-xp-bar__current">
+            <div className="athlete-xp-bar__labels">
+              <span className="athlete-xp-bar__current">
                 <Zap size={14} /> {profile.xp.toLocaleString()} XP
               </span>
               {nextRank && (
-                <span className="fighter-xp-bar__next">
+                <span className="athlete-xp-bar__next">
                   <span style={{ color: nextRank.color }}>{nextRank.name}</span>
                   {' '}&mdash; {xpNeeded.toLocaleString()} XP away
                 </span>
               )}
               {!nextRank && (
-                <span className="fighter-xp-bar__max">MAX RANK</span>
+                <span className="athlete-xp-bar__max">MAX RANK</span>
               )}
             </div>
-            <div className="fighter-xp-bar__track">
+            <div className="athlete-xp-bar__track">
               <div
-                className="fighter-xp-bar__fill"
+                className="athlete-xp-bar__fill"
                 style={{
                   width: `${Math.round(progress * 100)}%`,
                   backgroundColor: rank.color,
@@ -237,7 +237,7 @@ export default function FighterPage() {
 
       {/* ── Ways to Earn XP ────────────────────────────────────── */}
       <section className="athlete-earn">
-        <h2 className="fighter-section-title">
+        <h2 className="athlete-section-title">
           <Zap size={20} /> Ways to Earn XP
         </h2>
 
@@ -263,7 +263,7 @@ export default function FighterPage() {
 
       {/* ── Quick Stats ────────────────────────────────────────── */}
       <section className="athlete-stats">
-        <h2 className="fighter-section-title">
+        <h2 className="athlete-section-title">
           <Target size={20} /> Training Record
         </h2>
 

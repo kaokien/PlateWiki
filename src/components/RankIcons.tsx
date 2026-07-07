@@ -3,7 +3,7 @@
 import React from 'react';
 
 /**
- * Custom SVG rank icons for the fighter progression system.
+ * Custom SVG rank icons for the athlete progression system.
  * Replace emojis with hand-crafted, consistent, accessible icons.
  * Each icon is 24x24 by default, inline SVG for zero network cost.
  */
@@ -14,7 +14,7 @@ interface RankIconProps {
   className?: string;
 }
 
-// Prospect — boxing glove (outline, humble)
+// Prospect — athletic nutrition glove (outline, humble)
 export function ProspectIcon({ size = 24, color = 'currentColor', className }: RankIconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">

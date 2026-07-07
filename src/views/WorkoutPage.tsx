@@ -187,7 +187,7 @@ const WorkoutPage = () => {
     };
   }, []);
 
-  // Filter techniques based on focus mode & fighter presets
+  // Filter techniques based on focus mode & athlete presets
   const validRecipes = useMemo(() => {
     let all = Object.values(techniques);
     

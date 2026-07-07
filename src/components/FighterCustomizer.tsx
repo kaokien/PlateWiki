@@ -100,31 +100,31 @@ SHOE_COLORS[custom.shoeColor]?.hex,
 const unlocked = custom.unlockedGear || [];
 
 return (
-<div className={`fighter-customizer glass-panel ${isOpen ? 'fighter-customizer--open' : ''}`}>
+<div className={`athlete-customizer glass-panel ${isOpen ? 'athlete-customizer--open' : ''}`}>
   <button
-    className="fighter-customizer__toggle"
+    className="athlete-customizer__toggle"
     onClick={() => setIsOpen(o => !o)}
     aria-expanded={isOpen}
   >
-    <div className="fighter-customizer__toggle-left">
+    <div className="athlete-customizer__toggle-left">
       <Palette size={18} />
-      <span className="fighter-customizer__title">Customize Avatar</span>
+      <span className="athlete-customizer__title">Customize Avatar</span>
     </div>
 
-        <div className="fighter-customizer__toggle-right">
+        <div className="athlete-customizer__toggle-right">
           {!isOpen && (
-            <div className="fighter-customizer__preview" aria-hidden="true">
+            <div className="athlete-customizer__preview" aria-hidden="true">
               {previewColors.map((hex, i) => (
-                <span key={i} className="fighter-customizer__preview-dot" style={{ backgroundColor: hex }} />
+                <span key={i} className="athlete-customizer__preview-dot" style={{ backgroundColor: hex }} />
               ))}
             </div>
           )}
-          <ChevronDown size={18} className={`fighter-customizer__chevron ${isOpen ? 'fighter-customizer__chevron--open' : ''}`} />
+          <ChevronDown size={18} className={`athlete-customizer__chevron ${isOpen ? 'athlete-customizer__chevron--open' : ''}`} />
         </div>
       </button>
 
       {isOpen && (
-        <div className="fighter-customizer__body">
+        <div className="athlete-customizer__body">
           <div className="customizer-row">
             <div className="customizer-row__header">
               <Users size={16} className="customizer-row__icon" />

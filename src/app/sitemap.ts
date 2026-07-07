@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { techniques, bodyParts } from '@/data/foods';
-import { fighters } from '@/data/athletes';
+import { athletes } from '@/data/athletes';
 import { glossary, toSlug } from '@/data/glossary';
 import { programs } from '@/data/programs';
 import { exercises, muscleGroupWorkouts, goalWorkouts } from '@/data/recipes';
@@ -41,8 +41,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  // Dynamic fighter pages
-  const fighterPages: MetadataRoute.Sitemap = fighters.map((f) => ({
+  // Dynamic athlete pages
+  const fighterPages: MetadataRoute.Sitemap = athletes.map((f) => ({
     url: `${SITE_URL}/athletes/${f.id}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,

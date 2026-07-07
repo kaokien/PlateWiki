@@ -120,7 +120,7 @@
   border: 1px solid var(--color-border);
 }
 
-/* ── Boxing Context Callout ── */
+/* ── Athletic Nutrition Context Callout ── */
 .ex-context {
   padding: 1.5rem;
   margin-bottom: 1.25rem;
@@ -820,4 +820,197 @@
 .ex-download-fallback:hover {
   opacity: 1;
 }
+
+/* ── Portion & Macro Calculator ── */
+.calculator-section {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+
+.calc-intro {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.calc-inputs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.calc-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.calc-input-group label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.weight-input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.weight-input-container input {
+  width: 100%;
+  padding: 0.5rem 2.2rem 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.375rem;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.weight-input-container input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.weight-input-container .unit-label {
+  position: absolute;
+  right: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.5;
+}
+
+.calc-input-group select {
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.375rem;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.calc-input-group select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.portion-scale-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.portion-scale-container input[type="range"] {
+  flex: 1;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
+.portion-scale-container .scale-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  min-width: 40px;
+  text-align: right;
+  color: var(--color-primary);
+}
+
+.calc-results-panel {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+}
+
+.calc-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.75rem;
+}
+
+.calc-result-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.calc-calories {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--color-primary);
+}
+
+.macro-progress-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.macro-progress-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.macro-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.progress-bar-bg {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.carb-fill {
+  background: #3b82f6;
+}
+
+.protein-fill {
+  background: #10b981;
+}
+
+.fat-fill {
+  background: #f59e0b;
+}
+
+.calc-advisory {
+  display: flex;
+  gap: 0.75rem;
+  background: rgba(168, 85, 247, 0.08);
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  align-items: flex-start;
+}
+
+.advisory-icon {
+  font-size: 1.1rem;
+}
+
+.advisory-text {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #dfb2ff;
+  margin: 0;
+}
+
 

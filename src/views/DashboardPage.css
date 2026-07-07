@@ -1171,7 +1171,7 @@
   font-family: var(--font-handwriting, 'Caveat', cursive);
   font-size: 1.6rem;
   font-weight: 700;
-  color: rgba(254, 243, 199, 0.85);
+  color: #fef3c7;
   margin: 0;
   line-height: 1;
   flex: 1;
@@ -1216,7 +1216,7 @@
   font-family: var(--font-handwriting, 'Caveat', cursive);
   font-size: 1.05rem;
   font-weight: 600;
-  color: rgba(254, 243, 199, 0.55);
+  color: rgba(254, 243, 199, 0.8);
   padding: 0.15rem 0;
 }
 
@@ -1263,7 +1263,7 @@
   font-family: var(--font-handwriting, 'Caveat', cursive);
   font-size: 1.1rem;
   font-weight: 500;
-  color: rgba(254, 249, 195, 0.75);
+  color: #fef9c3;
   flex: 1;
   transition: all 0.3s ease;
   position: relative;
@@ -1271,9 +1271,9 @@
 
 /* Strikethrough animation */
 .dash-sticky__item--done .dash-sticky__item-name {
-  color: rgba(254, 249, 195, 0.3);
+  color: rgba(254, 249, 195, 0.35);
   text-decoration: line-through;
-  text-decoration-color: rgba(45, 138, 78, 0.5);
+  text-decoration-color: rgba(45, 138, 78, 0.6);
   text-decoration-thickness: 2px;
 }
 
@@ -1281,7 +1281,7 @@
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.5px;
-  color: rgba(254, 243, 199, 0.25);
+  color: rgba(254, 243, 199, 0.5);
   text-transform: uppercase;
   flex-shrink: 0;
 }
@@ -1294,7 +1294,7 @@
 .dash-sticky__empty {
   font-family: var(--font-handwriting, 'Caveat', cursive);
   font-size: 1.2rem;
-  color: rgba(254, 243, 199, 0.5);
+  color: rgba(254, 243, 199, 0.75);
   text-align: center;
   padding: 1rem 0 0.5rem;
   margin: 0;

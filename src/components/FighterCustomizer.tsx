@@ -80,6 +80,11 @@ const handleToggleSleep = () => {
   const next = !manualSleep;
   setManualSleep(next);
   localStorage.setItem('PlateWiki_manual_sleep', String(next));
+  if (next) {
+    localStorage.removeItem('PlateWiki_woken_up');
+  } else {
+    localStorage.setItem('PlateWiki_woken_up', 'true');
+  }
   window.dispatchEvent(new Event('storage'));
   window.dispatchEvent(new Event('platewiki:sleep-toggled'));
 };

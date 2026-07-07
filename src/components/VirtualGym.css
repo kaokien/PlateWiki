@@ -37,6 +37,7 @@
 
 .virtual-gym--dark .gym-viewport {
   filter: brightness(0.25) contrast(1.1) saturate(0.8);
+  cursor: pointer;
 }
 
 /* Sound effects mute toggle */

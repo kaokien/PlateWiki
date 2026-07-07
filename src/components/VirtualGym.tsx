@@ -13,7 +13,7 @@ import {
 } from '@/lib/tamagotchiState';
 import { useFighterProfile } from '@/context/FighterProfileContext';
 import { useFighterCustomization } from '@/hooks/useFighterCustomization';
-import { playChewSound } from '@/utils/retroSound';
+import { playChewSound, playTapSound, playWakeupSound } from '@/utils/retroSound';
 import SoundToggle from './SoundToggle';
 import { Zap, Flame, Heart, Info } from 'lucide-react';
 import './VirtualGym.css';
@@ -48,6 +48,64 @@ export default function VirtualGym() {
   // Floating notifications
   const [floatingText, setFloatingText] = useState<{ id: number; text: string; x: number; y: number }[]>([]);
   const floatIdCounter = useRef(0);
+
+  // Tap-to-wake state and timeout ref
+  const [sleepTapCount, setSleepTapCount] = useState(0);
+  const tapResetTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Clean up tap timeout ref on unmount
+  useEffect(() => {
+    return () => {
+      if (tapResetTimeoutRef.current) {
+        clearTimeout(tapResetTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handleViewportClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (gymState !== 'sleeping') return;
+
+    // Ignore clicks on buttons/toggles inside the viewport
+    if ((e.target as HTMLElement).closest('.sound-toggle-btn') || (e.target as HTMLElement).closest('button')) {
+      return;
+    }
+
+    // Get relative coordinates for floating text placement
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clickX = ((e.clientX - rect.left) / rect.width) * 100;
+    const clickY = ((e.clientY - rect.top) / rect.height) * 100;
+
+    // Reset inactivity timer
+    if (tapResetTimeoutRef.current) {
+      clearTimeout(tapResetTimeoutRef.current);
+    }
+
+    setSleepTapCount((prev) => {
+      const next = prev + 1;
+      const tapsRemaining = 5 - next;
+
+      if (next >= 5) {
+        localStorage.setItem('PlateWiki_woken_up', 'true');
+        localStorage.removeItem('PlateWiki_manual_sleep');
+        window.dispatchEvent(new Event('storage'));
+        window.dispatchEvent(new Event('platewiki:sleep-toggled'));
+        
+        playWakeupSound();
+        addFloatText('WAKING UP! ☀️', 45, 50);
+        return 0; // reset tap count
+      } else {
+        playTapSound();
+        addFloatText(`*Poke* (${tapsRemaining} left) 💤`, clickX, clickY - 5);
+        
+        // Start 3s reset timer
+        tapResetTimeoutRef.current = setTimeout(() => {
+          setSleepTapCount(0);
+        }, 3000);
+        
+        return next;
+      }
+    });
+  };
 
   const score = (nourishment + fitness) / 2;
   const isFamished = nourishment < 35 || fitness < 35;
@@ -216,7 +274,7 @@ export default function VirtualGym() {
   return (
     <div className={`virtual-gym-container ${gymState === 'sleeping' ? 'virtual-gym--dark' : ''}`}>
       {/* Viewport Gym Screen */}
-      <div className="gym-viewport">
+      <div className="gym-viewport" onClick={handleViewportClick}>
         {/* Pixel-art forest garden (Concept inspired by ForestApp.cc) —
             plots grow with real logging, wither with neglect */}
         <ForestGarden plots={garden} withered={score < GARDEN_WITHER_SCORE} />

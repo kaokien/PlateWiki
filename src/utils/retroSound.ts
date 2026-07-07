@@ -165,3 +165,34 @@ export function playPurchaseSound(): void {
     scheduleTone(ctx, { type: 'square', freq: 1318.51, at: 0.08, duration: 0.35, volume: 0.8 }); // E6
   });
 }
+
+/** A short click sound for tapping the sleeping athlete's environment. */
+export function playTapSound(): void {
+  withRunningContext((ctx) => {
+    scheduleTone(ctx, {
+      type: 'triangle',
+      freq: 440,
+      freqEnd: 220,
+      at: 0,
+      duration: 0.05,
+      volume: 0.6,
+    });
+  });
+}
+
+/** A rising wake-up sound for when the athlete is woken up. */
+export function playWakeupSound(): void {
+  withRunningContext((ctx) => {
+    const notes = [330.00, 440.00, 550.00, 660.00]; // E4, A4, C#5, E5
+    notes.forEach((freq, i) => {
+      scheduleTone(ctx, {
+        type: 'square',
+        freq,
+        at: i * 0.08,
+        duration: 0.1,
+        volume: 0.7,
+      });
+    });
+  });
+}
+

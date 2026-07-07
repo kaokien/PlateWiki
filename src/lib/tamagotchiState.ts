@@ -49,7 +49,10 @@ let installed = false;
 
 // Nighttime window (10 PM – 6 AM): the avatar sleeps and energy recovers.
 export function isNighttime(): boolean {
-  if (typeof window !== 'undefined' && localStorage.getItem('PlateWiki_manual_sleep') === 'true') {
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('PlateWiki_woken_up') === 'true') {
+    return false;
+  }
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('PlateWiki_manual_sleep') === 'true') {
     return true;
   }
   const hour = new Date().getHours();

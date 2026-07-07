@@ -10,14 +10,14 @@
  */
 import { test, expect } from '@playwright/test';
 
-const BASE = 'https://boxingwiki.org';
+const BASE = 'http://localhost:3000';
 const MOBILE = { width: 390, height: 844 };
 
 test.describe('Fighter Page — Mobile Layout', () => {
   test.use({ viewport: MOBILE });
 
   test('page loads and shows content or auth gate', async ({ page }) => {
-    await page.goto(`${BASE}/fighter`, { waitUntil: 'networkidle' });
+    await page.goto(`${BASE}/athlete`, { waitUntil: 'networkidle' });
 
     // Either the fighter hero or auth gate should be visible
     const heroOrGate = page.locator('.fighter-hero, .auth-gate');
@@ -30,7 +30,7 @@ test.describe('Fighter Page — Mobile Layout', () => {
   });
 
   test('hero badge not clipped by overflow — CSS check', async ({ page }) => {
-    await page.goto(`${BASE}/fighter`, { waitUntil: 'networkidle' });
+    await page.goto(`${BASE}/athlete`, { waitUntil: 'networkidle' });
 
     // Check that fighter-hero doesn't have overflow: hidden
     const hero = page.locator('.fighter-hero');
@@ -59,7 +59,7 @@ test.describe('Fighter Page — Mobile Layout', () => {
   });
 
   test('pixel fighter scales down on mobile viewport', async ({ page }) => {
-    await page.goto(`${BASE}/fighter`, { waitUntil: 'networkidle' });
+    await page.goto(`${BASE}/athlete`, { waitUntil: 'networkidle' });
 
     const fighter = page.locator('.fighter-hero .pixel-fighter--xl');
     if (await fighter.count() > 0) {
@@ -74,7 +74,7 @@ test.describe('Fighter Page — Mobile Layout', () => {
   });
 
   test('customizer panel exists and collapses/expands', async ({ page }) => {
-    await page.goto(`${BASE}/fighter`, { waitUntil: 'networkidle' });
+    await page.goto(`${BASE}/athlete`, { waitUntil: 'networkidle' });
 
     const toggle = page.locator('.fighter-customizer__toggle');
     if (await toggle.count() === 0) {
@@ -115,7 +115,7 @@ test.describe('Fighter Page — Mobile Layout', () => {
   });
 
   test('color swatch selection persists to localStorage', async ({ page }) => {
-    await page.goto(`${BASE}/fighter`, { waitUntil: 'networkidle' });
+    await page.goto(`${BASE}/athlete`, { waitUntil: 'networkidle' });
 
     const toggle = page.locator('.fighter-customizer__toggle');
     if (await toggle.count() === 0) {
@@ -142,7 +142,7 @@ test.describe('Fighter Page — Mobile Layout', () => {
   });
 
   test('swatch touch targets meet minimum size', async ({ page }) => {
-    await page.goto(`${BASE}/fighter`, { waitUntil: 'networkidle' });
+    await page.goto(`${BASE}/athlete`, { waitUntil: 'networkidle' });
 
     const toggle = page.locator('.fighter-customizer__toggle');
     if (await toggle.count() === 0) {
@@ -162,7 +162,7 @@ test.describe('Fighter Page — Mobile Layout', () => {
   });
 
   test('full page screenshot for visual review', async ({ page }) => {
-    await page.goto(`${BASE}/fighter`, { waitUntil: 'networkidle' });
+    await page.goto(`${BASE}/athlete`, { waitUntil: 'networkidle' });
     await page.waitForTimeout(2000);
 
     await page.screenshot({

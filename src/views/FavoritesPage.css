@@ -297,3 +297,20 @@
 .empty-workout-icon {
   color: var(--color-text-muted);
 }
+
+/* Protection note — loss-framed save counter */
+.fav-protection-note {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+}
+
+.fav-protection-note svg {
+  flex-shrink: 0;
+  color: var(--color-primary);
+}

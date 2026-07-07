@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Check, X, Crown, Zap, Shield, ChevronDown, ChevronUp } from 'lucide-react';
 import { useSubscription } from '../context/SubscriptionContext';
+import { useFighterProfile } from '@/context/FighterProfileContext';
 import { TECHNIQUE_COUNT } from '@/data/techniques';
 import { getOrAssignVariant } from '../utils/abTest';
 import { analytics } from '../utils/analytics';
@@ -14,7 +15,7 @@ const FEATURES = [
   { name: 'Daily Drill', free: true, pro: true },
   { name: 'Gym Workouts', free: '3 workouts', pro: 'All 25+' },
   { name: 'Training Programs', free: '7-Day Fundamentals', pro: 'All programs' },
-  { name: 'Saved Techniques', free: '10 max', pro: 'Unlimited' },
+  { name: 'Saved Techniques', free: '10 of 86+', pro: 'Unlimited' },
   { name: 'Workout Tracking', free: false, pro: true },
   { name: 'Training History & Stats', free: false, pro: true },
   { name: 'Flashcard Quiz Mode', free: false, pro: true },
@@ -46,6 +47,10 @@ const PricingPage = () => {
   const [billing, setBilling] = useState('annual');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [framingVariant, setFramingVariant] = useState<'A' | 'B'>('A');
+
+  const { profile } = useFighterProfile();
+  const totalStudied = profile.techniquesStudied?.length ?? 0;
+  const exploredPct = Math.round((totalStudied / TECHNIQUE_COUNT) * 100);
 
   useEffect(() => {
     const variant = getOrAssignVariant('pricing_framing');
@@ -115,6 +120,11 @@ const PricingPage = () => {
           Annual
           <span className="toggle-save">Save {savingsPercent}%</span>
         </button>
+      </div>
+
+      <div className="pricing-anchor">
+        The average athlete spends <strong>$85/month</strong> on supplements and nutrition apps.
+        <br />FoodWiki Pro is <strong>97% less</strong>.
       </div>
 
       {/* Plan Cards */}
@@ -188,16 +198,30 @@ const PricingPage = () => {
 
       {/* Daily cost framing */}
       <div className="pricing-framing">
-        {framingVariant === 'B' ? (
+        {framingVariant === 'A' ? (
           <>
-            That's less than <strong>a single drop-in fee</strong> at any boxing gym — with full training tools 24/7.
+            That's less than <strong>a single organic smoothie</strong> — with a full nutrition library 24/7.
           </>
         ) : (
           <>
-            That's less than <strong>13 cents a day</strong> — cheaper than a single round of heavy bag tape.
+            That's less than <strong>13 cents a day</strong> — cheaper than a single banana.
           </>
         )}
       </div>
+
+      {totalStudied > 0 && (
+        <div className="pricing-usage-meter glass-panel">
+          <div className="pricing-usage-meter__text">
+            You've explored <strong>{totalStudied} of {TECHNIQUE_COUNT}</strong> foods
+          </div>
+          <div className="pricing-usage-meter__bar">
+            <div className="pricing-usage-meter__fill" style={{ width: `${exploredPct}%` }} />
+          </div>
+          <div className="pricing-usage-meter__sub">
+            Unlock all {TECHNIQUE_COUNT} foods + unlimited saves for less than a banana a day
+          </div>
+        </div>
+      )}
 
       {/* FAQ */}
       <section className="pricing-faq">

@@ -1,6 +1,8 @@
 'use client';
 
-import { useMemo, useEffect, useState } from 'react';
+import { useMemo, useEffect, useState, useCallback } from 'react';
+
+
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { useUser } from '@clerk/nextjs';
@@ -12,12 +14,14 @@ import BodySilhouette from '@/components/BodySilhouette';
 import { RankIcon } from '@/components/RankIcons';
 import WeeklyChallengeCard from '@/components/WeeklyChallengeCard';
 import AuthGate from '@/components/AuthGate';
+import TrialExpirationModal from '@/components/TrialExpirationModal';
 import { techniques } from '@/data/techniques';
+import { getFavorites } from '@/utils/favorites';
 import {
   Zap, ArrowRight, Shield, Crosshair, Move, Brain,
   Dumbbell, Flame, Check, Lock, ChevronRight,
   BookOpen, Timer, Target, Activity, Trophy, MessageSquare, X, Play, ShoppingBag,
-  Award, ClipboardList, Heart, Leaf, UtensilsCrossed, Scale
+  Award, ClipboardList, Heart, Leaf, UtensilsCrossed, Scale, Sparkles, User, CircleCheck
 } from 'lucide-react';
 import './DashboardPage.css';
 
@@ -38,6 +42,14 @@ const PATH_STAGES: {
   { id: 3, title: 'Gut & Microbiome',     category: 'Gut & Digestion',         icon: Heart,    url: '/techniques/gut-digestion',         desc: 'Fermented kefirs, active flora, and enzymes.' },
   { id: 4, title: 'Adaptogenic Support',   category: 'Superfoods & Adaptogens', icon: Zap,      url: '/techniques/superfoods-adaptogens', desc: 'Stress adapters, adrenal rest, and cordyceps.' },
 ];
+
+/* ── Training goal → recommended food categories ───────────────── */
+const GOAL_FOOD_MAP: Record<string, { categories: string[]; label: string }> = {
+  speed: { categories: ['Macronutrients', 'Hydration & Salts'], label: 'Quick energy & hydration for speed training' },
+  power: { categories: ['Macronutrients', 'Superfoods & Adaptogens'], label: 'High-density fuel for explosive power' },
+  stamina: { categories: ['Hydration & Salts', 'Macronutrients', 'Gut & Digestion'], label: 'Endurance fuel & gut health for cardio' },
+  defense: { categories: ['Micronutrients', 'Superfoods & Adaptogens'], label: 'Brain food & adaptogens for fight IQ' },
+};
 
 /* ── Quick action cards ─────────────────────────────────────────────── */
 const QUICK_ACTIONS = [
@@ -98,6 +110,66 @@ function DiscordBanner() {
   );
 }
 
+/* ── Getting Started Checklist (Goal Gradient Effect) ───────────────── */
+function GettingStartedChecklist({ profile, customization, totalStudied }: {
+  profile: any;
+  customization: any;
+  totalStudied: number;
+}) {
+  const [dismissed, setDismissed] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem('fw_checklist_dismissed') === '1') {
+      setDismissed(true);
+    }
+  }, []);
+
+  const items = useMemo(() => [
+    { label: 'Account created', done: true },
+    { label: 'Avatar customized', done: !!(customization?.fighterName || customization?.skinTone > 0 || customization?.gloveColor > 0) },
+    { label: 'Nutrition goal set', done: !!profile.trainingGoal },
+    { label: 'Read your first food page', done: totalStudied > 0 },
+    { label: 'Complete a quiz', done: (profile.quizzesCompleted?.length ?? 0) > 0 },
+    { label: 'Log a meal prep', done: profile.workoutsCompleted > 0 },
+    { label: 'Start a timer session', done: profile.timerSessions > 0 },
+  ], [profile, customization, totalStudied]);
+
+  const completed = items.filter(i => i.done).length;
+  const pct = Math.round((completed / items.length) * 100);
+
+  if (dismissed || completed === items.length) return null;
+
+  return (
+    <div className="dash-checklist glass-panel">
+      <div className="dash-checklist__head">
+        <div className="dash-checklist__title-row">
+          <Sparkles size={16} className="dash-checklist__icon" />
+          <span className="dash-checklist__title">Getting Started</span>
+          <span className="dash-checklist__pct">{pct}%</span>
+        </div>
+        <button
+          className="dash-checklist__dismiss"
+          onClick={() => { localStorage.setItem('fw_checklist_dismissed', '1'); setDismissed(true); }}
+          aria-label="Dismiss checklist"
+        >
+          <X size={14} />
+        </button>
+      </div>
+      <div className="dash-checklist__bar">
+        <div className="dash-checklist__bar-fill" style={{ width: `${pct}%` }} />
+      </div>
+      <ul className="dash-checklist__items">
+        {items.map((item) => (
+          <li key={item.label} className={`dash-checklist__item ${item.done ? 'done' : ''}`}>
+            {item.done ? <CircleCheck size={14} /> : <div className="dash-checklist__circle" />}
+            <span>{item.label}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default function DashboardPage() {
   const { user, isLoaded } = useUser();
   const { profile, rank, nextRankInfo, streak } = useFighterProfile();
@@ -111,13 +183,73 @@ export default function DashboardPage() {
     });
   }, []);
 
+  // My Pantry — user's saved favorites
+  const [pantryIds, setPantryIds] = useState<string[]>([]);
+  useEffect(() => {
+    setPantryIds(getFavorites());
+  }, []);
+  const pantryFoods = useMemo(() => {
+    return pantryIds
+      .slice(0, 5)
+      .map(id => (techniques as any)[id])
+      .filter(Boolean);
+  }, [pantryIds]);
+
   if (isLoaded && !user) {
     return (
-      <div className="dash-page">
-        <AuthGate
-          feature="Fueling Dashboard"
-          description="Sign in to access your personalized clean fueling path, progress tracking, and recipe recommendations."
-        />
+      <div className="dash-page dash-page--preview">
+        {/* Blurred sample dashboard preview */}
+        <div className="dash-preview-bg" aria-hidden="true">
+          <header className="dash-header">
+            <div className="dash-header__left">
+              <div className="dash-header__fighter">
+                <PixelFighter rankName="Harvest Sprout" size="md" animation="idle" />
+              </div>
+              <div className="dash-header__text">
+                <h1 className="dash-header__title">Welcome, Challenger</h1>
+                <div className="dash-header__meta">
+                  <RankIcon rankName="Harvest Sprout" size={14} />
+                  <span>Harvest Sprout</span>
+                  <span className="dash-sep">·</span>
+                  <span style={{ color: '#2d8a4e', fontWeight: 800 }}>🌱 25</span>
+                  <span className="dash-sep">·</span>
+                  <Flame size={14} />
+                  <span>Start your streak 🔥</span>
+                </div>
+              </div>
+            </div>
+          </header>
+          <div className="dash-stats-row">
+            <div className="dash-stat-card glass-panel">
+              <div className="dash-stat-card__label">GROWTH PROGRESS</div>
+              <div className="dash-stat-card__bar-wrap">
+                <div className="dash-stat-card__bar">
+                  <div className="dash-stat-card__bar-fill" style={{ width: '15%' }} />
+                </div>
+                <span className="dash-stat-card__bar-text">Earn XP to reach Green Shoot</span>
+              </div>
+            </div>
+            <div className="dash-stat-card glass-panel">
+              <div className="dash-stat-card__label">ACTIVE DAYS</div>
+              <div className="dash-calendar">
+                {['SU','MO','TU','WE','TH','FR','SA'].map((d, i) => (
+                  <div key={i} className={`dash-cal-day ${i === 6 ? 'today' : ''}`}>
+                    <span className="dash-cal-name">{d}</span>
+                    <span className="dash-cal-num">{new Date().getDate() - (6 - i)}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Sign-in overlay */}
+        <div className="dash-preview-overlay">
+          <AuthGate
+            feature="Fueling Dashboard"
+            description="Sign in to access your personalized clean fueling path, progress tracking, and recipe recommendations."
+          />
+        </div>
       </div>
     );
   }
@@ -126,6 +258,10 @@ export default function DashboardPage() {
   const { nextRank, xpNeeded, progress } = nextRankInfo;
   const displayName = profile.displayName || user?.firstName || 'Harvest Sprout';
   const totalStudied = profile.techniquesStudied?.length ?? 0;
+  const isNewUser = totalStudied === 0 && profile.workoutsCompleted === 0;
+
+  // Reactive fighter animation based on user state (IKEA Effect)
+  const fighterAnimation = streak > 0 ? 'training' as const : 'idle' as const;
 
   // Determine active stage based on studied techniques per category
   const studiedByCategory: Record<string, number> = {};
@@ -172,13 +308,27 @@ export default function DashboardPage() {
     return days;
   }, [profile]);
 
+  // Goal-based recommendations (IKEA Effect — make the training goal visible)
+  const goalRecs = useMemo(() => {
+    if (!profile.trainingGoal) return null;
+    const mapping = GOAL_FOOD_MAP[profile.trainingGoal];
+    if (!mapping) return null;
+    const allTechs = Object.values(techniques) as any[];
+    const studied = new Set(profile.techniquesStudied || []);
+    const recs = allTechs
+      .filter((t: any) => mapping.categories.includes(t.category) && !studied.has(t.id))
+      .slice(0, 3);
+    return recs.length > 0 ? { foods: recs, label: mapping.label } : null;
+  }, [profile.trainingGoal, profile.techniquesStudied]);
+
   return (
     <div className="dash-page">
+        <TrialExpirationModal />
       {/* ── Header Row ─────────────────────────────────────────────── */}
       <header className="dash-header">
         <div className="dash-header__left">
           <div className="dash-header__fighter">
-            <PixelFighter rankName={rank.name} size="md" animation="idle" customization={customization} />
+            <PixelFighter rankName={rank.name} size="md" animation={fighterAnimation} customization={customization} />
           </div>
           <div className="dash-header__text">
             <h1 className="dash-header__title">
@@ -194,7 +344,7 @@ export default function DashboardPage() {
               <span style={{ color: '#2d8a4e', fontWeight: 800 }}>🌱 {(profile.fightCoins || 0).toLocaleString()}</span>
               <span className="dash-sep">·</span>
               <Flame size={14} color={streak > 0 ? '#2d8a4e' : undefined} />
-              <span>{streak}-day streak</span>
+              <span>{streak > 0 ? `${streak}-day streak` : 'Start your streak 🔥'}</span>
             </div>
           </div>
           <a
@@ -228,7 +378,7 @@ export default function DashboardPage() {
               <div className="dash-stat-card__bar-fill" style={{ width: `${Math.round(progress * 100)}%` }} />
             </div>
             <span className="dash-stat-card__bar-text">
-              {nextRank ? `${xpNeeded.toLocaleString()} XP to ${nextRank.name}` : 'MAX RANK'}
+              {nextRank ? (progress > 0 ? `${xpNeeded.toLocaleString()} XP to ${nextRank.name}` : `Earn XP to reach ${nextRank.name}`) : 'MAX RANK'}
             </span>
           </div>
         </div>
@@ -257,42 +407,63 @@ export default function DashboardPage() {
           <div className="dash-record-inline">
             <Link href="/workouts" className="dash-record-inline__stat dash-record-inline__stat--link">
               <ChefHat size={13} />
-              <span className="dash-record-inline__val">{profile.workoutsCompleted}</span>
-              <span className="dash-record-inline__lbl">Meal Preps</span>
+              <span className="dash-record-inline__val">{profile.workoutsCompleted || '—'}</span>
+              <span className="dash-record-inline__lbl">{profile.workoutsCompleted > 0 ? 'Meal Preps' : 'Try a recipe'}</span>
             </Link>
             <Link href="/techniques" className="dash-record-inline__stat dash-record-inline__stat--link">
               <Leaf size={13} />
-              <span className="dash-record-inline__val">{totalStudied}</span>
-              <span className="dash-record-inline__lbl">Foods</span>
+              <span className="dash-record-inline__val">{totalStudied || '—'}</span>
+              <span className="dash-record-inline__lbl">{totalStudied > 0 ? 'Foods' : 'Explore foods'}</span>
             </Link>
             <Link href="/articles" className="dash-record-inline__stat dash-record-inline__stat--link">
               <BookOpen size={13} />
-              <span className="dash-record-inline__val">{profile.articlesRead?.length ?? 0}</span>
-              <span className="dash-record-inline__lbl">Articles</span>
+              <span className="dash-record-inline__val">{(profile.articlesRead?.length ?? 0) || '—'}</span>
+              <span className="dash-record-inline__lbl">{(profile.articlesRead?.length ?? 0) > 0 ? 'Articles' : 'Read an article'}</span>
             </Link>
             <Link href="/timer" className="dash-record-inline__stat dash-record-inline__stat--link">
               <Timer size={13} />
-              <span className="dash-record-inline__val">{profile.timerSessions}</span>
-              <span className="dash-record-inline__lbl">Sessions</span>
+              <span className="dash-record-inline__val">{profile.timerSessions || '—'}</span>
+              <span className="dash-record-inline__lbl">{profile.timerSessions > 0 ? 'Sessions' : 'Try fasting'}</span>
             </Link>
             <Link href="/techniques" className="dash-record-inline__stat dash-record-inline__stat--link">
               <Award size={13} />
-              <span className="dash-record-inline__val">{profile.quizzesCompleted?.length ?? 0}</span>
-              <span className="dash-record-inline__lbl">Quizzes</span>
+              <span className="dash-record-inline__val">{(profile.quizzesCompleted?.length ?? 0) || '—'}</span>
+              <span className="dash-record-inline__lbl">{(profile.quizzesCompleted?.length ?? 0) > 0 ? 'Quizzes' : 'Take a quiz'}</span>
             </Link>
             <div className="dash-record-inline__stat">
               <Flame size={13} />
-              <span className="dash-record-inline__val">{profile.longestStreak}</span>
-              <span className="dash-record-inline__lbl">Best Streak</span>
+              <span className="dash-record-inline__val">{profile.longestStreak || '—'}</span>
+              <span className="dash-record-inline__lbl">{profile.longestStreak > 0 ? 'Best Streak' : 'Build a streak'}</span>
             </div>
           </div>
         </div>
       </div>
 
+      {/* ── Getting Started Checklist (Goal Gradient) ──────────────── */}
+      <GettingStartedChecklist profile={profile} customization={customization} totalStudied={totalStudied} />
+
+      {/* ── My Pantry (IKEA/Endowment Effect) ──────────────────────── */}
+      {pantryFoods.length > 0 && (
+        <section className="dash-pantry">
+          <div className="dash-section-head">
+            <h2 className="section-heading">MY <span className="text-primary">PANTRY</span></h2>
+            <Link href="/favorites" className="dash-section-link">View all ({pantryIds.length}) <ChevronRight size={14} /></Link>
+          </div>
+          <div className="dash-pantry__grid">
+            {pantryFoods.map((food: any) => (
+              <Link key={food.id} href={`/technique/${food.id}`} className="dash-pantry-card glass-panel">
+                <Heart size={12} className="dash-pantry-card__heart" fill="currentColor" />
+                <span className="dash-pantry-card__name">{food.name}</span>
+                <span className="dash-pantry-card__cat">{food.category}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* ── Continue Fueling CTA ──────────────────────────────────── */}
       {(() => {
         const activeStage = PATH_STAGES.find((_, i) => getStageStatus(i) === 'active');
-        const isNewUser = totalStudied === 0 && profile.workoutsCompleted === 0;
         const allComplete = PATH_STAGES.every((_, i) => getStageStatus(i) === 'completed');
         const ctaStage = activeStage || (allComplete ? null : PATH_STAGES[0]);
         const ctaUrl = ctaStage?.url || '/techniques';
@@ -320,6 +491,26 @@ export default function DashboardPage() {
 
       {/* ── Discord Banner ────────────────────────────────────────── */}
       <DiscordBanner />
+
+      {/* ── Goal-Based Recommendations ────────────────────────────── */}
+      {goalRecs && (
+        <section className="dash-goal-recs">
+          <div className="dash-section-head">
+            <h2 className="section-heading">FOR YOUR <span className="text-primary">GOAL</span></h2>
+            <span className="dash-section-sub">{goalRecs.label.toUpperCase()}</span>
+          </div>
+          <div className="dash-goal-recs__grid">
+            {goalRecs.foods.map((food: any) => (
+              <Link key={food.id} href={`/technique/${food.id}`} className="dash-goal-rec glass-panel">
+                <div className="dash-goal-rec__cat">{food.category}</div>
+                <h3 className="dash-goal-rec__name">{food.name}</h3>
+                <p className="dash-goal-rec__desc">{food.description?.substring(0, 80)}…</p>
+                <span className="dash-goal-rec__link">Study <ArrowRight size={12} /></span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ── The Path ───────────────────────────────────────────────── */}
       <section className="dash-path">
@@ -358,7 +549,7 @@ export default function DashboardPage() {
                 <p className="dash-path-card__desc">{s.desc}</p>
 
                 <div className="dash-path-card__progress">
-                  <span>{studied} / {catCount}</span>
+                  <span>{studied > 0 ? `${studied} / ${catCount}` : `${catCount} to explore`}</span>
                   <div className="dash-path-card__bar">
                     <div className="dash-path-card__bar-fill" style={{ width: `${catCount > 0 ? (studied / catCount) * 100 : 0}%` }} />
                   </div>

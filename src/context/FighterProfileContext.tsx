@@ -129,6 +129,23 @@ export function FighterProfileProvider({ children }: { children: React.ReactNode
       }
     }
 
+    // Welcome bonus — award 25 XP on first-ever sign-in
+    try {
+      if (!safeStorage.getItem('FoodWiki_welcome_bonus')) {
+        safeStorage.setItem('FoodWiki_welcome_bonus', 'true');
+        const welcomeResult = awardXPUtil('welcome_bonus' as XPSource);
+        if (welcomeResult.awarded) {
+          finalProfile = getProfile();
+          setProfile(finalProfile);
+          setXPToast({
+            xpGained: welcomeResult.xpGained,
+            source: 'welcome_bonus' as XPSource,
+            coinsGained: welcomeResult.coinsGained,
+          });
+        }
+      }
+    } catch { /* ignore */ }
+
     // Badge detection (covers night owl, streak milestone badges, etc.)
     const newBadges = getNewlyUnlockedBadges(finalProfile, finalProfile.seenBadges || []);
     if (newBadges.length > 0) {

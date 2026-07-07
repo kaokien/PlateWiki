@@ -36,7 +36,8 @@ export type XPSource =
   | 'quiz_complete'
   | 'dev_award'
   | 'daily_login'
-  | 'challenge_complete';
+  | 'challenge_complete'
+  | 'welcome_bonus';
 
 export const XP_VALUES: Record<XPSource, number> = {
   workout_complete: 10,
@@ -49,6 +50,7 @@ export const XP_VALUES: Record<XPSource, number> = {
   dev_award: 100,
   daily_login: 5,
   challenge_complete: 50, // base — actual reward comes from the challenge via meta.xpAmount
+  welcome_bonus: 25,
 };
 
 // ── Profile Shape ───────────────────────────────────────────────────

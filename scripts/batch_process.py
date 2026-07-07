@@ -6,20 +6,20 @@ raw_dir = r"C:\Users\kevin\.gemini\antigravity\brain\34ed7b6a-bef7-4a06-9f65-c2e
 public_dir = r"C:\Users\kevin\Documents\antigravity\quick-planck\public\fighters"
 
 jobs = [
-    # Stage 1 (Seedling)
-    ("stage1_idle_raw_1783384489379.jpg", "stage1_idle.png", 10),
-    ("stage1_eating_raw_1783384500081.jpg", "stage1_eating.png", 8),
-    ("stage1_levelup_raw_1783384510088.jpg", "stage1_levelup.png", 10),
+    # Stage 1 (Rookie Boxer)
+    ("stage1_athlete_idle_raw_1783385136268.jpg", "stage1_idle.png", 10),
+    ("stage1_athlete_eating_raw_1783385143735.jpg", "stage1_eating.png", 8),
+    ("stage1_athlete_levelup_raw_1783385156720.jpg", "stage1_levelup.png", 10),
     
-    # Stage 2 (Sprout)
-    ("stage2_idle_raw_1783384519870.jpg", "stage2_idle.png", 10),
-    ("stage2_eating_raw_1783384529633.jpg", "stage2_eating.png", 8),
-    ("stage2_levelup_raw_1783384539741.jpg", "stage2_levelup.png", 10),
+    # Stage 2 (Contender Boxer)
+    ("stage2_athlete_idle_raw_1783385166159.jpg", "stage2_idle.png", 10),
+    ("stage2_athlete_eating_raw_1783385176673.jpg", "stage2_eating.png", 8),
+    ("stage2_athlete_levelup_raw_1783385188465.jpg", "stage2_levelup.png", 10),
     
-    # Stage 3 (Fully Mature Hero)
-    ("stage3_idle_raw_1783384550356.jpg", "stage3_idle.png", 10),
-    ("stage3_eating_raw_1783384559042.jpg", "stage3_eating.png", 8),
-    ("stage3_levelup_raw_1783384569916.jpg", "stage3_levelup.png", 10),
+    # Stage 3 (Champion Boxer)
+    ("stage3_athlete_idle_raw_1783385198353.jpg", "stage3_idle.png", 10),
+    ("stage3_athlete_eating_raw_1783385206083.jpg", "stage3_eating.png", 8),
+    ("stage3_athlete_levelup_raw_1783385217500.jpg", "stage3_levelup.png", 10),
     
     # Accessories
     ("apple_hat_idle_raw_1783384578740.jpg", "apple_hat_idle.png", 10),
@@ -33,7 +33,8 @@ for raw_name, out_name, num_frames in jobs:
     if os.path.exists(raw_path):
         print(f"Batch processing: {raw_name} -> {out_name} ({num_frames} frames)")
         try:
-            process_spritesheet(raw_path, out_path, num_frames)
+            # All generated grid assets are 4x3 layouts
+            process_spritesheet(raw_path, out_path, num_frames, cols=4, rows=3)
         except Exception as e:
             print(f"Failed to process {raw_name}: {e}")
     else:

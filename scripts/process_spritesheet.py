@@ -15,15 +15,15 @@ def create_pose_board(output_path):
     board = np.zeros((h, w, 3), dtype=np.uint8)
     for r in range(rows):
         for c in range(cols):
-            # Alternating white and black checkerboard for grid constraints
-            color = 240 if (r + c) % 2 == 0 else 15
+            # Alternating light and dark green checkerboard for grid constraints
+            color = [0, 230, 0] if (r + c) % 2 == 0 else [0, 180, 0]
             y_start, y_end = r * cell_size, (r + 1) * cell_size
             x_start, x_end = c * cell_size, (c + 1) * cell_size
             board[y_start:y_end, x_start:x_end] = color
             
             # Draw a subtle center dot in each cell
             cy, cx = y_start + cell_size // 2, x_start + cell_size // 2
-            board[cy-4:cy+4, cx-4:cx+4] = [255, 0, 0] # red center target
+            board[cy-4:cy+4, cx-4:cx+4] = [0, 100, 0] # subtle green center target
             
     img = Image.fromarray(board, "RGB")
     os.makedirs(os.path.dirname(output_path), exist_ok=True)

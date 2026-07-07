@@ -13,6 +13,7 @@ import { useFighterCustomization } from '@/hooks/useFighterCustomization';
 import { RANK_TIERS, XP_VALUES } from '@/utils/fighterProfile';
 import { FIGHTER_STAGES, getStageForRank, getStageIndex } from '@/data/fighterSprites';
 import PixelFighter from '@/components/PixelFighter';
+import VirtualGym from '@/components/VirtualGym';
 import { RankIcon } from '@/components/RankIcons';
 import AuthGate from '@/components/AuthGate';
 import FighterCustomizer from '@/components/FighterCustomizer';
@@ -70,14 +71,9 @@ export default function FighterPage() {
         <div className="fighter-hero__spotlight" aria-hidden="true" />
 
         <div className="fighter-hero__content">
-          <PixelFighter
-            rankName={rank.name}
-            size="lg"
-            showScene={true}
-            animation="idle"
-            showLabel={false}
-            customization={customization}
-          />
+          <div className="fighter-hero__gym-wrap">
+            <VirtualGym />
+          </div>
 
           <div className="fighter-hero__info">
             <div className="fighter-hero__stage-badge" style={{ borderColor: rank.color }}>

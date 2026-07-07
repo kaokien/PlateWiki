@@ -3,6 +3,7 @@ import React, { useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { ChevronRight, ArrowLeft, Crosshair } from 'lucide-react';
+import { useUser } from '@clerk/nextjs';
 import AdBanner from '../components/AdBanner';
 import { bodyParts, techniques } from '../data/foods';
 import './AnatomyPage.css';
@@ -31,9 +32,12 @@ const muscleRelations: Record<string, string[]> = {
 };
 
 const AnatomyPage = () => {
+  const { isSignedIn } = useUser();
   const params = useParams<{ id: string }>();
   const id = params?.id ?? '';
   const muscle = bodyParts[id];
+  
+  const mapUrl = isSignedIn ? '/dashboard#body-map' : '/#body-map';
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -44,7 +48,7 @@ const AnatomyPage = () => {
       <div className="anatomy-not-found glass-panel">
         <h2>Muscle group not found</h2>
         <p>The muscle group you're looking for doesn't exist in our database.</p>
-        <Link href="/" className="back-link-btn">
+        <Link href={mapUrl} className="back-link-btn">
           <ArrowLeft size={18} /> Back to Interactive Map
         </Link>
       </div>
@@ -65,7 +69,7 @@ const AnatomyPage = () => {
     <div className="anatomy-page">
 {/* Professional breadcrumb navigation */}
       <nav className="breadcrumb" aria-label="Breadcrumb">
-        <Link href="/" className="breadcrumb-link">Interactive Map</Link>
+        <Link href={mapUrl} className="breadcrumb-link">Interactive Map</Link>
         <ChevronRight size={14} className="breadcrumb-chevron" />
         <span className="breadcrumb-current">{muscle.name}</span>
       </nav>
@@ -85,7 +89,7 @@ const AnatomyPage = () => {
       </div>
 
       <div className="techniques-section">
-        <h2>Techniques Using The {muscle.name}</h2>
+        <h2>Foods Supporting {muscle.name}</h2>
         <div className="techniques-grid">
           {relatedTechniques.length > 0 ? (
             relatedTechniques.map(tech => (
@@ -101,12 +105,12 @@ const AnatomyPage = () => {
                 </div>
                 <h3>{tech.name}</h3>
                 <p>{tech.description}</p>
-                <div className="read-more">Learn Technique →</div>
+                <div className="read-more">View Food Profile →</div>
               </Link>
             ))
           ) : (
             <div className="glass-panel empty-tech">
-              <p>No techniques mapped to this muscle group yet. Check back soon!</p>
+              <p>No foods mapped to this muscle group yet. Check back soon!</p>
             </div>
           )}
         </div>

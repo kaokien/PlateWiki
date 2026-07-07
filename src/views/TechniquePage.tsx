@@ -4,7 +4,7 @@ import { useUser, useClerk } from '@clerk/nextjs';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useClientSearchParams } from '@/hooks/useClientSearchParams';
-import { ArrowRight, ChevronRight, Target, AlertTriangle, Lightbulb, Dumbbell, Maximize2, Heart, MessageCircle, Crosshair, Users, Clock, BookOpen, Tag, Camera, MessageSquare } from 'lucide-react';
+import { ArrowRight, ChevronRight, Target, AlertTriangle, Lightbulb, Dumbbell, Maximize2, Heart, MessageCircle, Crosshair, Users, Clock, BookOpen, Tag, Camera, MessageSquare, ChefHat } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
 import ShareButton from '../components/ShareButton';
 import FlashcardCarousel from '../components/FlashcardCarousel';
@@ -205,8 +205,8 @@ const TechniquePage = ({ routeId }: { routeId?: string }) => {
             <div className="instruction-card glass-panel">
               <div className="card-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <Target className="icon-target" />
-                  <h2 style={{ margin: 0 }}>Execution Steps</h2>
+                  <ChefHat className="icon-target" />
+                  <h2 style={{ margin: 0 }}>Preparation & Usage Steps</h2>
                 </div>
                 <button 
                   onClick={() => setShowFlashcards(true)}
@@ -274,7 +274,7 @@ const TechniquePage = ({ routeId }: { routeId?: string }) => {
               </div>
               <div className="workout-cta-text">
                 <h3>Fueling Guide: {workout.title}</h3>
-                <p>{workout.exercises.length} exercises · {workout.duration} · Prepare this food to optimize your fuel intake</p>
+                <p>{workout.exercises.length} prep steps · {workout.duration} · Prepare this food to optimize your fuel intake</p>
               </div>
               <ArrowRight size={20} className="workout-cta-arrow" />
             </Link>

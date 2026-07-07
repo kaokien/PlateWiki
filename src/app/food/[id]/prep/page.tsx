@@ -22,14 +22,14 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${workout.title} — ${technique.name} Gym Workout`,
-    description: `${workout.duration} gym workout for the ${technique.name}: ${workout.exercises.length} exercises targeting ${workout.focus.toLowerCase()}.`,
+    title: `${workout.title} — ${technique.name} Prep Guide`,
+    description: `${workout.duration} prep guide for ${technique.name}: ${workout.exercises.length} steps focused on ${workout.focus.toLowerCase()}.`,
     alternates: {
       canonical: `${SITE_URL}/food/${id}/prep`,
     },
     openGraph: {
-      title: `${workout.title} — Gym Workout`,
-      description: `${workout.exercises.length} exercises · ${workout.duration} · Train the muscles behind the ${technique.name}.`,
+      title: `${workout.title} — Prep Guide`,
+      description: `${workout.exercises.length} prep steps · ${workout.duration} · Learn optimal preparation for ${technique.name}.`,
       images: [{ url: '/og-image.png' }],
     },
   };
@@ -59,7 +59,7 @@ export default async function WorkoutRoute({
             {
               '@type': 'ListItem',
               position: 2,
-              name: 'Techniques',
+              name: 'Foods',
               item: `${SITE_URL}/foods`,
             },
             {
@@ -71,7 +71,7 @@ export default async function WorkoutRoute({
             {
               '@type': 'ListItem',
               position: 4,
-              name: 'Gym Workout',
+              name: 'Prep Guide',
             },
           ],
         }

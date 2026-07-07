@@ -59,7 +59,9 @@ const DailyWidget = () => {
           <h2>{exercise.name}</h2>
           <div className="daily-meta">
             <span className="daily-muscle">{exercise.muscles?.[0]}</span>
-            <span className={`daily-diff ${exercise.difficulty}`}>{exercise.difficulty}</span>
+            <span className={`daily-diff ${exercise.difficulty}`}>
+              {exercise.difficulty === 'beginner' || exercise.difficulty === 'Beginner' ? 'Staple' : exercise.difficulty === 'intermediate' || exercise.difficulty === 'Intermediate' ? 'Targeted' : 'Specialized'}
+            </span>
           </div>
           <p>{exercise.performanceContext?.substring(0, 100)}…</p>
         </div>

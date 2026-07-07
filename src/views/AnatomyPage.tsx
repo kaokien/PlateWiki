@@ -98,8 +98,7 @@ const AnatomyPage = () => {
                   <span className="tech-category">{tech.category}</span>
                   {tech.difficulty && (
                     <span className={`difficulty-badge ${tech.difficulty}`}>
-                      {tech.difficulty === 'beginner' ? '• ' : tech.difficulty === 'intermediate' ? '•• ' : '••• '}
-                      {tech.difficulty}
+                      {tech.difficulty === 'beginner' ? '• Staple' : tech.difficulty === 'intermediate' ? '•• Targeted' : '••• Specialized'}
                     </span>
                   )}
                 </div>

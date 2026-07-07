@@ -115,8 +115,7 @@ const TechniquePage = ({ routeId }: { routeId?: string }) => {
               <span className="category-badge">{technique.category}</span>
               {technique.difficulty && (
                 <span className={`difficulty-badge ${technique.difficulty}`}>
-                  {technique.difficulty === 'beginner' ? '• ' : technique.difficulty === 'intermediate' ? '•• ' : '••• '}
-                  {technique.difficulty}
+                  {technique.difficulty === 'beginner' ? '• Staple' : technique.difficulty === 'intermediate' ? '•• Targeted' : '••• Specialized'}
                 </span>
               )}
               <span className="stance-badge">{stanceLabel}</span>

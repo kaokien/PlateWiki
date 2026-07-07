@@ -213,17 +213,20 @@ const TechniquesPage = ({ initialCategory }: { initialCategory?: string }) => {
         {showFilters && (
           <div className="advanced-filters">
             <div className="filter-group">
-              <label className="filter-label">Difficulty</label>
+              <label className="filter-label">Nutritional Class</label>
               <div className="filter-pills">
-                {DIFFICULTIES.map(d => (
-                  <button
-                    key={d}
-                    className={`pill ${activeDifficulty === d ? 'active' : ''} ${d !== 'All Levels' ? d : ''}`}
-                    onClick={() => { setActiveDifficulty(d); if (d !== 'All Levels') analytics.filterDifficulty(d); }}
-                  >
-                    {d === 'All Levels' ? d : d.charAt(0).toUpperCase() + d.slice(1)}
-                  </button>
-                ))}
+                {DIFFICULTIES.map(d => {
+                  const label = d === 'All Levels' ? 'All Classes' : d === 'beginner' ? 'Staple' : d === 'intermediate' ? 'Targeted' : 'Specialized';
+                  return (
+                    <button
+                      key={d}
+                      className={`pill ${activeDifficulty === d ? 'active' : ''} ${d !== 'All Levels' ? d : ''}`}
+                      onClick={() => { setActiveDifficulty(d); if (d !== 'All Levels') analytics.filterDifficulty(d); }}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
               </div>
             </div>
             <div className="filter-group">
@@ -302,8 +305,7 @@ const TechniquesPage = ({ initialCategory }: { initialCategory?: string }) => {
                   <span className="browse-category">{tech.category}</span>
                   {tech.difficulty && (
                     <span className={`difficulty-badge ${tech.difficulty}`}>
-                      {tech.difficulty === 'beginner' ? '• ' : tech.difficulty === 'intermediate' ? '•• ' : '••• '}
-                      {tech.difficulty}
+                      {tech.difficulty === 'beginner' ? '• Staple' : tech.difficulty === 'intermediate' ? '•• Targeted' : '••• Specialized'}
                     </span>
                   )}
                   <button

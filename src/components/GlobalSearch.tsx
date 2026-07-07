@@ -89,10 +89,11 @@ async function buildCorpus(): Promise<SearchResult[]> {
 
   // Techniques
   Object.values(techniques).forEach((t) => {
+    const diffLabel = t.difficulty === 'beginner' ? 'Staple' : t.difficulty === 'intermediate' ? 'Targeted' : 'Specialized';
     results.push({
       id: t.id,
       title: t.name,
-      subtitle: `${t.category} · ${t.difficulty}`,
+      subtitle: `${t.category} · ${diffLabel}`,
       href: `/food/${t.id}`,
       type: 'technique',
     });
@@ -136,10 +137,11 @@ async function buildCorpus(): Promise<SearchResult[]> {
 
   // Exercises
   Object.values(exercises).forEach((ex: any) => {
+    const diffLabel = ex.difficulty === 'beginner' || ex.difficulty === 'Beginner' ? 'Staple' : ex.difficulty === 'intermediate' || ex.difficulty === 'Intermediate' ? 'Targeted' : 'Specialized';
     results.push({
       id: `exercise-${ex.id}`,
       title: ex.name,
-      subtitle: `${ex.category} · ${ex.difficulty}`,
+      subtitle: `${ex.category} · ${diffLabel}`,
       href: `/recipe/${ex.id}`,
       type: 'exercise',
     });

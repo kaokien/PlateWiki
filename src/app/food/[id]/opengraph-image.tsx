@@ -43,8 +43,9 @@ export default async function Image({ params }: { params: Promise<{ id: string }
   const name: string = technique.name;
   // Long combo names ("The 1-2-3, Roll, 3-2 (Mexican Combo)") need a smaller size
   const titleSize = name.length > 34 ? 52 : name.length > 22 ? 64 : 84;
-  const difficulty: string = technique.difficulty || 'beginner';
-  const difficultyColor = DIFFICULTY_COLORS[difficulty] || '#22c55e';
+  const diffRaw: string = technique.difficulty || 'beginner';
+  const difficultyColor = DIFFICULTY_COLORS[diffRaw] || '#22c55e';
+  const difficulty = diffRaw === 'beginner' ? 'Staple' : diffRaw === 'intermediate' ? 'Targeted' : 'Specialized';
   const stepCount = (technique.steps || []).length;
   const muscleCount = (technique.muscles || []).length;
   const description: string = technique.description

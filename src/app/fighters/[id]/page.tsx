@@ -16,28 +16,32 @@ export async function generateMetadata({
   const { id } = await params;
   const fighter = fighters.find((f) => f.id === id);
   if (!fighter) {
-    return { title: 'Fighter Not Found' };
+    return { title: 'Athlete Profile Not Found' };
   }
 
-  // CTR-optimized metadata for high-impression fighters
+  // CTR-optimized metadata for high-impression athletes
   const ctrMeta: Record<string, { title: string; description: string }> = {
-    'canelo-alvarez': {
-      title: `Canelo Álvarez Boxing Style — Counter-Punching & Liver Shot Breakdown`,
-      description: `How Canelo reads the jab, slips to the outside, and fires back with fight-ending counters. Upper body movement, liver shot setups, and the counter timing that makes him the best at 168 lbs.`,
+    'usain-bolt': {
+      title: 'Usain Bolt Fueling Profile — High Carb Sprinting Nutrition',
+      description: 'How Usain Bolt fueled his legendary speed. Glycogen storage optimization, clean starches (yams, sweet potatoes), and recovery protocols for sprinters.',
     },
-    'floyd-mayweather': {
-      title: `Floyd Mayweather Boxing Style — Philly Shell & Pull Counter Masterclass`,
-      description: `Why Mayweather makes opponents miss 70% of their shots. Shoulder roll mechanics, pull counter timing, and the footwork adjustments that built a 50-0 record.`,
+    'arnold-schwarzenegger': {
+      title: 'Arnold Schwarzenegger Fueling Profile — Anabolic Protein & Bulking',
+      description: 'The nutritional protocol behind Arnold Schwarzenegger\'s bodybuilding dominance. Complete protein sourcing, mTOR activation, and essential fat intake.',
     },
-    'vasyl-lomachenko': {
-      title: `Lomachenko Boxing Style — V-Step Footwork & Angle Creation Analysis`,
-      description: `The footwork system that makes Lomachenko "a ghost." V-step pivots, simultaneous punching while moving, and how he traps opponents in corners using geometry.`,
+    'georges-st-pierre': {
+      title: 'Georges St-Pierre Fueling Profile — Ketogenic Clean Fat Performance',
+      description: 'Inside GSP\'s metabolic fuel plan. Fasted training, healthy fats, anti-inflammatory whole foods, and micro-nutrition for combat athletes.',
+    },
+    'michael-phelps': {
+      title: 'Michael Phelps Fueling Profile — High Calorie Endurance Reloading',
+      description: 'How Michael Phelps sustained 10,000+ calorie energy demands. Complex grains, post-workout glycogen reload, and electrolyte balancing for recovery.',
     },
   };
 
   const meta = ctrMeta[id] || {
-    title: `${fighter.name} Boxing Style — ${fighter.style} Breakdown`,
-    description: `${fighter.name} (${fighter.nickname}) style analysis. ${fighter.style} technique breakdown with signature moves, stats, strengths, and weaknesses.`,
+    title: `${fighter.name} Fueling Profile — ${fighter.style} Nutrition`,
+    description: `${fighter.name} (${fighter.nickname}) fueling analysis. ${fighter.style} breakdown with signature foods, biometric stats, and strengths.`,
   };
 
   return {

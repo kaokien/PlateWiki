@@ -22,7 +22,7 @@ import { bodyParts } from '../data/bodyParts';
 import { gearRecommendations } from '../data/gearRecommendations';
 import { getFavorites, getRecentlyViewed } from '../utils/favorites';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { useStance } from '../context/StanceContext';
+import { useSubscription } from '../context/SubscriptionContext';
 import { getOrAssignVariant } from '../utils/abTest';
 import { Show, useUser } from '@clerk/nextjs';
 import './HomePage.css';
@@ -59,7 +59,6 @@ const PROGRAM_DAYS = [
 
 const HomePage = ({ totalTechniques, categoryCounts, techniqueIndex }: HomePageProps) => {
   const router = useRouter();
-  const { stance, setStance } = useStance();
   const { isSignedIn } = useUser();
   const [abVariant, setAbVariant] = useState<'A' | 'B'>('A');
   const [recentIds, setRecentIds] = useState<any[]>([]);
@@ -103,23 +102,7 @@ const HomePage = ({ totalTechniques, categoryCounts, techniqueIndex }: HomePageP
     <div className="home-page" ref={pageRef}>
       <OnboardingOverlay />
       
-      {abVariant === 'B' && (
-        <div className="quick-stance-setup glass-panel">
-          <div className="stance-setup-text">
-            <span>⚡ Focus Profile:</span> Set to <strong>{stance === 'southpaw' ? 'Endurance (Runner)' : 'Strength (Lifter)'}</strong>
-          </div>
-          <button 
-            className="stance-switch-btn" 
-            onClick={() => {
-              const nextStance = stance === 'southpaw' ? 'orthodox' : 'southpaw';
-              setStance(nextStance);
-              analytics.customEvent('stance_quick_toggle', { stance: nextStance });
-            }}
-          >
-            Switch to {stance === 'southpaw' ? 'Strength' : 'Endurance'}
-          </button>
-        </div>
-      )}
+
 
       <div className="hero-bg"></div>
 

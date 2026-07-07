@@ -11,7 +11,6 @@ import {
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import dynamic from 'next/dynamic';
-import { useStance } from '@/context/StanceContext';
 import { useSubscription } from '@/context/SubscriptionContext';
 
 // The ⌘K command palette is interaction-only — load its chunk on first open
@@ -19,7 +18,6 @@ import { useSubscription } from '@/context/SubscriptionContext';
 const GlobalSearch = dynamic(() => import('@/components/GlobalSearch'), { ssr: false });
 import { useFighterProfile } from '@/context/FighterProfileContext';
 import { RankIcon } from '@/components/RankIcons';
-import { BoxingGloveIcon } from '@/components/icons/BoxingGloveIcon';
 import { SignInButton, UserButton, Show, useUser } from '@clerk/nextjs';
 
 /* ── Nav structure ─────────────────────────────────────────────────────
@@ -125,7 +123,6 @@ export default function Header() {
   const desktopNavRef = useRef<HTMLElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
-  const { stance, toggleStance } = useStance();
   const { isPro, tier, trialDaysLeft } = useSubscription();
   const { rank, profile, nextRankInfo, streak } = useFighterProfile();
   const { isSignedIn } = useUser();
@@ -256,14 +253,6 @@ export default function Header() {
   /* ── Shared account/utility controls (desktop tail + mobile drawer foot) ── */
   const utilityControls = (
     <>
-      <button
-        className="stance-toggle-btn"
-        onClick={toggleStance}
-        aria-label={`Switch to ${stance === 'orthodox' ? 'southpaw' : 'orthodox'} stance`}
-      >
-        <BoxingGloveIcon size={16} className="nav-icon" /> {stance === 'orthodox' ? 'Orthodox' : 'Southpaw'}
-      </button>
-
       {/* Fighter Rank Chip + Streak Flame — only for signed-in users */}
       <Show when="signed-in">
         <Link

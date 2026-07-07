@@ -17,7 +17,7 @@ const STYLE_FILTERS = [
   { label: 'Technical', value: 'technical' },
 ];
 
-const STANCE_FILTERS = ['All Goals', 'orthodox', 'southpaw'];
+const STANCE_FILTERS = ['All Goals', 'Endurance', 'Strength'];
 
 const StatBar = ({ label, value, color }: { label: string; value: number; color: string }) => (
   <div className="fighter-stat-row">
@@ -32,7 +32,7 @@ const StatBar = ({ label, value, color }: { label: string; value: number; color:
 const FightersPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeStyle, setActiveStyle] = useState('all');
-  const [activeStance, setActiveStance] = useState('All Stances');
+  const [activeStance, setActiveStance] = useState('All Goals');
 
   const filtered = useMemo(() => {
     return fighters.filter(f => {
@@ -41,7 +41,9 @@ const FightersPage = () => {
         f.nickname.toLowerCase().includes(searchQuery.toLowerCase()) ||
         f.style.toLowerCase().includes(searchQuery.toLowerCase());
       const matchesStyle = activeStyle === 'all' || f.styleTags.includes(activeStyle);
-      const matchesStance = activeStance === 'All Stances' || f.stance === activeStance;
+      const matchesStance = activeStance === 'All Goals' ||
+        (activeStance === 'Endurance' && f.stance === 'orthodox') ||
+        (activeStance === 'Strength' && f.stance === 'southpaw');
       return matchesSearch && matchesStyle && matchesStance;
     });
   }, [searchQuery, activeStyle, activeStance]);
@@ -92,14 +94,14 @@ const FightersPage = () => {
               className={`pill ${activeStance === s ? 'active' : ''}`}
               onClick={() => setActiveStance(s)}
             >
-              {s === 'All Stances' ? s : s.charAt(0).toUpperCase() + s.slice(1)}
+              {s}
             </button>
           ))}
         </div>
       </div>
 
       <div className="fighters-results-bar">
-        <span>{filtered.length} fighter{filtered.length !== 1 ? 's' : ''}</span>
+        <span>{filtered.length} athlete{filtered.length !== 1 ? 's' : ''}</span>
       </div>
 
       <div className="fighters-grid">
@@ -112,7 +114,7 @@ const FightersPage = () => {
                   <span className="fighter-card__nickname">&ldquo;{fighter.nickname}&rdquo;</span>
                 </div>
                 <span className={`fighter-card__stance ${fighter.stance}`}>
-                  🥊 {fighter.stance}
+                  {fighter.stance === 'orthodox' ? '🏃 Endurance' : '💪 Strength'}
                 </span>
               </div>
 

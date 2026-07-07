@@ -94,15 +94,19 @@ export default function PixelFighterCanvas({
     const headgearGear = customization?.equippedGear?.headgear;
     const glovesGear = customization?.equippedGear?.gloves;
 
-    const hasAppleHat = headgearGear === 'apple-hat' || headgearGear === 'headgear-red';
-    const hasGlovesGear = glovesGear === 'broccoli-shield' || glovesGear === 'banana-sword' || glovesGear === 'gloves-red';
+    const hasHeadgearGear = headgearGear === 'apple-hat' || headgearGear === 'mushroom-cap' || headgearGear === 'headgear-red';
+    const hasGlovesGear = glovesGear === 'broccoli-shield' || glovesGear === 'banana-sword' || glovesGear === 'carrot-sword' || glovesGear === 'watermelon-shield' || glovesGear === 'gloves-red';
 
-    if (hasAppleHat) {
-      hatImg.src = `/fighters/apple_hat_${stage}_${gender}${animName}.png?v=3`;
+    if (hasHeadgearGear) {
+      const gearPrefix = headgearGear === 'mushroom-cap' ? 'mushroom-cap' : 
+                         headgearGear === 'headgear-red' ? 'headgear-red' : 'apple_hat';
+      hatImg.src = `/fighters/${gearPrefix}_${stage}_${gender}${animName}.png?v=3`;
       hatImageRef.current = hatImg;
     }
     if (hasGlovesGear) {
-      const gearPrefix = glovesGear === 'banana-sword' ? 'banana-sword' : 'broccoli_shield';
+      const gearPrefix = glovesGear === 'banana-sword' ? 'banana-sword' : 
+                         glovesGear === 'carrot-sword' ? 'carrot-sword' : 
+                         glovesGear === 'watermelon-shield' ? 'watermelon-shield' : 'broccoli_shield';
       shieldImg.src = `/fighters/${gearPrefix}_${stage}_${gender}${animName}.png?v=3`;
       shieldImageRef.current = shieldImg;
     }
@@ -111,7 +115,7 @@ export default function PixelFighterCanvas({
       new Promise((resolve) => { charImg.onload = resolve; charImg.onerror = resolve; })
     ];
 
-    if (hasAppleHat) {
+    if (hasHeadgearGear) {
       promises.push(new Promise((resolve) => { hatImg.onload = resolve; hatImg.onerror = resolve; }));
     }
     if (hasGlovesGear) {

@@ -9,6 +9,7 @@ import {
   TOP_COLORS,
   type FighterCustomization
 } from '@/data/fighterSprites';
+import { playLevelUpSound } from '@/utils/retroSound';
 import './PixelFighterCanvas.css';
 
 interface PixelFighterCanvasProps {
@@ -26,6 +27,29 @@ function getGrowthStage(rankName: string): 'stage1' | 'stage2' | 'stage3' {
   return 'stage3'; // Champion & Hall of Famer
 }
 
+// Module-level spritesheet cache: each sheet is fetched and decoded once, then
+// reused across all canvases and animation transitions. Prevents the blank
+// flash caused by creating a fresh Image() on every anim/gear change.
+const sheetCache = new Map<string, HTMLImageElement>();
+
+function loadSheet(src: string): Promise<HTMLImageElement> {
+  const cached = sheetCache.get(src);
+  if (cached) {
+    if (cached.complete) return Promise.resolve(cached);
+    return new Promise((resolve) => {
+      cached.addEventListener('load', () => resolve(cached), { once: true });
+      cached.addEventListener('error', () => resolve(cached), { once: true });
+    });
+  }
+  const img = new Image();
+  sheetCache.set(src, img);
+  return new Promise((resolve) => {
+    img.onload = () => resolve(img);
+    img.onerror = () => resolve(img);
+    img.src = src;
+  });
+}
+
 export default function PixelFighterCanvas({
   rankName,
   size = 'md',
@@ -37,7 +61,8 @@ export default function PixelFighterCanvas({
   // Dynamic state to temporarily play 'eating' animation when triggered by event
   const [activeAnim, setActiveAnim] = useState<'idle' | 'eating' | 'levelup' | 'none'>('idle');
   const [frameIndex, setFrameIndex] = useState(0);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
+  // Bumped each time a new set of sheets finishes loading; triggers a redraw.
+  const [sheetVersion, setSheetVersion] = useState(0);
 
   // References to loaded Image objects
   const charImageRef = useRef<HTMLImageElement | null>(null);
@@ -74,63 +99,61 @@ export default function PixelFighterCanvas({
     return () => window.removeEventListener('foodwiki:meal-logged', handleMealLogged);
   }, [animation]);
 
-  // 2. Load spritesheets when stage or animation changes
+  // Retro fanfare SFX whenever the level-up animation starts
   useEffect(() => {
-    setImagesLoaded(false);
-    
-    const charImg = new Image();
-    const hatImg = new Image();
-    const shieldImg = new Image();
+    if (activeAnim === 'levelup') {
+      playLevelUpSound();
+    }
+  }, [activeAnim]);
 
-    charImageRef.current = charImg;
-    hatImageRef.current = null;
-    shieldImageRef.current = null;
+  // 2. Resolve spritesheet URLs for the current stage / anim / gear
+  const gender = customization?.bodyType === 'female' ? 'female_' : '';
+  const animName = activeAnim === 'none' ? 'idle' : activeAnim;
+  const charSrc = `/fighters/${stage}_${gender}${animName}.png?v=4`;
 
-    const gender = customization?.bodyType === 'female' ? 'female_' : '';
-    const animName = activeAnim === 'none' ? 'idle' : activeAnim;
-    charImg.src = `/fighters/${stage}_${gender}${animName}.png?v=3`;
+  const headgearGear = customization?.equippedGear?.headgear;
+  const glovesGear = customization?.equippedGear?.gloves;
 
-    // Determine equippable items
-    const headgearGear = customization?.equippedGear?.headgear;
-    const glovesGear = customization?.equippedGear?.gloves;
+  const hasHeadgearGear = headgearGear === 'apple-hat' || headgearGear === 'mushroom-cap' || headgearGear === 'headgear-red';
+  const hasGlovesGear = glovesGear === 'broccoli-shield' || glovesGear === 'banana-sword' || glovesGear === 'carrot-sword' || glovesGear === 'watermelon-shield' || glovesGear === 'gloves-red';
 
-    const hasHeadgearGear = headgearGear === 'apple-hat' || headgearGear === 'mushroom-cap' || headgearGear === 'headgear-red';
-    const hasGlovesGear = glovesGear === 'broccoli-shield' || glovesGear === 'banana-sword' || glovesGear === 'carrot-sword' || glovesGear === 'watermelon-shield' || glovesGear === 'gloves-red';
+  const hatPrefix = headgearGear === 'mushroom-cap' ? 'mushroom-cap' :
+                    headgearGear === 'headgear-red' ? 'headgear-red' : 'apple_hat';
+  const shieldPrefix = glovesGear === 'banana-sword' ? 'banana-sword' :
+                       glovesGear === 'carrot-sword' ? 'carrot-sword' :
+                       glovesGear === 'watermelon-shield' ? 'watermelon-shield' : 'broccoli_shield';
 
-    if (hasHeadgearGear) {
-      const gearPrefix = headgearGear === 'mushroom-cap' ? 'mushroom-cap' : 
-                         headgearGear === 'headgear-red' ? 'headgear-red' : 'apple_hat';
-      hatImg.src = `/fighters/${gearPrefix}_${stage}_${gender}${animName}.png?v=3`;
+  const hatSrc = hasHeadgearGear ? `/fighters/${hatPrefix}_${stage}_${gender}${animName}.png?v=4` : null;
+  const shieldSrc = hasGlovesGear ? `/fighters/${shieldPrefix}_${stage}_${gender}${animName}.png?v=4` : null;
+
+  // Load sheets (cached), then swap all refs atomically once everything is
+  // ready. The previous sheets keep rendering until then, so transitions never
+  // flash a blank canvas.
+  useEffect(() => {
+    let cancelled = false;
+
+    Promise.all([
+      loadSheet(charSrc),
+      hatSrc ? loadSheet(hatSrc) : Promise.resolve(null),
+      shieldSrc ? loadSheet(shieldSrc) : Promise.resolve(null),
+    ]).then(([charImg, hatImg, shieldImg]) => {
+      if (cancelled) return;
+      charImageRef.current = charImg;
       hatImageRef.current = hatImg;
-    }
-    if (hasGlovesGear) {
-      const gearPrefix = glovesGear === 'banana-sword' ? 'banana-sword' : 
-                         glovesGear === 'carrot-sword' ? 'carrot-sword' : 
-                         glovesGear === 'watermelon-shield' ? 'watermelon-shield' : 'broccoli_shield';
-      shieldImg.src = `/fighters/${gearPrefix}_${stage}_${gender}${animName}.png?v=3`;
       shieldImageRef.current = shieldImg;
-    }
-
-    const promises = [
-      new Promise((resolve) => { charImg.onload = resolve; charImg.onerror = resolve; })
-    ];
-
-    if (hasHeadgearGear) {
-      promises.push(new Promise((resolve) => { hatImg.onload = resolve; hatImg.onerror = resolve; }));
-    }
-    if (hasGlovesGear) {
-      promises.push(new Promise((resolve) => { shieldImg.onload = resolve; shieldImg.onerror = resolve; }));
-    }
-
-    Promise.all(promises).then(() => {
-      setImagesLoaded(true);
+      setSheetVersion((v) => v + 1);
     });
-  }, [stage, activeAnim, customization?.equippedGear, customization?.bodyType]);
+
+    return () => { cancelled = true; };
+  }, [charSrc, hatSrc, shieldSrc]);
 
   // 3. Animation frame loops
   useEffect(() => {
+    // Always restart from frame 0 — carrying an index over from a longer
+    // animation (idle: 10 frames) into a shorter one (eating: 8 frames) would
+    // sample past the sheet edge and draw nothing.
+    setFrameIndex(0);
     if (activeAnim === 'none') {
-      setFrameIndex(0);
       return;
     }
 
@@ -147,7 +170,12 @@ export default function PixelFighterCanvas({
   // 4. Render loop on canvas
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas || !imagesLoaded) return;
+    if (!canvas) return;
+
+    // Never wipe the canvas without a complete sheet to draw — keep showing
+    // the previous frame instead of flashing blank.
+    const charImage = charImageRef.current;
+    if (!charImage || !charImage.complete || charImage.naturalWidth === 0) return;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -162,16 +190,17 @@ export default function PixelFighterCanvas({
     offCtx.imageSmoothingEnabled = false;
 
     const frameSize = 256;
-    const sx = frameIndex * frameSize;
+    // Clamp to the sheet's actual frame count in case the frame index is
+    // briefly ahead of a freshly swapped shorter sheet.
+    const framesInSheet = Math.max(1, Math.floor(charImage.naturalWidth / frameSize));
+    const sx = (frameIndex % framesInSheet) * frameSize;
 
     // 2. Draw Character base layer to offscreen buffer
-    if (charImageRef.current && charImageRef.current.complete) {
-      offCtx.drawImage(
-        charImageRef.current,
-        sx, 0, frameSize, frameSize,
-        0, 0, canvasSize, canvasSize
-      );
-    }
+    offCtx.drawImage(
+      charImage,
+      sx, 0, frameSize, frameSize,
+      0, 0, canvasSize, canvasSize
+    );
 
     // 3. Apply dynamic palette swap recoloring on the offscreen buffer
     if (customization) {
@@ -270,8 +299,8 @@ export default function PixelFighterCanvas({
       }
     }
 
-    // 4. Draw Apple Hat overlay layer to offscreen buffer
-    if (hatImageRef.current && hatImageRef.current.complete) {
+    // 4. Draw headgear overlay layer to offscreen buffer
+    if (hatImageRef.current && hatImageRef.current.complete && hatImageRef.current.naturalWidth > 0) {
       offCtx.drawImage(
         hatImageRef.current,
         sx, 0, frameSize, frameSize,
@@ -279,8 +308,8 @@ export default function PixelFighterCanvas({
       );
     }
 
-    // 5. Draw Broccoli Shield overlay layer to offscreen buffer
-    if (shieldImageRef.current && shieldImageRef.current.complete) {
+    // 5. Draw gloves/weapon overlay layer to offscreen buffer
+    if (shieldImageRef.current && shieldImageRef.current.complete && shieldImageRef.current.naturalWidth > 0) {
       offCtx.drawImage(
         shieldImageRef.current,
         sx, 0, frameSize, frameSize,
@@ -291,7 +320,7 @@ export default function PixelFighterCanvas({
     // 6. Copy the finalized offscreen buffer to the visible canvas atomically
     ctx.clearRect(0, 0, canvasSize, canvasSize);
     ctx.drawImage(offscreen, 0, 0);
-  }, [frameIndex, imagesLoaded, canvasSize, customization]);
+  }, [frameIndex, sheetVersion, canvasSize, customization]);
 
   return (
     <div 

@@ -24,6 +24,7 @@ import { getNewlyUnlockedBadges, type Badge } from '@/utils/badges';
 import { isAuthenticated, setAuthenticated } from '@/utils/authState';
 import { useUser } from '@clerk/nextjs';
 import { incrementChallengeProgress } from '@/data/weeklyChallenges';
+import { initTamagotchiStore } from '@/lib/tamagotchiState';
 
 interface FighterProfileContextValue {
   profile: FighterProfile;
@@ -61,6 +62,13 @@ export function FighterProfileProvider({ children }: { children: React.ReactNode
   const [badgeUnlockEvent, setBadgeUnlockEvent] = useState<Badge | null>(null);
   const initializedRef = useRef(false);
   const { isSignedIn } = useUser();
+
+  // Install the tamagotchi store's window-level listeners app-wide, so
+  // logging a meal/workout feeds the avatar even when the Virtual Gym
+  // component isn't mounted (user is on another page).
+  useEffect(() => {
+    initTamagotchiStore();
+  }, []);
 
   // Load the profile (and check the Night Owl badge window) on mount
   useEffect(() => {

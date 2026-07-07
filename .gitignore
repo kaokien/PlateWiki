@@ -33,3 +33,7 @@ ScreenRecording*
 
 # clerk configuration (can include secrets)
 /.clerk/
+
+# build + local dev artifacts
+/tsconfig.tsbuildinfo
+/.claude/

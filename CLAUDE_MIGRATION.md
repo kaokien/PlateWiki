@@ -47,11 +47,20 @@ We generated and fully imported the following custom gear assets (available in `
 
 ---
 
+## 🌱 2.5 Pixel Forest Garden (July 2026)
+
+The emoji plants were replaced with a canvas pixel-art garden system:
+
+* **Sprite library** ([forestSprites.ts](file:///src/lib/forestSprites.ts)): hand-authored pixel matrices for 6 species (pine, apple tree, berry bush, flower, herb/carrot patch, mushrooms), each with 5 growth stages (soil → sprout → young → mature → flourishing) plus withered variants, ambient decor (grass tufts, rock, stump), and a pixel food apple. Colors are sampled from `forest_bg.png` so everything sits in-palette; sprites get an automatic 1px dark outline for readability against the busy background.
+* **Garden state** ([gardenState.ts](file:///src/lib/gardenState.ts)): 6 persistent plots in `localStorage['FoodWiki_tamagotchi_garden']`. Logging a meal grows the garden +10 (workouts +8), distributed to the least-grown plots first. When the health score drops below 50 the garden loses growth over time (including offline decay); below 25 mature plants render as withered husks.
+* **Renderer** ([ForestGarden.tsx](file:///src/components/ForestGarden.tsx)): two stacked canvases at half CSS resolution upscaled with `image-rendering: pixelated` — a back layer behind the avatar and a front layer (foreground herb patch + mushrooms) the character walks behind for depth. Includes wind sway on mature plants, pixel shadows, and a depth vignette. Sprites are rasterized once into an offscreen cache.
+* **Dev harness**: `/dev/gym` renders the Virtual Gym without the Clerk auth gate (404s in production). Manipulate `FoodWiki_tamagotchi_gym` / `FoodWiki_tamagotchi_garden` in localStorage and dispatch `foodwiki:meal-logged` / `foodwiki:workout-logged` to preview states.
+
 ## 🔧 3. Tightening Up & Next Steps (Your TODO List)
 
-1. **State Synchronization on Transitions**:
-   * Currently, the Virtual Gym's Nourishment and Fitness levels decay in React state and save to local storage. 
-   * Make sure that logging a meal in the Food Tracker instantly triggers the eating animation in the Virtual Gym viewport even if the user is on a different tab, by standardizing on a global state/event model.
+1. ✅ **State Synchronization on Transitions** (done July 2026):
+   * Gym stats + garden now live in a shared store ([tamagotchiState.ts](file:///src/lib/tamagotchiState.ts)) that applies `foodwiki:meal-logged` / `foodwiki:workout-logged` effects, offline catch-up, and the 15-minute decay tick directly to localStorage — installed app-wide from `FighterProfileProvider`, so logging feeds the avatar even when the Virtual Gym isn't mounted.
+   * `VirtualGym` renders from the store via `useSyncExternalStore` and keeps only scene choreography (walking, food spawn, float text) in its own event listeners. Other tabs stay in sync through the `storage` event.
 2. **Manual Sleep Override**:
    * The sleep cycle is bound to system clock time (`10 PM to 6 AM`). When sleeping, the background goes dark, Zzz particles float, and energy restores.
    * For testing, implement a "Send to Sleep" manual toggle or button in the customizing panel so developers can verify nighttime filters instantly.

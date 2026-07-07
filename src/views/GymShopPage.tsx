@@ -7,6 +7,7 @@ import { useFighterProfile } from '@/context/FighterProfileContext';
 import { useFighterCustomization } from '@/hooks/useFighterCustomization';
 import { SHOP_ITEMS, type ShopItem, type ShopItemCategory } from '@/data/shopItems';
 import { getRankForXP, RANK_TIERS } from '@/utils/fighterProfile';
+import { playPurchaseSound } from '@/utils/retroSound';
 import './GymShopPage.css';
 
 export default function GymShopPage() {
@@ -51,6 +52,7 @@ export default function GymShopPage() {
 
     const success = purchaseItem(item);
     if (success) {
+      playPurchaseSound();
       setSuccessMsg(`Successfully purchased ${item.name}!`);
       setTimeout(() => setSuccessMsg(null), 3000);
     } else {

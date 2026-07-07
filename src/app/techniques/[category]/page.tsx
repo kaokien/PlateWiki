@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: meta.title,
     description: meta.description,
     alternates: {
-      canonical: `https://FoodWiki.org/techniques/${category}`,
+      canonical: `https://PlateWiki.org/techniques/${category}`,
     },
     openGraph: {
       title: meta.title,

@@ -5,7 +5,7 @@ import { safeStorage } from './safeStorage';
 // browser autoplay policies, so initRetroSound() attaches one-time gesture
 // listeners that unlock it; play calls before unlock are silently dropped.
 
-const MUTE_STORAGE_KEY = 'FoodWiki_sound_muted';
+const MUTE_STORAGE_KEY = 'PlateWiki_sound_muted';
 const MASTER_VOLUME = 0.14;
 
 let audioCtx: AudioContext | null = null;

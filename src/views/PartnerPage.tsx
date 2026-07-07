@@ -71,7 +71,7 @@ const WHY_CARDS = [
   },
   {
     icon: BarChart3,
-    title: 'FoodWiki Platform',
+    title: 'PlateWiki Platform',
     desc: `${TECHNIQUE_COUNT} technique pages with built-in SEO, organic search traffic, and native ad placements across every page.`,
     color: '#5ac8fa',
   },
@@ -118,7 +118,7 @@ const TIERS = [
     price: '$250',
     period: '/mo',
     features: [
-      'Logo placement on FoodWiki sidebar',
+      'Logo placement on PlateWiki sidebar',
       '1 sponsored technique page per month',
       'Monthly impression report',
       'Brand mention in newsletter',
@@ -150,7 +150,7 @@ const TIERS = [
       'Whitelisting & paid media access',
       'Event coverage & ringside content',
       'Dedicated account management',
-      'Custom integration on FoodWiki',
+      'Custom integration on PlateWiki',
     ],
     cta: 'Let\'s Talk',
     highlight: false,
@@ -172,8 +172,8 @@ const FAQ_ITEMS = [
     a: 'Yes. While recurring partnerships deliver the best ROI, we offer single-campaign packages starting at $500 for brands testing the waters.',
   },
   {
-    q: 'How is FoodWiki different from a social media sponsorship?',
-    a: 'FoodWiki pages rank on Google and drive organic traffic 24/7. A sponsored technique page continues generating impressions long after a social post disappears from feeds. You get both the social reach AND evergreen search visibility.',
+    q: 'How is PlateWiki different from a social media sponsorship?',
+    a: 'PlateWiki pages rank on Google and drive organic traffic 24/7. A sponsored technique page continues generating impressions long after a social post disappears from feeds. You get both the social reach AND evergreen search visibility.',
   },
   {
     q: 'Do you disclose paid partnerships?',
@@ -220,15 +220,15 @@ const PartnerPage = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const contactEmail = 'coachjoshofficial@playersclubllc.com';
-  const mailtoLink = `mailto:${contactEmail}?subject=Partnership%20Inquiry%20-%20FoodWiki`;
+  const mailtoLink = `mailto:${contactEmail}?subject=Partnership%20Inquiry%20-%20PlateWiki`;
 
   // JSON-LD for Organization
   const orgSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'FoodWiki',
-    url: 'https://FoodWiki.org',
-    description: 'Partner with FoodWiki to reach a highly engaged combat sports and fitness audience.',
+    name: 'PlateWiki',
+    url: 'https://PlateWiki.org',
+    description: 'Partner with PlateWiki to reach a highly engaged combat sports and fitness audience.',
     contactPoint: {
       '@type': 'ContactPoint',
       email: contactEmail,
@@ -249,7 +249,7 @@ const PartnerPage = () => {
             <span className="text-primary">Hard-Hitting Results.</span>
           </h1>
           <p className="partner-hero-sub">
-            Partner with FoodWiki to get your brand in front of a highly engaged,
+            Partner with PlateWiki to get your brand in front of a highly engaged,
             action-taking combat sports and fitness audience.
           </p>
           <div className="partner-hero-ctas">
@@ -272,9 +272,9 @@ const PartnerPage = () => {
 
       {/* ── MISSION QUOTE ── */}
       <section className="partner-mission">
-        <h2>The <span className="text-primary">FoodWiki</span> Advantage</h2>
+        <h2>The <span className="text-primary">PlateWiki</span> Advantage</h2>
         <p className="mission-body">
-          FoodWiki isn't just another social media page. It's a search-indexed platform with {TECHNIQUE_COUNT} technique pages
+          PlateWiki isn't just another social media page. It's a search-indexed platform with {TECHNIQUE_COUNT} technique pages
           that drive organic traffic 24/7. When you partner with us, your brand gets embedded into the training
           experience — not sandwiched between cat videos.
         </p>

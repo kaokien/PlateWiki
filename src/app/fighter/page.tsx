@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
-const SITE_URL = 'https://FoodWiki.org';
+import { SITE_URL } from '@/utils/config';
 
 export const metadata: Metadata = {
-  title: 'Your Fighter — FoodWiki',
+  title: 'Your Fighter — PlateWiki',
   description:
     'Watch your pixel fighter evolve as you train. Earn XP, rank up, and unlock new evolution stages from Prospect to Hall of Famer.',
   robots: { index: true, follow: true },
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: `${SITE_URL}/fighter`,
   },
   openGraph: {
-    title: 'Your Fighter — FoodWiki',
+    title: 'Your Fighter — PlateWiki',
     description:
       'Watch your pixel fighter evolve as you train. Earn XP, rank up, and unlock new evolution stages.',
     images: [{ url: '/og-image.png' }],

@@ -48,7 +48,7 @@ export async function generateMetadata({
     title: meta.title,
     description: meta.description,
     alternates: {
-      canonical: `https://FoodWiki.org/fighters/${id}`,
+      canonical: `https://PlateWiki.org/fighters/${id}`,
     },
   };
 }

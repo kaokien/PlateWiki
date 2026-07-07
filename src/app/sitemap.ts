@@ -6,7 +6,7 @@ import { programs } from '@/data/programs';
 import { exercises, muscleGroupWorkouts, goalWorkouts } from '@/data/exercises';
 import { getArticlesList } from '@/utils/contentLoader';
 
-const SITE_URL = 'https://FoodWiki.org';
+import { SITE_URL } from '@/utils/config';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();

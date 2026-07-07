@@ -79,7 +79,7 @@ const PricingPage = () => {
 {/* Hero */}
       <div className="pricing-hero">
         <div className="pricing-badge">
-          <Crown size={14} /> FoodWiki PRO
+          <Crown size={14} /> PlateWiki PRO
         </div>
         <h1>Train smarter. <span className="text-primary">Hit harder.</span></h1>
         <p className="pricing-subtitle">
@@ -94,7 +94,7 @@ const PricingPage = () => {
           <span>
             {tier === 'trial'
               ? `You're on a free trial — ${trialDaysLeft} days left`
-              : 'You have FoodWiki Pro'
+              : 'You have PlateWiki Pro'
             }
           </span>
         </div>

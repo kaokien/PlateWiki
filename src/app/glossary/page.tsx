@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Boxing Glossary — 100+ Terms Defined',
   description: 'Complete A-Z boxing glossary covering technique, rules, scoring, equipment, slang, and conditioning terminology. From jab to uppercut, every term explained.',
   alternates: {
-    canonical: 'https://FoodWiki.org/glossary',
+    canonical: 'https://PlateWiki.org/glossary',
   },
 };
 

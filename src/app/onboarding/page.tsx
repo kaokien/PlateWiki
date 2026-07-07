@@ -92,7 +92,7 @@ export default function OnboardingPage() {
 
       {/* Top Header */}
       <div className="ob-navbar">
-        <span className="ob-brand">FoodWiki</span>
+        <span className="ob-brand">PlateWiki</span>
         <div className="ob-progress-indicator">
           <div className="ob-progress-bar">
             <div className="ob-progress-fill" style={{ width: `${(step / 4) * 100}%` }} />

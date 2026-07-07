@@ -1,6 +1,6 @@
 // tamagotchiState.ts — Shared store for the tamagotchi gym + garden state.
 //
-// Logging events ('foodwiki:meal-logged' / 'foodwiki:workout-logged') are
+// Logging events ('platewiki:meal-logged' / 'platewiki:workout-logged') are
 // applied to localStorage here, at the window level, so the avatar's stats and
 // garden update even when the Virtual Gym component isn't mounted. VirtualGym
 // renders from this store via useSyncExternalStore; other tabs stay in sync
@@ -17,7 +17,7 @@ import {
   type PlantPlot,
 } from './gardenState';
 
-export const GYM_STORAGE_KEY = 'FoodWiki_tamagotchi_gym';
+export const GYM_STORAGE_KEY = 'PlateWiki_tamagotchi_gym';
 
 interface GymStats {
   nourishment: number;
@@ -49,7 +49,7 @@ let installed = false;
 
 // Nighttime window (10 PM – 6 AM): the avatar sleeps and energy recovers.
 export function isNighttime(): boolean {
-  if (typeof window !== 'undefined' && localStorage.getItem('FoodWiki_manual_sleep') === 'true') {
+  if (typeof window !== 'undefined' && localStorage.getItem('PlateWiki_manual_sleep') === 'true') {
     return true;
   }
   const hour = new Date().getHours();
@@ -162,8 +162,8 @@ export function initTamagotchiStore(): void {
 
   applyOfflineCatchUp();
 
-  window.addEventListener('foodwiki:meal-logged', applyMealLogged);
-  window.addEventListener('foodwiki:workout-logged', applyWorkoutLogged);
+  window.addEventListener('platewiki:meal-logged', applyMealLogged);
+  window.addEventListener('platewiki:workout-logged', applyWorkoutLogged);
 
   // Cross-tab sync: another tab wrote gym/garden state — re-read and re-render.
   window.addEventListener('storage', (e: StorageEvent) => {

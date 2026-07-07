@@ -8,10 +8,10 @@
 import { isAuthenticated } from './authState';
 
 const KEYS = {
-  FAVORITES: 'FoodWiki_favorites',
-  RECENTLY_VIEWED: 'FoodWiki_recently_viewed',
-  TRAINING_PLAN: 'FoodWiki_training_plan',
-  HISTORY: 'FoodWiki_history',
+  FAVORITES: 'PlateWiki_favorites',
+  RECENTLY_VIEWED: 'PlateWiki_recently_viewed',
+  TRAINING_PLAN: 'PlateWiki_training_plan',
+  HISTORY: 'PlateWiki_history',
 };
 
 const MAX_RECENTLY_VIEWED = 12;
@@ -162,7 +162,7 @@ export type ShoppingItem = {
   crossedOff: boolean;
 };
 
-const SHOPPING_LIST_KEY = 'FoodWiki_shopping_list';
+const SHOPPING_LIST_KEY = 'PlateWiki_shopping_list';
 
 export const getShoppingList = (): ShoppingItem[] => safeGet<ShoppingItem[]>(SHOPPING_LIST_KEY, []);
 

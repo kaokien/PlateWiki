@@ -4,7 +4,7 @@ import PricingPage from '@/views/PricingPage';
 
 export const metadata: Metadata = {
   title: 'Pro Plans & Pricing — Train Smarter, Hit Harder',
-  description: 'Unlock FoodWiki Pro for $3.99/mo — flashcard quizzes, workout tracking, training history, and an ad-free experience.',
+  description: 'Unlock PlateWiki Pro for $3.99/mo — flashcard quizzes, workout tracking, training history, and an ad-free experience.',
 };
 
 export default function Route() {

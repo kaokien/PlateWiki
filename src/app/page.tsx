@@ -5,15 +5,15 @@ import { techniques } from '@/data/techniques';
 import type { TechniqueSummary } from '@/views/HomePage';
 
 export const metadata: Metadata = {
-  title: 'FoodWiki — Sports Nutrition & Performance Fuel Library',
+  title: 'PlateWiki — Sports Nutrition & Performance Fuel Library',
   description:
     'Learn sports nutrition with step-by-step macro and superfood profiles, interactive food harvesting tools, fuel planners, and training programs. Free for athletes.',
   alternates: {
-    canonical: 'https://foodwiki.org',
+    canonical: 'https://platewiki.org',
   },
 };
 
-const SITE_URL = 'https://foodwiki.org';
+import { SITE_URL } from '@/utils/config';
 
 const CATEGORIES = [
   { name: 'Macronutrients', url: '/techniques/macronutrients' },
@@ -38,7 +38,7 @@ export default function Home() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Food Wiki Categories',
+    name: 'Plate Wiki Categories',
     itemListElement: CATEGORIES.map((cat, i) => ({
       '@type': 'ListItem',
       position: i + 1,
@@ -53,7 +53,7 @@ export default function Home() {
     mainEntity: [
       {
         '@type': 'Question',
-        name: 'Is FoodWiki free to use?',
+        name: 'Is PlateWiki free to use?',
         acceptedAnswer: {
           '@type': 'Answer',
           text: 'Yes. The entire sports nutrition and performance fuel library — with step-by-step nutrient profiles, synergistic combinations, and bio-boost tips — is free and always will be. We also offer interactive tools including a fasting/harvest timer and meal planner.',
@@ -69,10 +69,10 @@ export default function Home() {
       },
       {
         '@type': 'Question',
-        name: 'What makes FoodWiki different from other recipe sites?',
+        name: 'What makes PlateWiki different from other recipe sites?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'FoodWiki focuses purely on performance sports nutrition for athletic goals (endurance, strength, recovery). Each food profile includes exact biomechanical benefits, target goals, prep formats, synergistic foods (such as black pepper to boost curcumin absorption), and common preparation pitfalls to avoid.',
+          text: 'PlateWiki focuses purely on performance sports nutrition for athletic goals (endurance, strength, recovery). Each food profile includes exact biomechanical benefits, target goals, prep formats, synergistic foods (such as black pepper to boost curcumin absorption), and common preparation pitfalls to avoid.',
         },
       },
       {

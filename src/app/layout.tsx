@@ -38,12 +38,12 @@ const caveat = Caveat({
   variable: '--font-handwriting',
 });
 
-const SITE_URL = 'https://foodwiki.org';
+import { SITE_URL } from '@/utils/config';
 
 export const metadata: Metadata = {
   title: {
-    default: 'FoodWiki — Organic Nutrition & Fueling for Athletes',
-    template: '%s | FoodWiki',
+    default: 'PlateWiki — Organic Nutrition & Fueling for Athletes',
+    template: '%s | PlateWiki',
   },
   description:
     `Free interactive nutrition encyclopedia with ${TECHNIQUE_COUNT}+ foods, dietary guides, and fueling programs. Ideal for fighters, runners, and weightlifters.`,
@@ -53,15 +53,15 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: SITE_URL,
-    siteName: 'FoodWiki',
-    title: 'FoodWiki — Organic Nutrition & Fueling for Athletes',
+    siteName: 'PlateWiki',
+    title: 'PlateWiki — Organic Nutrition & Fueling for Athletes',
     description:
       `Free interactive food and nutrition encyclopedia for athletes. Learn pre-workout, post-workout, and gut-health fueling.`,
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FoodWiki — Organic Nutrition & Fueling for Athletes',
+    title: 'PlateWiki — Organic Nutrition & Fueling for Athletes',
     description:
       `Free interactive food and nutrition encyclopedia. ${TECHNIQUE_COUNT}+ foods with step-by-step prep and fueling breakdowns.`,
     images: ['/og-image.png'],
@@ -174,7 +174,7 @@ export default function RootLayout({
         {/* Theme — apply before first paint to prevent FOUC */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('foodwiki_theme');if(t==='dark'){document.documentElement.dataset.theme='dark'}}catch(e){}})()`,
+            __html: `(function(){try{var t=localStorage.getItem('platewiki_theme');if(t==='dark'){document.documentElement.dataset.theme='dark'}}catch(e){}})()`,
           }}
         />
       </head>

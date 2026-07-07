@@ -106,7 +106,7 @@ export default function FighterProfilePage() {
         const permission = await Notification.requestPermission();
         if (permission === 'granted') {
           try {
-            new Notification('FoodWiki Reminders Active! 🥊', {
+            new Notification('PlateWiki Reminders Active! 🥊', {
               body: "We'll remind you to train and keep your streak alive.",
               icon: '/favicon.svg'
             });
@@ -158,12 +158,12 @@ export default function FighterProfilePage() {
         'nutritionwiki_fighter_profile',
         'bw_onboarded',
         'bw_cookie_consent',
-        'FoodWiki_workout_stats',
-        'FoodWiki_workout_history',
-        'FoodWiki_saved_techniques',
-        'FoodWiki_streak',
-        'FoodWiki_last_visit',
-        'FoodWiki_subscription'
+        'PlateWiki_workout_stats',
+        'PlateWiki_workout_history',
+        'PlateWiki_saved_techniques',
+        'PlateWiki_streak',
+        'PlateWiki_last_visit',
+        'PlateWiki_subscription'
       ];
       const data: Record<string, string | null> = {};
       keys.forEach(k => {
@@ -173,7 +173,7 @@ export default function FighterProfilePage() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `FoodWiki_fighter_data_${profile.displayName.toLowerCase().replace(/\s+/g, '_') || 'profile'}.json`;
+      a.download = `PlateWiki_fighter_data_${profile.displayName.toLowerCase().replace(/\s+/g, '_') || 'profile'}.json`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -218,7 +218,7 @@ export default function FighterProfilePage() {
     ctx.font = 'bold 14px "Barlow Condensed", sans-serif';
     ctx.fillStyle = '#8c8c8c';
     ctx.textAlign = 'left';
-    ctx.fillText('FoodWiki ATHLETE PROFILE', 30, 40);
+    ctx.fillText('PlateWiki ATHLETE PROFILE', 30, 40);
 
     // Name
     ctx.font = 'bold 32px "Barlow Condensed", sans-serif';
@@ -300,7 +300,7 @@ export default function FighterProfilePage() {
     ctx.font = '12px Inter, sans-serif';
     ctx.fillStyle = '#8c8c8c';
     ctx.textAlign = 'right';
-    ctx.fillText('FoodWiki.org', w - 30, h - 20);
+    ctx.fillText('PlateWiki.org', w - 30, h - 20);
 
     return new Promise(resolve => {
       canvas.toBlob(blob => resolve(blob), 'image/png');
@@ -314,11 +314,11 @@ export default function FighterProfilePage() {
     // Try native share (mobile)
     if (navigator.share && navigator.canShare) {
       try {
-        const file = new File([blob], 'FoodWiki-fighter-card.png', { type: 'image/png' });
+        const file = new File([blob], 'PlateWiki-fighter-card.png', { type: 'image/png' });
         if (navigator.canShare({ files: [file] })) {
           await navigator.share({
-            title: `${profile.displayName} — ${rank.name} on FoodWiki`,
-            text: `I'm a ${rank.name} on FoodWiki with ${profile.xp} XP!`,
+            title: `${profile.displayName} — ${rank.name} on PlateWiki`,
+            text: `I'm a ${rank.name} on PlateWiki with ${profile.xp} XP!`,
             files: [file],
           });
           analytics.customEvent('fighter_card_shared', { method: 'native_share', rank: rank.name, xp: profile.xp });
@@ -339,7 +339,7 @@ export default function FighterProfilePage() {
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
 
-      const text = `My FoodWiki Fighter Stats\n  Rank: ${rank.name}\n  XP: ${profile.xp.toLocaleString()}\n  Workouts: ${profile.workoutsCompleted}\n  Streak: ${streak} days\n  Style: ${fightingStyle}\n  FoodWiki.org`;
+      const text = `My PlateWiki Fighter Stats\n  Rank: ${rank.name}\n  XP: ${profile.xp.toLocaleString()}\n  Workouts: ${profile.workoutsCompleted}\n  Streak: ${streak} days\n  Style: ${fightingStyle}\n  PlateWiki.org`;
       await navigator.clipboard.writeText(text);
       setShareState('copied');
       setTimeout(() => setShareState('idle'), 2000);

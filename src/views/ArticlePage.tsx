@@ -118,7 +118,7 @@ const ArticlePage = ({ article: propArticle }: ArticlePageProps) => {
           <div className="article-hero__meta">
             <span className="article-hero__author">
               <User size={14} />
-              {article.author || 'FoodWiki Editorial'}
+              {article.author || 'PlateWiki Editorial'}
             </span>
             <span className="article-hero__divider">·</span>
             <span className="article-hero__date">

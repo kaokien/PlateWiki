@@ -40,7 +40,7 @@ const PrivacyPage = () => {
 
         <h2>3. Cookie Consent & Google Consent Mode v2</h2>
         <p>
-          We respect your privacy choice. FoodWiki has implemented <strong>Google Consent Mode v2</strong>.
+          We respect your privacy choice. PlateWiki has implemented <strong>Google Consent Mode v2</strong>.
           By default, all analytics and advertising cookies are blocked until you click "Accept" on our cookie consent banner.
           If you decline, Google Analytics is disabled, and ad services operate in a restricted, non-personalized manner. You can reset your choice at any time by clearing your browser cache.
         </p>
@@ -57,7 +57,7 @@ const PrivacyPage = () => {
 
         <h2>5. Children's Privacy (Age Limits)</h2>
         <p>
-          FoodWiki is suitable for users of all ages. However, minors under the age of 13 must use this training resource under parental or guardian supervision. 
+          PlateWiki is suitable for users of all ages. However, minors under the age of 13 must use this training resource under parental or guardian supervision. 
           We do not knowingly collect or store personal data of children under 13 on any remote server.
         </p>
 

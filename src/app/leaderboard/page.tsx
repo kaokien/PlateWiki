@@ -4,9 +4,9 @@ import LeaderboardPage from '@/views/LeaderboardPage';
 export const metadata: Metadata = {
   title: 'Global Leaderboard — Top Fighters by XP',
   description:
-    'The FoodWiki global leaderboard. See the top fighters ranked by training XP — earned from workouts, technique study, quizzes, and streaks.',
+    'The PlateWiki global leaderboard. See the top fighters ranked by training XP — earned from workouts, technique study, quizzes, and streaks.',
   alternates: {
-    canonical: 'https://FoodWiki.org/leaderboard',
+    canonical: 'https://PlateWiki.org/leaderboard',
   },
 };
 

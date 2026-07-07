@@ -71,7 +71,7 @@ const { customization: custom, update } = useFighterCustomization();
 const [isOpen, setIsOpen] = useState(false);
 const [manualSleep, setManualSleep] = useState(() => {
   if (typeof window !== 'undefined') {
-    return localStorage.getItem('FoodWiki_manual_sleep') === 'true';
+    return localStorage.getItem('PlateWiki_manual_sleep') === 'true';
   }
   return false;
 });
@@ -79,9 +79,9 @@ const [manualSleep, setManualSleep] = useState(() => {
 const handleToggleSleep = () => {
   const next = !manualSleep;
   setManualSleep(next);
-  localStorage.setItem('FoodWiki_manual_sleep', String(next));
+  localStorage.setItem('PlateWiki_manual_sleep', String(next));
   window.dispatchEvent(new Event('storage'));
-  window.dispatchEvent(new Event('foodwiki:sleep-toggled'));
+  window.dispatchEvent(new Event('platewiki:sleep-toggled'));
 };
 
 if (!custom) return null;

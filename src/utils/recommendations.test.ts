@@ -33,7 +33,7 @@ describe('getPersonalizedWorkout', () => {
       joinedAt: new Date().toISOString(),
       dailyAwards: {},
     };
-    store['FoodWiki_fighter_profile'] = JSON.stringify(highXPProfile);
+    store['PlateWiki_fighter_profile'] = JSON.stringify(highXPProfile);
 
     const workout = getPersonalizedWorkout();
     expect(workout.id).toBe('mexican-combo');
@@ -54,7 +54,7 @@ describe('getPersonalizedWorkout', () => {
       joinedAt: new Date().toISOString(),
       dailyAwards: {},
     };
-    store['FoodWiki_fighter_profile'] = JSON.stringify(profile);
+    store['PlateWiki_fighter_profile'] = JSON.stringify(profile);
 
     // Mock last logged workout is 'jab' (Punches category)
     const log = [
@@ -65,7 +65,7 @@ describe('getPersonalizedWorkout', () => {
         completedAt: new Date().toISOString(),
       }
     ];
-    store['FoodWiki_workout_log'] = JSON.stringify(log);
+    store['PlateWiki_workout_log'] = JSON.stringify(log);
 
     const workout = getPersonalizedWorkout();
     // Since last was Punches, it should recommend next category in list (Defense, Footwork, etc.)

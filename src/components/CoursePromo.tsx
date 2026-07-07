@@ -46,7 +46,7 @@ const CoursePromo = ({ location = 'unknown', variant = 'banner' }) => {
       <div className="promo-banner-content">
         <span className="promo-label">VIDEO COURSE</span>
         <h3>STOP DOING CARDIO KICKBOXING. <span className="text-primary">LEARN THE REAL THING.</span></h3>
-        <p>The complete fundamentals course. 4 deep-dive modules covering striking mechanics, conditioning, defense, and footwork. Featured on FoodWiki.</p>
+        <p>The complete fundamentals course. 4 deep-dive modules covering striking mechanics, conditioning, defense, and footwork. Featured on PlateWiki.</p>
         <Link href="/course" className="promo-banner-cta" onClick={handleClick}>
           <PlayCircle size={16} /> View Boxing Blueprint <ArrowRight size={14} />
         </Link>

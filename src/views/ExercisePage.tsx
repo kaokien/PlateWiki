@@ -76,7 +76,7 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
       .map((t: any) => `- ${t.name}`)
       .join('\n');
 
-    const fullText = `Shopping List for ${exercise.name}:\n${listToCopy}\n\nExported from FoodWiki`;
+    const fullText = `Shopping List for ${exercise.name}:\n${listToCopy}\n\nExported from PlateWiki`;
     navigator.clipboard.writeText(fullText).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
@@ -104,7 +104,7 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
       `Bio-Booster Tips:`,
       ...(exercise.tips as string[] || []).map(tip => `* ${tip}`),
       ``,
-      `Exported from FoodWiki.org`
+      `Exported from PlateWiki.org`
     ].join('\n');
 
     const blob = new Blob([txtContent], { type: 'text/plain;charset=utf-8;' });
@@ -130,7 +130,7 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
       `Macros: ${exercise.rest}`,
       `Prep: ${exercise.reps}`,
       ``,
-      `— FoodWiki.org`
+      `— PlateWiki.org`
     ].join('\n');
 
     if (navigator.share) {
@@ -174,7 +174,7 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
       .join(', ');
 
     const title = `Cook: ${exercise.name}`;
-    const description = `Prep meal recipe from FoodWiki. Gather: ${listToReminder}`;
+    const description = `Prep meal recipe from PlateWiki. Gather: ${listToReminder}`;
     const startDate = new Date();
     startDate.setHours(startDate.getHours() + 1); // default 1 hr from now
     const endDate = new Date(startDate);
@@ -185,9 +185,9 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
     const icsContent = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
-      'PRODID:-//FoodWiki//Meal Prep Calendar//EN',
+      'PRODID:-//PlateWiki//Meal Prep Calendar//EN',
       'BEGIN:VEVENT',
-      `UID:${Date.now()}@foodwiki.org`,
+      `UID:${Date.now()}@platewiki.org`,
       `DTSTAMP:${formatICSDate(new Date())}`,
       `DTSTART:${formatICSDate(startDate)}`,
       `DTEND:${formatICSDate(endDate)}`,

@@ -518,7 +518,7 @@ const ShadowboxTracker = ({ initialMode, initialTech }: ShadowboxTrackerProps = 
 
         const a = document.createElement('a');
         a.href = url;
-        a.download = `foodwiki-${techId}-${dateString}.${extension}`;
+        a.download = `platewiki-${techId}-${dateString}.${extension}`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -1460,7 +1460,7 @@ const ShadowboxTracker = ({ initialMode, initialTech }: ShadowboxTrackerProps = 
                   </div>
                   <div style={{ marginTop: '0.75rem', display: 'flex', justifyContent: 'center' }}>
                     <ShareButton
-                      title={`Scored ${score} on FoodWiki Shadowbox Blitz! ${accuracy}% accuracy 🥊`}
+                      title={`Scored ${score} on PlateWiki Shadowbox Blitz! ${accuracy}% accuracy 🥊`}
                       description={`${hits} hits, best streak: ${bestStreak}`}
                       url="/workout?tab=tracker"
                     />

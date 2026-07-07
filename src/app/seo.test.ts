@@ -171,7 +171,7 @@ describe('Breadcrumb schema', () => {
     ]);
     expect(schema['@type']).toBe('BreadcrumbList');
     expect(schema.itemListElement.length).toBe(2);
-    expect(schema.itemListElement[0].item).toContain('FoodWiki.org');
+    expect(schema.itemListElement[0].item).toContain('platewiki.org');
     expect(schema.itemListElement[1].item).toBeUndefined();
   });
 });

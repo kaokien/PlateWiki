@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: ProgramPageProps): Promise<Me
     description: program.shortDesc,
     robots: { index: false, follow: true },
     alternates: {
-      canonical: `https://FoodWiki.org/program/${id}`,
+      canonical: `https://PlateWiki.org/program/${id}`,
     },
   };
 }

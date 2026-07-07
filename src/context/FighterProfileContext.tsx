@@ -77,8 +77,8 @@ export function FighterProfileProvider({ children }: { children: React.ReactNode
     let nightOwlTriggered = false;
     if (hours >= 0 && hours < 4) {
       try {
-        if (!localStorage.getItem('FoodWiki_badge_night_owl')) {
-          localStorage.setItem('FoodWiki_badge_night_owl', 'true');
+        if (!localStorage.getItem('PlateWiki_badge_night_owl')) {
+          localStorage.setItem('PlateWiki_badge_night_owl', 'true');
           nightOwlTriggered = true;
         }
       } catch { /* ignore */ }
@@ -135,13 +135,13 @@ export function FighterProfileProvider({ children }: { children: React.ReactNode
       setBadgeUnlockEvent(newBadges[0]);
       try {
         finalProfile = { ...finalProfile, seenBadges: [...(finalProfile.seenBadges || []), ...newBadges.map(b => b.id)] };
-        localStorage.setItem('FoodWiki_fighter_profile', JSON.stringify(finalProfile));
+        localStorage.setItem('PlateWiki_fighter_profile', JSON.stringify(finalProfile));
       } catch { /* ignore */ }
     }
   }, [isSignedIn]);
 
   // Re-read profile + streak when cloud sync completes (pulls cloud data to
-  // localStorage — including a restored FoodWiki_streak from another device)
+  // localStorage — including a restored PlateWiki_streak from another device)
   useEffect(() => {
     const handler = () => {
       const refreshed = getProfile();
@@ -186,13 +186,13 @@ export function FighterProfileProvider({ children }: { children: React.ReactNode
 
       if (source === 'workout_complete') {
         try {
-          window.dispatchEvent(new CustomEvent('foodwiki:meal-logged'));
+          window.dispatchEvent(new CustomEvent('platewiki:meal-logged'));
         } catch (e) { /* ignore */ }
       }
 
       if (source === 'timer_session' || source === 'program_day_complete' || source === 'challenge_complete') {
         try {
-          window.dispatchEvent(new CustomEvent('foodwiki:workout-logged'));
+          window.dispatchEvent(new CustomEvent('platewiki:workout-logged'));
         } catch (e) { /* ignore */ }
       }
 
@@ -204,8 +204,8 @@ export function FighterProfileProvider({ children }: { children: React.ReactNode
       // same-session guard.
       try {
         const isFirstEverXP = result.newXP === result.xpGained;
-        if (isFirstEverXP && !safeStorage.getItem('FoodWiki_first_blood')) {
-          safeStorage.setItem('FoodWiki_first_blood', 'true');
+        if (isFirstEverXP && !safeStorage.getItem('PlateWiki_first_blood')) {
+          safeStorage.setItem('PlateWiki_first_blood', 'true');
           setFirstBloodEvent(true);
         }
       } catch { /* storage unavailable */ }
@@ -224,7 +224,7 @@ export function FighterProfileProvider({ children }: { children: React.ReactNode
           const p = getProfile();
           p.seenBadges = [...(p.seenBadges || []), ...newBadges.map(b => b.id)];
           if (isAuthenticated()) {
-            localStorage.setItem('FoodWiki_fighter_profile', JSON.stringify(p));
+            localStorage.setItem('PlateWiki_fighter_profile', JSON.stringify(p));
           }
         } catch { /* storage unavailable */ }
       }

@@ -4,7 +4,7 @@ import { getWorkoutForTechnique } from '@/data/gymWorkouts';
 import { JsonLd } from '@/components/JsonLd';
 import TechniqueWorkoutPage from '@/views/TechniqueWorkoutPage';
 
-const SITE_URL = 'https://FoodWiki.org';
+import { SITE_URL } from '@/utils/config';
 
 const techniqueMap = techniques as Record<string, any>;
 

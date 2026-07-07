@@ -7,7 +7,7 @@ import { techniques } from '@/data/techniques';
 import { JsonLd } from '@/components/JsonLd';
 import './GlossaryTermPage.css';
 
-const SITE_URL = 'https://FoodWiki.org';
+import { SITE_URL } from '@/utils/config';
 
 // Pre-render every glossary term at build time
 export async function generateStaticParams() {
@@ -22,7 +22,7 @@ export async function generateMetadata({
   const { term: slug } = await params;
   const entry = getGlossaryBySlug(slug);
   if (!entry) {
-    return { title: 'Term Not Found | FoodWiki Glossary' };
+    return { title: 'Term Not Found | PlateWiki Glossary' };
   }
   return {
     title: `${entry.term} — Boxing Glossary`,
@@ -32,7 +32,7 @@ export async function generateMetadata({
       canonical: `${SITE_URL}/glossary/${slug}`,
     },
     openGraph: {
-      title: `${entry.term} — FoodWiki Glossary`,
+      title: `${entry.term} — PlateWiki Glossary`,
       description: entry.definition,
       url: `${SITE_URL}/glossary/${slug}`,
       images: [{ url: '/og-image.png' }],
@@ -73,7 +73,7 @@ export default async function GlossaryTermRoute({
     description: entry.definition,
     inDefinedTermSet: {
       '@type': 'DefinedTermSet',
-      name: 'FoodWiki Glossary',
+      name: 'PlateWiki Glossary',
       url: `${SITE_URL}/glossary`,
     },
   };

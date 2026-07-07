@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Merch | FoodWiki',
-  description: 'Official FoodWiki merchandise. Premium kitchen gear and wellness merch for athletes and food lovers.',
+  title: 'Merch | PlateWiki',
+  description: 'Official PlateWiki merchandise. Premium kitchen gear and wellness merch for athletes and food lovers.',
   robots: { index: false, follow: false },
 };
 

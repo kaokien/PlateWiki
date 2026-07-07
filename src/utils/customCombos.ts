@@ -10,7 +10,7 @@
 import type { Combo, ComboStep } from '@/data/combos';
 import { safeStorage } from './safeStorage';
 
-const STORAGE_KEY = 'FoodWiki_custom_combos';
+const STORAGE_KEY = 'PlateWiki_custom_combos';
 
 export const MAX_CUSTOM_COMBOS = 20;
 export const MAX_STEPS = 8;

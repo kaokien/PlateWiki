@@ -1,4 +1,4 @@
-const SITE_URL = 'https://FoodWiki.org';
+import { SITE_URL } from '@/utils/config';
 
 export const revalidate = 3600;
 
@@ -58,9 +58,9 @@ export async function GET() {
   const feed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>FoodWiki Articles</title>
+    <title>PlateWiki Articles</title>
     <link>${SITE_URL}/articles</link>
-    <description>Expert nutrition guides, training tips, and fighter analysis from FoodWiki.</description>
+    <description>Expert nutrition guides, training tips, and fighter analysis from PlateWiki.</description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${SITE_URL}/feed.xml" rel="self" type="application/rss+xml" />

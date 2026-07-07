@@ -15,7 +15,7 @@ interface StoredDailyReward {
   currentDay: number;
 }
 
-const STORAGE_KEY = 'FoodWiki_daily_reward';
+const STORAGE_KEY = 'PlateWiki_daily_reward';
 
 function readStored(): StoredDailyReward {
   try {

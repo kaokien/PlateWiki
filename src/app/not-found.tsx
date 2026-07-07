@@ -37,7 +37,7 @@ export default function NotFound() {
           textDecoration: 'none',
         }}
       >
-        Back to FoodWiki
+        Back to PlateWiki
       </Link>
     </div>
   );

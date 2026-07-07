@@ -1,5 +1,5 @@
 /**
- * Analytics layer for FoodWiki
+ * Analytics layer for PlateWiki
  * 
  * Supports GA4 out of the box, with a clean API that can be
  * swapped to Plausible, PostHog, or any other provider.

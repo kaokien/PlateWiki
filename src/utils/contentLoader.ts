@@ -208,7 +208,7 @@ export async function getArticle(id: string): Promise<Article | null> {
       tags: data.tags || [],
       date: articleDate,
       dateModified: data.dateModified,
-      author: data.author || 'FoodWiki Editorial',
+      author: data.author || 'PlateWiki Editorial',
       readTime: data.readTime || '5 min',
       heroImage: data.heroImage,
       youtubeId: data.youtubeId,

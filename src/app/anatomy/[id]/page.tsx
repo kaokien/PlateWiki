@@ -4,7 +4,7 @@ import type { BodyPart, Technique } from '@/data/techniques';
 import { JsonLd } from '@/components/JsonLd';
 import AnatomyPage from '@/views/AnatomyPage';
 
-const SITE_URL = 'https://FoodWiki.org';
+import { SITE_URL } from '@/utils/config';
 
 const bodyPartMap = bodyParts as Record<string, BodyPart>;
 const techniqueMap = techniques as Record<string, Technique>;

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import ExercisesPageClient from './ExercisesPageClient';
 
-const SITE_URL = 'https://FoodWiki.org';
+import { SITE_URL } from '@/utils/config';
 
 export const metadata: Metadata = {
   title: 'Boxing Exercises — Gym Workouts for Fighters',

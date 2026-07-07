@@ -14,7 +14,7 @@ interface ShareButtonProps {
   variant?: 'inline' | 'floating';
 }
 
-const SITE_URL = 'https://FoodWiki.org';
+import { SITE_URL } from '@/utils/config';
 
 /**
  * ShareButton — Web Share API on mobile, manual share menu on desktop.

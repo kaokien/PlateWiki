@@ -1,6 +1,6 @@
 /**
  * Fighter Sprites — Evolution stages and customization-ready architecture.
- * Adapted for FoodWiki: Ranks are renamed to Gardening/Chef evolution stages,
+ * Adapted for PlateWiki: Ranks are renamed to Gardening/Chef evolution stages,
  * and gear/colors are customized for an organic earth-crunch theme.
  */
 

@@ -43,11 +43,11 @@ const OnboardingOverlay = () => {
   if (!visible) return null;
 
   return (
-    <div className="onboarding-backdrop" role="dialog" aria-modal="true" aria-label="Welcome to FoodWiki">
+    <div className="onboarding-backdrop" role="dialog" aria-modal="true" aria-label="Welcome to PlateWiki">
       <div ref={cardRef} className="onboarding-card">
         <div className="onboarding-step-content animation-fade">
           <h2 className="onboarding-title">
-            Welcome to <span className="text-primary">FoodWiki</span>
+            Welcome to <span className="text-primary">PlateWiki</span>
           </h2>
           <p className="onboarding-desc">
             The interactive fighter&apos;s manual. Set up your fighter profile to track streaks, complete weekly challenges, and unlock gear.

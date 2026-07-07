@@ -85,7 +85,7 @@ function DiscordBanner() {
         <span className="dash-discord__sub">Share recipe photos, talk sports fueling with other athletes, and get feedback in our Discord community.</span>
       </div>
       <a
-        href="https://discord.gg/FoodWiki"
+        href="https://discord.gg/PlateWiki"
         target="_blank"
         rel="noopener noreferrer"
         className="dash-discord__cta"

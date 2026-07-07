@@ -119,7 +119,7 @@ export default function MerchPage() {
         <div className="merch-hero__badge">
           <ShoppingBag size={14} /> Coming Soon
         </div>
-        <h1>FoodWiki Merch</h1>
+        <h1>PlateWiki Merch</h1>
         <p className="merch-hero__subtitle">
           Premium gear for fighters, coaches, and fans. Every piece designed to
           rep the sport, not just wear it.
@@ -176,7 +176,7 @@ export default function MerchPage() {
       {/* Bottom CTA */}
       <section className="merch-bottom">
         <p className="merch-bottom__text">
-          Want to collaborate on a design or stock FoodWiki gear at your gym?
+          Want to collaborate on a design or stock PlateWiki gear at your gym?
         </p>
         <a href="/contact" className="merch-bottom__link">
           Get in touch <ChevronRight size={16} />

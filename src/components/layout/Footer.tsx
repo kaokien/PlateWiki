@@ -51,12 +51,12 @@ export default function Footer() {
       </div>
       <div className="footer-bottom">
         <p className="footer-disclaimer">
-          <strong>Disclaimer:</strong> Sports nutrition guidance and fasting timers carry risks if you have underlying conditions. Consult a medical professional before beginning any diet or fasting protocol. FoodWiki assumes no liability for health issues or nutritional decisions.
+          <strong>Disclaimer:</strong> Sports nutrition guidance and fasting timers carry risks if you have underlying conditions. Consult a medical professional before beginning any diet or fasting protocol. PlateWiki assumes no liability for health issues or nutritional decisions.
         </p>
         <p className="footer-source-reference" style={{ fontSize: '0.75rem', opacity: 0.7, marginTop: '0.5rem', fontStyle: 'italic' }}>
           Nutritional data and dietary guidelines are curated in reference to the USDA FoodData Central database.
         </p>
-        <p>&copy; {new Date().getFullYear()} FoodWiki. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} PlateWiki. All rights reserved.</p>
       </div>
     </footer>
   );

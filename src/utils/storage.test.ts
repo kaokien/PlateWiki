@@ -54,8 +54,8 @@ describe('Streak Tracking', () => {
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
     // seed with a LOCAL date string — streak dates are local-calendar based
-    localStorageMock.setItem('FoodWiki_last_visit', localDateString(yesterday));
-    localStorageMock.setItem('FoodWiki_streak', '3');
+    localStorageMock.setItem('PlateWiki_last_visit', localDateString(yesterday));
+    localStorageMock.setItem('PlateWiki_streak', '3');
 
     const streak = trackDailyVisit();
     expect(streak).toBe(4);
@@ -65,8 +65,8 @@ describe('Streak Tracking', () => {
     // Set last visit to 3 days ago
     const threeDaysAgo = new Date();
     threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
-    localStorageMock.setItem('FoodWiki_last_visit', localDateString(threeDaysAgo));
-    localStorageMock.setItem('FoodWiki_streak', '10');
+    localStorageMock.setItem('PlateWiki_last_visit', localDateString(threeDaysAgo));
+    localStorageMock.setItem('PlateWiki_streak', '10');
 
     const streak = trackDailyVisit();
     expect(streak).toBe(1);

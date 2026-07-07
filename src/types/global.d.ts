@@ -1,4 +1,4 @@
-/** Global type declarations for FoodWiki */
+/** Global type declarations for PlateWiki */
 
 declare global {
   interface Window {

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Sun, Moon } from 'lucide-react';
 
-const STORAGE_KEY = 'foodwiki_theme';
+const STORAGE_KEY = 'platewiki_theme';
 
 const updateThemeColorMeta = (theme: 'dark' | 'light') => {
   if (typeof document === 'undefined') return;

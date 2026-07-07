@@ -1,4 +1,4 @@
-/** Shared type definitions for FoodWiki */
+/** Shared type definitions for PlateWiki */
 
 export interface Technique {
   id: string;

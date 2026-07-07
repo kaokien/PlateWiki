@@ -19,7 +19,7 @@ export const StanceProvider = ({ children }: { children: React.ReactNode }) => {
   // Load from storage on mount
   useEffect(() => {
     try {
-      const saved = safeStorage.getItem('FoodWiki_stance');
+      const saved = safeStorage.getItem('PlateWiki_stance');
       if (saved === 'southpaw') {
         setStance('southpaw');
       }
@@ -32,7 +32,7 @@ export const StanceProvider = ({ children }: { children: React.ReactNode }) => {
     setStance(prev => {
       const newStance = prev === 'orthodox' ? 'southpaw' : 'orthodox';
       try {
-        safeStorage.setItem('FoodWiki_stance', newStance);
+        safeStorage.setItem('PlateWiki_stance', newStance);
       } catch (e) {
         // ignore
       }
@@ -43,7 +43,7 @@ export const StanceProvider = ({ children }: { children: React.ReactNode }) => {
   const handleSetStance = useCallback((newStance: string) => {
     setStance(newStance);
     try {
-      safeStorage.setItem('FoodWiki_stance', newStance);
+      safeStorage.setItem('PlateWiki_stance', newStance);
     } catch (e) {
       // ignore
     }

@@ -291,7 +291,7 @@ const HomePage = ({ totalTechniques, categoryCounts, techniqueIndex }: HomePageP
         <h2 className="section-heading">Frequently Asked Questions</h2>
         <div className="home-faq">
           <details className="glass-panel faq-item">
-            <summary>Is FoodWiki free to use?</summary>
+            <summary>Is PlateWiki free to use?</summary>
             <p>
               Yes. The entire food library — all {totalTechniques} clean ingredients with step-by-step benefits,
               biological synergies, and preparation parameters — is free and always will be. We also offer
@@ -303,20 +303,20 @@ const HomePage = ({ totalTechniques, categoryCounts, techniqueIndex }: HomePageP
           <details className="glass-panel faq-item">
             <summary>Can I optimize my nutrition from a website?</summary>
             <p>
-              A website cannot replace a certified sports dietitian. However, FoodWiki serves as an excellent reference layer that complements your daily meals — a guide to check nutrient synergies and recovery protocols. Many athletes have used structured resources like this to build a solid baseline of clean sports nutrition.
+              A website cannot replace a certified sports dietitian. However, PlateWiki serves as an excellent reference layer that complements your daily meals — a guide to check nutrient synergies and recovery protocols. Many athletes have used structured resources like this to build a solid baseline of clean sports nutrition.
             </p>
           </details>
           <details className="glass-panel faq-item">
-            <summary>What makes FoodWiki different from YouTube cooking channels?</summary>
+            <summary>What makes PlateWiki different from YouTube cooking channels?</summary>
             <p>
               YouTube is great for recipe videos, but the information is scattered across thousands of
-              channels with varying quality and contradictory advice. FoodWiki organizes every food and nutrient into
+              channels with varying quality and contradictory advice. PlateWiki organizes every food and nutrient into
               a structured database where each entry includes the same comprehensive format: steps, physiological biomarkers,
               mistakes to avoid, pro tips, prep parameters, and links to related items.
             </p>
           </details>
           <details className="glass-panel faq-item">
-            <summary>Do I need a kitchen scale to use FoodWiki?</summary>
+            <summary>Do I need a kitchen scale to use PlateWiki?</summary>
             <p>
               No equipment is required to start learning. You can learn about clean foods, nutrient synergies, and lifestyle changes immediately. As you progress, simple tools like a cast-iron skillet, a high-speed blender, or a kitchen scale will enhance your preparation. Our guides note which tools are recommended for each recipe.
             </p>

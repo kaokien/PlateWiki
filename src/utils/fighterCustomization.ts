@@ -5,10 +5,10 @@
  */
 import { createDefaultCustomization, type FighterCustomization } from '@/data/fighterSprites';
 
-const STORAGE_KEY = 'FoodWiki_fighter_customization';
+const STORAGE_KEY = 'PlateWiki_fighter_customization';
 
 /** Dispatched on window whenever customization is saved. */
-export const CUSTOMIZATION_CHANGED_EVENT = 'FoodWiki:fighter-customization-changed';
+export const CUSTOMIZATION_CHANGED_EVENT = 'PlateWiki:fighter-customization-changed';
 
 export function getCustomization(): FighterCustomization {
   try {

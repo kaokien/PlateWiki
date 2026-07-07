@@ -10,7 +10,7 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    console.error('FoodWiki Error:', error);
+    console.error('PlateWiki Error:', error);
   }, [error]);
 
   return (

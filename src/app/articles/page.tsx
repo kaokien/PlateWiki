@@ -5,9 +5,9 @@ import { getBreadcrumbSchema, getItemListSchema } from '@/utils/seoSchemas';
 
 export const metadata: Metadata = {
   title: 'Boxing Articles & Guides',
-  description: 'Expert nutrition articles covering food science, meal planning, sports nutrition, and recovery strategies from FoodWiki.',
+  description: 'Expert nutrition articles covering food science, meal planning, sports nutrition, and recovery strategies from PlateWiki.',
   alternates: {
-    canonical: 'https://FoodWiki.org/articles',
+    canonical: 'https://PlateWiki.org/articles',
   },
 };
 

@@ -327,7 +327,7 @@ export default function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
   ];
 
   return (
-    <div className="gs-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-label="Search FoodWiki">
+    <div className="gs-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-label="Search PlateWiki">
       <div
         ref={modalRef}
         className="gs-modal"

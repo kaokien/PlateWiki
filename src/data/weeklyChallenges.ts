@@ -150,7 +150,7 @@ export function getCurrentChallenge(): WeeklyChallenge {
 
 // ── localStorage Helpers ──────────────────────────────────────────────
 
-const STORAGE_KEY = 'FoodWiki_weekly_challenge';
+const STORAGE_KEY = 'PlateWiki_weekly_challenge';
 
 interface StoredChallengeData {
   weekStart: string;

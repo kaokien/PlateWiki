@@ -40,7 +40,7 @@ describe('storage round-trip', () => {
   });
 
   it('drops malformed or oversized entries on read', () => {
-    localStorage.setItem('FoodWiki_custom_combos', JSON.stringify([
+    localStorage.setItem('PlateWiki_custom_combos', JSON.stringify([
       { id: 'custom-ok', name: 'OK', sequence: [jab, cross] },
       { id: 'custom-bad-steps', name: 'Bad', sequence: [{ name: 'X' }] },
       { id: 'custom-too-long', name: 'Long', sequence: Array(MAX_STEPS + 1).fill(jab) },

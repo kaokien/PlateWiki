@@ -95,8 +95,8 @@ export default function PixelFighterCanvas({
       return () => clearTimeout(timer);
     };
     
-    window.addEventListener('foodwiki:meal-logged', handleMealLogged);
-    return () => window.removeEventListener('foodwiki:meal-logged', handleMealLogged);
+    window.addEventListener('platewiki:meal-logged', handleMealLogged);
+    return () => window.removeEventListener('platewiki:meal-logged', handleMealLogged);
   }, [animation]);
 
   // Retro fanfare SFX whenever the level-up animation starts

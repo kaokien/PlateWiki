@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { muscleGroupWorkouts } from '@/data/exercises';
 import { JsonLd } from '@/components/JsonLd';
 
-const SITE_URL = 'https://FoodWiki.org';
+import { SITE_URL } from '@/utils/config';
 
 const workoutMap = muscleGroupWorkouts as Record<string, any>;
 

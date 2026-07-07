@@ -4,7 +4,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { getFAQSchema, getTechniqueFAQs, getTechniqueTitle, truncateMeta } from '@/utils/seoSchemas';
 import TechniquePageClient from './TechniquePageClient';
 
-const SITE_URL = 'https://FoodWiki.org';
+import { SITE_URL } from '@/utils/config';
 
 // The techniques data is a plain JS object; cast for TS indexing
 const techniqueMap = techniques as Record<string, any>;
@@ -63,7 +63,7 @@ export default async function TechniqueRoute({
         totalTime: 'PT5M',
         author: {
           '@type': 'Organization',
-          name: 'FoodWiki',
+          name: 'PlateWiki',
           url: SITE_URL,
         },
         step: (technique.steps || []).map((step: string, i: number) => ({

@@ -25,7 +25,7 @@ export interface SavedWorkout {
 }
 
 export const FREE_WORKOUTS_LIMIT = 3;
-const STORAGE_KEY = 'FoodWiki_saved_workouts';
+const STORAGE_KEY = 'PlateWiki_saved_workouts';
 
 export function getSavedWorkouts(): SavedWorkout[] {
   if (typeof localStorage === 'undefined') return [];

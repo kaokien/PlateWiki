@@ -14,7 +14,7 @@ interface StoredGarden {
   lastUpdated: number;
 }
 
-export const GARDEN_STORAGE_KEY = 'FoodWiki_tamagotchi_garden';
+export const GARDEN_STORAGE_KEY = 'PlateWiki_tamagotchi_garden';
 
 // Neglect threshold: below this health score the garden loses growth over time.
 export const GARDEN_DECAY_SCORE = 50;

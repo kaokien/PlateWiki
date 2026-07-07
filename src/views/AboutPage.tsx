@@ -6,12 +6,12 @@ import './LegalPage.css';
 const AboutPage = () => {
   return (
     <div className="legal-page">
-      <h1>About <span className="text-primary">FoodWiki</span></h1>
+      <h1>About <span className="text-primary">PlateWiki</span></h1>
 
       <div className="glass-panel legal-content">
-        <h2>The Story Behind FoodWiki</h2>
+        <h2>The Story Behind PlateWiki</h2>
         <p>
-          FoodWiki started with a simple frustration. As a tech nerd who fell in love with fitness and
+          PlateWiki started with a simple frustration. As a tech nerd who fell in love with fitness and
           sports performance, I kept running into the same problem: my coach or nutritionist would explain
           a nutrition concept, and I would understand it in the moment, but by the time I got home, the details had faded.
           I would search online and find scattered YouTube clips, contradictory Reddit threads, and paywalled courses.
@@ -35,7 +35,7 @@ const AboutPage = () => {
           We believe that <strong>foundational sports nutrition knowledge should be accessible to everyone, everywhere.</strong>
         </p>
         <p>
-          FoodWiki is designed to be the <strong>world&apos;s best-organized nutrition database.</strong> Every food
+          PlateWiki is designed to be the <strong>world&apos;s best-organized nutrition database.</strong> Every food
           page includes step-by-step nutrient profiles, preparation tips from experienced athletes, the specific muscle target groups involved,
           common pitfalls to avoid, meal prep combinations to build the physical attributes you need, and connections
           to related nutrients so you can see how everything fits together.
@@ -45,7 +45,7 @@ const AboutPage = () => {
           review what you bought, or before meal prepping to come prepared.
         </p>
 
-        <h2>What Makes FoodWiki Different</h2>
+        <h2>What Makes PlateWiki Different</h2>
         <ul>
           <li>
             <strong>Interactive Anatomy Map:</strong> Click any muscle group on our anatomical model to see its nutritional targets
@@ -69,14 +69,14 @@ const AboutPage = () => {
 
         <h2>Meet the Team</h2>
         <p>
-          FoodWiki was founded by software engineer Kevin Adu-Poku in collaboration with PlayersClub LLC, the company co-founded by Joshua Anthony Aquino and Coach Josh.
+          PlateWiki was founded by software engineer Kevin Adu-Poku in collaboration with PlayersClub LLC, the company co-founded by Joshua Anthony Aquino and Coach Josh.
         </p>
         <div className="team-grid">
           <div className="team-card glass-panel">
             <h3>Kevin Adu-Poku</h3>
             <div className="role">Founder & Software Engineer</div>
             <p>
-              Kevin is a solutions engineer and software developer specializing in front-end architecture, interactive data modeling, and web performance. He built FoodWiki's core codebase, including the Interactive Anatomy Map and the webcam-based AI Harvest Tracker, and collaborates with PlayersClub LLC on the platform's content and growth.
+              Kevin is a solutions engineer and software developer specializing in front-end architecture, interactive data modeling, and web performance. He built PlateWiki's core codebase, including the Interactive Anatomy Map and the webcam-based AI Harvest Tracker, and collaborates with PlayersClub LLC on the platform's content and growth.
             </p>
             <div className="team-links">
               <a href="https://www.linkedin.com/in/kevinadupoku" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -87,7 +87,7 @@ const AboutPage = () => {
             <h3>Joshua Anthony Aquino</h3>
             <div className="role">Co-Founder, PlayersClub LLC</div>
             <p>
-              Joshua is a data engineer who specializes in analytics pipelines and operational strategy. A UMass Amherst graduate, he co-founded PlayersClub LLC with Coach Josh and runs the data, business operations, and content performance side of the company. At FoodWiki, he handles content strategy, SEO analysis, and growth.
+              Joshua is a data engineer who specializes in analytics pipelines and operational strategy. A UMass Amherst graduate, he co-founded PlayersClub LLC with Coach Josh and runs the data, business operations, and content performance side of the company. At PlateWiki, he handles content strategy, SEO analysis, and growth.
             </p>
             <div className="team-links">
               <a href="https://www.linkedin.com/in/jpanthony2018" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -98,7 +98,7 @@ const AboutPage = () => {
             <h3>Coach Josh</h3>
             <div className="role">Co-Founder, PlayersClub LLC</div>
             <p>
-              Josh is an athletic coach and fitness creator with 6+ years of experience and 200+ athletes trained. He co-founded PlayersClub LLC with Joshua Aquino. Known for his viral technique breakdowns with 150M+ views across social media, Coach Josh provides the technical authority, drills, and training blueprints that form the foundation of FoodWiki's content.
+              Josh is an athletic coach and fitness creator with 6+ years of experience and 200+ athletes trained. He co-founded PlayersClub LLC with Joshua Aquino. Known for his viral technique breakdowns with 150M+ views across social media, Coach Josh provides the technical authority, drills, and training blueprints that form the foundation of PlateWiki's content.
             </p>
             <div className="team-links">
               <a href="https://www.coachjoshofficial.com/" target="_blank" rel="noopener noreferrer">Website</a>
@@ -110,7 +110,7 @@ const AboutPage = () => {
 
         <h2>Community</h2>
         <p>
-          FoodWiki is also a growing community of performance fueling enthusiasts, beginners, and
+          PlateWiki is also a growing community of performance fueling enthusiasts, beginners, and
           experienced athletes who share a passion for clean nutrition. Join our{' '}
           <strong>Discord community</strong> to discuss recipes, share meal prep photos, get feedback on your
           macronutrients, and connect with other health-conscious athletes around the world.
@@ -118,7 +118,7 @@ const AboutPage = () => {
 
         <h2>Our Editorial Process</h2>
         <p>
-          Every food page on FoodWiki is written and reviewed with input from experienced coaches and nutritionists.
+          Every food page on PlateWiki is written and reviewed with input from experienced coaches and nutritionists.
           We cross-reference multiple scientific sources to ensure accuracy, and we update content regularly as we
           receive feedback from the community. Our goal is <strong>accuracy over quantity</strong>.
         </p>
@@ -129,7 +129,7 @@ const AboutPage = () => {
 
         <h2>Built With ❤️ and Code</h2>
         <p>
-          FoodWiki is an independent project built by a small team that loves both technology and sports nutrition. We are
+          PlateWiki is an independent project built by a small team that loves both technology and sports nutrition. We are
           constantly improving the platform: adding new whole foods, refining the digestion tools, and building
           features that make learning nutrition more accessible and effective.
         </p>

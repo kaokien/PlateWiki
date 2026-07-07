@@ -6,9 +6,9 @@ import { isAuthenticated } from './authState';
 import { localDateString, daysBetween } from './localDate';
 
 const KEYS = {
-  STREAK: 'FoodWiki_streak',
-  LAST_VISIT: 'FoodWiki_last_visit',
-  PROGRAMS: 'FoodWiki_programs', // Stores progress for programs
+  STREAK: 'PlateWiki_streak',
+  LAST_VISIT: 'PlateWiki_last_visit',
+  PROGRAMS: 'PlateWiki_programs', // Stores progress for programs
 };
 
 // --- Streak Tracking ---
@@ -79,7 +79,7 @@ export const getStreak = () => {
 
 // ── Streak Freeze Helpers ──
 
-const PROFILE_KEY = 'FoodWiki_fighter_profile';
+const PROFILE_KEY = 'PlateWiki_fighter_profile';
 const MAX_FREEZES = 3;
 
 /** Try to consume a streak freeze. Returns true if one was used. */
@@ -208,7 +208,7 @@ export const resetProgram = (programId: string) => {
 
 // --- Workout Tracking ---
 
-const WORKOUT_LOG_KEY = 'FoodWiki_workout_log';
+const WORKOUT_LOG_KEY = 'PlateWiki_workout_log';
 const MAX_LOG_ENTRIES = 200;
 
 export interface WorkoutLogEntry {
@@ -330,7 +330,7 @@ export const migrateLocalStorageSchema = () => {
   if (typeof window === 'undefined') return;
   try {
     const CURRENT_VERSION = 2;
-    const keyVersion = 'FoodWiki_schema_version';
+    const keyVersion = 'PlateWiki_schema_version';
     const oldVersion = parseInt(localStorage.getItem(keyVersion) || '0', 10);
 
     if (oldVersion >= CURRENT_VERSION) return;
@@ -339,7 +339,7 @@ export const migrateLocalStorageSchema = () => {
 
     // Migration v1: Ensure all workout logs have unique IDs and valid dates
     if (oldVersion < 1) {
-      const logsRaw = localStorage.getItem('FoodWiki_workout_log');
+      const logsRaw = localStorage.getItem('PlateWiki_workout_log');
       if (logsRaw) {
         try {
           const logs = JSON.parse(logsRaw);
@@ -361,7 +361,7 @@ export const migrateLocalStorageSchema = () => {
               return updatedEntry;
             });
             if (modified) {
-              localStorage.setItem('FoodWiki_workout_log', JSON.stringify(migratedLogs));
+              localStorage.setItem('PlateWiki_workout_log', JSON.stringify(migratedLogs));
             }
           }
         } catch (e) {
@@ -372,7 +372,7 @@ export const migrateLocalStorageSchema = () => {
 
     // Migration v2: Ensure fighter profile has all the default arrays & structures
     if (oldVersion < 2) {
-      const profileRaw = localStorage.getItem('FoodWiki_fighter_profile');
+      const profileRaw = localStorage.getItem('PlateWiki_fighter_profile');
       if (profileRaw) {
         try {
           const profile = JSON.parse(profileRaw);
@@ -390,7 +390,7 @@ export const migrateLocalStorageSchema = () => {
           };
           // Merge to fill missing keys
           const migratedProfile = { ...defaultProfile, ...profile };
-          localStorage.setItem('FoodWiki_fighter_profile', JSON.stringify(migratedProfile));
+          localStorage.setItem('PlateWiki_fighter_profile', JSON.stringify(migratedProfile));
         } catch (e) {
           console.warn('Failed to migrate fighter profile schema in v2:', e);
         }

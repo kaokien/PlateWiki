@@ -1,5 +1,5 @@
 /**
- * Centralized SEO Schema generators for FoodWiki.
+ * Centralized SEO Schema generators for PlateWiki.
  * All JSON-LD structured data is generated here for consistency.
  */
 
@@ -20,9 +20,9 @@ interface Fighter {
   lastUpdated?: string;
 }
 
-const SITE_URL = 'https://FoodWiki.org';
-const SITE_NAME = 'FoodWiki';
-const ORG_NAME = 'FoodWiki';
+import { SITE_URL } from '@/utils/config';
+const SITE_NAME = 'PlateWiki';
+const ORG_NAME = 'PlateWiki';
 
 // ============================================================
 // Meta helpers
@@ -77,7 +77,7 @@ export function getOrganizationSchema() {
     logo: `${SITE_URL}/icons/icon-512.png`,
     description: 'Free nutrition library with interactive muscle map. Learn whole foods, recipes, hydration, and meal prep guides.',
     sameAs: [
-      'https://www.youtube.com/@FoodWiki',
+      'https://www.youtube.com/@PlateWiki',
       'https://discord.gg/Vhygw7DpVM',
       'https://www.instagram.com/coachjoshofficial/',
     ],
@@ -162,7 +162,7 @@ export function getArticleSchema(article: ArticleSchemaInput) {
     dateModified: article.dateModified || article.date,
     author: {
       '@type': 'Person',
-      name: article.author || 'FoodWiki Editorial',
+      name: article.author || 'PlateWiki Editorial',
       url: SITE_URL,
     },
     publisher: {

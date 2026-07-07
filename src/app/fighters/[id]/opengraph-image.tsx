@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 import { fighters } from '@/data/fighters';
 
-export const alt = 'Fighter style breakdown on FoodWiki';
+export const alt = 'Fighter style breakdown on PlateWiki';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -32,7 +32,7 @@ export default async function Image({ params }: { params: Promise<{ id: string }
             fontWeight: 800,
           }}
         >
-          FoodWiki
+          PlateWiki
         </div>
       ),
       size,
@@ -72,7 +72,7 @@ export default async function Image({ params }: { params: Promise<{ id: string }
         {/* brand */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
           <div style={{ fontSize: 30, fontWeight: 800, letterSpacing: 4, color: '#e02929', display: 'flex' }}>
-            FoodWiki
+            PlateWiki
           </div>
           <div style={{ fontSize: 26, color: '#8a8a8a', display: 'flex' }}>Fighter Styles</div>
         </div>

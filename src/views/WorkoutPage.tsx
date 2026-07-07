@@ -109,14 +109,14 @@ const WorkoutPage = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [voiceCallouts, setVoiceCallouts] = useState(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('foodwiki_voice_callouts');
+      const saved = localStorage.getItem('platewiki_voice_callouts');
       return saved !== 'false'; // default true
     }
     return true;
   });
 
   useEffect(() => {
-    localStorage.setItem('foodwiki_voice_callouts', String(voiceCallouts));
+    localStorage.setItem('platewiki_voice_callouts', String(voiceCallouts));
   }, [voiceCallouts]);
 
   // Active Workout State

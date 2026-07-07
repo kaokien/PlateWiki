@@ -61,13 +61,13 @@ export function useCloudSync() {
   const pushProfile = useCallback(() => withRetry(async () => {
     const p = getProfile();
     const stance = typeof window !== 'undefined'
-      ? localStorage.getItem('FoodWiki_stance') || 'orthodox'
+      ? localStorage.getItem('PlateWiki_stance') || 'orthodox'
       : 'orthodox';
     const programProgress = getProgramsProgress();
     const workoutLog = getWorkoutLog();
     const currentStreak = getStreak();
     const lastVisit = typeof window !== 'undefined'
-      ? localStorage.getItem('FoodWiki_last_visit') || null
+      ? localStorage.getItem('PlateWiki_last_visit') || null
       : null;
 
     const browsingHistory = getHistory();
@@ -128,20 +128,20 @@ export function useCloudSync() {
 
           // Restore stance
           if (cloud.stance) {
-            try { localStorage.setItem('FoodWiki_stance', cloud.stance); } catch { /* ignore */ }
+            try { localStorage.setItem('PlateWiki_stance', cloud.stance); } catch { /* ignore */ }
           }
           // Restore program progress
           if (cloud.program_progress && Object.keys(cloud.program_progress).length > 0) {
-            try { localStorage.setItem('FoodWiki_programs', JSON.stringify(cloud.program_progress)); } catch { /* ignore */ }
+            try { localStorage.setItem('PlateWiki_programs', JSON.stringify(cloud.program_progress)); } catch { /* ignore */ }
           }
           // Restore workout log — merge cloud + local, deduplicating by id
           // and by content (same session can carry two random ids)
           if (cloud.workout_log && Array.isArray(cloud.workout_log) && cloud.workout_log.length > 0) {
             try {
-              const localRaw = localStorage.getItem('FoodWiki_workout_log');
+              const localRaw = localStorage.getItem('PlateWiki_workout_log');
               const localLog: any[] = localRaw ? JSON.parse(localRaw) : [];
               const merged = mergeWorkoutLogs(cloud.workout_log, localLog);
-              localStorage.setItem('FoodWiki_workout_log', JSON.stringify(merged));
+              localStorage.setItem('PlateWiki_workout_log', JSON.stringify(merged));
             } catch { /* ignore */ }
           }
           // Restore current streak — only trust the cloud streak when its
@@ -149,25 +149,25 @@ export function useCloudSync() {
           // streak that has since broken and must not be resurrected.
           if (cloud.current_streak != null && cloud.current_streak > 0 && isCloudStreakFresh(cloud.last_visit)) {
             try {
-              const localStreak = parseInt(localStorage.getItem('FoodWiki_streak') || '0', 10);
+              const localStreak = parseInt(localStorage.getItem('PlateWiki_streak') || '0', 10);
               if (cloud.current_streak > localStreak) {
-                localStorage.setItem('FoodWiki_streak', String(cloud.current_streak));
+                localStorage.setItem('PlateWiki_streak', String(cloud.current_streak));
               }
             } catch { /* ignore */ }
           }
           if (cloud.last_visit) {
             try {
-              const localVisit = localStorage.getItem('FoodWiki_last_visit') || '';
+              const localVisit = localStorage.getItem('PlateWiki_last_visit') || '';
               // Only overwrite if cloud visit is more recent
               if (cloud.last_visit >= localVisit) {
-                localStorage.setItem('FoodWiki_last_visit', cloud.last_visit);
+                localStorage.setItem('PlateWiki_last_visit', cloud.last_visit);
               }
             } catch { /* ignore */ }
           }
           // Restore browsing history — cloud replaces local
           if (cloud.browsing_history && Array.isArray(cloud.browsing_history)) {
             try {
-              localStorage.setItem('FoodWiki_history', JSON.stringify(cloud.browsing_history));
+              localStorage.setItem('PlateWiki_history', JSON.stringify(cloud.browsing_history));
             } catch { /* ignore */ }
           }
         }
@@ -178,7 +178,7 @@ export function useCloudSync() {
       if (favRes.ok) {
         const { favorites: cloudFavs } = await favRes.json();
         try {
-          localStorage.setItem('FoodWiki_favorites', JSON.stringify(cloudFavs || []));
+          localStorage.setItem('PlateWiki_favorites', JSON.stringify(cloudFavs || []));
         } catch { /* ignore */ }
       }
 
@@ -201,7 +201,7 @@ export function useCloudSync() {
             savedAt: w.saved_at,
           }));
           try {
-            localStorage.setItem('FoodWiki_saved_workouts', JSON.stringify(cloudFormat));
+            localStorage.setItem('PlateWiki_saved_workouts', JSON.stringify(cloudFormat));
           } catch { /* ignore */ }
         }
       }
@@ -244,11 +244,11 @@ export function useCloudSync() {
       setAuthenticated(false);
       // Clear user data keys (keep device prefs like theme, stance, voice)
       const userDataKeys = [
-        'FoodWiki_fighter_profile', 'FoodWiki_favorites', 'FoodWiki_recently_viewed',
-        'FoodWiki_history', 'FoodWiki_training_plan', 'FoodWiki_streak',
-        'FoodWiki_last_visit', 'FoodWiki_programs', 'FoodWiki_workout_log',
-        'FoodWiki_saved_workouts', 'FoodWiki_first_blood', 'FoodWiki_cloud_migrated',
-        'FoodWiki_sync_nudge_dismissed', 'FoodWiki_schema_version',
+        'PlateWiki_fighter_profile', 'PlateWiki_favorites', 'PlateWiki_recently_viewed',
+        'PlateWiki_history', 'PlateWiki_training_plan', 'PlateWiki_streak',
+        'PlateWiki_last_visit', 'PlateWiki_programs', 'PlateWiki_workout_log',
+        'PlateWiki_saved_workouts', 'PlateWiki_first_blood', 'PlateWiki_cloud_migrated',
+        'PlateWiki_sync_nudge_dismissed', 'PlateWiki_schema_version',
       ];
       for (const key of userDataKeys) {
         try { localStorage.removeItem(key); } catch { /* ignore */ }

@@ -59,9 +59,9 @@ const ContactPage = () => {
       return;
     }
     // Build mailto link with form data since we don't have a backend yet
-    const subject = encodeURIComponent(`FoodWiki Contact: ${formData.name}`);
+    const subject = encodeURIComponent(`PlateWiki Contact: ${formData.name}`);
     const body = encodeURIComponent(`From: ${formData.name} (${formData.email})\n\n${formData.message}`);
-    window.location.href = `mailto:contact@FoodWiki.org?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:contact@PlateWiki.org?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -84,7 +84,7 @@ const ContactPage = () => {
           <div className="success-message" role="status" aria-live="polite">
             <CheckCircle size={32} style={{ marginBottom: '0.5rem' }} />
             <h3>Opening your email client</h3>
-            <p>Got it. If your email client didn't open, reach us at <a href="mailto:contact@FoodWiki.org">contact@FoodWiki.org</a>.</p>
+            <p>Got it. If your email client didn't open, reach us at <a href="mailto:contact@PlateWiki.org">contact@PlateWiki.org</a>.</p>
           </div>
         ) : (
           <form className="contact-form" onSubmit={handleSubmit} noValidate>

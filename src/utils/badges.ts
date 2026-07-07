@@ -165,7 +165,7 @@ export const BADGES: Badge[] = [
     check: (p) => {
       try {
         if (typeof window !== 'undefined') {
-          if (localStorage.getItem('FoodWiki_badge_night_owl')) return true;
+          if (localStorage.getItem('PlateWiki_badge_night_owl')) return true;
         }
       } catch {}
       return !!(p as any).nightOwlUnlocked;

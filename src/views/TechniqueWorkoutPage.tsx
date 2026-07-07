@@ -32,14 +32,14 @@ const TechniqueWorkoutPage = () => {
 
   const [voiceCoach, setVoiceCoach] = useState(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('FoodWiki_gym_voice_coach');
+      const saved = localStorage.getItem('PlateWiki_gym_voice_coach');
       return saved === 'true';
     }
     return false;
   });
 
   useEffect(() => {
-    localStorage.setItem('FoodWiki_gym_voice_coach', String(voiceCoach));
+    localStorage.setItem('PlateWiki_gym_voice_coach', String(voiceCoach));
   }, [voiceCoach]);
 
   const speakText = useCallback((text: string, force = false) => {
@@ -177,7 +177,7 @@ const TechniqueWorkoutPage = () => {
         </div>
         <div className="safety-card-content">
           <strong>Nutritional & Food Safety Disclaimer:</strong>
-          <p>Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness. Consult a physician or registered dietitian before initiating any major dietary adjustments, particularly if you are pregnant, have metabolic diseases, or have food allergies. FoodWiki assumes no liability for adverse reactions.</p>
+          <p>Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness. Consult a physician or registered dietitian before initiating any major dietary adjustments, particularly if you are pregnant, have metabolic diseases, or have food allergies. PlateWiki assumes no liability for adverse reactions.</p>
         </div>
       </div>
 

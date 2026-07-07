@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 import { techniques } from '@/data/techniques';
 
-export const alt = 'nutrition guide on FoodWiki';
+export const alt = 'nutrition guide on PlateWiki';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -33,7 +33,7 @@ export default async function Image({ params }: { params: Promise<{ id: string }
             fontWeight: 800,
           }}
         >
-          FoodWiki
+          PlateWiki
         </div>
       ),
       size,
@@ -83,7 +83,7 @@ export default async function Image({ params }: { params: Promise<{ id: string }
         {/* brand */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
           <div style={{ fontSize: 30, fontWeight: 800, letterSpacing: 4, color: '#e02929', display: 'flex' }}>
-            FoodWiki
+            PlateWiki
           </div>
           <div style={{ fontSize: 26, color: '#8a8a8a', display: 'flex' }}>Technique Library</div>
         </div>
@@ -146,7 +146,7 @@ export default async function Image({ params }: { params: Promise<{ id: string }
             </div>
           )}
           <div style={{ display: 'flex', marginLeft: 'auto', fontSize: 24, color: '#8a8a8a' }}>
-            FoodWiki.org
+            PlateWiki.org
           </div>
         </div>
       </div>

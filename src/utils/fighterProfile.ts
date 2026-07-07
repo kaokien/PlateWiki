@@ -98,7 +98,7 @@ export interface XPAwardResult {
 
 // ── Storage ─────────────────────────────────────────────────────────
 
-const STORAGE_KEY = 'FoodWiki_fighter_profile';
+const STORAGE_KEY = 'PlateWiki_fighter_profile';
 
 export function createDefaultProfile(): FighterProfile {
   return {

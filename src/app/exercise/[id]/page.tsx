@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { exercises } from '@/data/exercises';
 import { JsonLd } from '@/components/JsonLd';
 
-const SITE_URL = 'https://FoodWiki.org';
+import { SITE_URL } from '@/utils/config';
 
 const exerciseMap = exercises as Record<string, any>;
 
@@ -59,7 +59,7 @@ export default async function ExerciseRoute({
         totalTime: 'PT5M',
         author: {
           '@type': 'Organization',
-          name: 'FoodWiki',
+          name: 'PlateWiki',
           url: SITE_URL,
         },
         step: (exercise.howTo || []).map((step: string, i: number) => ({

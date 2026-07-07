@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/history'],
     },
-    sitemap: 'https://FoodWiki.org/sitemap.xml',
+    sitemap: 'https://PlateWiki.org/sitemap.xml',
   };
 }

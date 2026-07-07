@@ -75,11 +75,11 @@ export default function VirtualGym() {
     checkSleep();
 
     window.addEventListener('storage', checkSleep);
-    window.addEventListener('foodwiki:sleep-toggled', checkSleep);
+    window.addEventListener('platewiki:sleep-toggled', checkSleep);
 
     return () => {
       window.removeEventListener('storage', checkSleep);
-      window.removeEventListener('foodwiki:sleep-toggled', checkSleep);
+      window.removeEventListener('platewiki:sleep-toggled', checkSleep);
     };
   }, []);
 
@@ -118,12 +118,12 @@ export default function VirtualGym() {
       addFloatText('Logged Workout Completed! 🥊', 45, 45);
     };
 
-    window.addEventListener('foodwiki:meal-logged', handleMealLogged);
-    window.addEventListener('foodwiki:workout-logged', handleWorkoutLogged);
+    window.addEventListener('platewiki:meal-logged', handleMealLogged);
+    window.addEventListener('platewiki:workout-logged', handleWorkoutLogged);
 
     return () => {
-      window.removeEventListener('foodwiki:meal-logged', handleMealLogged);
-      window.removeEventListener('foodwiki:workout-logged', handleWorkoutLogged);
+      window.removeEventListener('platewiki:meal-logged', handleMealLogged);
+      window.removeEventListener('platewiki:workout-logged', handleWorkoutLogged);
     };
   }, [gymState]);
 

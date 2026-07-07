@@ -23,19 +23,19 @@ export async function generateMetadata({
       .join(' ');
     return {
       title,
-      description: `Read our expert guide on ${title.toLowerCase()}. In-depth nutrition analysis from FoodWiki.`,
+      description: `Read our expert guide on ${title.toLowerCase()}. In-depth nutrition analysis from PlateWiki.`,
     };
   }
   return {
     title: article.title,
     description:
       article.subtitle ||
-      `Read our expert guide on ${article.title.toLowerCase()}. In-depth nutrition analysis from FoodWiki.`,
+      `Read our expert guide on ${article.title.toLowerCase()}. In-depth nutrition analysis from PlateWiki.`,
     alternates: {
-      canonical: `https://FoodWiki.org/articles/${id}`,
+      canonical: `https://PlateWiki.org/articles/${id}`,
     },
     openGraph: {
-      title: `${article.title} | FoodWiki`,
+      title: `${article.title} | PlateWiki`,
       description: article.subtitle,
       ...(article.heroImage && { images: [{ url: article.heroImage }] }),
     },

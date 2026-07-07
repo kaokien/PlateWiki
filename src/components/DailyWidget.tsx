@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
-import { Flame, ArrowRight, Calendar, Dumbbell } from 'lucide-react';
+import { Flame, ArrowRight, Calendar, ChefHat } from 'lucide-react';
 import { exercises } from '../data/exercises';
 import { trackDailyVisit } from '../utils/storage';
 import './DailyWidget.css';
@@ -53,7 +53,7 @@ const DailyWidget = () => {
 
       <div className="daily-combo-card card glass-panel">
         <div className="daily-badge">
-          <Dumbbell size={14} /> EXERCISE OF THE DAY
+          <ChefHat size={14} /> RECIPE OF THE DAY
         </div>
         <div className="daily-content">
           <h2>{exercise.name}</h2>
@@ -64,7 +64,7 @@ const DailyWidget = () => {
           <p>{exercise.boxingContext?.substring(0, 100)}…</p>
         </div>
         <Link href={`/exercise/${exercise.id}`} className="daily-btn">
-          View Exercise <ArrowRight size={16} />
+          View Recipe <ArrowRight size={16} />
         </Link>
       </div>
     </div>

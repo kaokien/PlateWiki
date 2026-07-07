@@ -520,3 +520,121 @@
   box-shadow: 0 0 12px rgba(239, 68, 68, 0.4) !important;
 }
 
+/* ── Category Starter Recipes Shelf ── */
+.category-recipes-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.section-header-recipes {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.recipes-section-icon {
+  color: var(--color-primary);
+}
+
+.section-header-recipes h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.recipes-section-desc {
+  margin: 0 0 1.5rem 0;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.recipes-starter-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .recipes-starter-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.recipe-starter-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: all var(--transition-fast);
+  min-height: 180px;
+}
+
+.recipe-starter-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(45, 138, 78, 0.1);
+}
+
+.recipe-starter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.recipe-starter-difficulty {
+  color: var(--color-primary);
+}
+
+.recipe-starter-time {
+  color: var(--color-text-muted);
+}
+
+.recipe-starter-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.recipe-starter-card p {
+  margin: 0 0 1rem 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.recipe-starter-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 0.75rem;
+}
+
+.recipe-starter-macros {
+  font-size: 0.75rem;
+  font-family: monospace;
+  color: var(--color-text-muted);
+}
+
+.recipe-starter-arrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+

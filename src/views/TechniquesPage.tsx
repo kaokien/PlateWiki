@@ -4,8 +4,9 @@ import { useUser, useClerk } from '@clerk/nextjs';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useClientSearchParams } from '@/hooks/useClientSearchParams';
-import { Search, X, Shuffle, SlidersHorizontal, Heart } from 'lucide-react';
+import { Search, X, Shuffle, SlidersHorizontal, Heart, ChefHat } from 'lucide-react';
 import { techniques, bodyParts } from '../data/techniques';
+import { exercises } from '../data/exercises';
 import AdBanner from '../components/AdBanner';
 import { analytics } from '../utils/analytics';
 import { isFavorite, toggleFavorite, getFavorites } from '../utils/favorites';
@@ -99,6 +100,20 @@ const TechniquesPage = ({ initialCategory }: { initialCategory?: string }) => {
       return matchesCategory && matchesDifficulty && matchesStance && matchesFormat && matchesMuscle && matchesSearch;
     });
   }, [allTechniques, activeCategory, activeDifficulty, activeStance, activeFormat, activeMuscleGroup, searchQuery]);
+
+  const relatedRecipes = useMemo(() => {
+    if (activeCategory === 'All') return [];
+    
+    const activeCategoryClean = activeCategory.trim();
+    return Object.values(exercises)
+      .filter((recipe: any) => {
+        return (recipe.techniques || []).some((tid: string) => {
+          const ingredient = (techniques as Record<string, any>)[tid];
+          return ingredient && ingredient.category === activeCategoryClean;
+        });
+      })
+      .slice(0, 3);
+  }, [activeCategory]);
 
   const activeFilterCount = [
     activeDifficulty !== 'All Levels',
@@ -323,6 +338,34 @@ const TechniquesPage = ({ initialCategory }: { initialCategory?: string }) => {
           </div>
         )}
       </div>
+
+      {activeCategory !== 'All' && relatedRecipes.length > 0 && (
+        <div className="category-recipes-section">
+          <div className="section-header-recipes">
+            <ChefHat size={22} className="recipes-section-icon" />
+            <h2>Starter Recipes: {activeCategory}</h2>
+          </div>
+          <p className="recipes-section-desc">
+            Try these simple meal prep recipes to start incorporating these essential ingredients into your daily routine:
+          </p>
+          <div className="recipes-starter-grid">
+            {relatedRecipes.map((recipe: any) => (
+              <Link key={recipe.id} href={`/exercise/${recipe.id}`} className="recipe-starter-card glass-panel">
+                <div className="recipe-starter-header">
+                  <span className="recipe-starter-difficulty">• {recipe.difficulty}</span>
+                  <span className="recipe-starter-time">{recipe.reps}</span>
+                </div>
+                <h3>{recipe.name}</h3>
+                <p>{recipe.boxingContext ? recipe.boxingContext.substring(0, 140) + '...' : ''}</p>
+                <div className="recipe-starter-footer">
+                  <span className="recipe-starter-macros">{recipe.rest}</span>
+                  <span className="recipe-starter-arrow">View Recipe →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

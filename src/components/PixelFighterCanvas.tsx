@@ -88,18 +88,18 @@ export default function PixelFighterCanvas({
 
     const gender = customization?.bodyType === 'female' ? 'female_' : '';
     const animName = activeAnim === 'none' ? 'idle' : activeAnim;
-    charImg.src = `/fighters/${stage}_${gender}${animName}.png`;
+    charImg.src = `/fighters/${stage}_${gender}${animName}.png?v=3`;
 
     // Determine equippable items
     const hasAppleHat = customization?.equippedGear?.headgear === 'apple-hat' || customization?.equippedGear?.headgear === 'headgear-red';
     const hasBroccoliShield = customization?.equippedGear?.gloves === 'broccoli-shield' || customization?.equippedGear?.gloves === 'gloves-red';
 
     if (hasAppleHat) {
-      hatImg.src = `/fighters/apple_hat_${stage}_${gender}${animName}.png`;
+      hatImg.src = `/fighters/apple_hat_${stage}_${gender}${animName}.png?v=3`;
       hatImageRef.current = hatImg;
     }
     if (hasBroccoliShield) {
-      shieldImg.src = `/fighters/broccoli_shield_${stage}_${gender}${animName}.png`;
+      shieldImg.src = `/fighters/broccoli_shield_${stage}_${gender}${animName}.png?v=3`;
       shieldImageRef.current = shieldImg;
     }
 
@@ -144,27 +144,31 @@ export default function PixelFighterCanvas({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    ctx.clearRect(0, 0, canvasSize, canvasSize);
-    
-    // Lock pixel crispness
-    ctx.imageSmoothingEnabled = false;
+    // 1. Create offscreen buffer canvas to prevent flickering/flashing
+    const offscreen = document.createElement('canvas');
+    offscreen.width = canvasSize;
+    offscreen.height = canvasSize;
+    const offCtx = offscreen.getContext('2d');
+    if (!offCtx) return;
+
+    offCtx.imageSmoothingEnabled = false;
 
     const frameSize = 256;
     const sx = frameIndex * frameSize;
 
-    // Draw Character base layer
+    // 2. Draw Character base layer to offscreen buffer
     if (charImageRef.current && charImageRef.current.complete) {
-      ctx.drawImage(
+      offCtx.drawImage(
         charImageRef.current,
-        sx, 0, frameSize, frameSize,      // Source Crop
-        0, 0, canvasSize, canvasSize       // Destination Canvas Bounds
+        sx, 0, frameSize, frameSize,
+        0, 0, canvasSize, canvasSize
       );
     }
 
-    // Apply dynamic palette swap recoloring
+    // 3. Apply dynamic palette swap recoloring on the offscreen buffer
     if (customization) {
       try {
-        const imgData = ctx.getImageData(0, 0, canvasSize, canvasSize);
+        const imgData = offCtx.getImageData(0, 0, canvasSize, canvasSize);
         const data = imgData.data;
 
         // Convert HEX to RGB
@@ -207,8 +211,8 @@ export default function PixelFighterCanvas({
           const g = data[i + 1];
           const b = data[i + 2];
 
-          // 1. Skin detection (Human Skin filter: high R, R > G > B, specific bounds)
-          const isSkin = r > 120 && g > 80 && b > 60 && r > g && g > b && (r - g) > 15 && (r - g) < 80 && (g - b) > 5;
+          // 1. Skin detection: high R, R > G > B, Red-Green offset between 15 and 55 to avoid gloves
+          const isSkin = r > 115 && g > 75 && b > 55 && r > g && g > b && (r - g) >= 15 && (r - g) <= 55 && (g - b) > 5 && (g - b) < 50;
           if (isSkin) {
             data[i]     = clamp(r + skinDiff.r);
             data[i + 1] = clamp(g + skinDiff.g);
@@ -216,65 +220,69 @@ export default function PixelFighterCanvas({
             continue;
           }
 
-          // 2. Hair detection (colors close to base hair brown)
-          const distHair = Math.sqrt((r - baseHair.r) ** 2 + (g - baseHair.g) ** 2 + (b - baseHair.b) ** 2);
-          if (distHair < 40) {
-            data[i]     = clamp(r + hairDiff.r);
-            data[i + 1] = clamp(g + hairDiff.g);
-            data[i + 2] = clamp(b + hairDiff.b);
-            continue;
-          }
-
-          // 3. Top / Shirt detection
-          const distTop = Math.sqrt((r - baseTop.r) ** 2 + (g - baseTop.g) ** 2 + (b - baseTop.b) ** 2);
-          if (distTop < 30) {
-            data[i]     = clamp(r + topDiff.r);
-            data[i + 1] = clamp(g + topDiff.g);
-            data[i + 2] = clamp(b + topDiff.b);
-            continue;
-          }
-
-          // 4. Gloves detection
-          const distGlove = Math.sqrt((r - baseGlove.r) ** 2 + (g - baseGlove.g) ** 2 + (b - baseGlove.b) ** 2);
-          if (distGlove < 35) {
+          // 2. Gloves detection: highly dominant red/orange, (R - G) >= 70
+          const isGlove = r > 150 && g < 130 && b < 100 && (r - g) >= 70;
+          if (isGlove) {
             data[i]     = clamp(r + gloveDiff.r);
             data[i + 1] = clamp(g + gloveDiff.g);
             data[i + 2] = clamp(b + gloveDiff.b);
             continue;
           }
 
-          // 5. Shoes detection
+          // 3. Hair detection: distance to base brown hair
+          const distHair = Math.sqrt((r - baseHair.r) ** 2 + (g - baseHair.g) ** 2 + (b - baseHair.b) ** 2);
+          if (distHair < 25) {
+            data[i]     = clamp(r + hairDiff.r);
+            data[i + 1] = clamp(g + hairDiff.g);
+            data[i + 2] = clamp(b + hairDiff.b);
+            continue;
+          }
+
+          // 4. Top / Shirt detection: distance to base Moss Slate green
+          const distTop = Math.sqrt((r - baseTop.r) ** 2 + (g - baseTop.g) ** 2 + (b - baseTop.b) ** 2);
+          if (distTop < 25) {
+            data[i]     = clamp(r + topDiff.r);
+            data[i + 1] = clamp(g + topDiff.g);
+            data[i + 2] = clamp(b + topDiff.b);
+            continue;
+          }
+
+          // 5. Shoes detection: distance to base Soil Black
           const distShoe = Math.sqrt((r - baseShoe.r) ** 2 + (g - baseShoe.g) ** 2 + (b - baseShoe.b) ** 2);
-          if (distShoe < 20) {
+          if (distShoe < 15) {
             data[i]     = clamp(r + shoeDiff.r);
             data[i + 1] = clamp(g + shoeDiff.g);
             data[i + 2] = clamp(b + shoeDiff.b);
             continue;
           }
         }
-        ctx.putImageData(imgData, 0, 0);
+        offCtx.putImageData(imgData, 0, 0);
       } catch (err) {
-        console.warn("Recoloring canvas failed:", err);
+        console.warn("Recoloring offscreen failed:", err);
       }
     }
 
-    // Draw Apple Hat overlay layer
+    // 4. Draw Apple Hat overlay layer to offscreen buffer
     if (hatImageRef.current && hatImageRef.current.complete) {
-      ctx.drawImage(
+      offCtx.drawImage(
         hatImageRef.current,
         sx, 0, frameSize, frameSize,
         0, 0, canvasSize, canvasSize
       );
     }
 
-    // Draw Broccoli Shield overlay layer
+    // 5. Draw Broccoli Shield overlay layer to offscreen buffer
     if (shieldImageRef.current && shieldImageRef.current.complete) {
-      ctx.drawImage(
+      offCtx.drawImage(
         shieldImageRef.current,
         sx, 0, frameSize, frameSize,
         0, 0, canvasSize, canvasSize
       );
     }
+
+    // 6. Copy the finalized offscreen buffer to the visible canvas atomically
+    ctx.clearRect(0, 0, canvasSize, canvasSize);
+    ctx.drawImage(offscreen, 0, 0);
   }, [frameIndex, imagesLoaded, canvasSize, customization]);
 
   return (

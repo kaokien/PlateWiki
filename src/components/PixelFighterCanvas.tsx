@@ -79,19 +79,20 @@ export default function PixelFighterCanvas({
     hatImageRef.current = null;
     shieldImageRef.current = null;
 
+    const gender = customization?.bodyType === 'female' ? 'female_' : '';
     const animName = activeAnim === 'none' ? 'idle' : activeAnim;
-    charImg.src = `/fighters/${stage}_${animName}.png`;
+    charImg.src = `/fighters/${stage}_${gender}${animName}.png`;
 
     // Determine equippable items
     const hasAppleHat = customization?.equippedGear?.headgear === 'apple-hat' || customization?.equippedGear?.headgear === 'headgear-red';
     const hasBroccoliShield = customization?.equippedGear?.gloves === 'broccoli-shield' || customization?.equippedGear?.gloves === 'gloves-red';
 
     if (hasAppleHat) {
-      hatImg.src = `/fighters/apple_hat_${stage}_${animName}.png`;
+      hatImg.src = `/fighters/apple_hat_${stage}_${gender}${animName}.png`;
       hatImageRef.current = hatImg;
     }
     if (hasBroccoliShield) {
-      shieldImg.src = `/fighters/broccoli_shield_${stage}_${animName}.png`;
+      shieldImg.src = `/fighters/broccoli_shield_${stage}_${gender}${animName}.png`;
       shieldImageRef.current = shieldImg;
     }
 
@@ -109,7 +110,7 @@ export default function PixelFighterCanvas({
     Promise.all(promises).then(() => {
       setImagesLoaded(true);
     });
-  }, [stage, activeAnim, customization?.equippedGear]);
+  }, [stage, activeAnim, customization?.equippedGear, customization?.bodyType]);
 
   // 3. Animation frame loops
   useEffect(() => {

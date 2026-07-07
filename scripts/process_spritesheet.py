@@ -1,7 +1,7 @@
 import os
 import sys
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw
 
 def create_pose_board(output_path):
     """
@@ -30,37 +30,29 @@ def create_pose_board(output_path):
     img.save(output_path, "PNG")
     print(f"Created Pose Board template at: {output_path}")
 
-def key_chroma_green(rgba_array):
+def key_chroma_green(img, thresh=85):
     """
     Replaces chroma green background with transparency.
-    Samples the corners of the image to detect the flat background color dynamically,
-    then keys out only that color to avoid matching organic green items like broccoli.
+    Uses PIL's floodfill from the four corners to remove the background green,
+    avoiding matching similar greens inside the character/item itself.
     """
-    h, w, c = rgba_array.shape
-    # Sample four corners: (0,0), (0,w-1), (h-1,0), (h-1,w-1)
-    corners = [
-        rgba_array[0, 0, :3],
-        rgba_array[0, w-1, :3],
-        rgba_array[h-1, 0, :3],
-        rgba_array[h-1, w-1, :3]
-    ]
-    # Use median corner color as background color
-    bg_color = np.median(corners, axis=0)
+    img = img.convert("RGBA")
+    w, h = img.size
     
-    # Calculate Euclidean distance in RGB to the background color
-    dist = np.linalg.norm(rgba_array[:, :, :3] - bg_color, axis=2)
-    
-    # Key out pixels very close to the background color (tolerance = 30)
-    mask = dist < 30
-    
-    output = rgba_array.copy()
-    output[mask] = [0, 0, 0, 0] # Make transparent
-    return output
+    # Flood fill transparent from each corner
+    for corner in [(0, 0), (w - 1, 0), (0, h - 1), (w - 1, h - 1)]:
+        try:
+            ImageDraw.floodfill(img, corner, (0, 0, 0, 0), thresh=thresh)
+        except Exception:
+            pass
+            
+    return img
 
-def clean_despeckle(rgba_array):
+def clean_despeckle(img):
     """
     Cleans isolated pixels (speckles) on transparency edges.
     """
+    rgba_array = np.array(img)
     alphas = rgba_array[:, :, 3]
     h, w = alphas.shape
     cleaned = rgba_array.copy()
@@ -69,11 +61,10 @@ def clean_despeckle(rgba_array):
     for y in range(1, h-1):
         for x in range(1, w-1):
             if alphas[y, x] > 0:
-                # Count non-transparent neighbors
                 neighbors = alphas[y-1:y+2, x-1:x+2] > 0
-                if np.sum(neighbors) <= 2: # lone pixel or tiny cluster
+                if np.sum(neighbors) <= 2: # lone pixel
                     cleaned[y, x] = [0, 0, 0, 0]
-    return cleaned
+    return Image.fromarray(cleaned, "RGBA")
 
 def get_landmark_bottom_center(alphas):
     """
@@ -84,96 +75,117 @@ def get_landmark_bottom_center(alphas):
         return None
         
     y_bottom = np.max(y_indices)
-    # Find all x values at the bottom-most row
     x_at_bottom = x_indices[y_indices == y_bottom]
     x_center = int(np.mean(x_at_bottom))
     return (y_bottom, x_center)
 
+def get_character_height(alphas):
+    """
+    Finds the vertical height of the sprite silhouette.
+    """
+    y_indices, _ = np.where(alphas > 0)
+    if len(y_indices) == 0:
+        return 0
+    return int(np.max(y_indices) - np.min(y_indices))
+
 def process_spritesheet(sheet_path, output_sheet_path, num_frames=10, cols=4, rows=3, frame_out_size=256):
     """
-    Extracts frames from a Pose Board sheet, aligns them, cleans them, and packs them.
+    Extracts frames from a Pose Board sheet, resizes, aligns, cleans, and packs them.
     """
     print(f"Processing spritesheet: {sheet_path}")
-    img = Image.open(sheet_path).convert("RGBA")
-    w, h = img.size
+    raw_img = Image.open(sheet_path).convert("RGBA")
     
+    # Key out background chroma green using high-threshold corner floodfill
+    keyed_img = key_chroma_green(raw_img, thresh=85)
+    
+    w, h = keyed_img.size
     cell_w = w / cols
     cell_h = h / rows
     
-    rgba = np.array(img)
-    # Key out chroma green background
-    rgba_keyed = key_chroma_green(rgba)
+    # Determine target height based on output stage
+    if "stage1" in output_sheet_path.lower():
+        target_height = 120
+    elif "stage2" in output_sheet_path.lower():
+        target_height = 145
+    elif "stage3" in output_sheet_path.lower():
+        target_height = 170
+    else:
+        # Default target height (e.g. for general items matching stage 2)
+        target_height = 145
+
+    cells = []
+    cell_heights = []
     
-    frames = []
-    landmarks = []
-    
-    # Step 1: Extract cells and find landmarks
+    # Extract frames
     for i in range(num_frames):
         r = i // cols
         c = i % cols
         
-        # Calculate bounding box using floats to avoid rounding accumulative error
         x_start = int(c * cell_w)
         x_end = int((c + 1) * cell_w)
         y_start = int(r * cell_h)
         y_end = int((r + 1) * cell_h)
         
-        cell = rgba_keyed[y_start:y_end, x_start:x_end]
+        cell = keyed_img.crop((x_start, y_start, x_end, y_end))
         cell_cleaned = clean_despeckle(cell)
         
-        alphas = cell_cleaned[:, :, 3]
-        landmark = get_landmark_bottom_center(alphas)
+        alphas = np.array(cell_cleaned)[:, :, 3]
+        char_h = get_character_height(alphas)
         
-        frames.append(cell_cleaned)
-        landmarks.append(landmark)
-        
-    # Target feet anchor in 256x256 frame: X=128, Y=210 (leaving room at top)
-    target_x = frame_out_size // 2
-    target_y = int(frame_out_size * 0.82) 
-    
+        cells.append(cell_cleaned)
+        if char_h > 0:
+            cell_heights.append(char_h)
+
+    # Compute sheet-wide uniform scaling factor
+    if len(cell_heights) > 0:
+        median_h = np.median(cell_heights)
+        scale_factor = target_height / median_h
+    else:
+        scale_factor = 0.5 # fallback
+
+    print(f"  Scale Factor calculated: {scale_factor:.3f} (median height: {np.median(cell_heights) if cell_heights else 0}px)")
+
     aligned_frames = []
     
-    # Step 2: Align frames relative to landmark
-    for idx, (frame, landmark) in enumerate(zip(frames, landmarks)):
-        aligned = np.zeros((frame_out_size, frame_out_size, 4), dtype=np.uint8)
+    # Align and crop each frame
+    for idx, cell in enumerate(cells):
+        # Resize using Nearest Neighbor to retain sharp pixelated look
+        new_w = int(cell.size[0] * scale_factor)
+        new_h = int(cell.size[1] * scale_factor)
+        scaled_cell = cell.resize((new_w, new_h), Image.Resampling.NEAREST)
         
-        if landmark is None:
-            aligned_frames.append(aligned)
-            continue
+        scaled_alphas = np.array(scaled_cell)[:, :, 3]
+        landmark = get_landmark_bottom_center(scaled_alphas)
+        
+        aligned = Image.new("RGBA", (frame_out_size, frame_out_size), (0, 0, 0, 0))
+        
+        if landmark is not None:
+            ly, lx = landmark
+            # Feet anchor: X=128, Y=205
+            target_x = frame_out_size // 2
+            target_y = 205
             
-        ly, lx = landmark
-        # Translate frame so that (lx, ly) in the crop maps to (target_x, target_y) in the output frame
-        offset_x = target_x - lx
-        offset_y = target_y - ly
-        
-        frame_h, frame_w, _ = frame.shape
-        
-        for y in range(frame_out_size):
-            src_y = y - offset_y
-            if src_y < 0 or src_y >= frame_h:
-                continue
-            for x in range(frame_out_size):
-                src_x = x - offset_x
-                if src_x < 0 or src_x >= frame_w:
-                    continue
-                aligned[y, x] = frame[src_y, src_x]
-                
-        aligned_frames.append(aligned)
-        
-    # Step 3: Pack into a single horizontal sprite sheet
+            offset_x = target_x - lx
+            offset_y = target_y - ly
+            
+            # Paste scaled sprite into 256x256 frame
+            aligned.paste(scaled_cell, (int(offset_x), int(offset_y)), scaled_cell)
+            
+        aligned_frames.append(np.array(aligned))
+
+    # Pack horizontally
     pack_w = frame_out_size * num_frames
-    pack_h = frame_out_size
-    packed = np.zeros((pack_h, pack_w, 4), dtype=np.uint8)
+    packed = np.zeros((frame_out_size, pack_w, 4), dtype=np.uint8)
     
     for idx, f in enumerate(aligned_frames):
-        x_start = idx * frame_out_size
-        x_end = (idx + 1) * frame_out_size
-        packed[:, x_start:x_end] = f
+        xs = idx * frame_out_size
+        xe = (idx + 1) * frame_out_size
+        packed[:, xs:xe] = f
         
     packed_img = Image.fromarray(packed, "RGBA")
     os.makedirs(os.path.dirname(output_sheet_path), exist_ok=True)
     packed_img.save(output_sheet_path, "PNG")
-    print(f"Successfully packed {num_frames} frames into: {output_sheet_path}")
+    print(f"  Successfully saved spritesheet to: {output_sheet_path}")
 
 def synthesize_accessory_sheet(char_sheet_path, base_item_path, output_sheet_path, num_frames=10, frame_size=256):
     """
@@ -184,30 +196,25 @@ def synthesize_accessory_sheet(char_sheet_path, base_item_path, output_sheet_pat
     char_img = Image.open(char_sheet_path).convert("RGBA")
     char_rgba = np.array(char_img)
     
-    # Load base item (which is already aligned to the standing character pose)
+    # Load base item
     item_img = Image.open(base_item_path).convert("RGBA")
     # Clean chroma green on item
-    item_rgba = clean_despeckle(key_chroma_green(np.array(item_img)))
+    item_keyed = clean_despeckle(key_chroma_green(item_img, thresh=85))
     
-    # Crop item to its bounds inside the 1024x1024 anchor coordinates
-    # We first resize the item to 256x256 since anchors are scaled to 1024
-    item_pil = Image.fromarray(item_rgba, "RGBA").resize((frame_size, frame_size), Image.Resampling.NEAREST)
-    item_rgba_256 = np.array(item_pil)
+    # Scale item to match output frame size
+    item_rgba_256 = np.array(item_keyed.resize((frame_size, frame_size), Image.Resampling.NEAREST))
     
     alphas_item = item_rgba_256[:, :, 3]
     y_idx, x_idx = np.where(alphas_item > 0)
     
     if len(y_idx) == 0:
         print(f"WARNING: Item {base_item_path} is fully transparent after keying! Saving empty.")
-        # Save empty spritesheet
         packed = np.zeros((frame_size, frame_size * num_frames, 4), dtype=np.uint8)
         Image.fromarray(packed, "RGBA").save(output_sheet_path, "PNG")
         return
         
     ymin, ymax = np.min(y_idx), np.max(y_idx)
     xmin, xmax = np.min(x_idx), np.max(x_idx)
-    
-    # Extracted item sprite bounding box
     item_cropped = item_rgba_256[ymin:ymax+1, xmin:xmax+1]
     
     # Find head/body top height in character frame 0
@@ -219,29 +226,24 @@ def synthesize_accessory_sheet(char_sheet_path, base_item_path, output_sheet_pat
     packed = np.zeros((frame_size, frame_size * num_frames, 4), dtype=np.uint8)
     
     for i in range(num_frames):
-        # Extract character frame i
         char_fi = char_rgba[:, i*frame_size:(i+1)*frame_size]
         fi_alphas = char_fi[:, :, 3]
         fi_y = np.where(fi_alphas > 0)[0]
         
-        # Calculate Y offset based on head displacement
         curr_head_y = np.min(fi_y) if len(fi_y) > 0 else base_head_y
         dy = curr_head_y - base_head_y
         
-        # Calculate X offset (sway)
         f0_x = np.where(f0_alphas > 0)[1]
         fi_x = np.where(fi_alphas > 0)[1]
         base_center_x = int(np.mean(f0_x)) if len(f0_x) > 0 else frame_size // 2
         curr_center_x = int(np.mean(fi_x)) if len(fi_x) > 0 else base_center_x
         dx = curr_center_x - base_center_x
         
-        # Shift and place item inside output frame
         out_frame = np.zeros((frame_size, frame_size, 4), dtype=np.uint8)
         
         dest_ymin = ymin + dy
         dest_xmin = xmin + dx
         
-        # Draw item_cropped into out_frame at shifted position
         for y in range(item_cropped.shape[0]):
             oy = dest_ymin + y
             if oy < 0 or oy >= frame_size:
@@ -252,7 +254,6 @@ def synthesize_accessory_sheet(char_sheet_path, base_item_path, output_sheet_pat
                     continue
                 out_frame[oy, ox] = item_cropped[y, x]
                 
-        # Copy to output spritesheet
         packed[:, i*frame_size:(i+1)*frame_size] = out_frame
         
     packed_img = Image.fromarray(packed, "RGBA")

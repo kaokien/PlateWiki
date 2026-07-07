@@ -179,6 +179,8 @@ export function createDefaultCustomization(): FighterCustomization {
 }
 
 export const DEFAULT_GEAR: GearItem[] = [
+  { id: 'apple-hat',       slot: 'headgear', name: 'Apple Hat',        rarity: 'rare',      unlockedByRank: 'Gatekeeper',  cssClass: 'gear-apple-hat' },
+  { id: 'broccoli-shield', slot: 'gloves',   name: 'Broccoli Shield',  rarity: 'epic',      unlockedByRank: 'Rising Star', cssClass: 'gear-broccoli-shield' },
   { id: 'wraps-basic',     slot: 'gloves',   name: 'Linen Hand Wraps', rarity: 'common',    unlockedByRank: 'Prospect',    cssClass: 'gear-wraps' },
   { id: 'gloves-red',      slot: 'gloves',   name: 'Gardening Gloves', rarity: 'common',    unlockedByRank: 'Contender',   cssClass: 'gear-gloves-red' },
   { id: 'shorts-basic',    slot: 'shorts',   name: 'Linen Apron',      rarity: 'common',    unlockedByRank: 'Prospect',    cssClass: 'gear-shorts-basic' },

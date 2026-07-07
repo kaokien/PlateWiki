@@ -176,6 +176,12 @@ export function FighterProfileProvider({ children }: { children: React.ReactNode
         rankBonusCoins: result.rankBonusCoins,
       });
 
+      if (source === 'workout_complete') {
+        try {
+          window.dispatchEvent(new CustomEvent('foodwiki:meal-logged'));
+        } catch (e) { /* ignore */ }
+      }
+
       // First Blood — one-time event for first-ever XP earn.
       // Derive "first ever" from the profile itself (newXP === xpGained means
       // XP was 0 before this award): the profile is cloud-synced, so an

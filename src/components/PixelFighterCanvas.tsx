@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { getStageForRank, type FighterCustomization } from '@/data/fighterSprites';
-import { getRecoloredSprite, recolorCacheKey, spriteKey } from '@/utils/fighterRecolor';
+import React, { useRef, useEffect, useState } from 'react';
+import type { FighterCustomization } from '@/data/fighterSprites';
 import './PixelFighterCanvas.css';
 
 interface PixelFighterCanvasProps {
@@ -14,26 +13,10 @@ interface PixelFighterCanvasProps {
 
 const DIMS: Record<string, number> = { sm: 48, md: 96, lg: 160, xl: 240 };
 
-/** Returns a recolored sprite data URL, or null while loading / when unavailable. */
-function useRecoloredSprite(stageId: string, customization?: FighterCustomization | null): string | null {
-  const [url, setUrl] = useState<string | null>(null);
-  const key = customization ? recolorCacheKey(stageId, customization) : null;
-
-  useEffect(() => {
-    if (!customization || !key) {
-      setUrl(null);
-      return;
-    }
-    let cancelled = false;
-    getRecoloredSprite(stageId, customization).then(result => {
-      if (!cancelled) setUrl(result);
-    });
-    return () => { cancelled = true; };
-    // key encodes every color choice, so it's the only dependency that matters
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [stageId, key]);
-
-  return url;
+function getGrowthStage(rankName: string): 'stage1' | 'stage2' | 'stage3' {
+  if (rankName === 'Prospect' || rankName === 'Contender') return 'stage1';
+  if (rankName === 'Gatekeeper' || rankName === 'Rising Star') return 'stage2';
+  return 'stage3'; // Champion & Hall of Famer
 }
 
 export default function PixelFighterCanvas({
@@ -42,29 +25,163 @@ export default function PixelFighterCanvas({
   animation = 'idle',
   customization,
 }: PixelFighterCanvasProps) {
-  const stage = getStageForRank(rankName);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  
+  // Dynamic state to temporarily play 'eating' animation when triggered by event
+  const [activeAnim, setActiveAnim] = useState<'idle' | 'eating' | 'levelup' | 'none'>('idle');
+  const [frameIndex, setFrameIndex] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
-  // Resolve transmog style override (equipped gear can restyle to another stage's look)
-  const styleOverride = customization?.equippedGear?.style;
-  const stageId = styleOverride || stage.id;
+  // References to loaded Image objects
+  const charImageRef = useRef<HTMLImageElement | null>(null);
+  const hatImageRef = useRef<HTMLImageElement | null>(null);
+  const shieldImageRef = useRef<HTMLImageElement | null>(null);
 
-  const recoloredSrc = useRecoloredSprite(stageId, customization);
-  // body-type-correct base sprite while the recolor loads (or if it fails)
-  const baseSrc = `/fighters/${spriteKey(stageId, customization)}.png`;
+  const stage = getGrowthStage(rankName);
   const canvasSize = DIMS[size] || 96;
 
+  // 1. Map component animations to sprite sheet actions
+  const resolveAnim = (anim: string): 'idle' | 'eating' | 'levelup' | 'none' => {
+    if (anim === 'training') return 'eating';
+    if (anim === 'evolving') return 'levelup';
+    if (anim === 'none') return 'none';
+    return 'idle';
+  };
+
+  // Listen to the custom event for meal logging to play the 'eating' animation for 5 seconds
+  useEffect(() => {
+    const resolved = resolveAnim(animation);
+    setActiveAnim(resolved);
+  }, [animation]);
+
+  useEffect(() => {
+    const handleMealLogged = () => {
+      setActiveAnim('eating');
+      const timer = setTimeout(() => {
+        setActiveAnim(resolveAnim(animation));
+      }, 5000);
+      return () => clearTimeout(timer);
+    };
+    
+    window.addEventListener('foodwiki:meal-logged', handleMealLogged);
+    return () => window.removeEventListener('foodwiki:meal-logged', handleMealLogged);
+  }, [animation]);
+
+  // 2. Load spritesheets when stage or animation changes
+  useEffect(() => {
+    setImagesLoaded(false);
+    
+    const charImg = new Image();
+    const hatImg = new Image();
+    const shieldImg = new Image();
+
+    charImageRef.current = charImg;
+    hatImageRef.current = null;
+    shieldImageRef.current = null;
+
+    const animName = activeAnim === 'none' ? 'idle' : activeAnim;
+    charImg.src = `/fighters/${stage}_${animName}.png`;
+
+    // Determine equippable items
+    const hasAppleHat = customization?.equippedGear?.headgear === 'apple-hat' || customization?.equippedGear?.headgear === 'headgear-red';
+    const hasBroccoliShield = customization?.equippedGear?.gloves === 'broccoli-shield' || customization?.equippedGear?.gloves === 'gloves-red';
+
+    if (hasAppleHat) {
+      hatImg.src = `/fighters/apple_hat_${stage}_${animName}.png`;
+      hatImageRef.current = hatImg;
+    }
+    if (hasBroccoliShield) {
+      shieldImg.src = `/fighters/broccoli_shield_${stage}_${animName}.png`;
+      shieldImageRef.current = shieldImg;
+    }
+
+    const promises = [
+      new Promise((resolve) => { charImg.onload = resolve; charImg.onerror = resolve; })
+    ];
+
+    if (hasAppleHat) {
+      promises.push(new Promise((resolve) => { hatImg.onload = resolve; hatImg.onerror = resolve; }));
+    }
+    if (hasBroccoliShield) {
+      promises.push(new Promise((resolve) => { shieldImg.onload = resolve; shieldImg.onerror = resolve; }));
+    }
+
+    Promise.all(promises).then(() => {
+      setImagesLoaded(true);
+    });
+  }, [stage, activeAnim, customization?.equippedGear]);
+
+  // 3. Animation frame loops
+  useEffect(() => {
+    if (activeAnim === 'none') {
+      setFrameIndex(0);
+      return;
+    }
+
+    const maxFrames = activeAnim === 'eating' ? 8 : 10;
+    const intervalTime = 120; // 120ms per frame (~8.3 FPS)
+    
+    const timer = setInterval(() => {
+      setFrameIndex((prev) => (prev + 1) % maxFrames);
+    }, intervalTime);
+
+    return () => clearInterval(timer);
+  }, [activeAnim]);
+
+  // 4. Render loop on canvas
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || !imagesLoaded) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    ctx.clearRect(0, 0, canvasSize, canvasSize);
+    
+    // Lock pixel crispness
+    ctx.imageSmoothingEnabled = false;
+
+    const frameSize = 256;
+    const sx = frameIndex * frameSize;
+
+    // Draw Character base layer
+    if (charImageRef.current && charImageRef.current.complete) {
+      ctx.drawImage(
+        charImageRef.current,
+        sx, 0, frameSize, frameSize,      // Source Crop
+        0, 0, canvasSize, canvasSize       // Destination Canvas Bounds
+      );
+    }
+
+    // Draw Apple Hat overlay layer
+    if (hatImageRef.current && hatImageRef.current.complete) {
+      ctx.drawImage(
+        hatImageRef.current,
+        sx, 0, frameSize, frameSize,
+        0, 0, canvasSize, canvasSize
+      );
+    }
+
+    // Draw Broccoli Shield overlay layer
+    if (shieldImageRef.current && shieldImageRef.current.complete) {
+      ctx.drawImage(
+        shieldImageRef.current,
+        sx, 0, frameSize, frameSize,
+        0, 0, canvasSize, canvasSize
+      );
+    }
+  }, [frameIndex, imagesLoaded, canvasSize]);
+
   return (
-    <div
-      className={`pixel-fighter-canvas pixel-fighter-canvas--${size} pixel-fighter-canvas--${animation}`}
+    <div 
+      className={`pixel-fighter-canvas pixel-fighter-canvas--${size}`}
       style={{ width: canvasSize, height: canvasSize }}
     >
-      <img
-        src={recoloredSrc || baseSrc}
-        alt={`${stage.stageName} fighter`}
+      <canvas
+        ref={canvasRef}
         width={canvasSize}
         height={canvasSize}
-        className="pixel-fighter-canvas__img"
-        draggable={false}
+        style={{ display: 'block', imageRendering: 'pixelated' }}
       />
     </div>
   );

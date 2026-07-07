@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useUser } from '@clerk/nextjs';
 import Link from 'next/link';
-import { Heart, Clock, Trash2, ArrowRight, Crown, Dumbbell, Calendar, Shield } from 'lucide-react';
+import { Heart, Clock, Trash2, ArrowRight, Crown, Dumbbell, Calendar } from 'lucide-react';
 import { techniques, bodyParts } from '../data/techniques';
 import { getFavorites, removeFavorite, getRecentlyViewed, getHistory, HistoryItem } from '../utils/favorites';
 import { useSubscription, FREE_FAVORITES_LIMIT } from '../context/SubscriptionContext';
@@ -111,10 +111,7 @@ const FavoritesPage = () => {
             {atLimit && (
               <div className="glass-panel fav-limit-banner">
                 <Crown size={16} style={{ color: '#f5a623' }} />
-                <span>
-                  You've saved {FREE_FAVORITES_LIMIT} of {FREE_FAVORITES_LIMIT} foods. Adding more means removing one you've already collected.
-                  {' '}<Link href="/pricing" style={{ color: '#f5a623', fontWeight: 700 }}>Keep all your saves →</Link>
-                </span>
+                <span>You've hit the free limit. <Link href="/pricing" style={{ color: '#f5a623', fontWeight: 700 }}>Unlock unlimited saves with Pro</Link></span>
               </div>
             )}
 
@@ -160,13 +157,6 @@ const FavoritesPage = () => {
                 <Link href="/" className="empty-cta">
                   Go to Interactive Map <ArrowRight size={16} />
                 </Link>
-              </div>
-            )}
-
-            {!atLimit && favoriteTechniques.length > 0 && !isPro && (
-              <div className="fav-protection-note">
-                <Shield size={12} />
-                <span>{favoriteTechniques.length} of {FREE_FAVORITES_LIMIT} saves used · {FREE_FAVORITES_LIMIT - favoriteTechniques.length} remaining before you lose the ability to save more</span>
               </div>
             )}
           </section>

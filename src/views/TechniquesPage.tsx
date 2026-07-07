@@ -288,6 +288,16 @@ const TechniquesPage = ({ initialCategory }: { initialCategory?: string }) => {
                 className="glass-panel browse-card"
                 aria-label={`${tech.name} — ${tech.category}`}
               >
+                {tech.image && (
+                  <div className="card-image-container">
+                    <img 
+                      src={tech.image.includes('unsplash.com') ? `${tech.image}&w=400&q=75` : tech.image} 
+                      alt={tech.name} 
+                      className="card-image" 
+                      loading="lazy" 
+                    />
+                  </div>
+                )}
                 <div className="card-top-row">
                   <span className="browse-category">{tech.category}</span>
                   {tech.difficulty && (

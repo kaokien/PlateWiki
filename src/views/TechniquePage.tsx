@@ -109,53 +109,64 @@ const TechniquePage = ({ routeId }: { routeId?: string }) => {
       </nav>
 
       <div className="tech-header glass-panel">
-        <div className="tech-title-area">
-          <div className="tech-badges-row">
-            <span className="category-badge">{technique.category}</span>
-            {technique.difficulty && (
-              <span className={`difficulty-badge ${technique.difficulty}`}>
-                {technique.difficulty === 'beginner' ? '• ' : technique.difficulty === 'intermediate' ? '•• ' : '••• '}
-                {technique.difficulty}
-              </span>
+        <div className="tech-header-grid">
+          <div className="tech-title-area">
+            <div className="tech-badges-row">
+              <span className="category-badge">{technique.category}</span>
+              {technique.difficulty && (
+                <span className={`difficulty-badge ${technique.difficulty}`}>
+                  {technique.difficulty === 'beginner' ? '• ' : technique.difficulty === 'intermediate' ? '•• ' : '••• '}
+                  {technique.difficulty}
+                </span>
+              )}
+              <span className="stance-badge">{stanceLabel}</span>
+            </div>
+            <div className="tech-title-row">
+              <h1 className="tech-title">{parseStanceText(technique.name, isSouthpaw)}</h1>
+              <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexShrink: 0 }}>
+                <ShareButton title={`How to ${technique.name}`} description={technique.description} url={`/technique/${technique.id}`} />
+                <button 
+                  className={`fav-btn ${isFav ? 'fav-active' : ''}`}
+                  onClick={handleFavoriteToggle}
+                  aria-label={isFav ? 'Remove from favorites' : 'Add to favorites'}
+                >
+                  <Heart size={20} fill={isFav ? 'currentColor' : 'none'} />
+                </button>
+              </div>
+            </div>
+            <p className="tech-description">{parseStanceText(technique.description, isSouthpaw)}</p>
+            
+            {/* Training format tags */}
+            {formatLabels.length > 0 && (
+              <div className="format-tags">
+                {formatLabels.map(fmt => (
+                  <span key={fmt} className="format-tag">{fmt}</span>
+                ))}
+              </div>
             )}
-            <span className="stance-badge">{stanceLabel}</span>
-          </div>
-          <div className="tech-title-row">
-            <h1 className="tech-title">{parseStanceText(technique.name, isSouthpaw)}</h1>
-            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexShrink: 0 }}>
-              <ShareButton title={`How to ${technique.name}`} description={technique.description} url={`/technique/${technique.id}`} />
-              <button 
-                className={`fav-btn ${isFav ? 'fav-active' : ''}`}
-                onClick={handleFavoriteToggle}
-                aria-label={isFav ? 'Remove from favorites' : 'Add to favorites'}
-              >
-                <Heart size={20} fill={isFav ? 'currentColor' : 'none'} />
-              </button>
-            </div>
-          </div>
-          <p className="tech-description">{parseStanceText(technique.description, isSouthpaw)}</p>
-          
-          {/* Training format tags */}
-          {formatLabels.length > 0 && (
-            <div className="format-tags">
-              {formatLabels.map(fmt => (
-                <span key={fmt} className="format-tag">{fmt}</span>
-              ))}
-            </div>
-          )}
 
-          {/* Coach review byline */}
-          <div className="tech-byline">
-            <Clock size={14} />
-            <span>Reviewed by <strong>Nutrition Advisory Board</strong> · Last updated June 2026</span>
-          </div>
+            {/* Coach review byline */}
+            <div className="tech-byline">
+              <Clock size={14} />
+              <span>Reviewed by <strong>Nutrition Advisory Board</strong> · Last updated June 2026</span>
+            </div>
 
-          {(technique.muscles || []).length > 0 && (
-          <div className="muscle-tags">
-            {(technique.muscles || []).map(m => (
-              <Link href={`/anatomy/${m}`} key={m} className="muscle-tag">{bodyParts[m]?.name || m}</Link>
-            ))}
+            {(technique.muscles || []).length > 0 && (
+              <div className="muscle-tags">
+                {(technique.muscles || []).map(m => (
+                  <Link href={`/anatomy/${m}`} key={m} className="muscle-tag">{bodyParts[m]?.name || m}</Link>
+                ))}
+              </div>
+            )}
           </div>
+          {technique.image && (
+            <div className="tech-hero-image-container">
+              <img 
+                src={technique.image.includes('unsplash.com') ? `${technique.image}&w=800&q=80` : technique.image} 
+                alt={technique.name} 
+                className="tech-hero-image" 
+              />
+            </div>
           )}
         </div>
       </div>

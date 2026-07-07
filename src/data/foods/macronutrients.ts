@@ -3,6 +3,7 @@ import type { Technique } from '../techniques';
 export const macronutrientsFoods: Record<string, Technique> = {
   "medjool-dates": {
     "id": "medjool-dates",
+    image: "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop",
     "name": "Medjool Dates",
     "category": "Macronutrients",
     "difficulty": "beginner",
@@ -55,6 +56,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
   },
   "raw-honey": {
     "id": "raw-honey",
+    image: "https://images.unsplash.com/photo-1587049352851-8d4e89134292?auto=format&fit=crop",
     "name": "Raw Honey",
     "category": "Macronutrients",
     "difficulty": "beginner",
@@ -106,6 +108,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
   },
   "jasmine-rice": {
     "id": "jasmine-rice",
+    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop",
     "name": "Jasmine Rice",
     "category": "Macronutrients",
     "difficulty": "beginner",
@@ -156,6 +159,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
   },
   "buckwheat": {
     "id": "buckwheat",
+    image: "https://images.unsplash.com/photo-1622484211148-717088f121d5?auto=format&fit=crop",
     "name": "Buckwheat",
     "category": "Macronutrients",
     "difficulty": "beginner",
@@ -207,6 +211,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
   },
   "pumpkin": {
     "id": "pumpkin",
+    image: "https://images.unsplash.com/photo-1508264932379-38c9213b3af2?auto=format&fit=crop",
     "name": "Pumpkin",
     "category": "Macronutrients",
     "difficulty": "beginner",
@@ -258,6 +263,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
   },
   "rice-cakes": {
     "id": "rice-cakes",
+    image: "https://images.unsplash.com/photo-1598214813591-2089404e19ac?auto=format&fit=crop",
     "name": "Rice Cakes",
     "category": "Macronutrients",
     "difficulty": "beginner",
@@ -309,6 +315,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
   },
   "grass-fed-beef": {
     "id": "grass-fed-beef",
+    image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop",
     "name": "Grass-Fed Beef",
     "category": "Macronutrients",
     "difficulty": "beginner",
@@ -363,6 +370,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
   },
   "bison": {
     "id": "bison",
+    image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop",
     "name": "Bison",
     "category": "Macronutrients",
     "difficulty": "intermediate",
@@ -417,6 +425,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
   },
   "turkey-breast": {
     "id": "turkey-breast",
+    image: "https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop",
     "name": "Turkey Breast",
     "category": "Macronutrients",
     "difficulty": "beginner",
@@ -469,6 +478,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
   },
   "cottage-cheese": {
     "id": "cottage-cheese",
+    image: "https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop",
     "name": "Cottage Cheese",
     "category": "Macronutrients",
     "difficulty": "beginner",
@@ -522,6 +532,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
   },
   "tempeh": {
     "id": "tempeh",
+    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop",
     "name": "Tempeh",
     "category": "Macronutrients",
     "difficulty": "intermediate",
@@ -575,6 +586,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
   },
   "tofu": {
     "id": "tofu",
+    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop",
     "name": "Tofu",
     "category": "Macronutrients",
     "difficulty": "beginner",
@@ -627,6 +639,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
   },
   "hemp-seeds": {
     "id": "hemp-seeds",
+    image: "https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop",
     "name": "Hemp Seeds",
     "category": "Macronutrients",
     "difficulty": "beginner",
@@ -679,6 +692,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
   },
   "almonds": {
     "id": "almonds",
+    image: "https://images.unsplash.com/photo-1508061253366-f7da158b6d4e?auto=format&fit=crop",
     "name": "Almonds",
     "category": "Macronutrients",
     "difficulty": "beginner",
@@ -730,6 +744,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
   },
   "walnuts": {
     "id": "walnuts",
+    image: "https://images.unsplash.com/photo-1552689486-f677cdec1a5b?auto=format&fit=crop",
     "name": "Walnuts",
     "category": "Macronutrients",
     "difficulty": "beginner",
@@ -781,6 +796,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
   },
   "chia-seeds": {
     "id": "chia-seeds",
+    image: "https://images.unsplash.com/photo-15003197210-e0cd71810b5f?auto=format&fit=crop",
     "name": "Chia Seeds",
     "category": "Macronutrients",
     "difficulty": "beginner",
@@ -832,6 +848,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
   },
   "flax-seeds": {
     "id": "flax-seeds",
+    image: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop",
     "name": "Flax Seeds",
     "category": "Macronutrients",
     "difficulty": "beginner",
@@ -883,6 +900,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
   },
   "extra-virgin-olive-oil": {
     "id": "extra-virgin-olive-oil",
+    image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop",
     "name": "Extra Virgin Olive Oil",
     "category": "Macronutrients",
     "difficulty": "beginner",
@@ -934,6 +952,7 @@ export const macronutrientsFoods: Record<string, Technique> = {
   },
   "coconut-oil": {
     "id": "coconut-oil",
+    image: "https://images.unsplash.com/photo-1526314599652-327369803212?auto=format&fit=crop",
     "name": "Coconut Oil",
     "category": "Macronutrients",
     "difficulty": "beginner",

@@ -35,18 +35,50 @@ def key_chroma_green(img, thresh=85):
     Replaces chroma green background with transparency.
     Uses PIL's floodfill from the four corners to remove the background green,
     avoiding matching similar greens inside the character/item itself.
+    Then, keys out remaining neon green border/fringe pixels using HSV distance checks.
     """
     img = img.convert("RGBA")
     w, h = img.size
     
-    # Flood fill transparent from each corner
+    # 1. Flood fill transparent from each corner
     for corner in [(0, 0), (w - 1, 0), (0, h - 1), (w - 1, h - 1)]:
         try:
             ImageDraw.floodfill(img, corner, (0, 0, 0, 0), thresh=thresh)
         except Exception:
             pass
             
-    return img
+    # 2. Key out any remaining neon green fringe pixels
+    arr = np.array(img)
+    r = arr[:, :, 0].astype(float) / 255.0
+    g = arr[:, :, 1].astype(float) / 255.0
+    b = arr[:, :, 2].astype(float) / 255.0
+    a = arr[:, :, 3]
+    
+    mx = np.maximum(np.maximum(r, g), b)
+    mn = np.minimum(np.minimum(r, g), b)
+    df = mx - mn
+    
+    s = np.zeros_like(mx)
+    s[mx > 0] = df[mx > 0] / mx[mx > 0]
+    
+    h_val = np.zeros_like(mx)
+    mask_g = (mx == g) & (df > 0)
+    h_val[mask_g] = (b[mask_g] - r[mask_g]) / df[mask_g] + 2.0
+    mask_b = (mx == b) & (df > 0)
+    h_val[mask_b] = (r[mask_b] - g[mask_b]) / df[mask_b] + 4.0
+    mask_r = (mx == r) & (df > 0)
+    h_val[mask_r] = (g[mask_r] - b[mask_r]) / df[mask_r]
+    h_val = (h_val / 6.0) % 1.0
+    
+    h_deg = h_val * 360.0
+    s_val = s * 255.0
+    v_val = mx * 255.0
+    
+    # Neon green fringe: Hue in [75, 165], Saturation > 110, Value > 120
+    is_fringe = (h_deg >= 75) & (h_deg <= 165) & (s_val > 110) & (v_val > 120) & (a > 0)
+    
+    arr[is_fringe] = [0, 0, 0, 0]
+    return Image.fromarray(arr, "RGBA")
 
 def clean_despeckle(img):
     """

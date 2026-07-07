@@ -1,7 +1,14 @@
 'use client';
 
 import React, { useRef, useEffect, useState } from 'react';
-import type { FighterCustomization } from '@/data/fighterSprites';
+import {
+  SKIN_TONES,
+  HAIR_COLORS,
+  GLOVE_COLORS,
+  SHOE_COLORS,
+  TOP_COLORS,
+  type FighterCustomization
+} from '@/data/fighterSprites';
 import './PixelFighterCanvas.css';
 
 interface PixelFighterCanvasProps {
@@ -154,6 +161,103 @@ export default function PixelFighterCanvas({
       );
     }
 
+    // Apply dynamic palette swap recoloring
+    if (customization) {
+      try {
+        const imgData = ctx.getImageData(0, 0, canvasSize, canvasSize);
+        const data = imgData.data;
+
+        // Convert HEX to RGB
+        const hexToRgb = (hex: string) => {
+          const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+          return result ? {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16)
+          } : { r: 0, g: 0, b: 0 };
+        };
+
+        const clamp = (val: number) => Math.max(0, Math.min(255, val));
+
+        // Customizer target swatches
+        const skinRgb = hexToRgb(SKIN_TONES[customization.skinTone]?.hex || SKIN_TONES[1].hex);
+        const hairRgb = hexToRgb(HAIR_COLORS[customization.hairColor]?.hex || HAIR_COLORS[1].hex);
+        const topRgb = hexToRgb(TOP_COLORS[customization.topColor]?.hex || TOP_COLORS[0].hex);
+        const gloveRgb = hexToRgb(GLOVE_COLORS[customization.gloveColor]?.hex || GLOVE_COLORS[0].hex);
+        const shoeRgb = hexToRgb(SHOE_COLORS[customization.shoeColor]?.hex || SHOE_COLORS[0].hex);
+
+        // Base anchor points in the generated spritesheet
+        const baseSkin = { r: 212, g: 165, b: 116 };
+        const baseHair = { r: 92, g: 51, b: 23 };
+        const baseTop = { r: 46, g: 59, b: 51 };
+        const baseGlove = { r: 217, g: 125, b: 84 };
+        const baseShoe = { r: 17, g: 22, b: 19 };
+
+        const skinDiff = { r: skinRgb.r - baseSkin.r, g: skinRgb.g - baseSkin.g, b: skinRgb.b - baseSkin.b };
+        const hairDiff = { r: hairRgb.r - baseHair.r, g: hairRgb.g - baseHair.g, b: hairRgb.b - baseHair.b };
+        const topDiff = { r: topRgb.r - baseTop.r, g: topRgb.g - baseTop.g, b: topRgb.b - baseTop.b };
+        const gloveDiff = { r: gloveRgb.r - baseGlove.r, g: gloveRgb.g - baseGlove.g, b: gloveRgb.b - baseGlove.b };
+        const shoeDiff = { r: shoeRgb.r - baseShoe.r, g: shoeRgb.g - baseShoe.g, b: shoeRgb.b - baseShoe.b };
+
+        for (let i = 0; i < data.length; i += 4) {
+          const a = data[i + 3];
+          if (a === 0) continue;
+
+          const r = data[i];
+          const g = data[i + 1];
+          const b = data[i + 2];
+
+          // 1. Skin detection (Human Skin filter: high R, R > G > B, specific bounds)
+          const isSkin = r > 120 && g > 80 && b > 60 && r > g && g > b && (r - g) > 15 && (r - g) < 80 && (g - b) > 5;
+          if (isSkin) {
+            data[i]     = clamp(r + skinDiff.r);
+            data[i + 1] = clamp(g + skinDiff.g);
+            data[i + 2] = clamp(b + skinDiff.b);
+            continue;
+          }
+
+          // 2. Hair detection (colors close to base hair brown)
+          const distHair = Math.sqrt((r - baseHair.r) ** 2 + (g - baseHair.g) ** 2 + (b - baseHair.b) ** 2);
+          if (distHair < 40) {
+            data[i]     = clamp(r + hairDiff.r);
+            data[i + 1] = clamp(g + hairDiff.g);
+            data[i + 2] = clamp(b + hairDiff.b);
+            continue;
+          }
+
+          // 3. Top / Shirt detection
+          const distTop = Math.sqrt((r - baseTop.r) ** 2 + (g - baseTop.g) ** 2 + (b - baseTop.b) ** 2);
+          if (distTop < 30) {
+            data[i]     = clamp(r + topDiff.r);
+            data[i + 1] = clamp(g + topDiff.g);
+            data[i + 2] = clamp(b + topDiff.b);
+            continue;
+          }
+
+          // 4. Gloves detection
+          const distGlove = Math.sqrt((r - baseGlove.r) ** 2 + (g - baseGlove.g) ** 2 + (b - baseGlove.b) ** 2);
+          if (distGlove < 35) {
+            data[i]     = clamp(r + gloveDiff.r);
+            data[i + 1] = clamp(g + gloveDiff.g);
+            data[i + 2] = clamp(b + gloveDiff.b);
+            continue;
+          }
+
+          // 5. Shoes detection
+          const distShoe = Math.sqrt((r - baseShoe.r) ** 2 + (g - baseShoe.g) ** 2 + (b - baseShoe.b) ** 2);
+          if (distShoe < 20) {
+            data[i]     = clamp(r + shoeDiff.r);
+            data[i + 1] = clamp(g + shoeDiff.g);
+            data[i + 2] = clamp(b + shoeDiff.b);
+            continue;
+          }
+        }
+        ctx.putImageData(imgData, 0, 0);
+      } catch (err) {
+        console.warn("Recoloring canvas failed:", err);
+      }
+    }
+
     // Draw Apple Hat overlay layer
     if (hatImageRef.current && hatImageRef.current.complete) {
       ctx.drawImage(
@@ -171,7 +275,7 @@ export default function PixelFighterCanvas({
         0, 0, canvasSize, canvasSize
       );
     }
-  }, [frameIndex, imagesLoaded, canvasSize]);
+  }, [frameIndex, imagesLoaded, canvasSize, customization]);
 
   return (
     <div 

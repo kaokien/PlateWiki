@@ -91,15 +91,19 @@ export default function PixelFighterCanvas({
     charImg.src = `/fighters/${stage}_${gender}${animName}.png?v=3`;
 
     // Determine equippable items
-    const hasAppleHat = customization?.equippedGear?.headgear === 'apple-hat' || customization?.equippedGear?.headgear === 'headgear-red';
-    const hasBroccoliShield = customization?.equippedGear?.gloves === 'broccoli-shield' || customization?.equippedGear?.gloves === 'gloves-red';
+    const headgearGear = customization?.equippedGear?.headgear;
+    const glovesGear = customization?.equippedGear?.gloves;
+
+    const hasAppleHat = headgearGear === 'apple-hat' || headgearGear === 'headgear-red';
+    const hasGlovesGear = glovesGear === 'broccoli-shield' || glovesGear === 'banana-sword' || glovesGear === 'gloves-red';
 
     if (hasAppleHat) {
       hatImg.src = `/fighters/apple_hat_${stage}_${gender}${animName}.png?v=3`;
       hatImageRef.current = hatImg;
     }
-    if (hasBroccoliShield) {
-      shieldImg.src = `/fighters/broccoli_shield_${stage}_${gender}${animName}.png?v=3`;
+    if (hasGlovesGear) {
+      const gearPrefix = glovesGear === 'banana-sword' ? 'banana-sword' : 'broccoli_shield';
+      shieldImg.src = `/fighters/${gearPrefix}_${stage}_${gender}${animName}.png?v=3`;
       shieldImageRef.current = shieldImg;
     }
 
@@ -110,7 +114,7 @@ export default function PixelFighterCanvas({
     if (hasAppleHat) {
       promises.push(new Promise((resolve) => { hatImg.onload = resolve; hatImg.onerror = resolve; }));
     }
-    if (hasBroccoliShield) {
+    if (hasGlovesGear) {
       promises.push(new Promise((resolve) => { shieldImg.onload = resolve; shieldImg.onerror = resolve; }));
     }
 

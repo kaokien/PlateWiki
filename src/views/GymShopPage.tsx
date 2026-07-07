@@ -67,6 +67,13 @@ export default function GymShopPage() {
       } else if (item.styleStageId) {
         equipItem('style', item.styleStageId);
       }
+    } else if (item.category === 'gear' && item.gearSlot && item.gearId) {
+      const isEquipped = equipped[item.gearSlot] === item.gearId;
+      if (isEquipped) {
+        unequipSlot(item.gearSlot);
+      } else {
+        equipItem(item.gearSlot, item.gearId);
+      }
     } else if (item.category === 'swatch' && item.swatchSlot && item.swatchIndex !== undefined) {
       const defaults = { gloveColor: 0, hairColor: 1, shoeColor: 0, topColor: 0 };
       const isEquipped = customization?.[item.swatchSlot] === item.swatchIndex;
@@ -85,6 +92,12 @@ export default function GymShopPage() {
       const isUnlocked = unlockedIds.includes(item.id);
       if (!isUnlocked) return 'locked';
       return equipped.style === item.styleStageId ? 'equipped' : 'unlocked';
+    }
+
+    if (item.category === 'gear' && item.gearSlot && item.gearId) {
+      const isUnlocked = unlockedIds.includes(item.id);
+      if (!isUnlocked) return 'locked';
+      return equipped[item.gearSlot] === item.gearId ? 'equipped' : 'unlocked';
     }
 
     if (item.category === 'swatch' && item.swatchSlot && item.swatchIndex !== undefined) {
@@ -133,9 +146,10 @@ export default function GymShopPage() {
 
       {/* Navigation tabs */}
       <nav className="shop-tabs">
-        {(['all', 'style', 'swatch', 'boost'] as const).map(tab => {
+        {(['all', 'gear', 'style', 'swatch', 'boost'] as const).map(tab => {
           const tabLabels = {
             all: 'ALL ITEMS',
+            gear: 'GEAR & EQUIPMENT',
             style: 'TRANSMOG STYLES',
             swatch: 'PREMIUM COLORS',
             boost: 'BOOSTS & ITEMS',

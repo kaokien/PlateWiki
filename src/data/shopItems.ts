@@ -1,4 +1,4 @@
-export type ShopItemCategory = 'boost' | 'swatch' | 'style';
+export type ShopItemCategory = 'boost' | 'swatch' | 'style' | 'gear';
 
 export interface ShopItem {
   id: string;
@@ -14,29 +14,68 @@ export interface ShopItem {
   swatchIndex?: number;
   /** For styles: stage ID like 'contender' | 'gatekeeper' | 'champion' */
   styleStageId?: string;
+  /** For gear: slot name */
+  gearSlot?: 'headgear' | 'gloves' | 'shorts' | 'robe' | 'belt' | 'boots';
+  /** For gear: item ID */
+  gearId?: string;
   /** Minimum rank required to purchase */
   requiredRank?: string;
 }
 
 export const SHOP_ITEMS: ShopItem[] = [
-  // ── Boosts & Utilities ──────────────────────────────────────────────
+  // ── Boosts & Utilities (Free for testing) ───────────────────────────
   {
     id: 'streak-freeze',
     category: 'boost',
     name: 'Harvest Shield (Streak Freeze)',
     description: 'Equip to protect your daily fueling streak if you miss a logging day. Max 3.',
-    price: 150,
+    price: 0,
     icon: 'Shield',
     rarity: 'common',
   },
 
-  // ── Customizer Swatch Unlocks ───────────────────────────────────────
+  // ── Gear & Equipments (New Category — Free) ─────────────────────────
+  {
+    id: 'gear-apple-hat',
+    category: 'gear',
+    name: 'Apple Hat',
+    description: 'A round, red organic Apple Hat with a green leaf stem.',
+    price: 0,
+    icon: 'Apple',
+    rarity: 'rare',
+    gearSlot: 'headgear',
+    gearId: 'apple-hat',
+  },
+  {
+    id: 'gear-broccoli-shield',
+    category: 'gear',
+    name: 'Broccoli Shield',
+    description: 'A tough, fibrous shield made from a giant organic broccoli head.',
+    price: 0,
+    icon: 'Shield',
+    rarity: 'epic',
+    gearSlot: 'gloves',
+    gearId: 'broccoli-shield',
+  },
+  {
+    id: 'gear-banana-sword',
+    category: 'gear',
+    name: 'Banana Sword',
+    description: 'A sharp, potassium-packed custom sword with a green peel hilt.',
+    price: 0,
+    icon: 'Swords',
+    rarity: 'epic',
+    gearSlot: 'gloves',
+    gearId: 'banana-sword',
+  },
+
+  // ── Customizer Swatch Unlocks (Free for testing) ────────────────────
   {
     id: 'glove-gold',
     category: 'swatch',
     name: 'Copper Bronze Spoon',
     description: 'Unlock the premium Copper Bronze color option for your chef hands/spoon.',
-    price: 400,
+    price: 0,
     icon: 'Palette',
     rarity: 'epic',
     swatchSlot: 'gloveColor',
@@ -48,7 +87,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'swatch',
     name: 'Sage Green Gloves',
     description: 'Unlock the premium Sage Green color option for your gardening gloves.',
-    price: 250,
+    price: 0,
     icon: 'Palette',
     rarity: 'rare',
     swatchSlot: 'gloveColor',
@@ -59,7 +98,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'swatch',
     name: 'Silver Sage Hair Dye',
     description: 'Unlock the premium Platinum color option for your avatar\'s hair.',
-    price: 300,
+    price: 0,
     icon: 'Palette',
     rarity: 'rare',
     swatchSlot: 'hairColor',
@@ -71,7 +110,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'swatch',
     name: 'Wheat Blonde Dye',
     description: 'Unlock the premium Blonde color option for your avatar\'s hair.',
-    price: 150,
+    price: 0,
     icon: 'Palette',
     rarity: 'common',
     swatchSlot: 'hairColor',
@@ -82,7 +121,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'swatch',
     name: 'Rust Red Clogs',
     description: 'Unlock the vibrant Rust Red color option for your gardening shoes.',
-    price: 200,
+    price: 0,
     icon: 'Palette',
     rarity: 'common',
     swatchSlot: 'shoeColor',
@@ -93,7 +132,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'swatch',
     name: 'Slate Blue Wellies',
     description: 'Unlock the vibrant Slate Blue color option for your gardening shoes.',
-    price: 200,
+    price: 0,
     icon: 'Palette',
     rarity: 'common',
     swatchSlot: 'shoeColor',
@@ -104,7 +143,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'swatch',
     name: 'Berry Pink Apron Dye',
     description: 'Unlock the premium Berry Pink top color for female avatar models.',
-    price: 200,
+    price: 0,
     icon: 'Palette',
     rarity: 'common',
     swatchSlot: 'topColor',
@@ -115,20 +154,20 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'swatch',
     name: 'Sage Herbal Dye',
     description: 'Unlock the premium Sage Herbal top color for female avatar models.',
-    price: 250,
+    price: 0,
     icon: 'Palette',
     rarity: 'rare',
     swatchSlot: 'topColor',
     swatchIndex: 5,
   },
 
-  // ── Transmog styles (Cosmetic Ranks) ───────────────────────────────
+  // ── Transmog styles (Cosmetic Ranks — Free for testing) ─────────────
   {
     id: 'style-contender',
     category: 'style',
     name: 'Forager Attire',
     description: 'Transmog: Display Forager garments regardless of current rank.',
-    price: 300,
+    price: 0,
     icon: 'Shirt',
     rarity: 'common',
     styleStageId: 'contender',
@@ -138,7 +177,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'style',
     name: 'Cultivator Straw Hat',
     description: 'Transmog: Wear the protective straw sun hat and overalls of a Cultivator.',
-    price: 600,
+    price: 0,
     icon: 'Shirt',
     rarity: 'rare',
     styleStageId: 'gatekeeper',
@@ -149,7 +188,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'style',
     name: 'Artisanal Chef Jacket',
     description: 'Transmog: Wear the clean, double-breasted white jacket of an Artisanal Chef.',
-    price: 900,
+    price: 0,
     icon: 'Shirt',
     rarity: 'epic',
     styleStageId: 'rising-star',
@@ -160,7 +199,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     category: 'style',
     name: 'Harvest Master Sash',
     description: 'Transmog: Display the organic hemp sash and master robes of a Harvest Master.',
-    price: 1500,
+    price: 0,
     icon: 'Shirt',
     rarity: 'legendary',
     styleStageId: 'champion',

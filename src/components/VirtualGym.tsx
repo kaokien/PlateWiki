@@ -43,6 +43,17 @@ export default function VirtualGym() {
   const [floatingText, setFloatingText] = useState<{ id: number; text: string; x: number; y: number }[]>([]);
   const floatIdCounter = useRef(0);
 
+  const score = (nourishment + fitness) / 2;
+  const isFamished = nourishment < 35 || fitness < 35;
+
+  // Fixed locations for plants in the virtual forest clearing
+  const PLANT_PRESETS = [
+    { x: 18, y: 72, healthy: '🌲', withered: '🍂' },
+    { x: 78, y: 75, healthy: '🌳', withered: '🪵' },
+    { x: 32, y: 82, healthy: '🌿', withered: '🍂' },
+    { x: 68, y: 76, healthy: '🌸', withered: '🥀' },
+  ];
+
   // Helper to check if it is nighttime (10 PM to 6 AM)
   const checkIsNighttime = (): boolean => {
     const hour = new Date().getHours();
@@ -172,7 +183,7 @@ export default function VirtualGym() {
     if (gymState === 'sleeping' || gymState === 'eating' || gymState === 'training') return;
 
     const intervalTime = 70; // coordinate update rate
-    const stepSize = 1.4;
+    const stepSize = isFamished ? 0.7 : 1.4; // walk sluggishly when famished
 
     const moveTimer = setInterval(() => {
       if (targetX !== null && targetY !== null) {
@@ -220,7 +231,7 @@ export default function VirtualGym() {
     }, intervalTime);
 
     return () => clearInterval(moveTimer);
-  }, [posX, posY, targetX, targetY, gymState, foodItem, fitness]);
+  }, [posX, posY, targetX, targetY, gymState, foodItem, fitness, isFamished]);
 
   // 6. Wander wander wander (when idle)
   useEffect(() => {
@@ -232,6 +243,9 @@ export default function VirtualGym() {
         return;
       }
 
+      // Sluggish wander frequency when famished
+      if (isFamished && Math.random() > 0.1) return;
+
       if (Math.random() < 0.25) {
         const rx = 15 + Math.random() * 65;
         const ry = 55 + Math.random() * 20;
@@ -241,13 +255,36 @@ export default function VirtualGym() {
     }, 5000);
 
     return () => clearInterval(wanderTimer);
-  }, [gymState]);
+  }, [gymState, isFamished]);
+
+  const numHealthy = score >= 85 ? 4 : score >= 65 ? 3 : score >= 45 ? 2 : score >= 25 ? 1 : 0;
 
   return (
     <div className={`virtual-gym-container ${gymState === 'sleeping' ? 'virtual-gym--dark' : ''}`}>
       {/* Viewport Gym Screen */}
       <div className="gym-viewport">
         <div className="gym-grid-floor" />
+
+        {/* Dynamic Forest clearing plants (Concept inspired by ForestApp.cc) */}
+        {PLANT_PRESETS.map((p, idx) => {
+          const isHealthy = idx < numHealthy;
+          return (
+            <div 
+              key={idx}
+              className="forest-plant"
+              style={{ left: `${p.x}%`, top: `${p.y}%`, animationDelay: `${idx * 0.5}s` }}
+            >
+              {isHealthy ? p.healthy : p.withered}
+            </div>
+          );
+        })}
+
+        {/* Famished Status Overlay Banner */}
+        {isFamished && (
+          <div className="famished-status-banner">
+            ⚠️ AVATAR NEGLECTED / FAMISHED
+          </div>
+        )}
 
         {/* Food Item rendering */}
         {foodItem && (
@@ -268,6 +305,9 @@ export default function VirtualGym() {
             transform: `translate(-50%, -100%) ${facingRight ? 'scaleX(1)' : 'scaleX(-1)'}`
           }}
         >
+          {isFamished && gymState !== 'sleeping' && (
+            <div className="famished-bubble">😰 Hungry</div>
+          )}
           <PixelFighterCanvas
             rankName={rank.name}
             size="md"

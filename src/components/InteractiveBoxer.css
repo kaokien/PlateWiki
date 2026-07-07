@@ -87,6 +87,12 @@
 }
 
 /* ===== Magnetic Hover on Polygons ===== */
+.model-wrapper svg g {
+  fill: var(--color-border);
+  stroke: var(--color-text-muted);
+  opacity: 0.85;
+}
+
 .model-wrapper svg polygon {
   cursor: crosshair;
   transition: filter 0.2s ease, opacity 0.2s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);

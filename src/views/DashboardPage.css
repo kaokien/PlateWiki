@@ -46,6 +46,13 @@
   width: 36px;
 }
 
+.dash-header__bodymap-svg g {
+  fill: var(--color-border);
+  stroke: var(--color-text-muted);
+  opacity: 0.8;
+  transition: fill var(--transition-fast), stroke var(--transition-fast), opacity var(--transition-fast);
+}
+
 .dash-header__bodymap-label {
   font-size: 0.55rem;
   font-weight: 700;

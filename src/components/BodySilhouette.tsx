@@ -13,7 +13,7 @@ import React from 'react';
 export default function BodySilhouette(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <g fill="rgba(255, 255, 255, 0.10)" stroke="rgba(255, 255, 255, 0.16)" strokeWidth="1">
+      <g fill="var(--color-border)" stroke="var(--color-text-muted)" strokeWidth="1" opacity="0.65">
         {/* head + neck */}
         <circle cx="50" cy="14" r="10" />
         <rect x="45" y="24" width="10" height="7" rx="2" />

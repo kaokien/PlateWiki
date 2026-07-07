@@ -420,9 +420,6 @@ const TechniquePage = ({ routeId }: { routeId?: string }) => {
             {suggestedGear.map(gear => (
               <GearCard key={gear.id} {...gear} />
             ))}
-            <p className="affiliate-disclosure">
-              FoodWiki features curated resources to support organic culinary preparation.
-            </p>
           </div>
 
           <div className="sidebar-ad-wrapper">

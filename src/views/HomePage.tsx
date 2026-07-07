@@ -363,9 +363,6 @@ const HomePage = ({ totalTechniques, categoryCounts, techniqueIndex }: HomePageP
             <GearCard key={gear.id} {...gear} />
           ))}
         </div>
-        <p className="affiliate-disclosure">
-          FoodWiki features recommended products to support organic cooking and clean harvesting.
-        </p>
       </section>
 
       {/* What You'll Learn */}

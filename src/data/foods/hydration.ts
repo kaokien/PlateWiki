@@ -3,7 +3,7 @@ import type { Technique } from '../techniques';
 export const hydrationFoods: Record<string, Technique> = {
   "celery-juice": {
     "id": "celery-juice",
-    image: "https://images.unsplash.com/photo-1610970881699-44a5587caaec?auto=format&fit=crop",
+    image: '/images/foods/celery-juice.jpg',
     "name": "Celery Juice",
     "category": "Hydration & Salts",
     "difficulty": "intermediate",
@@ -54,7 +54,7 @@ export const hydrationFoods: Record<string, Technique> = {
   },
   "cucumber": {
     "id": "cucumber",
-    image: "https://images.unsplash.com/photo-1449339091482-4a1557076786?auto=format&fit=crop",
+    image: '/images/foods/cucumber.jpg',
     "name": "Cucumber",
     "category": "Hydration & Salts",
     "difficulty": "beginner",
@@ -106,7 +106,7 @@ export const hydrationFoods: Record<string, Technique> = {
   },
   "mineral-water": {
     "id": "mineral-water",
-    image: "https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop",
+    image: '/images/foods/mineral-water.jpg',
     "name": "Mineral Water",
     "category": "Hydration & Salts",
     "difficulty": "beginner",
@@ -157,7 +157,7 @@ export const hydrationFoods: Record<string, Technique> = {
   },
   "pickle-juice": {
     "id": "pickle-juice",
-    image: "https://images.unsplash.com/photo-1589541887376-f80e722a5788?auto=format&fit=crop",
+    image: '/images/foods/pickle-juice.jpg',
     "name": "Pickle Juice",
     "category": "Hydration & Salts",
     "difficulty": "intermediate",

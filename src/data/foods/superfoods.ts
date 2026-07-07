@@ -3,7 +3,7 @@ import type { Technique } from '../techniques';
 export const superfoodsFoods: Record<string, Technique> = {
   "matcha": {
     "id": "matcha",
-    image: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop",
+    image: '/images/foods/matcha.jpg',
     "name": "Matcha Green Tea",
     "category": "Superfoods & Adaptogens",
     "difficulty": "intermediate",
@@ -55,7 +55,7 @@ export const superfoodsFoods: Record<string, Technique> = {
   },
   "ginseng": {
     "id": "ginseng",
-    image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop",
+    image: '/images/foods/ginseng.jpg',
     "name": "Panax Ginseng",
     "category": "Superfoods & Adaptogens",
     "difficulty": "advanced",
@@ -107,7 +107,7 @@ export const superfoodsFoods: Record<string, Technique> = {
   },
   "rhodiola": {
     "id": "rhodiola",
-    image: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?auto=format&fit=crop",
+    image: '/images/foods/rhodiola.jpg',
     "name": "Rhodiola Rosea",
     "category": "Superfoods & Adaptogens",
     "difficulty": "intermediate",
@@ -159,7 +159,7 @@ export const superfoodsFoods: Record<string, Technique> = {
   },
   "raw-cacao": {
     "id": "raw-cacao",
-    image: "https://images.unsplash.com/photo-1548907040-4d42b52145ca?auto=format&fit=crop",
+    image: '/images/foods/raw-cacao.jpg',
     "name": "Raw Cacao",
     "category": "Superfoods & Adaptogens",
     "difficulty": "beginner",
@@ -211,7 +211,7 @@ export const superfoodsFoods: Record<string, Technique> = {
   },
   "magnesium-glycinate": {
     "id": "magnesium-glycinate",
-    image: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop",
+    image: '/images/foods/magnesium-glycinate.jpg',
     "name": "Magnesium Glycinate",
     "category": "Superfoods & Adaptogens",
     "difficulty": "beginner",
@@ -263,7 +263,7 @@ export const superfoodsFoods: Record<string, Technique> = {
   },
   "zinc-picolinate": {
     "id": "zinc-picolinate",
-    image: "https://images.unsplash.com/photo-1611926653458-09294b3142bf?auto=format&fit=crop",
+    image: '/images/foods/zinc-picolinate.jpg',
     "name": "Zinc Picolinate",
     "category": "Superfoods & Adaptogens",
     "difficulty": "beginner",
@@ -315,7 +315,7 @@ export const superfoodsFoods: Record<string, Technique> = {
   },
   "fish-oil": {
     "id": "fish-oil",
-    image: "https://images.unsplash.com/photo-1611926653458-09294b3142bf?auto=format&fit=crop",
+    image: '/images/foods/fish-oil.jpg',
     "name": "Fish Oil",
     "category": "Superfoods & Adaptogens",
     "difficulty": "beginner",

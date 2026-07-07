@@ -3,7 +3,7 @@ import type { Technique } from '../techniques';
 export const micronutrientsFoods: Record<string, Technique> = {
   "kale": {
     "id": "kale",
-    image: "https://images.unsplash.com/photo-1628186109205-2384702cf048?auto=format&fit=crop",
+    image: '/images/foods/kale.jpg',
     "name": "Kale",
     "category": "Micronutrients",
     "difficulty": "beginner",
@@ -55,7 +55,7 @@ export const micronutrientsFoods: Record<string, Technique> = {
   },
   "asparagus": {
     "id": "asparagus",
-    image: "https://images.unsplash.com/photo-1515471200589-d40250a22ce9?auto=format&fit=crop",
+    image: '/images/foods/asparagus.jpg',
     "name": "Asparagus",
     "category": "Micronutrients",
     "difficulty": "beginner",
@@ -107,7 +107,7 @@ export const micronutrientsFoods: Record<string, Technique> = {
   },
   "oysters": {
     "id": "oysters",
-    image: "https://images.unsplash.com/photo-1614963326505-843867e2d63c?auto=format&fit=crop",
+    image: '/images/foods/oysters.jpg',
     "name": "Oysters",
     "category": "Micronutrients",
     "difficulty": "advanced",
@@ -161,7 +161,7 @@ export const micronutrientsFoods: Record<string, Technique> = {
   },
   "garlic": {
     "id": "garlic",
-    image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop",
+    image: '/images/foods/garlic.jpg',
     "name": "Garlic",
     "category": "Micronutrients",
     "difficulty": "beginner",
@@ -213,7 +213,7 @@ export const micronutrientsFoods: Record<string, Technique> = {
   },
   "pomegranate": {
     "id": "pomegranate",
-    image: "https://images.unsplash.com/photo-1541336032412-2048a678540d?auto=format&fit=crop",
+    image: '/images/foods/pomegranate.jpg',
     "name": "Pomegranate",
     "category": "Micronutrients",
     "difficulty": "beginner",
@@ -264,7 +264,7 @@ export const micronutrientsFoods: Record<string, Technique> = {
   },
   "tomatoes": {
     "id": "tomatoes",
-    image: "https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop",
+    image: '/images/foods/tomatoes.jpg',
     "name": "Tomatoes",
     "category": "Micronutrients",
     "difficulty": "beginner",

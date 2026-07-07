@@ -8,7 +8,7 @@ import { superfoodsFoods } from './foods/superfoods';
 const originalFoodsData: Record<string, Technique> = {
   'sweet-potato': {
     id: 'sweet-potato',
-    image: 'https://images.unsplash.com/photo-1596097635121-14b63b7a0c19?auto=format&fit=crop',
+    image: '/images/foods/sweet-potato.jpg',
     name: 'Sweet Potatoes',
     category: 'Macronutrients',
     difficulty: 'beginner',
@@ -41,7 +41,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'whey-isolate': {
     id: 'whey-isolate',
-    image: '/images/foods/earthy-recovery-shake.jpg',
+    image: '/images/foods/whey-isolate.jpg',
     name: 'Whey Protein Isolate',
     category: 'Macronutrients',
     difficulty: 'beginner',
@@ -74,7 +74,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'beetroot-juice': {
     id: 'beetroot-juice',
-    image: '/images/foods/nitric-oxide-booster-shot.jpg',
+    image: '/images/foods/beetroot-juice.jpg',
     name: 'Beetroot Juice',
     category: 'Hydration & Salts',
     difficulty: 'intermediate',
@@ -107,7 +107,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'eggs': {
     id: 'eggs',
-    image: 'https://images.unsplash.com/photo-1516448424440-9dbca97779c1?auto=format&fit=crop',
+    image: '/images/foods/eggs.jpg',
     name: 'Pasture-Raised Eggs',
     category: 'Macronutrients',
     difficulty: 'beginner',
@@ -140,7 +140,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'salmon': {
     id: 'salmon',
-    image: 'https://images.unsplash.com/photo-1485921325833-c519f76c4927?auto=format&fit=crop',
+    image: '/images/foods/salmon.jpg',
     name: 'Wild-Caught Salmon',
     category: 'Macronutrients',
     difficulty: 'beginner',
@@ -173,7 +173,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'oatmeal': {
     id: 'oatmeal',
-    image: 'https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?auto=format&fit=crop',
+    image: '/images/foods/oatmeal.jpg',
     name: 'Sprouted Oatmeal',
     category: 'Macronutrients',
     difficulty: 'beginner',
@@ -206,7 +206,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'spinach': {
     id: 'spinach',
-    image: 'https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop',
+    image: '/images/foods/spinach.jpg',
     name: 'Organic Spinach',
     category: 'Micronutrients',
     difficulty: 'beginner',
@@ -239,7 +239,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'pumpkin-seeds': {
     id: 'pumpkin-seeds',
-    image: 'https://images.unsplash.com/photo-15003197210-e0cd71810b5f?auto=format&fit=crop',
+    image: '/images/foods/pumpkin-seeds.jpg',
     name: 'Raw Pumpkin Seeds (Pepitas)',
     category: 'Micronutrients',
     difficulty: 'beginner',
@@ -272,7 +272,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'blueberries': {
     id: 'blueberries',
-    image: 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop',
+    image: '/images/foods/blueberries.jpg',
     name: 'Wild Blueberries',
     category: 'Micronutrients',
     difficulty: 'beginner',
@@ -305,7 +305,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'coconut-water': {
     id: 'coconut-water',
-    image: 'https://images.unsplash.com/photo-1543362906-acfc16c67564?auto=format&fit=crop',
+    image: '/images/foods/coconut-water.jpg',
     name: 'Raw Coconut Water',
     category: 'Hydration & Salts',
     difficulty: 'beginner',
@@ -338,7 +338,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'pink-salt': {
     id: 'pink-salt',
-    image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop',
+    image: '/images/foods/pink-salt.jpg',
     name: 'Himalayan Pink Salt',
     category: 'Hydration & Salts',
     difficulty: 'beginner',
@@ -371,7 +371,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'kefir': {
     id: 'kefir',
-    image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop',
+    image: '/images/foods/kefir.jpg',
     name: 'Grass-Fed Milk Kefir',
     category: 'Gut & Digestion',
     difficulty: 'intermediate',
@@ -404,7 +404,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'ginger': {
     id: 'ginger',
-    image: 'https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop',
+    image: '/images/foods/ginger.jpg',
     name: 'Fresh Ginger Root',
     category: 'Gut & Digestion',
     difficulty: 'beginner',
@@ -437,7 +437,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'acv': {
     id: 'acv',
-    image: 'https://images.unsplash.com/photo-1590483736622-39da8af7fc8f?auto=format&fit=crop',
+    image: '/images/foods/acv.jpg',
     name: 'Apple Cider Vinegar (with the Mother)',
     category: 'Gut & Digestion',
     difficulty: 'beginner',
@@ -470,7 +470,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'ashwagandha': {
     id: 'ashwagandha',
-    image: 'https://images.unsplash.com/photo-1611926653458-09294b3142bf?auto=format&fit=crop',
+    image: '/images/foods/ashwagandha.jpg',
     name: 'Ashwagandha (KSM-66)',
     category: 'Superfoods & Adaptogens',
     difficulty: 'intermediate',
@@ -503,7 +503,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'lions-mane': {
     id: 'lions-mane',
-    image: 'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop',
+    image: '/images/foods/lions-mane.jpg',
     name: 'Lion\'s Mane Mushroom',
     category: 'Superfoods & Adaptogens',
     difficulty: 'intermediate',
@@ -536,7 +536,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'cordyceps': {
     id: 'cordyceps',
-    image: 'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop',
+    image: '/images/foods/cordyceps.jpg',
     name: 'Cordyceps Militaris',
     category: 'Superfoods & Adaptogens',
     difficulty: 'advanced',
@@ -569,7 +569,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'turmeric': {
     id: 'turmeric',
-    image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop',
+    image: '/images/foods/turmeric.jpg',
     name: 'Organic Turmeric Root',
     category: 'Superfoods & Adaptogens',
     difficulty: 'beginner',
@@ -602,7 +602,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'chicken-breast': {
     id: 'chicken-breast',
-    image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop',
+    image: '/images/foods/chicken-breast.jpg',
     name: 'Chicken Breast',
     category: 'Macronutrients',
     difficulty: 'beginner',
@@ -635,7 +635,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'greek-yogurt': {
     id: 'greek-yogurt',
-    image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop',
+    image: '/images/foods/greek-yogurt.jpg',
     name: 'Greek Yogurt',
     category: 'Macronutrients',
     difficulty: 'beginner',
@@ -668,7 +668,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'quinoa': {
     id: 'quinoa',
-    image: 'https://images.unsplash.com/photo-1588693951525-45d2780e922e?auto=format&fit=crop',
+    image: '/images/foods/quinoa.jpg',
     name: 'Quinoa',
     category: 'Macronutrients',
     difficulty: 'beginner',
@@ -701,7 +701,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'brown-rice': {
     id: 'brown-rice',
-    image: 'https://images.unsplash.com/photo-1536304997881-a372c179924b?auto=format&fit=crop',
+    image: '/images/foods/brown-rice.jpg',
     name: 'Brown Rice',
     category: 'Macronutrients',
     difficulty: 'beginner',
@@ -734,7 +734,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'avocado': {
     id: 'avocado',
-    image: 'https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop',
+    image: '/images/foods/avocado.jpg',
     name: 'Avocado',
     category: 'Macronutrients',
     difficulty: 'beginner',
@@ -767,7 +767,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'beef-liver': {
     id: 'beef-liver',
-    image: 'https://images.unsplash.com/photo-1529566652340-2c41a226c118?auto=format&fit=crop',
+    image: '/images/foods/beef-liver.jpg',
     name: 'Grass-Fed Beef Liver',
     category: 'Macronutrients',
     difficulty: 'intermediate',
@@ -800,7 +800,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'lentils': {
     id: 'lentils',
-    image: 'https://images.unsplash.com/photo-1533223216122-427b8fa47505?auto=format&fit=crop',
+    image: '/images/foods/lentils.jpg',
     name: 'Lentils',
     category: 'Macronutrients',
     difficulty: 'beginner',
@@ -833,7 +833,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'wild-tuna': {
     id: 'wild-tuna',
-    image: 'https://images.unsplash.com/photo-1501595091296-3a9f4fe68001?auto=format&fit=crop',
+    image: '/images/foods/wild-tuna.jpg',
     name: 'Wild-Caught Tuna',
     category: 'Macronutrients',
     difficulty: 'intermediate',
@@ -866,7 +866,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'banana': {
     id: 'banana',
-    image: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop',
+    image: '/images/foods/banana.jpg',
     name: 'Banana',
     category: 'Macronutrients',
     difficulty: 'beginner',
@@ -899,7 +899,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'watermelon': {
     id: 'watermelon',
-    image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop',
+    image: '/images/foods/watermelon.jpg',
     name: 'Watermelon',
     category: 'Hydration & Salts',
     difficulty: 'beginner',
@@ -932,7 +932,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'bone-broth': {
     id: 'bone-broth',
-    image: 'https://images.unsplash.com/photo-1547592165-e1d17fed6005?auto=format&fit=crop',
+    image: '/images/foods/bone-broth.jpg',
     name: 'Bone Broth',
     category: 'Hydration & Salts',
     difficulty: 'intermediate',
@@ -965,7 +965,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'tart-cherry-juice': {
     id: 'tart-cherry-juice',
-    image: 'https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop',
+    image: '/images/foods/tart-cherry-juice.jpg',
     name: 'Tart Cherry Juice',
     category: 'Hydration & Salts',
     difficulty: 'beginner',
@@ -998,7 +998,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'green-tea': {
     id: 'green-tea',
-    image: 'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop',
+    image: '/images/foods/green-tea.jpg',
     name: 'Green Tea',
     category: 'Hydration & Salts',
     difficulty: 'beginner',
@@ -1031,7 +1031,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'sweet-peppers': {
     id: 'sweet-peppers',
-    image: 'https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop',
+    image: '/images/foods/sweet-peppers.jpg',
     name: 'Sweet Peppers',
     category: 'Micronutrients',
     difficulty: 'beginner',
@@ -1064,7 +1064,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'broccoli': {
     id: 'broccoli',
-    image: 'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop',
+    image: '/images/foods/broccoli.jpg',
     name: 'Broccoli',
     category: 'Micronutrients',
     difficulty: 'beginner',
@@ -1097,7 +1097,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'brazil-nuts': {
     id: 'brazil-nuts',
-    image: 'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop',
+    image: '/images/foods/brazil-nuts.jpg',
     name: 'Brazil Nuts',
     category: 'Micronutrients',
     difficulty: 'beginner',
@@ -1130,7 +1130,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'sardines': {
     id: 'sardines',
-    image: 'https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?auto=format&fit=crop',
+    image: '/images/foods/sardines.jpg',
     name: 'Sardines',
     category: 'Micronutrients',
     difficulty: 'beginner',
@@ -1163,7 +1163,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'dark-chocolate': {
     id: 'dark-chocolate',
-    image: 'https://images.unsplash.com/photo-1548907040-4d42b52145ca?auto=format&fit=crop',
+    image: '/images/foods/dark-chocolate.jpg',
     name: 'Dark Chocolate',
     category: 'Micronutrients',
     difficulty: 'beginner',
@@ -1196,7 +1196,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'sauerkraut': {
     id: 'sauerkraut',
-    image: 'https://images.unsplash.com/photo-1589135306090-e555e64a66e5?auto=format&fit=crop',
+    image: '/images/foods/sauerkraut.jpg',
     name: 'Sauerkraut',
     category: 'Gut & Digestion',
     difficulty: 'intermediate',
@@ -1229,7 +1229,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'kimchi': {
     id: 'kimchi',
-    image: 'https://images.unsplash.com/photo-1583224964978-2257b960c3d3?auto=format&fit=crop',
+    image: '/images/foods/kimchi.jpg',
     name: 'Kimchi',
     category: 'Gut & Digestion',
     difficulty: 'intermediate',
@@ -1262,7 +1262,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'psyllium-husk': {
     id: 'psyllium-husk',
-    image: 'https://images.unsplash.com/photo-1505253714127-3e16f6bc8a60?auto=format&fit=crop',
+    image: '/images/foods/psyllium-husk.jpg',
     name: 'Psyllium Husk',
     category: 'Gut & Digestion',
     difficulty: 'beginner',
@@ -1295,7 +1295,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'apple-cider-raw': {
     id: 'apple-cider-raw',
-    image: 'https://images.unsplash.com/photo-1600789308873-ab6904737275?auto=format&fit=crop',
+    image: '/images/foods/apple-cider-raw.jpg',
     name: 'Raw Apple Cider Vinegar',
     category: 'Gut & Digestion',
     difficulty: 'beginner',
@@ -1328,7 +1328,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'miso': {
     id: 'miso',
-    image: 'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop',
+    image: '/images/foods/miso.jpg',
     name: 'Miso',
     category: 'Gut & Digestion',
     difficulty: 'intermediate',
@@ -1361,7 +1361,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'spirulina': {
     id: 'spirulina',
-    image: 'https://images.unsplash.com/photo-1607584112195-23c9302c37e1?auto=format&fit=crop',
+    image: '/images/foods/spirulina.jpg',
     name: 'Spirulina',
     category: 'Superfoods & Adaptogens',
     difficulty: 'intermediate',
@@ -1394,7 +1394,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'maca-root': {
     id: 'maca-root',
-    image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop',
+    image: '/images/foods/maca-root.jpg',
     name: 'Maca Root',
     category: 'Superfoods & Adaptogens',
     difficulty: 'intermediate',
@@ -1427,7 +1427,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'reishi-mushroom': {
     id: 'reishi-mushroom',
-    image: 'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop',
+    image: '/images/foods/reishi-mushroom.jpg',
     name: 'Reishi Mushroom',
     category: 'Superfoods & Adaptogens',
     difficulty: 'intermediate',
@@ -1460,7 +1460,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'creatine-mono': {
     id: 'creatine-mono',
-    image: 'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop',
+    image: '/images/foods/creatine-mono.jpg',
     name: 'Creatine Monohydrate',
     category: 'Superfoods & Adaptogens',
     difficulty: 'beginner',
@@ -1493,7 +1493,7 @@ const originalFoodsData: Record<string, Technique> = {
   },
   'collagen-peptides': {
     id: 'collagen-peptides',
-    image: '/images/foods/tendon-repair-smoothie.jpg',
+    image: '/images/foods/collagen-peptides.jpg',
     name: 'Collagen Peptides',
     category: 'Superfoods & Adaptogens',
     difficulty: 'beginner',

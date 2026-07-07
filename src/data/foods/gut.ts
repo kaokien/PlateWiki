@@ -3,7 +3,7 @@ import type { Technique } from '../techniques';
 export const gutFoods: Record<string, Technique> = {
   "kombucha": {
     "id": "kombucha",
-    image: "https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop",
+    image: '/images/foods/kombucha.jpg',
     "name": "Kombucha",
     "category": "Gut & Digestion",
     "difficulty": "intermediate",
@@ -53,7 +53,7 @@ export const gutFoods: Record<string, Technique> = {
   },
   "natto": {
     "id": "natto",
-    image: "https://images.unsplash.com/photo-1505253714127-3e16f6bc8a60?auto=format&fit=crop",
+    image: '/images/foods/natto.jpg',
     "name": "Natto",
     "category": "Gut & Digestion",
     "difficulty": "advanced",
@@ -104,7 +104,7 @@ export const gutFoods: Record<string, Technique> = {
   },
   "peppermint": {
     "id": "peppermint",
-    image: "https://images.unsplash.com/photo-1588692151741-8993f4119d53?auto=format&fit=crop",
+    image: '/images/foods/peppermint.jpg',
     "name": "Peppermint",
     "category": "Gut & Digestion",
     "difficulty": "beginner",
@@ -155,7 +155,7 @@ export const gutFoods: Record<string, Technique> = {
   },
   "fennel": {
     "id": "fennel",
-    image: "https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop",
+    image: '/images/foods/fennel.jpg',
     "name": "Fennel",
     "category": "Gut & Digestion",
     "difficulty": "beginner",

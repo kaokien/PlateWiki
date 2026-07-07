@@ -1,8 +1,8 @@
 /**
  * Fighter Recolor — applies customization colors to sprite zones at runtime.
  *
- * The sprites in /public/fighters/ are transparent PNGs. For each evolution
- * stage there are four zone masks in /public/fighters/masks/ (skin, hair,
+ * The sprites in /public/athletes/ are transparent PNGs. For each evolution
+ * stage there are four zone masks in /public/athletes/masks/ (skin, hair,
  * gloves, shoes) generated offline from the sprite art, plus a manifest
  * (fighterZoneManifest.json) with each zone's luminance range.
  *
@@ -111,7 +111,7 @@ export function getRecoloredSprite(
     const stageManifest = (manifest as Record<string, Record<string, ZoneInfo>>)[assetKey];
     if (!stageManifest) return null;
 
-    const base = await loadImage(`/fighters/${assetKey}.png`);
+    const base = await loadImage(`/athletes/${assetKey}.png`);
     const canvas = document.createElement('canvas');
     canvas.width = SPRITE_SIZE;
     canvas.height = SPRITE_SIZE;
@@ -124,7 +124,7 @@ export function getRecoloredSprite(
     const colors = zoneColors(custom);
     const activeZones = ZONES.filter(z => stageManifest[z] && stageManifest[z].px > 0);
     const maskPixels = await Promise.all(
-      activeZones.map(z => loadImage(`/fighters/masks/${assetKey}-${z}.png`).then(imageToPixels)),
+      activeZones.map(z => loadImage(`/athletes/masks/${assetKey}-${z}.png`).then(imageToPixels)),
     );
 
     for (let zi = 0; zi < activeZones.length; zi++) {

@@ -3,7 +3,7 @@
  * All JSON-LD structured data is generated here for consistency.
  */
 
-import type { Technique } from '../data/techniques';
+import type { Technique } from '../data/foods';
 
 interface Fighter {
   id: string;
@@ -97,7 +97,7 @@ export function getWebSiteSchema() {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `${SITE_URL}/techniques?q={search_term_string}`,
+        urlTemplate: `${SITE_URL}/foods?q={search_term_string}`,
       },
       'query-input': 'required name=search_term_string',
     },
@@ -255,7 +255,7 @@ export function getFighterSchema(fighter: Fighter) {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: fighter.name,
-    url: `${SITE_URL}/fighters/${fighter.id}`,
+    url: `${SITE_URL}/athletes/${fighter.id}`,
     description: fighter.analysis
       ? fighter.analysis.slice(0, 300).replace(/\.[^.]*$/, '.')
       : `${fighter.name} boxing style analysis — ${fighter.style}.`,
@@ -269,7 +269,7 @@ export function getFighterSchema(fighter: Fighter) {
     ...(fighter.quote && { citation: fighter.quote }),
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${SITE_URL}/fighters/${fighter.id}`,
+      '@id': `${SITE_URL}/athletes/${fighter.id}`,
     },
   };
 }

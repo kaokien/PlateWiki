@@ -12,7 +12,7 @@ import BodySilhouette from '@/components/BodySilhouette';
 import { RankIcon } from '@/components/RankIcons';
 import WeeklyChallengeCard from '@/components/WeeklyChallengeCard';
 import AuthGate from '@/components/AuthGate';
-import { techniques } from '@/data/techniques';
+import { techniques } from '@/data/foods';
 import { getFavorites, getShoppingList, toggleShoppingItem, clearCrossedOffItems, type ShoppingItem } from '@/utils/favorites';
 import {
   Zap, ArrowRight, Shield, Crosshair, Move, Brain,
@@ -33,18 +33,18 @@ const PATH_STAGES: {
   url: string;
   desc: string;
 }[] = [
-  { id: 0, title: 'Macronutrient Base',   category: 'Macronutrients',          icon: Scale,    url: '/techniques/macronutrients',        desc: 'Complex carbs, clean proteins, and lipids.' },
-  { id: 1, title: 'Hydration & Minerals',  category: 'Hydration & Salts',       icon: Flame,    url: '/techniques/hydration-salts',       desc: 'Electrolytes, salts, and pure hydration.' },
-  { id: 2, title: 'Micronutrient Density', category: 'Micronutrients',          icon: Shield,   url: '/techniques/micronutrients',        desc: 'Vitamins, polyphenols, and green density.' },
-  { id: 3, title: 'Gut & Microbiome',     category: 'Gut & Digestion',         icon: Heart,    url: '/techniques/gut-digestion',         desc: 'Fermented kefirs, active flora, and enzymes.' },
-  { id: 4, title: 'Adaptogenic Support',   category: 'Superfoods & Adaptogens', icon: Zap,      url: '/techniques/superfoods-adaptogens', desc: 'Stress adapters, adrenal rest, and cordyceps.' },
+  { id: 0, title: 'Macronutrient Base',   category: 'Macronutrients',          icon: Scale,    url: '/foods/macronutrients',        desc: 'Complex carbs, clean proteins, and lipids.' },
+  { id: 1, title: 'Hydration & Minerals',  category: 'Hydration & Salts',       icon: Flame,    url: '/foods/hydration-salts',       desc: 'Electrolytes, salts, and pure hydration.' },
+  { id: 2, title: 'Micronutrient Density', category: 'Micronutrients',          icon: Shield,   url: '/foods/micronutrients',        desc: 'Vitamins, polyphenols, and green density.' },
+  { id: 3, title: 'Gut & Microbiome',     category: 'Gut & Digestion',         icon: Heart,    url: '/foods/gut-digestion',         desc: 'Fermented kefirs, active flora, and enzymes.' },
+  { id: 4, title: 'Adaptogenic Support',   category: 'Superfoods & Adaptogens', icon: Zap,      url: '/foods/superfoods-adaptogens', desc: 'Stress adapters, adrenal rest, and cordyceps.' },
 ];
 
 /* ── Quick action cards ─────────────────────────────────────────────── */
 const QUICK_ACTIONS = [
-  { label: 'Foods Library', icon: BookOpen,   href: '/techniques',          desc: 'Browse all clean fuel sources' },
+  { label: 'Foods Library', icon: BookOpen,   href: '/foods',          desc: 'Browse all clean fuel sources' },
   { label: 'Physiology Map', icon: Activity,   href: '#body-map',            desc: 'Explore targeted biological systems' },
-  { label: 'Meal Prep Guides', icon: ChefHat,   href: '/workouts',            desc: 'Structured sports nutrition plans' },
+  { label: 'Meal Prep Guides', icon: ChefHat,   href: '/meals',            desc: 'Structured sports nutrition plans' },
   { label: 'Kitchen Shop',  icon: ShoppingBag, href: '/shop',                desc: 'Unlock appliances with Seed Coins' },
   { label: 'Chewing Timer', icon: Timer,      href: '/timer',               desc: 'Eating interval & digestion tracker' },
   { label: 'Articles',      icon: ClipboardList, href: '/articles',            desc: 'Read performance nutrition science' },
@@ -188,7 +188,7 @@ export default function DashboardPage() {
   // Build the router handler client-side
   useEffect(() => {
     setHandlePartSelect(() => (partId: string) => {
-      window.location.href = `/anatomy/${partId}`;
+      window.location.href = `/body-map/${partId}`;
     });
   }, []);
 
@@ -306,7 +306,7 @@ export default function DashboardPage() {
             <span className="dash-header__bodymap-label">Physiology Map</span>
           </a>
         </div>
-        <Link href="/fighter" className="dash-header__profile-link">
+        <Link href="/athlete" className="dash-header__profile-link">
           Bio-Athlete Profile <ChevronRight size={14} />
         </Link>
       </header>
@@ -348,12 +348,12 @@ export default function DashboardPage() {
         <div className="dash-stat-card glass-panel">
           <div className="dash-stat-card__label">NUTRITIONAL JOURNAL</div>
           <div className="dash-record-inline">
-            <Link href="/workouts" className="dash-record-inline__stat dash-record-inline__stat--link">
+            <Link href="/meals" className="dash-record-inline__stat dash-record-inline__stat--link">
               <ChefHat size={13} />
               <span className="dash-record-inline__val">{profile.workoutsCompleted}</span>
               <span className="dash-record-inline__lbl">Meal Preps</span>
             </Link>
-            <Link href="/techniques" className="dash-record-inline__stat dash-record-inline__stat--link">
+            <Link href="/foods" className="dash-record-inline__stat dash-record-inline__stat--link">
               <Leaf size={13} />
               <span className="dash-record-inline__val">{totalStudied}</span>
               <span className="dash-record-inline__lbl">Foods</span>
@@ -368,7 +368,7 @@ export default function DashboardPage() {
               <span className="dash-record-inline__val">{profile.timerSessions}</span>
               <span className="dash-record-inline__lbl">Sessions</span>
             </Link>
-            <Link href="/techniques" className="dash-record-inline__stat dash-record-inline__stat--link">
+            <Link href="/foods" className="dash-record-inline__stat dash-record-inline__stat--link">
               <Award size={13} />
               <span className="dash-record-inline__val">{profile.quizzesCompleted?.length ?? 0}</span>
               <span className="dash-record-inline__lbl">Quizzes</span>
@@ -391,7 +391,7 @@ export default function DashboardPage() {
           </div>
           <div className="dash-pantry__grid">
             {pantryFoods.map((food: any) => (
-              <Link key={food.id} href={`/technique/${food.id}`} className="dash-pantry-card glass-panel">
+              <Link key={food.id} href={`/food/${food.id}`} className="dash-pantry-card glass-panel">
                 <Heart size={12} className="dash-pantry-card__heart" fill="currentColor" />
                 <span className="dash-pantry-card__name">{food.name}</span>
                 <span className="dash-pantry-card__cat">{food.category}</span>
@@ -410,7 +410,7 @@ export default function DashboardPage() {
         const isNewUser = totalStudied === 0 && profile.workoutsCompleted === 0;
         const allComplete = PATH_STAGES.every((_, i) => getStageStatus(i) === 'completed');
         const ctaStage = activeStage || (allComplete ? null : PATH_STAGES[0]);
-        const ctaUrl = ctaStage?.url || '/techniques';
+        const ctaUrl = ctaStage?.url || '/foods';
         const ctaLabel = isNewUser ? 'Start Here' : allComplete ? 'Keep Fueling' : 'Continue Fueling';
         const ctaDesc = isNewUser
           ? 'Begin your clean fueling journey — explore energy and carbs first.'
@@ -518,7 +518,7 @@ export default function DashboardPage() {
             <InteractiveBoxer onPartSelect={handlePartSelect} activePart={null} />
           )}
         </div>
-        <Link href="/workout-generator" className="dash-bodymap__cta">
+        <Link href="/meal-generator" className="dash-bodymap__cta">
           <ChefHat size={18} /> Build Custom Fueling Plan <ArrowRight size={16} />
         </Link>
       </section>

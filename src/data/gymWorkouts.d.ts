@@ -1,6 +1,6 @@
 /** Type declarations for the gym workouts data module */
 
-import type { Technique } from './techniques';
+import type { Technique } from './foods';
 
 export interface GymExercise {
   name: string;

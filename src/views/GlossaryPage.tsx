@@ -152,7 +152,7 @@ const GlossaryPage = () => {
                         View Definition <ChevronRight size={14} />
                       </Link>
                       {term.relatedTechnique && (
-                        <Link href={`/technique/${term.relatedTechnique}`} className="glossary-term__link">
+                        <Link href={`/food/${term.relatedTechnique}`} className="glossary-term__link">
                           View Technique <ChevronRight size={14} />
                         </Link>
                       )}

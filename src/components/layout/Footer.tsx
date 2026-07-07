@@ -17,10 +17,10 @@ export default function Footer() {
           <div className="footer-col">
             <strong className="footer-heading">Explore</strong>
             <Link href="/">Anatomy Map</Link>
-            <Link href="/techniques">All Foods</Link>
+            <Link href="/foods">All Foods</Link>
             <Link href="/programs">Programs</Link>
             <Link href="/articles">Articles</Link>
-            <Link href="/fighters">Athlete Profiles</Link>
+            <Link href="/athletes">Athlete Profiles</Link>
             <Link href="/favorites">Saved Foods</Link>
           </div>
           <div className="footer-col">

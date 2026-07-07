@@ -6,7 +6,7 @@ import { Dumbbell, Trophy, Flame, Clock, Calendar, ChevronRight, BarChart3 } fro
 import { useSubscription } from '../context/SubscriptionContext';
 import AuthGate from '../components/AuthGate';
 import { getWorkoutLog, getWorkoutStats, type WorkoutLogRecord } from '../utils/storage';
-import { techniques } from '../data/techniques';
+import { techniques } from '../data/foods';
 import './TrainingHistoryPage.css';
 
 const TrainingHistoryPage = () => {
@@ -228,7 +228,7 @@ const TrainingHistoryPage = () => {
           <Dumbbell size={40} className="th-empty-icon" />
           <h3>No workouts logged yet</h3>
           <p>Complete a gym workout to see your history here.</p>
-          <Link href="/workout" className="th-empty-cta">
+          <Link href="/kitchen" className="th-empty-cta">
             <Dumbbell size={16} /> Browse Workouts
           </Link>
         </div>
@@ -244,7 +244,7 @@ const TrainingHistoryPage = () => {
               <div className="th-log-list">
                 {entries.map(entry => (
                   <Link
-                    href={`/technique/${entry.techniqueId}/workout`}
+                    href={`/food/${entry.techniqueId}/prep`}
                     key={entry.id}
                     className="th-log-entry glass-panel"
                   >

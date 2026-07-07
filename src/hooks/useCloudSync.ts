@@ -92,7 +92,7 @@ export function useCloudSync() {
 
   const pushWorkouts = useCallback(() => withRetry(async () => {
     const workouts = getSavedWorkouts();
-    const res = await fetch('/api/workouts', {
+    const res = await fetch('/api/meals', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ workouts }),
@@ -183,7 +183,7 @@ export function useCloudSync() {
       }
 
       // Workouts — cloud replaces local
-      const workoutRes = await fetch('/api/workouts');
+      const workoutRes = await fetch('/api/meals');
       if (workoutRes.ok) {
         const { workouts } = await workoutRes.json();
         if (workouts) {

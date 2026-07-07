@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { Flame, ArrowRight, Calendar, ChefHat } from 'lucide-react';
-import { exercises } from '../data/exercises';
+import { exercises } from '../data/recipes';
 import { trackDailyVisit } from '../utils/storage';
 import './DailyWidget.css';
 
@@ -63,7 +63,7 @@ const DailyWidget = () => {
           </div>
           <p>{exercise.boxingContext?.substring(0, 100)}…</p>
         </div>
-        <Link href={`/exercise/${exercise.id}`} className="daily-btn">
+        <Link href={`/recipe/${exercise.id}`} className="daily-btn">
           View Recipe <ArrowRight size={16} />
         </Link>
       </div>

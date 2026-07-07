@@ -1462,7 +1462,7 @@ const ShadowboxTracker = ({ initialMode, initialTech }: ShadowboxTrackerProps = 
                     <ShareButton
                       title={`Scored ${score} on PlateWiki Shadowbox Blitz! ${accuracy}% accuracy 🥊`}
                       description={`${hits} hits, best streak: ${bestStreak}`}
-                      url="/workout?tab=tracker"
+                      url="/kitchen?tab=tracker"
                     />
                   </div>
                 </>

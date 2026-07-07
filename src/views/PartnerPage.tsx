@@ -9,7 +9,7 @@ import {
 import type { LucideIcon } from 'lucide-react';
 import './PartnerPage.css';
 import { getFAQSchema } from '../utils/seoSchemas';
-import { TECHNIQUE_COUNT } from '@/data/techniques';
+import { TECHNIQUE_COUNT } from '@/data/foods';
 
 /* ── Animated counter hook ── */
 function useCountUp(target: number, duration = 2000, suffix = '') {

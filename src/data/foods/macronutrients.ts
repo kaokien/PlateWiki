@@ -1,4 +1,4 @@
-import type { Technique } from '../techniques';
+import type { Technique } from '../foods';
 
 export const macronutrientsFoods: Record<string, Technique> = {
   "medjool-dates": {

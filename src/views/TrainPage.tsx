@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useClientSearchParams } from '@/hooks/useClientSearchParams';
 import { Timer, Clock, ArrowRight, ChevronRight, Shield, Zap, Activity, Camera, ChefHat, Leaf, Flame, Heart } from 'lucide-react';
-import { techniques } from '../data/techniques';
+import { techniques } from '../data/foods';
 import { workoutsByCategory } from '../data/gymWorkouts';
 import { useSubscription } from '../context/SubscriptionContext';
 import ProGate from '../components/ProGate';
@@ -134,7 +134,7 @@ const TrainPage = () => {
 
                   return (
                     <Link
-                      href={`/technique/${w.id}/workout`}
+                      href={`/food/${w.id}/prep`}
                       key={w.id}
                       className="train-card-link"
                     >

@@ -7,7 +7,7 @@ import { useParams } from 'next/navigation';
 import { redirect } from 'next/navigation';
 import { Clock, ChevronRight, ArrowLeft, BookOpen, ExternalLink, Play, User } from 'lucide-react';
 import { getArticleById, getRelatedArticles } from '../data/articles';
-import { techniques } from '../data/techniques';
+import { techniques } from '../data/foods';
 import { useFighterProfile } from '../context/FighterProfileContext';
 import FloatingAudioPlayer from './FloatingAudioPlayer';
 import ShareButton from '../components/ShareButton';
@@ -226,8 +226,8 @@ const ArticlePage = ({ article: propArticle }: ArticlePageProps) => {
               <p>Put what you learned into action with a guided shadowboxing session or timed heavy bag workout.</p>
             </div>
             <div className="article-practice-cta__actions">
-              <Link href="/workout" className="btn-primary">Start Workout →</Link>
-              <Link href="/techniques" className="btn-secondary">Browse Techniques →</Link>
+              <Link href="/kitchen" className="btn-primary">Start Workout →</Link>
+              <Link href="/foods" className="btn-secondary">Browse Techniques →</Link>
             </div>
           </div>
         </article>
@@ -260,7 +260,7 @@ const ArticlePage = ({ article: propArticle }: ArticlePageProps) => {
               <h4>Related Techniques</h4>
               <div className="article-sidebar__links">
                 {linkedTechniques.map(tech => (
-                  <Link key={tech.id} href={`/technique/${tech.id}`} className="article-sidebar__tech-link">
+                  <Link key={tech.id} href={`/food/${tech.id}`} className="article-sidebar__tech-link">
                     <BookOpen size={14} />
                     {tech.name}
                     <ChevronRight size={14} />

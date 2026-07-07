@@ -3,7 +3,7 @@
  * focus areas. Extracted from WorkoutGeneratorPage so the selection logic
  * is unit-testable.
  */
-import { techniques } from '@/data/techniques';
+import { techniques } from '@/data/foods';
 import { workoutsByCategory } from '@/data/gymWorkouts';
 
 export type GeneratedWorkout = {

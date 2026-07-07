@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ChevronRight, ArrowLeft, Tag, BookOpen, Zap } from 'lucide-react';
 import { glossary, toSlug, getGlossaryBySlug, getRelatedTerms } from '@/data/glossary';
 import { linkGlossaryTerms } from '@/utils/glossaryLinker';
-import { techniques } from '@/data/techniques';
+import { techniques } from '@/data/foods';
 import { JsonLd } from '@/components/JsonLd';
 import './GlossaryTermPage.css';
 
@@ -122,7 +122,7 @@ export default async function GlossaryTermRoute({
 
         {/* Linked technique card */}
         {linkedTechnique && (
-          <Link href={`/technique/${entry.relatedTechnique}`} className="term-technique-card">
+          <Link href={`/food/${entry.relatedTechnique}`} className="term-technique-card">
             <div className="term-technique-card__icon">
               <Zap size={24} />
             </div>

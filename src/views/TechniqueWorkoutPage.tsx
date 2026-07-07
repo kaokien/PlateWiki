@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { ChevronRight, Clock, Target, Flame, RotateCcw, Zap, Check, Trophy, AlertTriangle, Volume2, VolumeX, Leaf, ChefHat, Heart, UtensilsCrossed, Scale } from 'lucide-react';
-import { techniques, bodyParts } from '../data/techniques';
+import { techniques, bodyParts } from '../data/foods';
 import { getWorkoutForTechnique } from '../data/gymWorkouts';
 import { useSubscription } from '../context/SubscriptionContext';
 import { useFighterProfile } from '../context/FighterProfileContext';
@@ -108,7 +108,7 @@ const TechniqueWorkoutPage = () => {
     return (
       <div className="not-found">
         <h2>No prep guide available for this food yet</h2>
-        <Link href={`/technique/${id}`} className="back-link">Back to {technique.name}</Link>
+        <Link href={`/food/${id}`} className="back-link">Back to {technique.name}</Link>
       </div>
     );
   }
@@ -119,7 +119,7 @@ const TechniqueWorkoutPage = () => {
       <nav className="breadcrumb" aria-label="Breadcrumb">
         <Link href="/" className="breadcrumb-link">Home</Link>
         <ChevronRight size={14} className="breadcrumb-chevron" />
-        <Link href={`/technique/${id}`} className="breadcrumb-link">{technique.name}</Link>
+        <Link href={`/food/${id}`} className="breadcrumb-link">{technique.name}</Link>
         <ChevronRight size={14} className="breadcrumb-chevron" />
         <span className="breadcrumb-current">Prep Guide</span>
       </nav>
@@ -143,7 +143,7 @@ const TechniqueWorkoutPage = () => {
           </div>
           <h1 className="tw-title">{workout.title}</h1>
           <p className="tw-subtitle">
-            Prepare and digest the nutrients in <Link href={`/technique/${id}`} className="tw-tech-link">{technique.name}</Link>
+            Prepare and digest the nutrients in <Link href={`/food/${id}`} className="tw-tech-link">{technique.name}</Link>
           </p>
         </div>
       </div>
@@ -164,7 +164,7 @@ const TechniqueWorkoutPage = () => {
           </div>
           <div className="tw-muscle-tags">
             {technique.muscles.map(m => (
-              <Link href={`/anatomy/${m}`} key={m} className="muscle-tag">{bodyParts[m]?.name || m}</Link>
+              <Link href={`/body-map/${m}`} key={m} className="muscle-tag">{bodyParts[m]?.name || m}</Link>
             ))}
           </div>
         </div>
@@ -339,7 +339,7 @@ const TechniqueWorkoutPage = () => {
             <h3>Preparation Logged</h3>
             <p>{workout.title} saved to history. {isPro ? 'Check your dashboard journal.' : ''}</p>
             <div className="tw-completion-actions">
-              <Link href={`/technique/${id}`} className="tw-back-btn">Back to {technique.name}</Link>
+              <Link href={`/food/${id}`} className="tw-back-btn">Back to {technique.name}</Link>
               {isPro && <Link href="/history" className="tw-history-link">View Journal</Link>}
             </div>
           </div>
@@ -357,7 +357,7 @@ const TechniqueWorkoutPage = () => {
 
       {/* Back to food CTA */}
       <div className="tw-back-cta">
-        <Link href={`/technique/${id}`} className="tw-back-btn">
+        <Link href={`/food/${id}`} className="tw-back-btn">
           <ChevronRight size={16} style={{ transform: 'rotate(180deg)' }} />
           Back to {technique.name} Page
         </Link>

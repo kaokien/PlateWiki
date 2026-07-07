@@ -40,11 +40,11 @@ export interface HomePageProps {
 }
 
 const CATEGORY_CARDS = [
-  { name: 'Macronutrients', Icon: Dumbbell, path: '/techniques/macronutrients', countKey: 'Macronutrients', unit: 'complex macronutrients' },
-  { name: 'Hydration & Salts', Icon: Activity, path: '/techniques/hydration-salts', countKey: 'Hydration & Salts', unit: 'essential electrolytes' },
-  { name: 'Micronutrients', Icon: Shield, path: '/techniques/micronutrients', countKey: 'Micronutrients', unit: 'bioavailable vitamins' },
-  { name: 'Gut & Digestion', Icon: Heart, path: '/techniques/gut-digestion', countKey: 'Gut & Digestion', unit: 'fermented probiotics' },
-  { name: 'Superfoods & Adaptogens', Icon: Zap, path: '/techniques/superfoods-adaptogens', countKey: 'Superfoods & Adaptogens', unit: 'herbal adaptogens' },
+  { name: 'Macronutrients', Icon: Dumbbell, path: '/foods/macronutrients', countKey: 'Macronutrients', unit: 'complex macronutrients' },
+  { name: 'Hydration & Salts', Icon: Activity, path: '/foods/hydration-salts', countKey: 'Hydration & Salts', unit: 'essential electrolytes' },
+  { name: 'Micronutrients', Icon: Shield, path: '/foods/micronutrients', countKey: 'Micronutrients', unit: 'bioavailable vitamins' },
+  { name: 'Gut & Digestion', Icon: Heart, path: '/foods/gut-digestion', countKey: 'Gut & Digestion', unit: 'fermented probiotics' },
+  { name: 'Superfoods & Adaptogens', Icon: Zap, path: '/foods/superfoods-adaptogens', countKey: 'Superfoods & Adaptogens', unit: 'herbal adaptogens' },
 ];
 
 const PROGRAM_DAYS = [
@@ -95,7 +95,7 @@ const HomePage = ({ totalTechniques, categoryCounts, techniqueIndex }: HomePageP
   const handlePartSelect = (partId: string) => {
     const muscle = bodyParts[partId];
     analytics.muscleClick(muscle?.name || partId, partId);
-    router.push(`/anatomy/${partId}`);
+    router.push(`/body-map/${partId}`);
   };
 
   return (
@@ -122,7 +122,7 @@ const HomePage = ({ totalTechniques, categoryCounts, techniqueIndex }: HomePageP
                 <Flag size={18} /> Your Dashboard
               </Link>
             </Show>
-            <Link href="/techniques" className="hero-cta-secondary">
+            <Link href="/foods" className="hero-cta-secondary">
               Browse Foods <ArrowRight size={16} />
             </Link>
           </div>
@@ -130,7 +130,7 @@ const HomePage = ({ totalTechniques, categoryCounts, techniqueIndex }: HomePageP
         <div className="hero-body-map" id="body-map">
           <h2 className="section-heading hero-map-heading">Explore by <span className="text-primary">Body System</span></h2>
           <InteractiveBoxer onPartSelect={handlePartSelect} activePart={null} />
-          <Link href="/workout-generator" className="body-map-cta">
+          <Link href="/meal-generator" className="body-map-cta">
             <Dumbbell size={18} />
             Build My Fuel Plan
             <ArrowRight size={16} />
@@ -180,7 +180,7 @@ const HomePage = ({ totalTechniques, categoryCounts, techniqueIndex }: HomePageP
           </div>
           <div className="mini-card-row">
             {recentTechniques.map(tech => (
-              <Link href={`/technique/${tech.id}`} key={tech.id} className="glass-panel mini-card">
+              <Link href={`/food/${tech.id}`} key={tech.id} className="glass-panel mini-card">
                 <span className="mini-cat">{tech.category}</span>
                 <h3>{tech.name}</h3>
                 <span className="mini-read">Continue →</span>
@@ -199,7 +199,7 @@ const HomePage = ({ totalTechniques, categoryCounts, techniqueIndex }: HomePageP
           </div>
           <div className="mini-card-row">
             {favTechniques.map(tech => (
-              <Link href={`/technique/${tech.id}`} key={tech.id} className="glass-panel mini-card">
+              <Link href={`/food/${tech.id}`} key={tech.id} className="glass-panel mini-card">
                 <span className="mini-cat">{tech.category}</span>
                 <h3>{tech.name}</h3>
                 <span className="mini-read">Study →</span>

@@ -42,7 +42,7 @@ const NAV_GROUPS: NavGroup[] = [
     label: 'Learn',
     items: [
       { href: '/', label: 'Anatomy Map', icon: Map },
-      { href: '/techniques', label: 'Foods', icon: Crosshair },
+      { href: '/foods', label: 'Foods', icon: Crosshair },
       { href: '/articles', label: 'Articles', icon: Newspaper },
       { href: '/glossary', label: 'Glossary', icon: BookOpen },
       { href: '/rules', label: 'Dietary Rules', icon: Scale },
@@ -52,11 +52,11 @@ const NAV_GROUPS: NavGroup[] = [
   {
     label: 'Prep & Fuel',
     items: [
-      { href: '/workouts', label: 'Recipes', icon: Target },
-      { href: '/exercises', label: 'Nutrients', icon: Dumbbell },
+      { href: '/meals', label: 'Recipes', icon: Target },
+      { href: '/recipes', label: 'Nutrients', icon: Dumbbell },
       { href: '/programs', label: 'Programs', icon: CalendarDays },
-      { href: '/workout-generator', label: 'Meal Planner', icon: Wand2 },
-      { href: '/workout', label: 'Fasting Timer', icon: Timer },
+      { href: '/meal-generator', label: 'Meal Planner', icon: Wand2 },
+      { href: '/kitchen', label: 'Fasting Timer', icon: Timer },
     ],
   },
   {
@@ -77,7 +77,7 @@ const NAV_GROUPS: NavGroup[] = [
 ];
 
 const NAV_SINGLES: NavItem[] = [
-  { href: '/fighters', label: 'Fighters', icon: Users },
+  { href: '/athletes', label: 'Fighters', icon: Users },
   { href: '/favorites', label: 'Saved', icon: Heart },
 ];
 
@@ -256,7 +256,7 @@ export default function Header() {
       {/* Fighter Rank Chip + Streak Flame — only for signed-in users */}
       <Show when="signed-in">
         <Link
-          href="/fighter"
+          href="/athlete"
           className="nav-rank-chip"
           onClick={closeMenus}
           style={{ '--rank-color': rank.color } as React.CSSProperties}

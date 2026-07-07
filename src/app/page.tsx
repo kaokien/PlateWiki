@@ -1,7 +1,7 @@
 import { JsonLd } from '@/components/JsonLd';
 import HomePageClient from './HomePageClient';
 import type { Metadata } from 'next';
-import { techniques } from '@/data/techniques';
+import { techniques } from '@/data/foods';
 import type { TechniqueSummary } from '@/views/HomePage';
 
 export const metadata: Metadata = {
@@ -16,11 +16,11 @@ export const metadata: Metadata = {
 import { SITE_URL } from '@/utils/config';
 
 const CATEGORIES = [
-  { name: 'Macronutrients', url: '/techniques/macronutrients' },
-  { name: 'Hydration & Salts', url: '/techniques/hydration-salts' },
-  { name: 'Micronutrients', url: '/techniques/micronutrients' },
-  { name: 'Gut & Digestion', url: '/techniques/gut-digestion' },
-  { name: 'Superfoods & Adaptogens', url: '/techniques/superfoods-adaptogens' },
+  { name: 'Macronutrients', url: '/foods/macronutrients' },
+  { name: 'Hydration & Salts', url: '/foods/hydration-salts' },
+  { name: 'Micronutrients', url: '/foods/micronutrients' },
+  { name: 'Gut & Digestion', url: '/foods/gut-digestion' },
+  { name: 'Superfoods & Adaptogens', url: '/foods/superfoods-adaptogens' },
 ];
 
 const techEntries = Object.values(techniques);

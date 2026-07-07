@@ -1,6 +1,6 @@
 // gardenState.ts — Persistent per-plot growth for the Virtual Gym forest garden.
 // The garden is the long-term progress mirror: plots grow when the user logs
-// meals/workouts and decay back toward soil when the avatar is neglected.
+// meals/meals and decay back toward soil when the avatar is neglected.
 
 import type { SpeciesId } from './forestSprites';
 

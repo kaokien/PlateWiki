@@ -3,7 +3,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { useClientSearchParams } from '@/hooks/useClientSearchParams';
 import { Search, X, Dumbbell, Flame, Leaf } from 'lucide-react';
-import { exercises, MUSCLE_GROUPS } from '@/data/exercises';
+import { exercises, MUSCLE_GROUPS } from '@/data/recipes';
 import './ExercisesPage.css';
 
 const MUSCLE_KEYS = ['all', ...Object.keys(MUSCLE_GROUPS)] as const;
@@ -163,7 +163,7 @@ const ExercisesPage = () => {
           filtered.map(ex => (
             <Link
               key={ex.id}
-              href={`/exercise/${ex.id}`}
+              href={`/recipe/${ex.id}`}
               className="glass-panel exl-card"
               aria-label={`${ex.name} — ${ex.category}`}
             >

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { bodyParts } from '../data/techniques';
+import { bodyParts } from '../data/foods';
 
 // Since InteractiveBoxer uses react-body-highlighter which needs DOM/SVG,
 // we test the data layer and lookup table logic that drives it.

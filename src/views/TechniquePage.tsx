@@ -11,7 +11,7 @@ import FlashcardCarousel from '../components/FlashcardCarousel';
 import GearCard from '../components/GearCard';
 import ProBadge from '../components/ProBadge';
 import ProGate from '../components/ProGate';
-import { techniques, bodyParts } from '../data/techniques';
+import { techniques, bodyParts } from '../data/foods';
 import { gearRecommendations } from '../data/gearRecommendations';
 import { getArticlesForTechnique } from '../data/articles';
 import { glossary, toSlug } from '../data/glossary';
@@ -46,7 +46,7 @@ const TechniquePage = ({ routeId }: { routeId?: string }) => {
     if (technique) {
       analytics.techniqueView(technique.name, technique.category, technique.difficulty);
       addRecentlyViewed(id);
-      addToHistory({ id, type: 'technique', title: technique.name, href: `/technique/${id}` });
+      addToHistory({ id, type: 'technique', title: technique.name, href: `/food/${id}` });
       setIsFav(isFavorite(id));
       // Award XP for studying this technique (deduped by ID)
       awardXP('technique_studied', { techniqueId: id });
@@ -101,7 +101,7 @@ const TechniquePage = ({ routeId }: { routeId?: string }) => {
         {fromMuscle && (
           <>
             <ChevronRight size={14} className="breadcrumb-chevron" />
-            <Link href={`/anatomy/${fromMuscleId}`} className="breadcrumb-link">{fromMuscle.name}</Link>
+            <Link href={`/body-map/${fromMuscleId}`} className="breadcrumb-link">{fromMuscle.name}</Link>
           </>
         )}
         <ChevronRight size={14} className="breadcrumb-chevron" />
@@ -124,7 +124,7 @@ const TechniquePage = ({ routeId }: { routeId?: string }) => {
             <div className="tech-title-row">
               <h1 className="tech-title">{parseStanceText(technique.name, isSouthpaw)}</h1>
               <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexShrink: 0 }}>
-                <ShareButton title={`How to ${technique.name}`} description={technique.description} url={`/technique/${technique.id}`} />
+                <ShareButton title={`How to ${technique.name}`} description={technique.description} url={`/food/${technique.id}`} />
                 <button 
                   className={`fav-btn ${isFav ? 'fav-active' : ''}`}
                   onClick={handleFavoriteToggle}
@@ -154,7 +154,7 @@ const TechniquePage = ({ routeId }: { routeId?: string }) => {
             {(technique.muscles || []).length > 0 && (
               <div className="muscle-tags">
                 {(technique.muscles || []).map(m => (
-                  <Link href={`/anatomy/${m}`} key={m} className="muscle-tag">{bodyParts[m]?.name || m}</Link>
+                  <Link href={`/body-map/${m}`} key={m} className="muscle-tag">{bodyParts[m]?.name || m}</Link>
                 ))}
               </div>
             )}
@@ -268,7 +268,7 @@ const TechniquePage = ({ routeId }: { routeId?: string }) => {
 
           {/* Gym Workout CTA */}
           {workout && (
-            <Link href={`/technique/${id}/workout`} className="workout-cta-card glass-panel">
+            <Link href={`/food/${id}/prep`} className="workout-cta-card glass-panel">
               <div className="workout-cta-icon">
                 <Dumbbell size={24} />
               </div>
@@ -282,7 +282,7 @@ const TechniquePage = ({ routeId }: { routeId?: string }) => {
 
           {/* Track Harvest on Camera CTA */}
           {['jab', 'cross', 'lead-hook', 'rear-uppercut'].includes(id) && (
-            <Link href={`/workout?tab=tracker&mode=practice&tech=${id}`} className="practice-cta-card glass-panel">
+            <Link href={`/kitchen?tab=tracker&mode=practice&tech=${id}`} className="practice-cta-card glass-panel">
               <div className="practice-cta-icon">
                 <Camera size={24} />
               </div>
@@ -300,7 +300,7 @@ const TechniquePage = ({ routeId }: { routeId?: string }) => {
             <h3>Ready to harvest {technique.name}?</h3>
             <p>Start the webcam interactive harvest coach to gather this ingredient.</p>
             <div className="technique-practice-actions">
-              <Link href="/workout" className="btn-primary">Launch Harvest Coach →</Link>
+              <Link href="/kitchen" className="btn-primary">Launch Harvest Coach →</Link>
             </div>
           </div>
 
@@ -355,7 +355,7 @@ const TechniquePage = ({ routeId }: { routeId?: string }) => {
               </div>
               <div className="combo-links">
                 {technique.combinations.map((combo, idx) => (
-                  <Link href={`/technique/${combo.link}`} key={idx} className="combo-btn">
+                  <Link href={`/food/${combo.link}`} key={idx} className="combo-btn">
                     {combo.name} <ArrowRight size={16} />
                   </Link>
                 ))}
@@ -372,7 +372,7 @@ const TechniquePage = ({ routeId }: { routeId?: string }) => {
               </div>
               <div className="related-links">
                 {relatedTechs.map(t => (
-                  <Link href={`/technique/${t.id}`} key={t.id} className="related-link">
+                  <Link href={`/food/${t.id}`} key={t.id} className="related-link">
                     <span className="related-name">{t.name}</span>
                     <span className="related-cat">{t.category}</span>
                   </Link>

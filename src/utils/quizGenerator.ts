@@ -3,7 +3,7 @@
  * No manual question writing. The structured data IS the question bank.
  */
 
-import { techniques } from '@/data/techniques';
+import { techniques } from '@/data/foods';
 
 // ── Types ───────────────────────────────────────────────────────────
 

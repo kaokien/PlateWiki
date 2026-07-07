@@ -1,7 +1,7 @@
 import { getWorkoutLog } from './storage';
 import { getProfile, getRankForXP } from './fighterProfile';
 import { workoutsByCategory } from '../data/gymWorkouts';
-import { techniques } from '../data/techniques';
+import { techniques } from '../data/foods';
 
 export interface RecommendedWorkout {
   id: string;

@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Play, Square, Settings, Volume2, VolumeX, RotateCcw, Mic, MicOff, AlertTriangle } from 'lucide-react';
-import { techniques, type Technique } from '../data/techniques';
+import { techniques, type Technique } from '../data/foods';
 import { analytics } from '../utils/analytics';
 import { useStance } from '../context/StanceContext';
 import { useFighterProfile } from '../context/FighterProfileContext';
@@ -664,7 +664,7 @@ const WorkoutPage = () => {
             <ShareButton
               title={`Just finished ${totalBlocks} blocks on the NutritionWiki Heavy Bag Generator! 🥊`}
               description={athletePreset !== 'custom' ? `Training ${PRESETS[athletePreset as keyof typeof PRESETS]?.name || ''} style` : `${focusMode} workout`}
-              url="/workout"
+              url="/kitchen"
             />
           </div>
           <div className="workout-ad-container mt-8">

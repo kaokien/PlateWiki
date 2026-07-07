@@ -20,7 +20,7 @@
 .gym-viewport {
   height: 290px;
   position: relative;
-  background-image: url('/fighters/forest_bg.png');
+  background-image: url('/athletes/forest_bg.png');
   background-size: cover;
   background-position: center bottom;
   image-rendering: pixelated;

@@ -36,7 +36,7 @@ const TYPE_META: Record<
   technique: {
     icon: Swords,
     label: 'Techniques',
-    viewAllHref: (q) => `/techniques?search=${encodeURIComponent(q)}`,
+    viewAllHref: (q) => `/foods?search=${encodeURIComponent(q)}`,
   },
   article: {
     icon: FileText,
@@ -56,7 +56,7 @@ const TYPE_META: Record<
   exercise: {
     icon: Target,
     label: 'Exercises',
-    viewAllHref: (q) => `/exercises?search=${encodeURIComponent(q)}`,
+    viewAllHref: (q) => `/recipes?search=${encodeURIComponent(q)}`,
   },
 };
 
@@ -78,11 +78,11 @@ async function buildCorpus(): Promise<SearchResult[]> {
     { programs },
     { exercises },
   ] = await Promise.all([
-    import('@/data/techniques'),
+    import('@/data/foods'),
     import('@/data/glossary'),
     import('@/data/articles/index'),
     import('@/data/programs'),
-    import('@/data/exercises'),
+    import('@/data/recipes'),
   ]);
 
   const results: SearchResult[] = [];
@@ -93,7 +93,7 @@ async function buildCorpus(): Promise<SearchResult[]> {
       id: t.id,
       title: t.name,
       subtitle: `${t.category} · ${t.difficulty}`,
-      href: `/technique/${t.id}`,
+      href: `/food/${t.id}`,
       type: 'technique',
     });
   });
@@ -140,7 +140,7 @@ async function buildCorpus(): Promise<SearchResult[]> {
       id: `exercise-${ex.id}`,
       title: ex.name,
       subtitle: `${ex.category} · ${ex.difficulty}`,
-      href: `/exercise/${ex.id}`,
+      href: `/recipe/${ex.id}`,
       type: 'exercise',
     });
   });
@@ -414,7 +414,7 @@ export default function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
                 Try a different term or browse{' '}
                 <button
                   className="gs-inline-link"
-                  onClick={() => navigateTo('/techniques')}
+                  onClick={() => navigateTo('/foods')}
                 >
                   All Techniques
                 </button>

@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { glossary, toSlug } from '../data/glossary';
-import { techniques, TECHNIQUE_COUNT } from '../data/techniques';
+import { techniques, TECHNIQUE_COUNT } from '../data/foods';
 import { articles } from '../data/articles';
-import { fighters } from '../data/fighters';
+import { fighters } from '../data/athletes';
 import {
   getTechniqueFAQs,
   getFAQSchema,
@@ -151,7 +151,7 @@ describe('Technique FAQ schema', () => {
 // ============================================================
 describe('ItemList schema', () => {
   it('generates valid ItemList with correct count', () => {
-    const items = [{ name: 'Jab', url: '/technique/jab' }, { name: 'Cross', url: '/technique/cross' }];
+    const items = [{ name: 'Jab', url: '/food/jab' }, { name: 'Cross', url: '/food/cross' }];
     const schema = getItemListSchema(items);
     expect(schema['@type']).toBe('ItemList');
     expect(schema.numberOfItems).toBe(2);

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { generateQuiz, truncateOption } from './quizGenerator';
-import { techniques } from '@/data/techniques';
+import { techniques } from '@/data/foods';
 
 const MAX_OPTION_LENGTH = 141; // truncateOption cap + ellipsis
 

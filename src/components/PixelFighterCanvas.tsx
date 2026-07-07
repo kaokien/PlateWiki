@@ -109,7 +109,7 @@ export default function PixelFighterCanvas({
   // 2. Resolve spritesheet URLs for the current stage / anim / gear
   const gender = customization?.bodyType === 'female' ? 'female_' : '';
   const animName = activeAnim === 'none' ? 'idle' : activeAnim;
-  const charSrc = `/fighters/${stage}_${gender}${animName}.png?v=4`;
+  const charSrc = `/athletes/${stage}_${gender}${animName}.png?v=4`;
 
   const headgearGear = customization?.equippedGear?.headgear;
   const glovesGear = customization?.equippedGear?.gloves;
@@ -123,8 +123,8 @@ export default function PixelFighterCanvas({
                        glovesGear === 'carrot-sword' ? 'carrot-sword' :
                        glovesGear === 'watermelon-shield' ? 'watermelon-shield' : 'broccoli_shield';
 
-  const hatSrc = hasHeadgearGear ? `/fighters/${hatPrefix}_${stage}_${gender}${animName}.png?v=4` : null;
-  const shieldSrc = hasGlovesGear ? `/fighters/${shieldPrefix}_${stage}_${gender}${animName}.png?v=4` : null;
+  const hatSrc = hasHeadgearGear ? `/athletes/${hatPrefix}_${stage}_${gender}${animName}.png?v=4` : null;
+  const shieldSrc = hasGlovesGear ? `/athletes/${shieldPrefix}_${stage}_${gender}${animName}.png?v=4` : null;
 
   // Load sheets (cached), then swap all refs atomically once everything is
   // ready. The previous sheets keep rendering until then, so transitions never

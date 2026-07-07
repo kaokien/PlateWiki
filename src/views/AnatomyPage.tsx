@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { ChevronRight, ArrowLeft, Crosshair } from 'lucide-react';
 import AdBanner from '../components/AdBanner';
-import { bodyParts, techniques } from '../data/techniques';
+import { bodyParts, techniques } from '../data/foods';
 import './AnatomyPage.css';
 
 // Adjacency map: which muscles are anatomically related
@@ -89,7 +89,7 @@ const AnatomyPage = () => {
         <div className="techniques-grid">
           {relatedTechniques.length > 0 ? (
             relatedTechniques.map(tech => (
-              <Link href={`/technique/${tech.id}?from=${id}`} key={tech.id} className="glass-panel technique-card-large" aria-label={`${tech.name} — ${tech.category}`}>
+              <Link href={`/food/${tech.id}?from=${id}`} key={tech.id} className="glass-panel technique-card-large" aria-label={`${tech.name} — ${tech.category}`}>
                 <div className="card-top-row">
                   <span className="tech-category">{tech.category}</span>
                   {tech.difficulty && (
@@ -118,7 +118,7 @@ const AnatomyPage = () => {
           <h2>Related Muscle Groups</h2>
           <div className="related-muscles-grid">
             {relatedMuscles.map(m => (
-              <Link href={`/anatomy/${m.id}`} key={m.id} className="glass-panel related-muscle-card">
+              <Link href={`/body-map/${m.id}`} key={m.id} className="glass-panel related-muscle-card">
                 <h4>{m.name}</h4>
                 <span className="related-desc">{m.shortDesc}</span>
                 <span className="read-more">Explore →</span>

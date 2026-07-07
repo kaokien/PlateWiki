@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Check, X, Crown, Zap, Shield, ChevronDown, ChevronUp } from 'lucide-react';
 import { useSubscription } from '../context/SubscriptionContext';
-import { TECHNIQUE_COUNT } from '@/data/techniques';
+import { TECHNIQUE_COUNT } from '@/data/foods';
 import { getOrAssignVariant } from '../utils/abTest';
 import { analytics } from '../utils/analytics';
 import './PricingPage.css';
@@ -127,7 +127,7 @@ const PricingPage = () => {
             <span className="price-period">forever</span>
           </div>
           <p className="pricing-card-desc">Browse the full technique library and start learning.</p>
-          <Link href="/techniques" className="pricing-card-cta pricing-card-cta-secondary">
+          <Link href="/foods" className="pricing-card-cta pricing-card-cta-secondary">
             Keep Browsing
           </Link>
           <ul className="pricing-features">

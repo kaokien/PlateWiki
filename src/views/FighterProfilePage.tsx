@@ -373,7 +373,7 @@ export default function FighterProfilePage() {
 
         {/* Pixel Fighter + Rank Icon */}
         <div className="fp-card__identity">
-          <Link href="/fighter" className="fp-card__fighter-link">
+          <Link href="/athlete" className="fp-card__fighter-link">
             <PixelFighter rankName={rank.name} size="md" animation="idle" showScene={false} customization={customization} />
           </Link>
           <div className="fp-card__rank-ring" style={{ '--rank-color': rank.color } as React.CSSProperties}>
@@ -474,7 +474,7 @@ export default function FighterProfilePage() {
             <span className="fp-card__stat-label">Day Streak</span>
           </div>
           {(profile.techniquesStudied?.length ?? 0) === 0 ? (
-            <Link href="/techniques" className="fp-card__stat fp-card__stat--actionable">
+            <Link href="/foods" className="fp-card__stat fp-card__stat--actionable">
               <BookOpen size={16} />
               <span className="fp-card__stat-value">0</span>
               <span className="fp-card__stat-label">Techniques</span>
@@ -637,7 +637,7 @@ export default function FighterProfilePage() {
 
       {/* ── Quick Actions ── */}
       <section className="fp-actions">
-        <Link href="/workout" className="fp-action glass-panel">
+        <Link href="/kitchen" className="fp-action glass-panel">
           <Dumbbell size={20} />
           <div>
             <h3>Train</h3>

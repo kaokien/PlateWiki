@@ -22,8 +22,8 @@ import {
   ListPlus,
   Smartphone,
 } from 'lucide-react';
-import { exercises } from '@/data/exercises';
-import { techniques } from '@/data/techniques';
+import { exercises } from '@/data/recipes';
+import { techniques } from '@/data/foods';
 import { addToHistory, addToShoppingList } from '@/utils/favorites';
 import './ExercisePage.css';
 
@@ -211,7 +211,7 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     if (exercise) {
-      addToHistory({ id: exercise.id ?? exerciseId, type: 'exercise', title: exercise.name, href: `/exercise/${exerciseId}` });
+      addToHistory({ id: exercise.id ?? exerciseId, type: 'exercise', title: exercise.name, href: `/recipe/${exerciseId}` });
     }
   }, [exerciseId, exercise]);
 
@@ -238,7 +238,7 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
           <ChefHat size={40} style={{ opacity: 0.3, marginBottom: '1rem' }} />
           <h2>Recipe Not Found</h2>
           <p>The recipe you are looking for does not exist or has been moved.</p>
-          <Link href="/exercises" className="ex-back-btn">
+          <Link href="/recipes" className="ex-back-btn">
             <ArrowLeft size={16} /> Browse All Recipes
           </Link>
         </div>
@@ -252,7 +252,7 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
       <nav className="breadcrumb" aria-label="Breadcrumb">
         <Link href="/" className="breadcrumb-link">Home</Link>
         <ChevronRight size={14} className="breadcrumb-chevron" />
-        <Link href="/exercises" className="breadcrumb-link">Recipes</Link>
+        <Link href="/recipes" className="breadcrumb-link">Recipes</Link>
         <ChevronRight size={14} className="breadcrumb-chevron" />
         <span className="breadcrumb-current">{exercise.name}</span>
       </nav>
@@ -378,7 +378,7 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
             {linkedTechniques.map((t: any) => (
               <Link
                 key={t.id}
-                href={`/technique/${t.id}`}
+                href={`/food/${t.id}`}
                 className="ex-technique-card glass-panel"
               >
                 <div className="ex-technique-info">
@@ -406,7 +406,7 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
             {relatedExercises.map((ex: any) => (
               <Link
                 key={ex.id}
-                href={`/exercise/${ex.id}`}
+                href={`/recipe/${ex.id}`}
                 className="ex-related-card glass-panel"
               >
                 <div className="ex-related-top">
@@ -431,7 +431,7 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
 
       {/* Back CTA */}
       <div className="ex-back-cta">
-        <Link href="/exercises" className="ex-back-btn">
+        <Link href="/recipes" className="ex-back-btn">
           <ArrowLeft size={16} /> Browse All Recipes
         </Link>
       </div>

@@ -15,8 +15,8 @@ import {
   Shield,
   Scale,
 } from 'lucide-react';
-import { muscleGroupWorkouts, exercises } from '@/data/exercises';
-import { techniques } from '@/data/techniques';
+import { muscleGroupWorkouts, exercises } from '@/data/recipes';
+import { techniques } from '@/data/foods';
 import { addToHistory } from '@/utils/favorites';
 import './MuscleWorkoutPage.css';
 
@@ -36,7 +36,7 @@ const MuscleWorkoutPage = ({ slug }: MuscleWorkoutPageProps) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     if (workout) {
-      addToHistory({ id: slug, type: 'workout', title: workout.name, href: `/workouts/${slug}` });
+      addToHistory({ id: slug, type: 'workout', title: workout.name, href: `/meals/${slug}` });
     }
   }, [slug, workout]);
 
@@ -47,7 +47,7 @@ const MuscleWorkoutPage = ({ slug }: MuscleWorkoutPageProps) => {
           <ChefHat size={48} />
           <h2>Meal Prep Guide Not Found</h2>
           <p>This nutritional target protocol does not exist yet.</p>
-          <Link href="/workouts" className="mw-back-link">
+          <Link href="/meals" className="mw-back-link">
             <ArrowLeft size={16} /> Back to Meal Prep Guides
           </Link>
         </div>
@@ -76,7 +76,7 @@ const MuscleWorkoutPage = ({ slug }: MuscleWorkoutPageProps) => {
       <nav className="breadcrumb" aria-label="Breadcrumb">
         <Link href="/" className="breadcrumb-link">Home</Link>
         <ChevronRight size={14} className="breadcrumb-chevron" />
-        <Link href="/workouts" className="breadcrumb-link">Meal Prep Guides</Link>
+        <Link href="/meals" className="breadcrumb-link">Meal Prep Guides</Link>
         <ChevronRight size={14} className="breadcrumb-chevron" />
         <span className="breadcrumb-current">{workout.name}</span>
       </nav>
@@ -142,7 +142,7 @@ const MuscleWorkoutPage = ({ slug }: MuscleWorkoutPageProps) => {
         <div className="mw-exercise-list">
           {workoutExercises.map((ex: any, idx: number) => (
             <Link
-              href={`/exercise/${ex.id}`}
+              href={`/recipe/${ex.id}`}
               key={ex.id}
               className="mw-exercise-card glass-panel"
             >
@@ -205,7 +205,7 @@ const MuscleWorkoutPage = ({ slug }: MuscleWorkoutPageProps) => {
           </div>
           <div className="mw-related-grid">
             {relatedTechniques.map((t: any) => (
-              <Link href={`/technique/${t.id}`} key={t.id} className="mw-related-link">
+              <Link href={`/food/${t.id}`} key={t.id} className="mw-related-link">
                 <span>{t.name}</span>
                 <ChevronRight size={14} />
               </Link>
@@ -223,7 +223,7 @@ const MuscleWorkoutPage = ({ slug }: MuscleWorkoutPageProps) => {
           </div>
           <div className="mw-related-grid">
             {otherWorkouts.map(([key, w]: [string, any]) => (
-              <Link href={`/workouts/${key}`} key={key} className="mw-related-link">
+              <Link href={`/meals/${key}`} key={key} className="mw-related-link">
                 <span>{w.name}</span>
                 <ChevronRight size={14} />
               </Link>
@@ -234,7 +234,7 @@ const MuscleWorkoutPage = ({ slug }: MuscleWorkoutPageProps) => {
 
       {/* Back CTA */}
       <div className="mw-back-cta">
-        <Link href="/workouts" className="mw-back-btn">
+        <Link href="/meals" className="mw-back-btn">
           <ArrowLeft size={16} /> Back to Meal Prep Guides
         </Link>
       </div>

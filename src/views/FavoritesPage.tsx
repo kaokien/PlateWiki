@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import { Heart, Clock, Trash2, ArrowRight, Crown, Dumbbell, Calendar } from 'lucide-react';
-import { techniques, bodyParts } from '../data/techniques';
+import { techniques, bodyParts } from '../data/foods';
 import { getFavorites, removeFavorite, getRecentlyViewed, getHistory, HistoryItem } from '../utils/favorites';
 import { useSubscription, FREE_FAVORITES_LIMIT } from '../context/SubscriptionContext';
 import { getSavedWorkouts, deleteSavedWorkout, SavedWorkout, FREE_WORKOUTS_LIMIT } from '../utils/savedWorkouts';
@@ -119,7 +119,7 @@ const FavoritesPage = () => {
               <div className="favorites-grid">
                 {favoriteTechniques.map(tech => (
                   <Link
-                    href={`/technique/${tech.id}`}
+                    href={`/food/${tech.id}`}
                     key={tech.id}
                     className="glass-panel fav-card"
                   >
@@ -170,7 +170,7 @@ const FavoritesPage = () => {
               <div className="favorites-grid">
                 {recentTechniques.map(tech => (
                   <Link
-                    href={`/technique/${tech.id}`}
+                    href={`/food/${tech.id}`}
                     key={tech.id}
                     className="glass-panel fav-card recent-card"
                   >
@@ -205,7 +205,7 @@ const FavoritesPage = () => {
             <div className="favorites-grid">
               {savedWorkouts.map(workout => (
                 <Link
-                  href={`/workout-generator?savedId=${workout.id}`}
+                  href={`/meal-generator?savedId=${workout.id}`}
                   key={workout.id}
                   className="glass-panel fav-card workout-card"
                 >
@@ -240,7 +240,7 @@ const FavoritesPage = () => {
               </div>
               <h3>No saved workouts yet</h3>
               <p>Generate a customized routine and save it to access it here.</p>
-              <Link href="/workout-generator" className="empty-cta">
+              <Link href="/meal-generator" className="empty-cta">
                 Generate Workout <ArrowRight size={16} />
               </Link>
             </div>

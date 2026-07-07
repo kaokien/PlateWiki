@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useClientSearchParams } from '@/hooks/useClientSearchParams';
 import { Search, X, Shuffle, SlidersHorizontal, Heart, ChefHat } from 'lucide-react';
-import { techniques, bodyParts } from '../data/techniques';
-import { exercises } from '../data/exercises';
+import { techniques, bodyParts } from '../data/foods';
+import { exercises } from '../data/recipes';
 import AdBanner from '../components/AdBanner';
 import { analytics } from '../utils/analytics';
 import { isFavorite, toggleFavorite, getFavorites } from '../utils/favorites';
@@ -127,7 +127,7 @@ const TechniquesPage = ({ initialCategory }: { initialCategory?: string }) => {
     const random = pool[Math.floor(Math.random() * pool.length)];
     if (random) {
       analytics.randomDrill(random.id, random.name);
-      router.push(`/technique/${random.id}`);
+      router.push(`/food/${random.id}`);
     }
   };
 
@@ -284,7 +284,7 @@ const TechniquesPage = ({ initialCategory }: { initialCategory?: string }) => {
           filteredTechniques.map((tech, idx) => (
             <React.Fragment key={tech.id}>
               <Link
-                href={`/technique/${tech.id}`}
+                href={`/food/${tech.id}`}
                 className="glass-panel browse-card"
                 aria-label={`${tech.name} — ${tech.category}`}
               >
@@ -360,7 +360,7 @@ const TechniquesPage = ({ initialCategory }: { initialCategory?: string }) => {
           </p>
           <div className="recipes-starter-grid">
             {relatedRecipes.map((recipe: any) => (
-              <Link key={recipe.id} href={`/exercise/${recipe.id}`} className="recipe-starter-card glass-panel">
+              <Link key={recipe.id} href={`/recipe/${recipe.id}`} className="recipe-starter-card glass-panel">
                 <div className="recipe-starter-header">
                   <span className="recipe-starter-difficulty">• {recipe.difficulty}</span>
                   <span className="recipe-starter-time">{recipe.reps}</span>

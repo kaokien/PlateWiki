@@ -290,7 +290,7 @@ export default function WorkoutGeneratorPage() {
                   <div className="wg-drill-top">
                     <span className="wg-drill-number">{i + 1}</span>
                     <div className="wg-drill-info">
-                      <Link href={`/technique/${d.techniqueId}`} className="wg-drill-name">
+                      <Link href={`/food/${d.techniqueId}`} className="wg-drill-name">
                         {d.name} <ChevronRight size={14} />
                       </Link>
                       <span className="wg-drill-cat">{d.category} · {d.sets}</span>

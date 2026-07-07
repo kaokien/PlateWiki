@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { ChevronLeft, ChevronRight, ChevronDown, CheckCircle, Circle, Play, BookOpen, RotateCcw } from 'lucide-react';
 import { programs, type ProgramDay } from '../data/programs';
-import { techniques } from '../data/techniques';
+import { techniques } from '../data/foods';
 import { getProgramProgress, completeProgramDay, startProgram, resetProgram } from '../utils/storage';
 import { analytics } from '../utils/analytics';
 import { useStance } from '../context/StanceContext';
@@ -158,7 +158,7 @@ const ProgramPage = () => {
                 const tech = techniques[task.techniqueId];
                 if (!tech) return null;
                 return (
-                  <Link href={`/technique/${task.techniqueId}`} key={idx} className="task-item learn-task">
+                  <Link href={`/food/${task.techniqueId}`} key={idx} className="task-item learn-task">
                     <BookOpen size={18} />
                     <div className="task-content">
                       <span className="task-label">LEARN:</span> {parseStanceText(tech.name, isSouthpaw)}

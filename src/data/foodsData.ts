@@ -1,4 +1,4 @@
-import type { Technique } from './techniques';
+import type { Technique } from './foods';
 import { macronutrientsFoods } from './foods/macronutrients';
 import { hydrationFoods } from './foods/hydration';
 import { micronutrientsFoods } from './foods/micronutrients';

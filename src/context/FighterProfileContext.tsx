@@ -64,7 +64,7 @@ export function FighterProfileProvider({ children }: { children: React.ReactNode
   const { isSignedIn } = useUser();
 
   // Install the tamagotchi store's window-level listeners app-wide, so
-  // logging a meal/workout feeds the avatar even when the Virtual Gym
+  // logging a meal/kitchen feeds the avatar even when the Virtual Gym
   // component isn't mounted (user is on another page).
   useEffect(() => {
     initTamagotchiStore();

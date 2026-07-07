@@ -15,7 +15,7 @@ import {
   Flame,
   BookOpen,
 } from 'lucide-react';
-import { muscleGroupWorkouts, goalWorkouts } from '@/data/exercises';
+import { muscleGroupWorkouts, goalWorkouts } from '@/data/recipes';
 import './WorkoutsPage.css';
 
 const MUSCLE_ICONS: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
@@ -51,7 +51,7 @@ const WorkoutsPage = () => {
             return (
               <Link
                 key={workout.slug}
-                href={`/workouts/${workout.slug}`}
+                href={`/meals/${workout.slug}`}
                 className="glass-panel wkl-card"
                 aria-label={workout.name}
               >
@@ -86,7 +86,7 @@ const WorkoutsPage = () => {
           {goalWorkoutsList.map(workout => (
             <Link
               key={workout.slug}
-              href={`/workouts/goal/${workout.slug}`}
+              href={`/plans/${workout.slug}`}
               className="glass-panel wkl-card wkl-card-goal"
               aria-label={workout.name}
             >

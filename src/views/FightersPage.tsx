@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { Search, X, ChevronRight } from 'lucide-react';
-import { fighters } from '../data/fighters';
+import { fighters } from '../data/athletes';
 import './FightersPage.css';
 
 const STYLE_FILTERS = [
@@ -107,7 +107,7 @@ const FightersPage = () => {
       <div className="fighters-grid">
         {filtered.length > 0 ? (
           filtered.map(fighter => (
-            <Link href={`/fighters/${fighter.id}`} key={fighter.id} className="glass-panel fighter-card">
+            <Link href={`/athletes/${fighter.id}`} key={fighter.id} className="glass-panel fighter-card">
               <div className="fighter-card__header">
                 <div className="fighter-card__identity">
                   <h2>{fighter.name}</h2>

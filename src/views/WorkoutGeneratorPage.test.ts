@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { techniques } from '../data/techniques';
+import { techniques } from '../data/foods';
 import { workoutsByCategory } from '../data/gymWorkouts';
 
 // ─── Replicate the algorithm constants from WorkoutGeneratorPage ───

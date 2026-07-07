@@ -53,7 +53,7 @@ function toDbRow(w: Record<string, unknown>, userId: string) {
   };
 }
 
-// ── GET /api/workouts ───────────────────────────────────────────
+// ── GET /api/meals ───────────────────────────────────────────
 
 export async function GET() {
   const userId = await getUser();
@@ -74,7 +74,7 @@ export async function GET() {
   return json({ workouts: data });
 }
 
-// ── POST /api/workouts — save one or bulk-sync ──────────────────
+// ── POST /api/meals — save one or bulk-sync ──────────────────
 
 export async function POST(req: NextRequest) {
   const userId = await getUser();
@@ -109,7 +109,7 @@ export async function POST(req: NextRequest) {
   return json({ workouts: data });
 }
 
-// ── DELETE /api/workouts — delete one workout by ID ─────────────
+// ── DELETE /api/meals — delete one workout by ID ─────────────
 
 export async function DELETE(req: NextRequest) {
   const userId = await getUser();
@@ -140,7 +140,7 @@ export async function DELETE(req: NextRequest) {
   return json({ success: true });
 }
 
-// ── PUT /api/workouts — atomic full replace (diff-based) ────────
+// ── PUT /api/meals — atomic full replace (diff-based) ────────
 
 export async function PUT(req: NextRequest) {
   const userId = await getUser();

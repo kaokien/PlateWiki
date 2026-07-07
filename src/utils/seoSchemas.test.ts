@@ -39,7 +39,7 @@ describe('getBreadcrumbSchema', () => {
   it('returns valid BreadcrumbList with items', () => {
     const items = [
       { name: 'Home', url: '/' },
-      { name: 'Techniques', url: '/techniques' },
+      { name: 'Techniques', url: '/foods' },
       { name: 'Jab' },
     ];
     const schema = getBreadcrumbSchema(items);

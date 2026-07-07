@@ -1,7 +1,7 @@
 // forestSprites.ts — Hand-authored pixel-art sprite matrices for the Virtual Gym
 // forest garden. Each sprite is an array of equal-width strings; each character
 // maps to a PALETTE color ('.' = transparent). Colors are sampled from
-// /public/fighters/forest_bg.png so plants sit naturally in the scene.
+// /public/athletes/forest_bg.png so plants sit naturally in the scene.
 
 export type SpeciesId =
   | 'pine'

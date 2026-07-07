@@ -87,7 +87,7 @@ export default function RankUpModal() {
         </p>
 
         <Link
-          href="/fighter"
+          href="/athlete"
           className="rankup-cta"
           onClick={clearRankUpEvent}
         >

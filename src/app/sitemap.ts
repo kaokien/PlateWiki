@@ -1,9 +1,9 @@
 import type { MetadataRoute } from 'next';
-import { techniques, bodyParts } from '@/data/techniques';
-import { fighters } from '@/data/fighters';
+import { techniques, bodyParts } from '@/data/foods';
+import { fighters } from '@/data/athletes';
 import { glossary, toSlug } from '@/data/glossary';
 import { programs } from '@/data/programs';
-import { exercises, muscleGroupWorkouts, goalWorkouts } from '@/data/exercises';
+import { exercises, muscleGroupWorkouts, goalWorkouts } from '@/data/recipes';
 import { getArticlesList } from '@/utils/contentLoader';
 
 import { SITE_URL } from '@/utils/config';
@@ -14,16 +14,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
     { url: SITE_URL, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
-    { url: `${SITE_URL}/techniques`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE_URL}/exercises`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE_URL}/workouts`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE_URL}/workout`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE_URL}/foods`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${SITE_URL}/recipes`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${SITE_URL}/meals`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${SITE_URL}/kitchen`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/programs`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/articles`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE_URL}/glossary`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/rules`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/timer`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${SITE_URL}/fighters`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${SITE_URL}/athletes`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE_URL}/course`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/merch`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${SITE_URL}/partner`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
@@ -35,7 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Dynamic technique pages
   const techniquePages: MetadataRoute.Sitemap = Object.keys(techniques).map((id) => ({
-    url: `${SITE_URL}/technique/${id}`,
+    url: `${SITE_URL}/food/${id}`,
     lastModified: now,
     changeFrequency: 'weekly' as const,
     priority: 0.8,
@@ -43,7 +43,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Dynamic fighter pages
   const fighterPages: MetadataRoute.Sitemap = fighters.map((f) => ({
-    url: `${SITE_URL}/fighters/${f.id}`,
+    url: `${SITE_URL}/athletes/${f.id}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
@@ -76,7 +76,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Dynamic anatomy pages
   const anatomyPages: MetadataRoute.Sitemap = Object.keys(bodyParts).map((id) => ({
-    url: `${SITE_URL}/anatomy/${id}`,
+    url: `${SITE_URL}/body-map/${id}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
@@ -84,7 +84,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Dynamic technique workout pages
   const techniqueWorkoutPages: MetadataRoute.Sitemap = Object.keys(techniques).map((id) => ({
-    url: `${SITE_URL}/technique/${id}/workout`,
+    url: `${SITE_URL}/food/${id}/prep`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
@@ -92,7 +92,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Dynamic exercise pages
   const exercisePages: MetadataRoute.Sitemap = Object.keys(exercises).map((id) => ({
-    url: `${SITE_URL}/exercise/${id}`,
+    url: `${SITE_URL}/recipe/${id}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
@@ -100,7 +100,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Dynamic muscle group workout pages
   const muscleWorkoutPages: MetadataRoute.Sitemap = Object.keys(muscleGroupWorkouts).map((slug) => ({
-    url: `${SITE_URL}/workouts/${slug}`,
+    url: `${SITE_URL}/meals/${slug}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.8,
@@ -108,7 +108,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Dynamic goal-based workout pages
   const goalWorkoutPages: MetadataRoute.Sitemap = Object.keys(goalWorkouts).map((slug) => ({
-    url: `${SITE_URL}/workouts/goal/${slug}`,
+    url: `${SITE_URL}/plans/${slug}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.8,

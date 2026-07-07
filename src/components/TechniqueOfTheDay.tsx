@@ -25,7 +25,7 @@ const TechniqueOfTheDay = () => {
 
   useEffect(() => {
     let cancelled = false;
-    import('../data/techniques').then(({ techniques }) => {
+    import('../data/foods').then(({ techniques }) => {
       if (!cancelled) setTechnique(pickTechniqueOfTheDay(Object.values(techniques)));
     });
     return () => { cancelled = true; };
@@ -52,7 +52,7 @@ const TechniqueOfTheDay = () => {
   }
 
   return (
-    <Link href={`/technique/${technique.id}`} className="totd-card glass-panel">
+    <Link href={`/food/${technique.id}`} className="totd-card glass-panel">
       <div className="totd-badge">
         <Sparkles size={14} />
         <span>SUPERFOOD OF THE DAY</span>

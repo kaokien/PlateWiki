@@ -278,7 +278,7 @@ export default function FighterPage() {
             <div className="stat-card__value">{profile.articlesRead.length}</div>
             <div className="stat-card__label">Articles</div>
           </Link>
-          <Link href="/techniques" className="stat-card stat-card--link glass-panel">
+          <Link href="/foods" className="stat-card stat-card--link glass-panel">
             <Swords size={20} className="stat-card__icon" />
             <div className="stat-card__value">{profile.techniquesStudied.length}</div>
             <div className="stat-card__label">Foods</div>
@@ -293,7 +293,7 @@ export default function FighterPage() {
             <div className="stat-card__value">{streak}</div>
             <div className="stat-card__label">Day Streak</div>
           </div>
-          <Link href="/techniques" className="stat-card stat-card--link glass-panel">
+          <Link href="/foods" className="stat-card stat-card--link glass-panel">
             <Star size={20} className="stat-card__icon" />
             <div className="stat-card__value">{profile.quizzesCompleted?.length || 0}</div>
             <div className="stat-card__label">Quizzes</div>
@@ -313,7 +313,7 @@ export default function FighterPage() {
 
       {/* ── Train CTA ──────────────────────────────────────────── */}
       <section className="athlete-cta-section">
-        <Link href="/techniques" className="athlete-train-cta">
+        <Link href="/foods" className="athlete-train-cta">
           <Swords size={18} />
           Start Harvesting
           <ChevronRight size={16} />

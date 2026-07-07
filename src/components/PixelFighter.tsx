@@ -57,7 +57,7 @@ export default function PixelFighter({
     else if (rankName === 'Gatekeeper' || rankName === 'Rising Star') folderStage = 'stage2';
     
     const gender = customization?.bodyType === 'female' ? 'female_' : '';
-    img.src = `/fighters/${folderStage}_${gender}idle.png`;
+    img.src = `/athletes/${folderStage}_${gender}idle.png`;
   }, [rankName, customization?.bodyType]);
 
   const containerClasses = [

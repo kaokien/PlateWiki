@@ -25,7 +25,7 @@ const NotFoundPage = () => {
           }}>
             <Home size={18} /> Interactive Map
           </Link>
-          <Link href="/techniques" style={{
+          <Link href="/foods" style={{
             display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
             background: 'var(--color-surface)', border: '1px solid var(--color-border)',
             color: 'var(--color-text)', padding: '0.75rem 1.5rem',

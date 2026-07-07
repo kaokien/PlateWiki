@@ -18,10 +18,13 @@ import {
   Calendar,
   MapPin,
   Check,
+  Share2,
+  ListPlus,
+  Smartphone,
 } from 'lucide-react';
 import { exercises } from '@/data/exercises';
 import { techniques } from '@/data/techniques';
-import { addToHistory } from '@/utils/favorites';
+import { addToHistory, addToShoppingList } from '@/utils/favorites';
 import './ExercisePage.css';
 
 interface ExercisePageProps {
@@ -39,6 +42,12 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [checkedIngredients, setCheckedIngredients] = useState<Record<string, boolean>>({});
+  const [savedToList, setSavedToList] = useState(false);
+  const [shareSupported, setShareSupported] = useState(false);
+
+  useEffect(() => {
+    setShareSupported(typeof navigator !== 'undefined' && !!navigator.share);
+  }, []);
 
   // Resolve linked techniques (ingredients/foods)
   const linkedTechniques = useMemo(() => {
@@ -105,6 +114,57 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  const handleNativeShare = async () => {
+    const listItems = linkedTechniques
+      .filter((t: any) => checkedIngredients[t.id])
+      .map((t: any) => `☐ ${t.name} (${t.category})`)
+      .join('\n');
+
+    const shareText = [
+      `🍳 Shopping List: ${exercise.name}`,
+      ``,
+      listItems,
+      ``,
+      `Macros: ${exercise.rest}`,
+      `Prep: ${exercise.reps}`,
+      ``,
+      `— FoodWiki.org`
+    ].join('\n');
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: `Shopping List: ${exercise.name}`,
+          text: shareText,
+        });
+      } catch (err: any) {
+        // User cancelled share — that's fine
+        if (err.name !== 'AbortError') {
+          handleCopyList(); // fallback
+        }
+      }
+    } else {
+      handleCopyList(); // desktop fallback
+    }
+  };
+
+  const handleSaveToList = () => {
+    const itemsToSave = linkedTechniques
+      .filter((t: any) => checkedIngredients[t.id])
+      .map((t: any) => ({
+        id: t.id,
+        name: t.name,
+        category: t.category,
+        recipeName: exercise.name,
+      }));
+
+    if (itemsToSave.length > 0) {
+      addToShoppingList(itemsToSave);
+      setSavedToList(true);
+      setTimeout(() => setSavedToList(false), 2500);
+    }
   };
 
   const handleCreateReminder = () => {
@@ -416,22 +476,41 @@ const ExercisePage = ({ exerciseId }: ExercisePageProps) => {
               </div>
 
               <div className="ex-modal-actions">
-                <button className="ex-action-btn" onClick={handleCopyList}>
+                {/* Primary: Native share on mobile, copy on desktop */}
+                <button className="ex-action-btn ex-native-share-btn" onClick={handleNativeShare}>
                   {copied ? (
                     <>
                       <Check size={16} className="ex-success-icon" /> Copied!
                     </>
+                  ) : shareSupported ? (
+                    <>
+                      <Smartphone size={16} /> Save to Notes
+                    </>
                   ) : (
                     <>
-                      <Copy size={16} /> Copy Checklist to Notes
+                      <Copy size={16} /> Copy to Clipboard
                     </>
                   )}
                 </button>
-                <button className="ex-action-btn" onClick={handleDownloadTxt}>
-                  <Download size={16} /> Save Shopping List (.txt)
+
+                {/* Save to dashboard sticky note */}
+                <button className="ex-action-btn ex-save-list-btn" onClick={handleSaveToList}>
+                  {savedToList ? (
+                    <>
+                      <Check size={16} className="ex-success-icon" /> Saved to Dashboard!
+                    </>
+                  ) : (
+                    <>
+                      <ListPlus size={16} /> Save to My List
+                    </>
+                  )}
                 </button>
+
                 <button className="ex-action-btn" onClick={handleCreateReminder}>
                   <Calendar size={16} /> Set Prep Reminder (.ics)
+                </button>
+                <button className="ex-action-btn ex-download-fallback" onClick={handleDownloadTxt}>
+                  <Download size={16} /> Download .txt
                 </button>
                 <a
                   className="ex-action-btn ex-maps-btn"

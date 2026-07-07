@@ -13,12 +13,12 @@ import { RankIcon } from '@/components/RankIcons';
 import WeeklyChallengeCard from '@/components/WeeklyChallengeCard';
 import AuthGate from '@/components/AuthGate';
 import { techniques } from '@/data/techniques';
-import { getFavorites } from '@/utils/favorites';
+import { getFavorites, getShoppingList, toggleShoppingItem, clearCrossedOffItems, type ShoppingItem } from '@/utils/favorites';
 import {
   Zap, ArrowRight, Shield, Crosshair, Move, Brain,
   Dumbbell, Flame, Check, Lock, ChevronRight,
   BookOpen, Timer, Target, Activity, Trophy, MessageSquare, X, Play, ShoppingBag,
-  Award, ClipboardList, Heart, Leaf, UtensilsCrossed, Scale
+  Award, ClipboardList, Heart, Leaf, UtensilsCrossed, Scale, StickyNote, Trash2
 } from 'lucide-react';
 import './DashboardPage.css';
 
@@ -96,6 +96,86 @@ function DiscordBanner() {
         <X size={14} />
       </button>
     </div>
+  );
+}
+
+/* ── Shopping List Sticky Note ─────────────────────────────────────── */
+function ShoppingListStickyNote() {
+  const [items, setItems] = useState<ShoppingItem[]>([]);
+  const [justCleared, setJustCleared] = useState(false);
+
+  useEffect(() => {
+    setItems(getShoppingList());
+  }, []);
+
+  const handleToggle = (id: string, recipeName: string) => {
+    toggleShoppingItem(id, recipeName);
+    setItems(getShoppingList());
+  };
+
+  const handleClearDone = () => {
+    clearCrossedOffItems();
+    const updated = getShoppingList();
+    setItems(updated);
+    if (updated.length === 0) {
+      setJustCleared(true);
+      setTimeout(() => setJustCleared(false), 3000);
+    }
+  };
+
+  const crossedCount = items.filter(i => i.crossedOff).length;
+  const hasItems = items.length > 0;
+
+  // Group by recipe
+  const groupedByRecipe = useMemo(() => {
+    const groups: Record<string, ShoppingItem[]> = {};
+    items.forEach(item => {
+      if (!groups[item.recipeName]) groups[item.recipeName] = [];
+      groups[item.recipeName].push(item);
+    });
+    return groups;
+  }, [items]);
+
+  if (!hasItems && !justCleared) return null;
+
+  return (
+    <section className="dash-sticky">
+      <div className="dash-sticky__pin">📌</div>
+      <div className="dash-sticky__header">
+        <StickyNote size={18} className="dash-sticky__icon" />
+        <h2 className="dash-sticky__title">Shopping List</h2>
+        {crossedCount > 0 && (
+          <button className="dash-sticky__clear" onClick={handleClearDone}>
+            <Trash2 size={12} /> Clear done ({crossedCount})
+          </button>
+        )}
+      </div>
+
+      {hasItems ? (
+        <div className="dash-sticky__list">
+          {Object.entries(groupedByRecipe).map(([recipe, recipeItems]) => (
+            <div key={recipe} className="dash-sticky__group">
+              <span className="dash-sticky__recipe">🍳 {recipe}</span>
+              {recipeItems.map(item => (
+                <button
+                  key={`${item.id}-${item.recipeName}`}
+                  className={`dash-sticky__item ${item.crossedOff ? 'dash-sticky__item--done' : ''}`}
+                  onClick={() => handleToggle(item.id, item.recipeName)}
+                >
+                  <span className="dash-sticky__checkbox">
+                    {item.crossedOff ? <Check size={12} /> : null}
+                  </span>
+                  <span className="dash-sticky__item-name">{item.name}</span>
+                  <span className="dash-sticky__item-cat">{item.category}</span>
+                </button>
+              ))}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="dash-sticky__empty">All done! 🎉 List cleared.</p>
+      )}
+    </section>
   );
 }
 
@@ -320,6 +400,9 @@ export default function DashboardPage() {
           </div>
         </section>
       )}
+
+      {/* ── Shopping List Sticky Note ──────────────────────────────── */}
+      <ShoppingListStickyNote />
 
       {/* ── Continue Fueling CTA ──────────────────────────────────── */}
       {(() => {

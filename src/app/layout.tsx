@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
-import { Inter, Lora } from 'next/font/google';
+import { Inter, Lora, Caveat } from 'next/font/google';
 import ClerkProviderWrapper from '@/components/ClerkProviderWrapper';
 import Providers from './providers';
 import Header from '@/components/layout/Header';
@@ -29,6 +29,13 @@ const lora = Lora({
   weight: ['400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-display',
+});
+
+const caveat = Caveat({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-handwriting',
 });
 
 const SITE_URL = 'https://foodwiki.org';
@@ -106,7 +113,7 @@ export default function RootLayout({
   const clerkOrigin = clerkFrontendOrigin();
 
   return (
-    <html lang="en" className={`${inter.variable} ${lora.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${lora.variable} ${caveat.variable}`} suppressHydrationWarning>
       <head>
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />

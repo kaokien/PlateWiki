@@ -150,3 +150,54 @@ export const clearTrainingPlan = () => {
 export const isInTrainingPlan = (techniqueId: string) => {
   return getTrainingPlan().includes(techniqueId);
 };
+
+// --- Shopping List (for dashboard sticky note) ---
+
+export type ShoppingItem = {
+  id: string;
+  name: string;
+  category: string;
+  recipeName: string;
+  addedAt: number;
+  crossedOff: boolean;
+};
+
+const SHOPPING_LIST_KEY = 'FoodWiki_shopping_list';
+
+export const getShoppingList = (): ShoppingItem[] => safeGet<ShoppingItem[]>(SHOPPING_LIST_KEY, []);
+
+export const addToShoppingList = (items: Omit<ShoppingItem, 'addedAt' | 'crossedOff'>[]) => {
+  const list = getShoppingList();
+  const now = Date.now();
+  items.forEach(item => {
+    // Avoid duplicates by id + recipeName
+    const exists = list.some(existing => existing.id === item.id && existing.recipeName === item.recipeName);
+    if (!exists) {
+      list.push({ ...item, addedAt: now, crossedOff: false });
+    }
+  });
+  safeSet(SHOPPING_LIST_KEY, list);
+};
+
+export const toggleShoppingItem = (id: string, recipeName: string) => {
+  const list = getShoppingList();
+  const item = list.find(i => i.id === id && i.recipeName === recipeName);
+  if (item) {
+    item.crossedOff = !item.crossedOff;
+    safeSet(SHOPPING_LIST_KEY, list);
+  }
+};
+
+export const removeShoppingItem = (id: string, recipeName: string) => {
+  const list = getShoppingList().filter(i => !(i.id === id && i.recipeName === recipeName));
+  safeSet(SHOPPING_LIST_KEY, list);
+};
+
+export const clearCrossedOffItems = () => {
+  const list = getShoppingList().filter(i => !i.crossedOff);
+  safeSet(SHOPPING_LIST_KEY, list);
+};
+
+export const clearShoppingList = () => {
+  safeSet(SHOPPING_LIST_KEY, []);
+};

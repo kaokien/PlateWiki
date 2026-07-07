@@ -3,6 +3,8 @@
 // Each recipe explains WHY it matters for performance.
 // ============================================================
 
+export type MealTime = 'breakfast' | 'lunch' | 'dinner' | 'snack' | 'anytime';
+
 export const MUSCLE_GROUPS = {
   shoulders: 'Pre-Workout Fuel',
   core: 'Post-Workout Recovery',
@@ -35,6 +37,7 @@ export const exercises = {
     tips: ['Eat 2 hours before training for optimal digestion.', 'Add a scoop of collagen powder for joint support.', 'Warm it up in winter for a soothing pre-workout meal.'],
     techniques: ['oatmeal', 'blueberries'],
     category: 'Pre-Workout Fuel',
+    mealTime: 'anytime',
   },
   'sweet-potato-hash': {
     id: 'sweet-potato-hash',
@@ -56,6 +59,7 @@ export const exercises = {
     tips: ['Keep the skins on the sweet potatoes for extra fiber.', 'Cast iron adds trace dietary iron to your food.', 'Perfect for a carb refeed day.'],
     techniques: ['sweet-potato'],
     category: 'Pre-Workout Fuel',
+    mealTime: 'anytime',
   },
   'beetroot-endurance-smoothie': {
     id: 'beetroot-endurance-smoothie',
@@ -77,6 +81,7 @@ export const exercises = {
     tips: ['Do not use mouthwash after drinking; mouth bacteria convert the nitrates.', 'Add a pinch of pink salt to increase hydration capacity.', 'Use raw beetroot rather than pre-cooked for maximum nitrate retention.'],
     techniques: ['beetroot-juice', 'spinach', 'coconut-water'],
     category: 'Hydration & Electrolytes',
+    mealTime: 'anytime',
   },
   'recovery-whey-shake': {
     id: 'recovery-whey-shake',
@@ -98,6 +103,7 @@ export const exercises = {
     tips: ['Spiking insulin with a banana accelerates amino acid absorption.', 'Choose cold-processed whey to avoid denatured proteins.', 'Add 1 tbsp of almond butter for joint-supporting healthy lipids.'],
     techniques: ['whey-isolate'],
     category: 'Post-Workout Recovery',
+    mealTime: 'anytime',
   },
   'choline-egg-scramble': {
     id: 'choline-egg-scramble',
@@ -119,6 +125,7 @@ export const exercises = {
     tips: ['Eat the yolk! It holds 90% of the choline and fat-soluble vitamins.', 'Cook on medium-low heat to avoid oxidizing the delicate lipids.', 'Top with fermented hot sauce for a digestive boost.'],
     techniques: ['eggs', 'spinach'],
     category: 'Post-Workout Recovery',
+    mealTime: 'anytime',
   },
   'omega3-salmon-fillet': {
     id: 'omega3-salmon-fillet',
@@ -141,6 +148,7 @@ export const exercises = {
     tips: ['Searing skin-side down preserves the omega-3 oils near the skin.', 'Use wild-caught salmon — farmed has up to 10x less omega-3 density.', 'Squeeze fresh lemon juice on top to boost vitamin C absorption.'],
     techniques: ['salmon'],
     category: 'Post-Workout Recovery',
+    mealTime: 'anytime',
   },
   'spinach-iron-salad': {
     id: 'spinach-iron-salad',
@@ -162,6 +170,7 @@ export const exercises = {
     tips: ['ACV acidifies the stomach to maximize non-heme iron absorption.', 'Blueberries add powerful cell-protecting anthocyanins.', 'Do not cook the spinach to death; raw or lightly wilted keeps vitamin C intact.'],
     techniques: ['spinach', 'blueberries'],
     category: 'Daily Baseline Fuel',
+    mealTime: 'anytime',
   },
   'probiotic-kefir-bowl': {
     id: 'probiotic-kefir-bowl',
@@ -183,6 +192,7 @@ export const exercises = {
     tips: ['Choose goat or A2 cow milk kefir for easier digestion.', 'Avoid sweetened commercial kefirs; they feed bad gut bacteria.', 'Excellent for restoring gut flora after antibiotic cycles.'],
     techniques: ['kefir', 'pumpkin-seeds'],
     category: 'Daily Baseline Fuel',
+    mealTime: 'anytime',
   },
   'pumpkin-seed-granola': {
     id: 'pumpkin-seed-granola',
@@ -204,6 +214,7 @@ export const exercises = {
     tips: ['Sprouted grain bread is easier on the gut than standard wheat.', 'Raw seeds preserve natural enzymes that roasting destroys.', 'Eat before bed to support muscle relaxation and sleep cycles.'],
     techniques: ['pumpkin-seeds', 'pink-salt'],
     category: 'Daily Baseline Fuel',
+    mealTime: 'anytime',
   },
   'electrolyte-coconut-water': {
     id: 'electrolyte-coconut-water',
@@ -225,6 +236,7 @@ export const exercises = {
     tips: ['Drink cold for faster gastric emptying.', 'Avoid pasteurized coconut waters; choose raw HPP to preserve enzymes.', 'Excellent replacement for artificial, sugar-loaded sports drinks.'],
     techniques: ['coconut-water', 'pink-salt'],
     category: 'Hydration & Electrolytes',
+    mealTime: 'anytime',
   },
   'turmeric-golden-milk': {
     id: 'turmeric-golden-milk',
@@ -246,6 +258,7 @@ export const exercises = {
     tips: ['The piperine in black pepper is mandatory to absorb the curcumin.', 'Coconut milk fats are required for fat-soluble curcumin absorption.', 'Drink post-training or before bed to accelerate recovery.'],
     techniques: ['turmeric', 'ginger'],
     category: 'Anti-Inflammatory & Recovery',
+    mealTime: 'anytime',
   },
   'ginger-wellness-shot': {
     id: 'ginger-wellness-shot',
@@ -267,6 +280,7 @@ export const exercises = {
     tips: ['Drink first thing in the morning to trigger digestion.', 'Cayenne pepper further stimulates circulation and metabolic pathways.', 'Store in glass vials in the fridge for up to 3 days.'],
     techniques: ['ginger'],
     category: 'Anti-Inflammatory & Recovery',
+    mealTime: 'anytime',
   },
   'lions-mane-elixir': {
     id: 'lions-mane-elixir',
@@ -288,6 +302,7 @@ export const exercises = {
     tips: ['Hot water extraction breaks down chitin walls so the active compounds are bioavailable.', 'Take in the morning to optimize mental focus during daytime routines.', 'Pair with coffee to synergize alertness with cognitive clarity.'],
     techniques: ['lions-mane'],
     category: 'Superfoods & Immunity',
+    mealTime: 'anytime',
   },
   'ashwagandha-sleep-milk': {
     id: 'ashwagandha-sleep-milk',
@@ -309,6 +324,7 @@ export const exercises = {
     tips: ['Use KSM-66 extract for standardized, high-potency active compounds.', 'Avoid taking ashwagandha before workouts, as it can blunt the acute stress response needed for training output.', 'Consuming with warm milk helps induce drowsiness.'],
     techniques: ['ashwagandha'],
     category: 'Superfoods & Immunity',
+    mealTime: 'anytime',
   },
   'himalayan-salt-prework': {
     id: 'himalayan-salt-prework',
@@ -329,6 +345,7 @@ export const exercises = {
     tips: ['Pair with 200mg of caffeine to maximize blood pressure flow during training.', 'Ensure you hydrate with plain water throughout the rest of the day.', 'Use unrefined pink salt; white table salt lacks trace minerals.'],
     techniques: ['pink-salt'],
     category: 'Hydration & Electrolytes',
+    mealTime: 'anytime',
   },
 
   // ============ BREAKFAST RECIPES ============
@@ -354,6 +371,7 @@ export const exercises = {
     tips: ['Use medium-low heat to avoid burning the whey protein.', 'Riper bananas add natural sweetness without added sugar.', 'Prep batter the night before for a quick morning meal.'],
     techniques: ['whey-isolate', 'banana', 'oatmeal'],
     category: 'Pre-Workout Fuel',
+    mealTime: 'breakfast',
   },
   'greek-yogurt-parfait': {
     id: 'greek-yogurt-parfait',
@@ -376,6 +394,7 @@ export const exercises = {
     tips: ['Choose full-fat yogurt for better satiety and fat-soluble vitamin absorption.', 'Avoid flavored yogurts; they contain up to 20g of hidden sugar.', 'Make 3 jars at once for easy grab-and-go meal prep.'],
     techniques: ['greek-yogurt', 'blueberries', 'pumpkin-seeds'],
     category: 'Daily Baseline Fuel',
+    mealTime: 'breakfast',
   },
   'avocado-egg-toast': {
     id: 'avocado-egg-toast',
@@ -398,6 +417,7 @@ export const exercises = {
     tips: ['The vinegar helps the egg white coagulate neatly during poaching.', 'Use Hass avocados for the highest monounsaturated fat content.', 'Add everything bagel seasoning for extra flavor and sesame minerals.'],
     techniques: ['avocado', 'eggs'],
     category: 'Healthy Fats & Hormones',
+    mealTime: 'breakfast',
   },
   'smoothie-bowl-acai': {
     id: 'smoothie-bowl-acai',
@@ -419,6 +439,7 @@ export const exercises = {
     tips: ['Keep it thick by using frozen fruit and minimal liquid.', 'Add 1 tbsp of almond butter for extra healthy fats and satiety.', 'Eat within 15 minutes to preserve the antioxidant potency of açaí.'],
     techniques: ['collagen-peptides', 'banana', 'spinach'],
     category: 'Pre-Workout Fuel',
+    mealTime: 'breakfast',
   },
   'sardine-toast': {
     id: 'sardine-toast',
@@ -440,6 +461,7 @@ export const exercises = {
     tips: ['Choose sardines packed in olive oil for extra healthy fats.', 'Eat the bones — they are soft and provide 35% of daily calcium.', 'Pair with ACV water to enhance mineral absorption.'],
     techniques: ['sardines'],
     category: 'Daily Baseline Fuel',
+    mealTime: 'breakfast',
   },
   'miso-breakfast-soup': {
     id: 'miso-breakfast-soup',
@@ -462,6 +484,7 @@ export const exercises = {
     tips: ['Never boil miso — heat destroys the living enzymes and probiotics.', 'White miso is milder and more probiotic-rich than red miso.', 'Add a few drops of toasted sesame oil for depth and healthy fats.'],
     techniques: ['miso', 'eggs'],
     category: 'Daily Baseline Fuel',
+    mealTime: 'breakfast',
   },
   'beef-liver-pate-toast': {
     id: 'beef-liver-pate-toast',
@@ -484,6 +507,7 @@ export const exercises = {
     tips: ['Soak liver in milk for 30 minutes before cooking to reduce the metallic taste.', 'Start with chicken liver if you are new to organ meats — it is milder.', 'Freeze pâté in portions for weekly use — lasts 3 months frozen.'],
     techniques: ['beef-liver'],
     category: 'Protein & Muscle Synthesis',
+    mealTime: 'breakfast',
   },
   'chia-pudding-mango': {
     id: 'chia-pudding-mango',
@@ -505,6 +529,7 @@ export const exercises = {
     tips: ['Stir the mixture once after 30 minutes to prevent clumping.', 'Use canned full-fat coconut milk for the creamiest texture.', 'Prep 5 jars on Sunday for the entire workweek.'],
     techniques: ['coconut-water'],
     category: 'Pre-Workout Fuel',
+    mealTime: 'breakfast',
   },
 
   // ============ LUNCH RECIPES ============
@@ -530,6 +555,7 @@ export const exercises = {
     tips: ['Always rinse quinoa to remove bitter saponins.', 'Cook quinoa in bone broth instead of water for extra collagen and flavor.', 'Meal prep 4 portions at once — quinoa stores well for 5 days refrigerated.'],
     techniques: ['quinoa', 'chicken-breast', 'sweet-potato'],
     category: 'Protein & Muscle Synthesis',
+    mealTime: 'lunch',
   },
   'bone-broth-ramen': {
     id: 'bone-broth-ramen',
@@ -552,6 +578,7 @@ export const exercises = {
     tips: ['Make bone broth in a slow cooker overnight for maximum collagen extraction (12-24 hours).', 'Add 1 tbsp apple cider vinegar during simmering to leach more minerals from the bones.', 'Use pasture-raised chicken or grass-fed beef bones for the highest nutrient density.'],
     techniques: ['bone-broth', 'eggs', 'spinach'],
     category: 'Anti-Inflammatory & Recovery',
+    mealTime: 'lunch',
   },
   'lentil-dal-bowl': {
     id: 'lentil-dal-bowl',
@@ -574,6 +601,7 @@ export const exercises = {
     tips: ['Red lentils cook fastest and break down into a creamy consistency without soaking.', 'Add ghee rather than vegetable oil — it increases curcumin absorption by 2000%.', 'Batch cook and freeze in portions for instant high-protein meals.'],
     techniques: ['lentils', 'brown-rice', 'turmeric', 'spinach'],
     category: 'Daily Baseline Fuel',
+    mealTime: 'lunch',
   },
   'tuna-poke-bowl': {
     id: 'tuna-poke-bowl',
@@ -596,6 +624,7 @@ export const exercises = {
     tips: ['Only use sushi-grade (flash-frozen) tuna to eliminate parasite risk.', 'Keep fish cold until serving — never let raw fish sit at room temperature.', 'Add nori strips for iodine, which supports thyroid function.'],
     techniques: ['wild-tuna', 'avocado', 'brown-rice'],
     category: 'Healthy Fats & Hormones',
+    mealTime: 'lunch',
   },
   'chicken-meal-prep': {
     id: 'chicken-meal-prep',
@@ -618,6 +647,7 @@ export const exercises = {
     tips: ['Use a meat thermometer — chicken is done at 165°F internal temperature.', 'Glass containers prevent endocrine-disrupting chemicals that leach from heated plastic.', 'Drizzle lemon juice over broccoli to preserve vitamin C during reheating.'],
     techniques: ['chicken-breast', 'sweet-potato', 'broccoli'],
     category: 'Protein & Muscle Synthesis',
+    mealTime: 'lunch',
   },
   'kimchi-fried-rice': {
     id: 'kimchi-fried-rice',
@@ -640,6 +670,7 @@ export const exercises = {
     tips: ['Use day-old refrigerated rice for the best texture and highest resistant starch content.', 'Aged kimchi (2+ weeks) has more probiotics and deeper flavor than fresh.', 'Add tofu or chicken breast for extra protein on training days.'],
     techniques: ['kimchi', 'brown-rice', 'eggs'],
     category: 'Daily Baseline Fuel',
+    mealTime: 'lunch',
   },
   'sauerkraut-plate': {
     id: 'sauerkraut-plate',
@@ -661,6 +692,7 @@ export const exercises = {
     tips: ['Never heat the sauerkraut — cooking kills the live probiotic bacteria.', 'Choose sauerkraut from the refrigerated section, not shelf-stable jars (those are pasteurized).', 'Look for sausages with minimal ingredients and no added nitrites.'],
     techniques: ['sauerkraut'],
     category: 'Daily Baseline Fuel',
+    mealTime: 'lunch',
   },
   'mediterranean-plate': {
     id: 'mediterranean-plate',
@@ -682,6 +714,7 @@ export const exercises = {
     tips: ['Use cold-pressed, extra virgin olive oil — refined olive oil loses 90% of its polyphenols.', 'Add a tin of sardines for a massive omega-3 and calcium boost.', 'This plate travels well — pack it for post-gym lunches in glass containers.'],
     techniques: ['avocado', 'sardines'],
     category: 'Anti-Inflammatory & Recovery',
+    mealTime: 'lunch',
   },
 
   // ============ DINNER RECIPES ============
@@ -707,6 +740,7 @@ export const exercises = {
     tips: ['Wild salmon has 3x more omega-3s than farmed — always choose wild-caught.', 'Bake skin-side down to keep the flesh moist and oils sealed in.', 'Substitute tamari for soy sauce if gluten-sensitive.'],
     techniques: ['salmon', 'ginger', 'brown-rice'],
     category: 'Healthy Fats & Hormones',
+    mealTime: 'dinner',
   },
   'beef-stir-fry': {
     id: 'beef-stir-fry',
@@ -729,6 +763,7 @@ export const exercises = {
     tips: ['Slice beef against the grain for maximum tenderness.', 'Get the wok screaming hot before adding oil — this creates the sear (wok hei).', 'Add 1 tbsp grated ginger for anti-inflammatory digestive support.'],
     techniques: ['sweet-peppers', 'broccoli', 'brown-rice'],
     category: 'Protein & Muscle Synthesis',
+    mealTime: 'dinner',
   },
   'chicken-curry-lentils': {
     id: 'chicken-curry-lentils',
@@ -751,6 +786,7 @@ export const exercises = {
     tips: ['Use chicken thighs instead of breasts — they stay moist during long simmering.', 'Always add black pepper with turmeric to activate piperine-curcumin synergy.', 'Freeze in portions — this curry improves in flavor over 2-3 days.'],
     techniques: ['chicken-breast', 'lentils', 'turmeric', 'ginger'],
     category: 'Anti-Inflammatory & Recovery',
+    mealTime: 'dinner',
   },
   'tuna-steak-salad': {
     id: 'tuna-steak-salad',
@@ -773,6 +809,7 @@ export const exercises = {
     tips: ['The thicker the tuna steak, the easier it is to achieve a rare center.', 'Never use canned tuna for this recipe — only sushi-grade steaks.', 'Add pickled ginger on the side for digestive enzyme support.'],
     techniques: ['wild-tuna', 'avocado', 'ginger'],
     category: 'Protein & Muscle Synthesis',
+    mealTime: 'dinner',
   },
   'stuffed-sweet-potato': {
     id: 'stuffed-sweet-potato',
@@ -795,6 +832,7 @@ export const exercises = {
     tips: ['Bake sweet potatoes until very soft — the caramelization increases natural sweetness and digestibility.', 'Black beans and sweet potato together form a complete amino acid profile.', 'Add hot sauce for thermogenic capsaicin metabolism boost.'],
     techniques: ['sweet-potato', 'greek-yogurt', 'avocado'],
     category: 'Pre-Workout Fuel',
+    mealTime: 'dinner',
   },
   'broccoli-chicken-bake': {
     id: 'broccoli-chicken-bake',
@@ -817,6 +855,7 @@ export const exercises = {
     tips: ['Use bone-in chicken thighs — the bones add collagen to the cooking liquid.', 'Add a squeeze of lemon after baking to preserve broccoli\'s vitamin C.', 'This recipe scales perfectly for weekly meal prep.'],
     techniques: ['chicken-breast', 'broccoli', 'brown-rice'],
     category: 'Protein & Muscle Synthesis',
+    mealTime: 'dinner',
   },
   'miso-glazed-cod': {
     id: 'miso-glazed-cod',
@@ -839,6 +878,7 @@ export const exercises = {
     tips: ['Marinate overnight for deeper flavor penetration.', 'Watch the broiler closely — miso burns fast due to the sugar content.', 'Substitute salmon or halibut if cod is unavailable.'],
     techniques: ['miso'],
     category: 'Protein & Muscle Synthesis',
+    mealTime: 'dinner',
   },
   'dark-chocolate-bark': {
     id: 'dark-chocolate-bark',
@@ -861,6 +901,7 @@ export const exercises = {
     tips: ['Use 85% cacao or higher — below 70% has too much sugar and loses health benefits.', 'The tart cherries add melatonin precursors for sleep quality improvement.', 'Eat 1-2 pieces post-dinner as a healthy dessert that supports magnesium levels.'],
     techniques: ['dark-chocolate', 'pumpkin-seeds'],
     category: 'Superfoods & Immunity',
+    mealTime: 'dinner',
   },
 
   // ============ SNACKS & DRINKS ============
@@ -885,6 +926,7 @@ export const exercises = {
     tips: ['Start with 1 tsp spirulina if new to the taste — it has a strong earthy flavor.', 'Roll in extra coconut flakes for a clean finish.', 'Pack 2-3 balls in a bag for portable gym snacks.'],
     techniques: ['spirulina', 'oatmeal'],
     category: 'Superfoods & Immunity',
+    mealTime: 'snack',
   },
   'maca-smoothie': {
     id: 'maca-smoothie',
@@ -906,6 +948,7 @@ export const exercises = {
     tips: ['Use gelatinized maca for easier digestion — raw maca can cause stomach discomfort.', 'Maca pairs best with cacao; the flavors complement each other naturally.', 'Do not exceed 1 tsp daily when starting — build tolerance over 2 weeks.'],
     techniques: ['maca-root', 'banana'],
     category: 'Superfoods & Immunity',
+    mealTime: 'snack',
   },
   'creatine-loading-drink': {
     id: 'creatine-loading-drink',
@@ -927,6 +970,7 @@ export const exercises = {
     tips: ['Take creatine daily at the same time — consistency matters more than timing.', 'Drink extra water throughout the day; creatine pulls water into muscle cells.', 'Skip the loading phase — 5g daily reaches saturation in 3-4 weeks with no side effects.'],
     techniques: ['creatine-mono'],
     category: 'Pre-Workout Fuel',
+    mealTime: 'snack',
   },
   'collagen-coffee': {
     id: 'collagen-coffee',
@@ -948,6 +992,7 @@ export const exercises = {
     tips: ['Collagen peptides dissolve in both hot and cold liquids — coffee just masks any faint flavor.', 'Take 30-60 minutes before exercise with vitamin C to maximize collagen synthesis.', 'Choose grass-fed, pasture-raised bovine collagen for the highest quality.'],
     techniques: ['collagen-peptides'],
     category: 'Anti-Inflammatory & Recovery',
+    mealTime: 'snack',
   },
   'watermelon-slush': {
     id: 'watermelon-slush',
@@ -969,6 +1014,7 @@ export const exercises = {
     tips: ['The pink salt replaces sodium lost through sweat and enhances fluid retention.', 'Freeze watermelon cubes in bags for instant post-workout slushes.', 'Add fresh mint leaves for a cooling effect on hot training days.'],
     techniques: ['watermelon', 'pink-salt', 'coconut-water'],
     category: 'Hydration & Electrolytes',
+    mealTime: 'snack',
   },
   'tart-cherry-shot': {
     id: 'tart-cherry-shot',
@@ -990,6 +1036,7 @@ export const exercises = {
     tips: ['Use Montmorency cherry concentrate specifically — sweet cherries have far less melatonin.', 'Take consistently for 5-7 days to see cumulative sleep and recovery benefits.', 'Combine with magnesium glycinate at night for the ultimate recovery sleep stack.'],
     techniques: ['tart-cherry-juice', 'ginger'],
     category: 'Anti-Inflammatory & Recovery',
+    mealTime: 'snack',
   }
 };
 

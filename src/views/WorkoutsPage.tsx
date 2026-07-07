@@ -16,6 +16,7 @@ import {
   BookOpen,
 } from 'lucide-react';
 import { muscleGroupWorkouts, goalWorkouts } from '@/data/recipes';
+import MealClock from '@/components/MealClock';
 import './WorkoutsPage.css';
 
 const MUSCLE_ICONS: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
@@ -41,6 +42,9 @@ const WorkoutsPage = () => {
           Curated nutritional strategies and meal plans to fuel recovery, endurance, and strength.
         </p>
       </div>
+
+      {/* Time-aware meal discovery */}
+      <MealClock />
 
       {/* Nutritional Targets Section */}
       <section className="wkl-section">

@@ -12,6 +12,7 @@ import BodySilhouette from '@/components/BodySilhouette';
 import { RankIcon } from '@/components/RankIcons';
 import WeeklyChallengeCard from '@/components/WeeklyChallengeCard';
 import AuthGate from '@/components/AuthGate';
+import MealClock from '@/components/MealClock';
 import { techniques } from '@/data/foods';
 import { getFavorites, getShoppingList, toggleShoppingItem, clearCrossedOffItems, type ShoppingItem } from '@/utils/favorites';
 import {
@@ -381,6 +382,9 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
+
+      {/* ── Meal Clock — Time-aware meal discovery ──────────────────── */}
+      <MealClock />
 
       {/* ── My Pantry (IKEA/Endowment Effect) ──────────────────────── */}
       {pantryFoods.length > 0 && (

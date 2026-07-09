@@ -92,6 +92,16 @@ export const analytics = {
     });
   },
 
+  storeClick: (foodId: string, storeName: string, priceRange: string) => {
+    trackEvent('store_link_click', {
+      food_id: foodId,
+      store_name: storeName,
+      price_range: priceRange,
+      event_category: 'monetization',
+      transport_type: 'beacon',
+    });
+  },
+
   newsletterCta: (location: string) => {
     trackEvent('newsletter_cta', {
       location: location,

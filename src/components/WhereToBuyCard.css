@@ -1,0 +1,253 @@
+/* ── Where to Buy Card ──────────────────────────────────────────────── */
+
+.where-to-buy-card {
+  overflow: hidden;
+}
+
+.where-to-buy-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.where-to-buy-header h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.where-to-buy-icon {
+  color: var(--color-secondary);
+}
+
+/* Price summary chip */
+.price-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(45, 138, 78, 0.08);
+  color: var(--color-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.price-summary-icon {
+  flex-shrink: 0;
+}
+
+/* Store list */
+.store-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.store-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--color-border);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  border-radius: 6px;
+  margin: 0 -0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.store-row:last-child {
+  border-bottom: none;
+}
+
+a.store-row:hover {
+  background: var(--subtle-hover);
+  transform: translateX(2px);
+  color: var(--color-text);
+}
+
+.store-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.store-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.store-name-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.store-name {
+  font-size: 0.88rem;
+  font-weight: 650;
+  color: var(--color-text);
+}
+
+.store-badge {
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.store-badge.best-value {
+  background: rgba(45, 138, 78, 0.1);
+  color: var(--color-primary);
+  border: 1px solid rgba(45, 138, 78, 0.2);
+}
+
+.store-badge.highest-quality {
+  background: rgba(232, 123, 53, 0.1);
+  color: var(--color-secondary);
+  border: 1px solid rgba(232, 123, 53, 0.2);
+}
+
+.store-badge.most-convenient {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.store-price {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+}
+
+.store-note {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.store-link-arrow {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  opacity: 0.5;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+a.store-row:hover .store-link-arrow {
+  opacity: 1;
+  color: var(--color-primary);
+}
+
+/* Show more toggle */
+.store-expand-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  background: none;
+  border: 1px dashed var(--color-border);
+  border-radius: 6px;
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.store-expand-btn:hover {
+  background: var(--subtle-hover);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.store-expand-icon {
+  transition: transform 0.2s ease;
+}
+
+.store-expand-icon.expanded {
+  transform: rotate(180deg);
+}
+
+/* Empty state */
+.where-to-buy-empty {
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.where-to-buy-empty p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+}
+
+.where-to-buy-empty-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  opacity: 0.5;
+}
+
+/* Disclaimer */
+.where-to-buy-disclaimer {
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+  opacity: 0.6;
+  margin-top: 0.75rem;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+/* Store type color tints for the icon bg */
+.store-icon.grocery { background: rgba(45, 138, 78, 0.06); }
+.store-icon.online { background: rgba(59, 130, 246, 0.06); }
+.store-icon.warehouse { background: rgba(232, 123, 53, 0.06); }
+.store-icon.specialty { background: rgba(168, 85, 247, 0.06); }
+
+/* ── Responsive ─────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .store-row {
+    gap: 0.6rem;
+    padding: 0.55rem 0.4rem;
+  }
+
+  .store-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
+  }
+
+  .store-name {
+    font-size: 0.82rem;
+  }
+
+  .store-price {
+    font-size: 0.75rem;
+  }
+
+  .store-note {
+    display: none;
+  }
+}

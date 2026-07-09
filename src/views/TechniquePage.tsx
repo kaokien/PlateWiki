@@ -9,6 +9,8 @@ import AdBanner from '../components/AdBanner';
 import ShareButton from '../components/ShareButton';
 import FlashcardCarousel from '../components/FlashcardCarousel';
 import GearCard from '../components/GearCard';
+import WhereToBuyCard from '../components/WhereToBuyCard';
+import { purchaseOptions } from '../data/purchaseOptions';
 import ProBadge from '../components/ProBadge';
 import ProGate from '../components/ProGate';
 import { techniques, bodyParts } from '../data/foods';
@@ -349,6 +351,9 @@ const TechniquePage = ({ routeId }: { routeId?: string }) => {
               ))}
             </ul>
           </div>
+
+          {/* Where to Buy — store pricing & links */}
+          <WhereToBuyCard options={purchaseOptions[id]} foodId={id} foodName={technique.name} />
 
           {/* Discord Form Check Sidebar Card */}
           <div className="sidebar-discord glass-panel">

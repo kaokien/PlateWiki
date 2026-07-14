@@ -47,13 +47,48 @@ const listeners = new Set<() => void>();
 let snapshot: TamagotchiSnapshot | null = null;
 let installed = false;
 
-// Nighttime window (10 PM – 6 AM): the avatar sleeps and energy recovers.
-export function isNighttime(): boolean {
-  if (typeof localStorage !== 'undefined' && localStorage.getItem('PlateWiki_woken_up') === 'true') {
+export const WOKEN_UP_KEY = 'PlateWiki_woken_up';
+export const MANUAL_SLEEP_KEY = 'PlateWiki_manual_sleep';
+
+// Record that the avatar was manually woken. The override holds until the
+// next 6 AM, then natural sleep cycles resume — a permanent flag here would
+// silently disable sleep (and overnight energy recovery) forever.
+export function markWokenUp(): void {
+  try {
+    localStorage.setItem(WOKEN_UP_KEY, String(Date.now()));
+    localStorage.removeItem(MANUAL_SLEEP_KEY);
+  } catch { /* ignore */ }
+}
+
+function isWakeOverrideActive(): boolean {
+  let raw: string | null = null;
+  try {
+    raw = localStorage.getItem(WOKEN_UP_KEY);
+  } catch {
     return false;
   }
-  if (typeof localStorage !== 'undefined' && localStorage.getItem('PlateWiki_manual_sleep') === 'true') {
-    return true;
+  if (!raw) return false;
+
+  const wokenAt = Number(raw);
+  if (Number.isFinite(wokenAt)) {
+    // Expire at the 6 AM following the wake tap.
+    const expiry = new Date(wokenAt);
+    if (expiry.getHours() >= 6) expiry.setDate(expiry.getDate() + 1);
+    expiry.setHours(6, 0, 0, 0);
+    if (Date.now() < expiry.getTime()) return true;
+  }
+  // Expired — or a legacy boolean 'true' from before expiry existed.
+  try { localStorage.removeItem(WOKEN_UP_KEY); } catch { /* ignore */ }
+  return false;
+}
+
+// Nighttime window (10 PM – 6 AM): the avatar sleeps and energy recovers.
+export function isNighttime(): boolean {
+  if (typeof localStorage !== 'undefined') {
+    if (isWakeOverrideActive()) return false;
+    try {
+      if (localStorage.getItem(MANUAL_SLEEP_KEY) === 'true') return true;
+    } catch { /* ignore */ }
   }
   const hour = new Date().getHours();
   return hour >= 22 || hour < 6;

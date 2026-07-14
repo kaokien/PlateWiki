@@ -61,10 +61,10 @@ The emoji plants were replaced with a canvas pixel-art garden system:
 1. ✅ **State Synchronization on Transitions** (done July 2026):
    * Gym stats + garden now live in a shared store ([tamagotchiState.ts](file:///src/lib/tamagotchiState.ts)) that applies `foodwiki:meal-logged` / `foodwiki:workout-logged` effects, offline catch-up, and the 15-minute decay tick directly to localStorage — installed app-wide from `FighterProfileProvider`, so logging feeds the avatar even when the Virtual Gym isn't mounted.
    * `VirtualGym` renders from the store via `useSyncExternalStore` and keeps only scene choreography (walking, food spawn, float text) in its own event listeners. Other tabs stay in sync through the `storage` event.
-2. **Manual Sleep Override**:
-   * The sleep cycle is bound to system clock time (`10 PM to 6 AM`). When sleeping, the background goes dark, Zzz particles float, and energy restores.
-   * For testing, implement a "Send to Sleep" manual toggle or button in the customizing panel so developers can verify nighttime filters instantly.
-3. **8-Bit Retro Sound Effects**:
-   * Add web-audio sound effects for game feedback loops (e.g., a high-pitched chew sound during `chewing`, a level-up fan-fare chime when leveling up, and UI purchase chings).
-4. **Expanding Shop Progression**:
-   * Once visual testing is complete, restore the coin balance pricing hooks so that consistent food logging actually unlocks items sequentially.
+2. ✅ **Manual Sleep Override** (done July 2026):
+   * "Send to Sleep" toggle in the customizer panel (`PlateWiki_manual_sleep`) plus tap-to-wake (poke the sleeping avatar 5 times).
+   * Waking sets a `PlateWiki_woken_up` timestamp that expires at the next 6 AM, so natural sleep cycles (and overnight energy recovery) resume the following night.
+3. ✅ **8-Bit Retro Sound Effects** (done July 2026):
+   * Web Audio square/triangle oscillators in [retroSound.ts](file:///src/utils/retroSound.ts) — chew, level-up fanfare, purchase ching, tap, and wake-up sounds, with a persisted mute toggle ([SoundToggle.tsx](file:///src/components/SoundToggle.tsx)). AudioContext unlocks on first user gesture per autoplay policy.
+4. ✅ **Expanding Shop Progression** (done July 2026):
+   * All 19 shop items now have real Seed Coin prices scaled to the earn rate (coins = 2× XP; ~60–150/day for active logging): commons 80–150, rares 200–300, epics 400–600, legendary 1200. Combined with rank gates, consistent logging unlocks items sequentially over days–weeks.

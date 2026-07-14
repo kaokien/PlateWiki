@@ -9,6 +9,7 @@ import {
   getTamagotchiServerSnapshot,
   getTamagotchiSnapshot,
   isNighttime,
+  markWokenUp,
   subscribeTamagotchi,
 } from '@/lib/tamagotchiState';
 import { useFighterProfile } from '@/context/FighterProfileContext';
@@ -49,8 +50,8 @@ export default function VirtualGym() {
   const [floatingText, setFloatingText] = useState<{ id: number; text: string; x: number; y: number }[]>([]);
   const floatIdCounter = useRef(0);
 
-  // Tap-to-wake state and timeout ref
-  const [sleepTapCount, setSleepTapCount] = useState(0);
+  // Tap-to-wake state and timeout ref (count only read inside the updater)
+  const [, setSleepTapCount] = useState(0);
   const tapResetTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Clean up tap timeout ref on unmount
@@ -85,8 +86,7 @@ export default function VirtualGym() {
       const tapsRemaining = 5 - next;
 
       if (next >= 5) {
-        localStorage.setItem('PlateWiki_woken_up', 'true');
-        localStorage.removeItem('PlateWiki_manual_sleep');
+        markWokenUp();
         window.dispatchEvent(new Event('storage'));
         window.dispatchEvent(new Event('platewiki:sleep-toggled'));
         

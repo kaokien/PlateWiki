@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { isNighttime } from './tamagotchiState';
+import { isNighttime, markWokenUp, WOKEN_UP_KEY, MANUAL_SLEEP_KEY } from './tamagotchiState';
 
 describe('tamagotchiState - isNighttime', () => {
   beforeEach(() => {
@@ -11,32 +11,56 @@ describe('tamagotchiState - isNighttime', () => {
     vi.useRealTimers();
   });
 
-  it('should return false if PlateWiki_woken_up is set to true', () => {
-    // Set time to nighttime (e.g. 11 PM / 23:00)
-    const date = new Date(2026, 6, 7, 23, 0, 0);
-    vi.setSystemTime(date);
-
-    // Verify it is normally nighttime
+  it('returns false during the night after a manual wake', () => {
+    // 11 PM — normally nighttime
+    vi.setSystemTime(new Date(2026, 6, 7, 23, 0, 0));
     expect(isNighttime()).toBe(true);
 
-    // Set woken_up to true
-    localStorage.setItem('PlateWiki_woken_up', 'true');
-
-    // Should now return false because of the override
+    markWokenUp();
     expect(isNighttime()).toBe(false);
   });
 
-  it('should return true if PlateWiki_manual_sleep is true and not woken up', () => {
-    // Set time to daytime (e.g. 12:00 PM)
-    const date = new Date(2026, 6, 7, 12, 0, 0);
-    vi.setSystemTime(date);
-
-    // Verify it is normally daytime
+  it('wake override expires at the next 6 AM so natural sleep resumes', () => {
+    // Wake at 11 PM
+    vi.setSystemTime(new Date(2026, 6, 7, 23, 0, 0));
+    markWokenUp();
     expect(isNighttime()).toBe(false);
 
-    // Set manual sleep to true
-    localStorage.setItem('PlateWiki_manual_sleep', 'true');
+    // Still awake at 2 AM the same night
+    vi.setSystemTime(new Date(2026, 6, 8, 2, 0, 0));
+    expect(isNighttime()).toBe(false);
+
+    // The NEXT night the avatar must sleep again
+    vi.setSystemTime(new Date(2026, 6, 8, 23, 0, 0));
+    expect(isNighttime()).toBe(true);
+    // Expired override is cleaned out of storage
+    expect(localStorage.getItem(WOKEN_UP_KEY)).toBeNull();
+  });
+
+  it('treats a legacy boolean woken_up flag as expired', () => {
+    vi.setSystemTime(new Date(2026, 6, 7, 23, 0, 0));
+    localStorage.setItem(WOKEN_UP_KEY, 'true');
 
     expect(isNighttime()).toBe(true);
+    expect(localStorage.getItem(WOKEN_UP_KEY)).toBeNull();
+  });
+
+  it('returns true if manual sleep is on and not woken up', () => {
+    // Noon — normally daytime
+    vi.setSystemTime(new Date(2026, 6, 7, 12, 0, 0));
+    expect(isNighttime()).toBe(false);
+
+    localStorage.setItem(MANUAL_SLEEP_KEY, 'true');
+    expect(isNighttime()).toBe(true);
+  });
+
+  it('manual wake clears manual sleep', () => {
+    vi.setSystemTime(new Date(2026, 6, 7, 12, 0, 0));
+    localStorage.setItem(MANUAL_SLEEP_KEY, 'true');
+    expect(isNighttime()).toBe(true);
+
+    markWokenUp();
+    expect(isNighttime()).toBe(false);
+    expect(localStorage.getItem(MANUAL_SLEEP_KEY)).toBeNull();
   });
 });

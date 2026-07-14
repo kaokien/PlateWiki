@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Palette, User, Scissors, Shield, Shirt, Users, ChevronDown, Moon } from 'lucide-react';
 import { SKIN_TONES, HAIR_COLORS, GLOVE_COLORS, SHOE_COLORS, TOP_COLORS, type BodyType } from '@/data/fighterSprites';
 import { useFighterCustomization } from '@/hooks/useFighterCustomization';
+import { MANUAL_SLEEP_KEY, WOKEN_UP_KEY, markWokenUp } from '@/lib/tamagotchiState';
 import './FighterCustomizer.css';
 
 interface ColorOption {
@@ -71,7 +72,7 @@ const { customization: custom, update } = useFighterCustomization();
 const [isOpen, setIsOpen] = useState(false);
 const [manualSleep, setManualSleep] = useState(() => {
   if (typeof window !== 'undefined') {
-    return localStorage.getItem('PlateWiki_manual_sleep') === 'true';
+    return localStorage.getItem(MANUAL_SLEEP_KEY) === 'true';
   }
   return false;
 });
@@ -79,11 +80,13 @@ const [manualSleep, setManualSleep] = useState(() => {
 const handleToggleSleep = () => {
   const next = !manualSleep;
   setManualSleep(next);
-  localStorage.setItem('PlateWiki_manual_sleep', String(next));
   if (next) {
-    localStorage.removeItem('PlateWiki_woken_up');
+    localStorage.setItem(MANUAL_SLEEP_KEY, 'true');
+    localStorage.removeItem(WOKEN_UP_KEY);
   } else {
-    localStorage.setItem('PlateWiki_woken_up', 'true');
+    // markWokenUp clears manual sleep and holds the avatar awake until the
+    // next 6 AM, after which natural sleep cycles resume.
+    markWokenUp();
   }
   window.dispatchEvent(new Event('storage'));
   window.dispatchEvent(new Event('platewiki:sleep-toggled'));
